@@ -13,7 +13,6 @@ MyApp.controller('miController', function($scope, $http){
     })
 
 
-<<<<<<< HEAD
 
 
     $scope.borrarUsuario= function (miIndex, item){
@@ -30,8 +29,8 @@ MyApp.controller('miController', function($scope, $http){
         }).error(function () {
             console.error("Ocurrio un error", response.status, response.data)
         })   //
-=======
-    //INSERTAR CLIENTE//
+
+        //INSERTAR CLIENTE//
     $scope.insertarVista = 'false';
     $scope.listaInsertar = [];
 
@@ -75,6 +74,5 @@ MyApp.controller('miController', function($scope, $http){
 
     $scope.borrarUsuario=function(miIndex, item){
         console.log(item)
->>>>>>> b8e5fff38f743a7f7b681b12ca298612a65b3eb3
     }
 })

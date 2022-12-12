@@ -10,16 +10,23 @@ $pasahitza2 = $data["contrasena2"];
 $cliente = clienteModel();
 $response = array();
 
-if ($pasahitza != $pasahitza2){
-    $response["error"] = 'Claves no identicas'
+if (isset($nombre) && isset($pasahitza) && isset($pasahitza2)){
 
-} else {
-    $cliente->setNombre($nombre);
-    $cliente->setPasahitza($pasahitza);
+    $response["error"] = 'Informacion vacia';
 
-    $response["data"]=$cliente->insert();
-    $response["error"] = 'no error'
+} else{    
+    
+    if ($pasahitza != $pasahitza2){
+        $response["error"] = 'Claves no identicas';
 
+    } else {
+        $cliente->setNombre($nombre);
+        $cliente->setPasahitza($pasahitza);
+
+        $response["data"]=$cliente->insert();
+        $response["error"] = 'no error'
+
+    }
 }
 
 echo json_encode($response);
