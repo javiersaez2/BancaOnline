@@ -36,7 +36,7 @@ MyApp.controller('miController', function($scope, $http){
         var datosInsert = JSON.stringify($scope.listaInsertar);
         console.log(datosInsert)
         ////////FETCH DE INSERTAR/////
-        $http({url: 'controlador/c_insertarClientes.php', 
+        $http({url: '../../controlador/c_insertarClientes.php', 
                 method: 'GET',
                 params: {value: datosInsert}
         })    
