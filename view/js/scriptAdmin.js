@@ -20,6 +20,14 @@ MyApp.controller('miController', function($scope, $http){
         $scope.insertarVista = 'true';
     }
 
+    $scope.nuevoCliente=function(){
+       
+        console.log("A");
+    }
+
+
+
+
     $scope.borrarUsuario=function(miIndex, item){
         console.log(item)
     }
