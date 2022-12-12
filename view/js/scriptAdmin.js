@@ -12,7 +12,22 @@ MyApp.controller('miController', function($scope, $http){
         console.error('Error occurred:', response.status, response.data)
     })
 
-    $scope.borrarUsuario=function(miIndex, item){
-        console.log(item)
+
+
+
+    $scope.borrarUsuario= function (miIndex, item){
+        console.log(item.idCliente)
+        datos = item.idCliente;
+        var datosjson = JSON.stringify(datos)
+        console.log(datosjson);
+        $http({
+            url: '../../controller/delete_usuario.php',
+            method: "GET",
+            params: { value: datos }
+        }).success(function (response) {
+            alert("Funciona")
+        }).error(function () {
+            console.error("Ocurrio un error", response.status, response.data)
+        })   //
     }
 })

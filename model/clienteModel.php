@@ -58,11 +58,17 @@ class clienteModel extends clienteclass{
     public function delete()
     {
          $this->OpenConnect();
-         $idCliente= $this-> idCliente;
-         $sql="CALL sp_borrar_produktua(".$idCliente.")";
+        //  $idCliente= $this-> idCliente;
+         $sql="delete from cliente where cliente.idCliente=2";
           
-    echo $sql;
-   $this->link->query($sql);
+         $this->link->query($sql);
+         echo $sql;
+         if ($this->link->affected_rows == 1)
+         {
+             return "El usuario se borró: ";
+         } else {
+             return "Fallo al borrar usuario: (" . $this->link->errno . ") " . $this->link->error;
+         }
          $this->CloseConnect();
     } 
    
