@@ -9,7 +9,7 @@ miApp.controller('miControlador', function($scope){
 
         array_list.push(objecto);
 
-        $http.post('../../controller/', array_list)
+        $http.post('../../controller/cLogin.php', array_list)
         .then(function(reponse){
             
         })
