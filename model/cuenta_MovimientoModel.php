@@ -1,8 +1,8 @@
 <?php
 include_once 'connect_data.php';
-include_once 'cuenta_corrienteClass.php';
+include_once 'cuenta_movimientosClass.php';
 
-class cuenta_CorrienteModel extends cuenta_corrienteClass
+class cuenta_movimientosModel extends cuenta_movimientosClass
 {
     private $link;
     //  public $objFamilia;

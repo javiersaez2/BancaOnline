@@ -1,6 +1,6 @@
 <?php
 
-class Cuenta_CorrienteModel
+class cuenta_movimientosClass
 {
     protected $iban;
     protected $idMovimiento;

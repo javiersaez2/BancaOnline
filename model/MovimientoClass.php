@@ -1,6 +1,6 @@
 <?php
 
-class Cuenta_CorrienteModel
+class movimientoClass
 {
     protected $idMovimiento;
     protected $tipoMovimiento;
