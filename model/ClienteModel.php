@@ -1,6 +1,6 @@
 <?php
 require_once  'connect_data.php';
-require_once  'Clientelass.php.php';
+require_once  'clienteClass.php';
 
 class ClienteModel extends Clienteclass{
     
