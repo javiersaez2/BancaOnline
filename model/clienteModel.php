@@ -55,6 +55,15 @@ class clienteModel extends clienteclass{
     
    
 
-    
+    public function delete()
+    {
+         $this->OpenConnect();
+         $idCliente= $this-> idCliente;
+         $sql="CALL sp_borrar_produktua(".$idCliente.")";
+          
+    echo $sql;
+   $this->link->query($sql);
+         $this->CloseConnect();
+    } 
    
 }

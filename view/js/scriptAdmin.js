@@ -11,4 +11,8 @@ MyApp.controller('miController', function($scope, $http){
     .catch(function(response) {
         console.error('Error occurred:', response.status, response.data)
     })
+
+    $scope.borrarUsuario=function(miIndex, item){
+        console.log(item)
+    }
 })
