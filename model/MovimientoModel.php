@@ -2,6 +2,7 @@
 include_once 'connect_data.php';
 include_once 'movimientoClass.php';
 
+
 class movimientoModel extends movimientoClass
 {
     private $link;

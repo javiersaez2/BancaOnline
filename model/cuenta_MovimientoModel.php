@@ -2,6 +2,7 @@
 include_once 'connect_data.php';
 include_once 'cuenta_movimientosClass.php';
 
+
 class cuenta_movimientosModel extends cuenta_movimientosClass
 {
     private $link;

@@ -2,6 +2,7 @@
 
 class cuenta_movimientosClass
 
+
 {
     protected $iban;
     protected $idMovimiento;

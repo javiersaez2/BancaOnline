@@ -2,6 +2,7 @@
 include_once 'connect_data.php';
 include_once 'cuenta_corrienteClass.php';
 
+
 class cuenta_CorrienteModel extends cuenta_corrienteClass
 {
     private $link;

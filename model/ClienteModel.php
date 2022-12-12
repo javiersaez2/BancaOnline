@@ -4,6 +4,7 @@ require_once  'clienteClass.php';
 
 class ClienteModel extends Clienteclass{
     
+    
     public $link;
     public $objCustomer;
     
