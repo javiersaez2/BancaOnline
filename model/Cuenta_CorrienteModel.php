@@ -3,7 +3,7 @@ include_once 'connect_data.php';
 include_once 'cuenta_corrienteClass.php';
 
 
-class cuenta_CorrienteModel extends cuenta_corrienteClass
+class cuenta_corrienteModel extends cuenta_corrienteClass
 {
     private $link;
     //  public $objFamilia;

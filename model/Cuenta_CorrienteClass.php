@@ -1,6 +1,6 @@
 <?php
 
-class Cuenta_CorrienteClass
+class cuenta_corrienteClass
 
 {
     protected $iban;
