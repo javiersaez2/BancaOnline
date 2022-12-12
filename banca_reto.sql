@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-12-2022 a las 11:28:48
+-- Tiempo de generación: 12-12-2022 a las 12:08:05
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -63,8 +63,8 @@ CREATE TABLE `cuenta_corriente` (
 --
 
 INSERT INTO `cuenta_corriente` (`iban`, `idCliente`, `titular`, `saldo`) VALUES
-('ES1220900000458901231110', 4, 'Javier Saez B', 46),
-('ES1220900000458901232220', 4, 'Javier Saez A', 43),
+('ES1220900000458901231110', 3, 'Javier Saez B', 46),
+('ES1220900000458901232220', 3, 'Javier Saez A', 43),
 ('ES1220900000458901235460', 4, 'Ander Caballero A', 57),
 ('ES1220900034454322211456', 2, 'Markel Rajado B', 32);
 
