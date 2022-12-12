@@ -29,7 +29,7 @@ MyApp.controller('miController', function($scope, $http){
         }).error(function () {
             console.error("Ocurrio un error", response.status, response.data)
         })   //
-
+    }
         //INSERTAR CLIENTE//
     $scope.insertarVista = 'false';
     $scope.listaInsertar = [];
