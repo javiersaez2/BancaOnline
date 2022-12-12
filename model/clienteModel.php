@@ -2,24 +2,10 @@
 require_once  'connect_data.php';
 require_once  'clienteClass.php';
 
-class ClienteModel extends Clienteclass{
+class clienteModel extends clienteclass{
     
+    private $link;       
     
-    public $link;
-    public $objCustomer;
-    
-    
-    public function getObjCustomer()
-    {
-        return $this->objCustomer;
-    }
-
-
-    public function setObjCustomer($objCustomer)
-    {
-        $this->objCustomer = $objCustomer;
-    }
-
 
     ////////////////////////////////////////////////
     public function OpenConnect()
@@ -60,7 +46,7 @@ class ClienteModel extends Clienteclass{
             $newCliente->secreto=$row['secreto'];
             $newCliente->tipo=$row['tipo'];
             
-            array_push($list, $newCliente);    
+            array_push($list, get_object_vars($newCliente));    
         }
         mysqli_free_result($result);
         $this->CloseConnect();
