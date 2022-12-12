@@ -11,4 +11,13 @@ MyApp.controller('miController', function($scope, $http){
     .catch(function(response) {
         console.error('Error occurred:', response.status, response.data)
     })
+
+
+    //INSERTAR CLIENTE//
+    $scope.insertarVista = 'false';
+
+    $scope.nuevoUsuario=function(){
+        $scope.insertarVista = 'true';
+    }
+
 })
