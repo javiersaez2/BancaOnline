@@ -15,6 +15,7 @@ MyApp.controller('miController', function($scope, $http){
 
     //INSERTAR CLIENTE//
     $scope.insertarVista = 'false';
+    $scope.listaInsertar = [];
 
     $scope.nuevoUsuario=function(){
         $scope.insertarVista = 'true';
@@ -22,7 +23,18 @@ MyApp.controller('miController', function($scope, $http){
 
     $scope.nuevoCliente=function(){
        
-        console.log("A");
+        /*
+        if ($scope.contrsenaIns == $scope.vefIns) {
+            console.log("A");
+        }
+        */
+        $scope.listaInsertar = {
+            nombre: $scope.nombreIns, 
+            contrasena: $scope.contrsenaIns, 
+            contrasena2: $scope.vefIns
+        };
+        console.log($scope.listaInsertar);
+
     }
 
 
