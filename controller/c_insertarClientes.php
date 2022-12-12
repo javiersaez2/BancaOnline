@@ -23,7 +23,7 @@ if (isset($nombre) && isset($pasahitza) && isset($pasahitza2)){
         $cliente->setNombre($nombre);
         $cliente->setPasahitza($pasahitza);
 
-        $response["data"]=$cliente->insert();
+        $response["list"]=$cliente->insert();
         $response["error"] = 'no error'
 
     }

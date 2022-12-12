@@ -58,7 +58,7 @@ MyApp.controller('miController', function($scope, $http){
                 params: {value: datosInsert}
         })    
             .success (function (response) {
-                alert('Datos insertados con exito '+ response.data);
+                alert('Datos insertados con exito '+ response.data.list);
                 $scope.insertarVista = 'false';        
 
             })
