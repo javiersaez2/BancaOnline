@@ -64,6 +64,57 @@ class clienteModel extends clienteclass{
     echo $sql;
    $this->link->query($sql);
          $this->CloseConnect();
+    }
+    
+    //metodo para show update
+    public function showUpdate() {
+        $this->OpenConnect();
+        
+        $idCliente = $this->idCliente;
+        
+        $sql = "select * from cliente where idCliente=$idCliente";
+        
+        $result = $this->link->query($sql);
+        
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            
+            $this->idCliente=$row['idCliente'];
+            $this->nombre=$row['nombre'];
+            $this->pasahitza=$row['pasahitza'];
+
+            
+            return true;
+        }
+        else {
+            return false;
+            
+        }
+        mysqli_free_result($result);
+        $this->CloseConnect();
     } 
+    
+    //metodo para update
+   public function update() {
+        $this->OpenConnect();
+        
+        $idCliente = $this->idCliente;
+        $nombre = $this->nombre;
+        $pasahitza=$this->pasahitza;
+        
+        
+        $sql = "CALL spUpdateCliente($idCliente,'$nombre','$pasahitza')";
+        
+        $this->link->query($sql);
+        
+        if ($this->link->affected_rows==1) {
+            return "el usuario se ha modificado con exito. Num de modification : ".$this->link->affected_rows;
+        }
+        else {
+            return $sql."Fallo al modification un usuario : (".$this->link->errno.")".$this->link->error;
+            
+        }
+        $this->CloseConnect();
+    }
+    
    
 }
