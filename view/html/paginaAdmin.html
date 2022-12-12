@@ -10,6 +10,31 @@
 <body ng-controller="miController">
     <button ng-click="nuevoUsuario()">Añadir nuevo usuario</button>
 
+    <div id="zonaInsertar" ng-show="insertarVista == 'true'">   
+        <div class="wrapper">
+          <h3>Insertar y Modificar</h3>
+          <form action="#">
+            <p>
+              <label for="nombre">Nombre Cliente</label>
+              <input type="text" ng-model="nombreIns">
+            </p>
+            <p>
+              <label for="contrasena">Contrasena</label>
+              <input type="password" ng-model="contrsenaIns">
+            </p>
+            <p>
+                <label for="contrasena2">Verificar Contrasena</label>
+                <input type="password" ng-model="vefIns">
+            </p>
+
+            <button ng-click="nuevoCliente()">NUEVO</button>
+            
+          </form>
+        </div>  
+      </div>
+
+
+
     <table >
         <tr ng-repeat='fila in usuarios' >
             <td style="border: 2px solid;">{{fila.idCliente}}</td>

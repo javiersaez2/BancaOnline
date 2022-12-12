@@ -13,6 +13,7 @@ MyApp.controller('miController', function($scope, $http){
     })
 
 
+<<<<<<< HEAD
 
 
     $scope.borrarUsuario= function (miIndex, item){
@@ -29,5 +30,51 @@ MyApp.controller('miController', function($scope, $http){
         }).error(function () {
             console.error("Ocurrio un error", response.status, response.data)
         })   //
+=======
+    //INSERTAR CLIENTE//
+    $scope.insertarVista = 'false';
+    $scope.listaInsertar = [];
+
+    $scope.nuevoUsuario=function(){
+        $scope.insertarVista = 'true';
+    }
+
+    $scope.nuevoCliente=function(){
+       
+        /*
+        if ($scope.contrsenaIns == $scope.vefIns) {
+            console.log("A");
+        }
+        */
+        $scope.listaInsertar = {
+            nombre: $scope.nombreIns, 
+            contrasena: $scope.contrsenaIns, 
+            contrasena2: $scope.vefIns
+        };
+        var datosInsert = JSON.stringify($scope.listaInsertar);
+        console.log(datosInsert)
+        ////////FETCH DE INSERTAR/////
+        $http({url: '../../controlador/c_insertarClientes.php', 
+                method: 'GET',
+                params: {value: datosInsert}
+        })    
+            .success (function (response) {
+                alert('Datos insertados con exito '+ response.data);
+                $scope.insertarVista = 'false';        
+
+            })
+            .error(function (response){
+                console.log('Error ocurred: ', response.status);
+                console.log('Error ocurred: ', response.data);
+
+            })
+    }
+
+
+
+
+    $scope.borrarUsuario=function(miIndex, item){
+        console.log(item)
+>>>>>>> b8e5fff38f743a7f7b681b12ca298612a65b3eb3
     }
 })
