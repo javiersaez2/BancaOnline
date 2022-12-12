@@ -1,7 +1,7 @@
 <?php
 
 
-class Clienteclass
+class clienteclass
 {
     protected $idCliente;
     protected $nombre;
