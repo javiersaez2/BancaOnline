@@ -75,9 +75,6 @@ MyApp.controller('miController', function($scope, $http){
 
 
 
-    $scope.borrarUsuario=function(miIndex, item){
-        console.log(item)
-    }
 
 
     ////////Update//////////
