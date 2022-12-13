@@ -32,18 +32,20 @@ class clienteModel extends clienteclass{
     public function setUserData() { 
         $this->OpenConnect();
         
-        $nombre=$this->nombre;
-        $pasahitza=$this->pasahitza;
+        $nombre=$this->izena;
+        $pasahitza=$this->pass;
         
         $sql="SELECT * FROM cliente WHERE nombre='$nombre' ";
         $result= $this->link->query($sql);
         
         $check=0;
+        $tipo = -1;
         
         if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
             if ($this->link->affected_rows == 1){
                 if ($pasahitza == $row["pasahitza"]){
                     $check = 1;
+                    $tipo = $row["tipo"];
                 } else {
                     $check= -1;
                 }
@@ -52,7 +54,7 @@ class clienteModel extends clienteclass{
 
         mysqli_free_result($result);
         $this->CloseConnect();
-        return $check;  
+        return array("check"=>$check, "tipo"=>$tipo);  
     }
 
     public function setList()
