@@ -101,7 +101,10 @@ MyApp.controller('miController', function($scope, $http){
                 method: "POST",
                 params: { 'idCliente': idCliente,'nombre':nombre,'pasahitza':pasahitza }
             }).then(function(response) {
+                
                 alert("Los datos han guardado")
+                $scope.insertarVista = 'false';
+                
             })
             .catch(function(response) {
                 console.error('Error occurred:', response.status, response.data)
