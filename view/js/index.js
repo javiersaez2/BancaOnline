@@ -1,21 +1,17 @@
 var miApp=angular.module('miApp',[]);
-miApp.controller('miControlador', function($scope, $http){
+miApp.controller('miControlador', function($scope){
     $scope.comprobarDatos=function() {
+        var array_list = new Array();
         var objecto = new Object();
 
         objecto.izena = $scope.izena;
         objecto.pasahitza = $scope.pasahitza;
 
-        console.log(objecto)
-        $http.post('../../controller/cLogin.php', objecto)
-        .then(function(response){
-            console.log(response)
+        array_list.push(objecto);
 
-            if (response.error == "no error"){
-                console.log(response.user);
-            } else {
-                console.log(response.error);
-            }
+        $http.post('../../controller/cLogin.php', array_list)
+        .then(function(reponse){
+            
         })
         .catch(function (reponse){
             console.error("error ocurred", reponse.status, reponse.data);
