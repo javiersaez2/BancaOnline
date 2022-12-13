@@ -75,4 +75,33 @@ MyApp.controller('miController', function($scope, $http){
     $scope.borrarUsuario=function(miIndex, item){
         console.log(item)
     }
+
+
+    ////////Update//////////
+    var idCliente=0;
+
+    $scope.modificarUsuario=function(miIndex, item){
+        $scope.insertarVista = 'true';
+        console.log(item)
+        idCliente=item.idCliente;
+        $scope.nombreIns=item.nombre;
+       $scope.contrsenaIns=item.pasahitza;
+        $scope.vefIns=item.pasahitza;
+    }
+    $scope.guardarCliente=function(){
+            idCliente=idCliente;
+            nombre=$scope.nombreIns;
+            pasahitza= $scope.contrsenaIns;
+            alert(idCliente+nombre+pasahitza)
+        $http({
+                url: "../../controller/controller_update.php",
+                method: "POST",
+                params: { 'idCliente': idCliente,'nombre':nombre,'pasahitza':pasahitza }
+            }).then(function(response) {
+                alert("Los datos han guardado")
+            })
+            .catch(function(response) {
+                console.error('Error occurred:', response.status, response.data)
+            })
+    }
 })
