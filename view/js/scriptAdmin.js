@@ -48,12 +48,11 @@ MyApp.controller('miController', function($scope, $http){
         $scope.listaInsertar = {
             nombre: $scope.nombreIns, 
             contrasena: $scope.contrsenaIns, 
-            contrasena2: $scope.vefIns
         };
         var datosInsert = JSON.stringify($scope.listaInsertar);
         console.log(datosInsert)
         ////////FETCH DE INSERTAR/////
-        $http({url: '../../controlador/c_insertarClientes.php', 
+        $http({url: '../../controller/c_insertarClientes.php', 
                 method: 'GET',
                 params: {value: datosInsert}
         })    
