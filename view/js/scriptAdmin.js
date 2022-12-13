@@ -95,7 +95,6 @@ MyApp.controller('miController', function($scope, $http){
             idCliente=idCliente;
             nombre=$scope.nombreIns;
             pasahitza= $scope.contrsenaIns;
-            alert(idCliente+nombre+pasahitza)
         $http({
                 url: "../../controller/controller_update.php",
                 method: "POST",
