@@ -2,6 +2,8 @@ var MyApp = angular.module('MyApp',[]);
 
 MyApp.controller('miController', function($scope, $http){
     /////cargar los datos de la tabla usuario de la base de datos 
+    verusuarios()
+    function verusuarios(){
     $http.get('../../controller/controlador_consulta_usuarios.php')
     .then(function(response) {
 
@@ -11,7 +13,7 @@ MyApp.controller('miController', function($scope, $http){
     .catch(function(response) {
         console.error('Error occurred:', response.status, response.data)
     })
-
+    }
 
 
 
@@ -26,6 +28,7 @@ MyApp.controller('miController', function($scope, $http){
             params: { value: datos }
         }).success(function (response) {
             alert("Funciona")
+            verusuarios();
         }).error(function () {
             console.error("Ocurrio un error", response.status, response.data)
         })   //
@@ -71,7 +74,4 @@ MyApp.controller('miController', function($scope, $http){
 
 
 
-    $scope.borrarUsuario=function(miIndex, item){
-        console.log(item)
-    }
 })

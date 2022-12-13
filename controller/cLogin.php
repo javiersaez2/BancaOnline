@@ -4,17 +4,17 @@ include_once '../model/clienteModel.php';
 $data=json_decode(file_get_contents("php://input"),true);
 
 $user = new clienteModel();
-$user->nombre=$data['izena'];
-$user->pasahitza=$data['pasahitza'];
-$check = $user->setUserData();
+$user->izena=$data['izena'];
+$user->pass=$data['pasahitza'];
+$list = $user->setUserData();
 $response = array();
 
-if ($check == 0) {
+if ($list["check"] == 0) {
     
     $response["error"] = "WRONG USERNAME";
     
 } else {
-    if ($check == 1){
+    if ($list["check"] == 1){
         if (!isset($_SESSION)){
             session_start();
         }
@@ -22,8 +22,9 @@ if ($check == 0) {
         
         $response["error"] = "no error";
         $response["izena"]=$_SESSION['izena'];
+        $response["tipo"]=$list["tipo"];
     }
-    else if ($check == -1){
+    else if ($list["check"] == -1){
         $response["error"] = "WRONG KEYWORDS";
     }
 }
