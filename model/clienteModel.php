@@ -82,8 +82,8 @@ class clienteModel extends clienteclass{
    public function insert()
    {
         $this->OpenConnect();
-        $nombre= $this->nombre;
-        $pasahitza= $this->pasahitza;
+        $nombre= $this->getNombre();
+        $pasahitza= $this->getPasahitza();
         $secreto = mt_rand(1000, 9999);
         $tipo = 0;
 
