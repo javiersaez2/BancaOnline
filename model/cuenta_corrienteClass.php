@@ -4,7 +4,7 @@ class cuenta_corrienteClass
 
 {
     protected $iban;
-    protected $idCliente;
+    protected $dniCliente;
     protected $titular;
     protected $saldo;
 
@@ -29,21 +29,21 @@ class cuenta_corrienteClass
     }
 
     /**
-     * Get the value of idCliente
+     * Get the value of dniCliente
      */ 
-    public function getIdCliente()
+    public function getdniCliente()
     {
-        return $this->idCliente;
+        return $this->dniCliente;
     }
 
     /**
-     * Set the value of idCliente
+     * Set the value of dniCliente
      *
      * @return  self
      */ 
-    public function setIdCliente($idCliente)
+    public function setdniCliente($dniCliente)
     {
-        $this->idCliente = $idCliente;
+        $this->dniCliente = $dniCliente;
 
         return $this;
     }

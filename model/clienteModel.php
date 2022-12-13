@@ -68,7 +68,7 @@ class clienteModel extends clienteclass{
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
         {         
             $newCliente=new ClienteModel();
-            $newCliente->idCliente=$row['idCliente'];
+            $newCliente->dniCliente=$row['dniCliente'];
             $newCliente->nombre=$row['nombre'];
             $newCliente->pasahitza=$row['pasahitza'];
             $newCliente->secreto=$row['secreto'];
@@ -84,12 +84,13 @@ class clienteModel extends clienteclass{
    public function insert()
    {
         $this->OpenConnect();
+        $dni= $this->getDniCliente();
         $nombre= $this->getNombre();
         $pasahitza= $this->getPasahitza();
         $secreto = mt_rand(0000, 9999);
         $tipo = 0;
 
-        $sql="INSERT INTO cliente (nombre, pasahitza, secreto, tipo) VALUES ('$nombre', '$pasahitza', $secreto, $tipo)";
+        $sql="INSERT INTO cliente (dniCliente, nombre, pasahitza, secreto, tipo) VALUES ('$dni', '$nombre', '$pasahitza', $secreto, $tipo)";
         echo $sql;
         $this->link->query($sql);
 
@@ -105,12 +106,12 @@ class clienteModel extends clienteclass{
     public function delete()
     {
          $this->OpenConnect();
-         $idCliente= $this-> idCliente;
-         $sql="delete from cliente where idCliente=".$idCliente."";
+         $dniCliente= $this-> dniCliente;
+         $sql="delete from cliente where dniCliente=".$dniCliente."";
           
          $this->link->query($sql);
          echo $sql;
-         if ($this->link->affected_rows == 1)
+         if ($this->link->affected_rows == 1)   
          {
              return "El usuario se borró: ";
          } else {
@@ -123,15 +124,15 @@ class clienteModel extends clienteclass{
     public function showUpdate() {
         $this->OpenConnect();
         
-        $idCliente = $this->idCliente;
+        $dniCliente = $this->dniCliente;
         
-        $sql = "select * from cliente where idCliente=$idCliente";
+        $sql = "select * from cliente where dniCliente=$dniCliente";
         
         $result = $this->link->query($sql);
         
         if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             
-            $this->idCliente=$row['idCliente'];
+            $this->dniCliente=$row['dniCliente'];
             $this->nombre=$row['nombre'];
             $this->pasahitza=$row['pasahitza'];
 
@@ -150,16 +151,16 @@ class clienteModel extends clienteclass{
    public function update() {
         $this->OpenConnect();
         
-        $idCliente = $this->idCliente;
+        $dniCliente = $this->dniCliente;
         $nombre = $this->nombre;
         $pasahitza=$this->pasahitza;
         
         
         $sql = "update cliente
-        set idCliente=$idCliente,
+        set dniCliente=$dniCliente,
         nombre='$nombre',
         pasahitza='$pasahitza'
-        where idCliente=$idCliente";
+        where dniCliente=$dniCliente";
         
         $this->link->query($sql);
         

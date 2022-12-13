@@ -6,14 +6,14 @@ $cliente  = new clienteModel();
 
 $response = array();
 
-$idCliente = filter_input(INPUT_GET, "idCliente");
+$dniCliente = filter_input(INPUT_GET, "dniCliente");
 $nombre = filter_input(INPUT_GET, "nombre");
 $pasahitza = filter_input(INPUT_GET, "pasahitza");
 
 
 
-if (isset($idCliente)) {
-    $cliente ->setIdCliente($idCliente) ;
+if (isset($dniCliente)) {
+    $cliente ->setdniCliente($dniCliente) ;
    if($nombre != null){
        $cliente->setNombre($nombre);
    }
