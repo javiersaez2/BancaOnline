@@ -1,20 +1,16 @@
 var miApp=angular.module('miApp',[]);
 miApp.controller('miControlador', function($scope, $http){
     var codSecretoKont = 0;
-    $scope.loginInicialMostrar = true;
+    $scope.passMostrar = true;
     
     $scope.comprobarDatos=function() {
-        var array_list = new Array();
-        var objecto = new Object();
+        var izena = $scope.izenaData; var pasahitza = $scope.pasahitzaData; var codSecreto = $scope.codSecretoData;
 
-        objecto.izena = $scope.izena;
-        objecto.pasahitza = $scope.pasahitza;
-        objecto.CodSecreto = $scope.CodSecreto;
-
-        array_list.push(objecto);
-
-        $http.post('../../controller/cLogin.php', array_list)
-        .then(function(response){
+        $http({
+            url: '../../controller/cLogin.php',
+            method: "POST",
+            params: {data: JSON.stringify({izena: izena, pasahitza: pasahitza, codSecreto: codSecreto})}
+        }).then(function (response) {
             console.log(response);
             if (response.error == "no error"){
                 console.log("bien")
@@ -26,11 +22,10 @@ miApp.controller('miControlador', function($scope, $http){
 
             if (codSecretoKont == 3){
                 $scope.codSecretoMostrar = true;
-                $scope.loginInicialMostrar = false;
+                $scope.passMostrar = false;
             }
-        })
-        .catch(function (response){
-            console.error("error ocurred", response.status, response.data);
-        })
+        }).catch(function () {
+            console.error("Ocurrio un error", response.status, response.data)
+        })  
     }
 });
