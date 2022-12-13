@@ -103,8 +103,8 @@ class clienteModel extends clienteclass{
     public function delete()
     {
          $this->OpenConnect();
-        //  $idCliente= $this-> idCliente;
-         $sql="delete from cliente where cliente.idCliente=2";
+         $idCliente= $this-> idCliente;
+         $sql="delete from cliente where idCliente=".$idCliente."";
           
          $this->link->query($sql);
          echo $sql;
