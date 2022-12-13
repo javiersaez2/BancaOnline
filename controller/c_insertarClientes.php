@@ -5,28 +5,23 @@ $data=json_decode(file_get_contents("php://input"),true);
 
 $nombre = $data["nombre"];
 $pasahitza = $data["contrasena"];
-$pasahitza2 = $data["contrasena2"];
 
 $cliente = clienteModel();
 $response = array();
 
-if (isset($nombre) && isset($pasahitza) && isset($pasahitza2)){
+if (isset($nombre) && isset($pasahitza)){
 
     $response["error"] = 'Informacion vacia';
 
 } else{    
     
-    if ($pasahitza != $pasahitza2){
-        $response["error"] = 'Claves no identicas';
+    $cliente->setNombre($nombre);
+    $cliente->setPasahitza($pasahitza);
 
-    } else {
-        $cliente->setNombre($nombre);
-        $cliente->setPasahitza($pasahitza);
+    $response["list"]=$cliente->insert();
+    $response["error"] = 'no error'
 
-        $response["list"]=$cliente->insert();
-        $response["error"] = 'no error'
-
-    }
+    
 }
 
 echo json_encode($response);
