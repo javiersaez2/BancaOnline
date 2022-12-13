@@ -36,13 +36,13 @@
             <br>
         <div ng-show="passMostrar">
             <label for="Contraseña">Contraseña</label>
-            <input type="text" ng-model="pasahitzaData">
+            <input type="text" ng-model="pasahitzaData" ng-minlength="1">
         </div>
 
         <br>
         <div ng-show="codSecretoMostrar">
             <label for="Contraseña">Codigo Secreto</label>
-            <input type="text" ng-model="CodSecretoData">
+            <input type="text" ng-model="CodSecretoData" ng-minlength="1">
         </div>
 
         <button ng-click="comprobarDatos()">Login</button>

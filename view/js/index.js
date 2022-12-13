@@ -16,10 +16,9 @@ miApp.controller('miControlador', function($scope, $http){
                 console.log("bien")
                 codSecretoKont = 0;
             }else {
-                alert(response.data);
+                alert(response.data.error);
                 codSecretoKont++;
-                $scope.pasahitzaData = "  ";
-            }
+            } 
 
             if (codSecretoKont == 3){
                 $scope.codSecretoMostrar = true;
