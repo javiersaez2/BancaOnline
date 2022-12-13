@@ -108,7 +108,11 @@ class clienteModel extends clienteclass{
         $pasahitza=$this->pasahitza;
         
         
-        $sql = "CALL spUpdateCliente($idCliente,'$nombre','$pasahitza')";
+        $sql = "update cliente
+        set idCliente=$idCliente,
+        nombre='$nombre',
+        pasahitza='$pasahitza'
+        where idCliente=$idCliente";
         
         $this->link->query($sql);
         
