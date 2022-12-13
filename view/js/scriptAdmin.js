@@ -24,12 +24,12 @@ MyApp.controller('miController', function($scope, $http){
         console.log(datosjson);
         $http({
             url: '../../controller/delete_usuario.php',
-            method: "GET",
+            method: "POST",
             params: { value: datos }
-        }).success(function (response) {
+        }).then(function (response) {
             alert("Funciona")
             verusuarios();
-        }).error(function () {
+        },function (error){
             console.error("Ocurrio un error", response.status, response.data)
         })   //
     }
