@@ -61,7 +61,7 @@ MyApp.controller('miController', function($scope, $http){
         })    
             .then (function (response) {
                 alert('Datos insertados con exito '+ response.data);
-                console.log(response.data)
+                console.log(response.data.list.secreto);
                 $scope.insertarVista = 'false';        
 
             })
