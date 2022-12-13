@@ -20,11 +20,12 @@ if ($list["check"] == 0) {
         if (!isset($_SESSION)){
             session_start();
         }
-        $_SESSION["izena"]=$data["izena"];
+        $_SESSION["izena"]=$data->izena;
+        $_SESSION["tipo"]=$list["tipo"];
         
         $response["error"] = "no error";
         $response["izena"]=$_SESSION['izena'];
-        $response["tipo"]=$list["tipo"];
+        $response["tipo"]=$_SESSION["tipo"];
     }
     else if ($list["check"] == -1){
         $response["error"] = "WRONG PASSWORD";
