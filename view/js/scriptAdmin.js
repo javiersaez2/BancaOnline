@@ -2,6 +2,8 @@ var MyApp = angular.module('MyApp',[]);
 
 MyApp.controller('miController', function($scope, $http){
     /////cargar los datos de la tabla usuario de la base de datos 
+    verusuarios()
+    function verusuarios(){
     $http.get('../../controller/controlador_consulta_usuarios.php')
     .then(function(response) {
 
@@ -11,7 +13,7 @@ MyApp.controller('miController', function($scope, $http){
     .catch(function(response) {
         console.error('Error occurred:', response.status, response.data)
     })
-
+    }
 
 
 
@@ -26,6 +28,7 @@ MyApp.controller('miController', function($scope, $http){
             params: { value: datos }
         }).success(function (response) {
             alert("Funciona")
+            verusuarios();
         }).error(function () {
             console.error("Ocurrio un error", response.status, response.data)
         })   //
@@ -48,21 +51,21 @@ MyApp.controller('miController', function($scope, $http){
         $scope.listaInsertar = {
             nombre: $scope.nombreIns, 
             contrasena: $scope.contrsenaIns, 
-            contrasena2: $scope.vefIns
         };
         var datosInsert = JSON.stringify($scope.listaInsertar);
         console.log(datosInsert)
         ////////FETCH DE INSERTAR/////
-        $http({url: '../../controlador/c_insertarClientes.php', 
+        $http({url: '../../controller/c_insertarClientes.php', 
                 method: 'GET',
                 params: {value: datosInsert}
         })    
-            .success (function (response) {
-                alert('Datos insertados con exito '+ response.data.list);
+            .then (function (response) {
+                alert('Datos insertados con exito '+ response.data);
+                console.log(response.data)
                 $scope.insertarVista = 'false';        
 
             })
-            .error(function (response){
+            .catch(function (response){
                 console.log('Error ocurred: ', response.status);
                 console.log('Error ocurred: ', response.data);
 

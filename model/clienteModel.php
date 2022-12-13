@@ -29,6 +29,34 @@ class clienteModel extends clienteclass{
         
     }
 
+    public function setUserData() { 
+        $this->OpenConnect();
+        
+        $nombre=$this->izena;
+        $pasahitza=$this->pass;
+        
+        $sql="SELECT * FROM cliente WHERE nombre='$nombre' ";
+        $result= $this->link->query($sql);
+        
+        $check=0;
+        $tipo = -1;
+        
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            if ($this->link->affected_rows == 1){
+                if ($pasahitza == $row["pasahitza"]){
+                    $check = 1;
+                    $tipo = $row["tipo"];
+                } else {
+                    $check= -1;
+                }
+            }
+        }
+
+        mysqli_free_result($result);
+        $this->CloseConnect();
+        return array("check"=>$check, "tipo"=>$tipo);  
+    }
+
     public function setList()
     {
         $this->OpenConnect();
@@ -53,13 +81,32 @@ class clienteModel extends clienteclass{
         return $list;
     }
     
-   
+   public function insert()
+   {
+        $this->OpenConnect();
+        $nombre= $this->getNombre();
+        $pasahitza= $this->getPasahitza();
+        $secreto = mt_rand(0000, 9999);
+        $tipo = 0;
+
+        $sql="INSERT INTO cliente (nombre, pasahitza, secreto, tipo) VALUES ('$nombre', '$pasahitza', $secreto, $tipo)";
+        echo $sql;
+        $this->link->query($sql);
+
+        if ($this->link->affected_rows == 1)
+        {
+            return "El usuario se creo: ";
+        } else {
+            return "Fallo al crear usuario: (" . $this->link->errno . ") " . $this->link->error;
+        }
+        $this->CloseConnect();
+   }
 
     public function delete()
     {
          $this->OpenConnect();
-        //  $idCliente= $this-> idCliente;
-         $sql="delete from cliente where cliente.idCliente=2";
+         $idCliente= $this-> idCliente;
+         $sql="delete from cliente where idCliente=".$idCliente."";
           
          $this->link->query($sql);
          echo $sql;
