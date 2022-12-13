@@ -1,11 +1,12 @@
 <?php
 include_once '../model/clienteModel.php';
 
-$data=json_decode(file_get_contents("php://input"),true);
+$data=json_decode($_GET["data"]);
 
 $user = new clienteModel();
-$user->izena=$data['izena'];
-$user->pass=$data['pasahitza'];
+$user->izena=$data->izena;
+$user->pass=$data->pasahitza;
+
 $list = $user->setUserData();
 $response = array();
 

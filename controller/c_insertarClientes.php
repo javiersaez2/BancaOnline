@@ -1,26 +1,27 @@
 <?php
-include_once '../model/clienteModel';
+include_once '../model/clienteModel.php';
 
-$data=json_decode(file_get_contents("php://input"),true);
+$data=json_decode($_GET['value']);
 
-$nombre = $data["nombre"];
-$pasahitza = $data["contrasena"];
+$nombre = $data->nombre;
+$pasahitza = $data->contrasena;
+//var_dump($nombre+' '+$pasahitza);
 
-$cliente = clienteModel();
+$cliente = new clienteModel();
 $response = array();
 
-if (isset($nombre) && isset($pasahitza)){
+
+if (!isset($nombre) && !isset($pasahitza)){
 
     $response["error"] = 'Informacion vacia';
 
-} else{    
+} else {    
     
     $cliente->setNombre($nombre);
     $cliente->setPasahitza($pasahitza);
 
     $response["list"]=$cliente->insert();
-    $response["error"] = 'no error'
-
+    $response["error"] = 'no error';
     
 }
 
