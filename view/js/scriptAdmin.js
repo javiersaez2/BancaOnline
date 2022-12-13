@@ -95,18 +95,22 @@ MyApp.controller('miController', function($scope, $http){
             idCliente=idCliente;
             nombre=$scope.nombreIns;
             pasahitza= $scope.contrsenaIns;
-        $http({
-                url: "../../controller/controller_update.php",
-                method: "POST",
-                params: { 'idCliente': idCliente,'nombre':nombre,'pasahitza':pasahitza }
-            }).then(function(response) {
-                
-                alert("Los datos han guardado")
-                $scope.insertarVista = 'false';
-                
-            })
-            .catch(function(response) {
-                console.error('Error occurred:', response.status, response.data)
-            })
+            if($scope.contrsenaIns==$scope.vefIns){
+                $http({
+                    url: "../../controller/controller_update.php",
+                    method: "POST",
+                    params: { 'idCliente': idCliente,'nombre':nombre,'pasahitza':pasahitza }
+                }).then(function(response) {
+                    alert("Los datos han guardado")
+                    $scope.insertarVista = 'false';
+                    verusuarios()
+                })
+                .catch(function(response) {
+                    console.error('Error occurred:', response.status, response.data)
+                })
+            }else{
+                alert("Contraseñas no son iguales")
+            }
+       
     }
 })
