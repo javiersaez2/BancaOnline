@@ -43,11 +43,11 @@ MyApp.controller('miController', function($scope, $http){
 
     $scope.nuevoCliente=function(){
        
-        /*
-        if ($scope.contrsenaIns == $scope.vefIns) {
-            console.log("A");
+        
+        if ($scope.contrsenaIns != $scope.vefIns) {
+            return false;
         }
-        */
+        
         $scope.listaInsertar = {
             nombre: $scope.nombreIns, 
             contrasena: $scope.contrsenaIns, 
@@ -56,7 +56,7 @@ MyApp.controller('miController', function($scope, $http){
         console.log(datosInsert)
         ////////FETCH DE INSERTAR/////
         $http({url: '../../controller/c_insertarClientes.php', 
-                method: 'GET',
+                method: 'POST',
                 params: {value: datosInsert}
         })    
             .then (function (response) {
