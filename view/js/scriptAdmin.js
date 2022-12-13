@@ -49,6 +49,7 @@ MyApp.controller('miController', function($scope, $http){
         }
         
         $scope.listaInsertar = {
+            dni: $scope.dniIns,
             nombre: $scope.nombreIns, 
             contrasena: $scope.contrsenaIns, 
         };

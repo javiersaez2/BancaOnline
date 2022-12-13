@@ -84,12 +84,13 @@ class clienteModel extends clienteclass{
    public function insert()
    {
         $this->OpenConnect();
+        $dni= $this->getDniCliente();
         $nombre= $this->getNombre();
         $pasahitza= $this->getPasahitza();
         $secreto = mt_rand(0000, 9999);
         $tipo = 0;
 
-        $sql="INSERT INTO cliente (nombre, pasahitza, secreto, tipo) VALUES ('$nombre', '$pasahitza', $secreto, $tipo)";
+        $sql="INSERT INTO cliente (dniCliente, nombre, pasahitza, secreto, tipo) VALUES ('$dni', '$nombre', '$pasahitza', $secreto, $tipo)";
         echo $sql;
         $this->link->query($sql);
 
