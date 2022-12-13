@@ -16,7 +16,7 @@ miApp.controller('miControlador', function($scope, $http){
                 console.log("bien")
                 codSecretoKont = 0;
             }else {
-                console.log(response.error);
+                alert(response.error);
                 codSecretoKont++;
             }
 

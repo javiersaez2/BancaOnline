@@ -6,6 +6,7 @@ $data=json_decode($_GET["data"]);
 $user = new clienteModel();
 $user->izena=$data->izena;
 $user->pass=$data->pasahitza;
+$user->codSecreto=$data->codSecreto;
 
 $list = $user->setUserData();
 $response = array();
@@ -26,7 +27,9 @@ if ($list["check"] == 0) {
         $response["tipo"]=$list["tipo"];
     }
     else if ($list["check"] == -1){
-        $response["error"] = "WRONG KEYWORDS";
+        $response["error"] = "WRONG PASSWORD";
+    } else if ($list["check"] == -2){
+        $response["error"] = "WRONG SECRET CODE";
     }
 }
 
