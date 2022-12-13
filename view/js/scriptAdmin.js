@@ -56,15 +56,16 @@ MyApp.controller('miController', function($scope, $http){
         console.log(datosInsert)
         ////////FETCH DE INSERTAR/////
         $http({url: '../../controller/c_insertarClientes.php', 
-                method: 'POST',
+                method: 'GET',
                 params: {value: datosInsert}
         })    
             .then (function (response) {
-                alert('Datos insertados con exito '+ response.data.list);
+                alert('Datos insertados con exito '+ response.data);
+                console.log(response.data)
                 $scope.insertarVista = 'false';        
 
             })
-            .error(function (response){
+            .catch(function (response){
                 console.log('Error ocurred: ', response.status);
                 console.log('Error ocurred: ', response.data);
 

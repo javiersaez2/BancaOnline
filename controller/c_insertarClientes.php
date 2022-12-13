@@ -7,7 +7,7 @@ $nombre = $data["nombre"];
 $pasahitza = $data["contrasena"];
 //var_dump($nombre+' '+$pasahitza);
 
-$cliente = clienteModel();
+$cliente = new clienteModel();
 $response = array();
 
 
