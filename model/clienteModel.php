@@ -79,7 +79,26 @@ class clienteModel extends clienteclass{
         return $list;
     }
     
-   
+   public function insert()
+   {
+        $this->OpenConnect();
+        $nombre= $this->nombre;
+        $pasahitza= $this->pasahitza;
+        $secreto = mt_rand(1000, 9999);
+        $tipo = 0;
+
+        $sql="INSERT INTO cliente (nombre, pasahitza, secreto, tipo) VALUES ('$nombre', '$pasahitza', $secreto, $tipo)";
+        
+        $this->link->query($sql);
+
+        if ($this->link->affected_rows == 1)
+        {
+            return "El usuario se creo: ";
+        } else {
+            return "Fallo al crear usuario: (" . $this->link->errno . ") " . $this->link->error;
+        }
+        $this->CloseConnect();
+   }
 
     public function delete()
     {
