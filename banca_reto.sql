@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-12-2022 a las 10:22:52
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.1.2
+-- Tiempo de generación: 13-12-2022 a las 10:38:00
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,6 +35,16 @@ CREATE TABLE `cliente` (
   `tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`dniCliente`, `nombre`, `pasahitza`, `secreto`, `tipo`) VALUES
+('32465784F', 'Fatima', '3456', 3321, 0),
+('34157377Z', 'Ander', '4567', 652, 1),
+('34323751G', 'Markel', '2345', 2435, 0),
+('34455777P', 'Javier', '1234', 1900, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +57,16 @@ CREATE TABLE `cuenta_corriente` (
   `titular` varchar(70) NOT NULL,
   `saldo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cuenta_corriente`
+--
+
+INSERT INTO `cuenta_corriente` (`iban`, `dniCliente`, `titular`, `saldo`) VALUES
+('ES1220900000458901231110', '34455777P', 'Javier Saez B', 46),
+('ES1220900000458901232220', '34455777P', 'Javier Saez A', 43),
+('ES1220900000458901235460', '34157377Z', 'Ander Caballero A', 57),
+('ES1220900034454322211456', '34323751G', 'Markel Rajado B', 48);
 
 -- --------------------------------------------------------
 
