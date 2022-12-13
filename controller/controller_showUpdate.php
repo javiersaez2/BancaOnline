@@ -6,11 +6,11 @@ $cliente  = new clienteModel();
 $response = array();
 
 
-$idCliente = filter_input(INPUT_GET, "idCliente");
+$dniCliente = filter_input(INPUT_GET, "dniCliente");
 
 
-if ($idCliente !=null) {
-    $cliente ->setIdCliente($idCliente) ;
+if ($dniCliente !=null) {
+    $cliente ->setdniCliente($dniCliente) ;
     
     if($cliente ->showUpdate()){
         $response['cliente'] = $cliente;

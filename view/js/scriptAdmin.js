@@ -18,8 +18,8 @@ MyApp.controller('miController', function($scope, $http){
 
 
     $scope.borrarUsuario= function (miIndex, item){
-        console.log(item.idCliente)
-        datos = item.idCliente;
+        console.log(item.dniCliente)
+        datos = item.dniCliente;
         var datosjson = JSON.stringify(datos)
         console.log(datosjson);
         $http({
@@ -78,25 +78,25 @@ MyApp.controller('miController', function($scope, $http){
 
 
     ////////Update//////////
-    var idCliente=0;
+    var dniCliente=0;
 
     $scope.modificarUsuario=function(miIndex, item){
         $scope.insertarVista = 'true';
         console.log(item)
-        idCliente=item.idCliente;
+        dniCliente=item.dniCliente;
         $scope.nombreIns=item.nombre;
        $scope.contrsenaIns=item.pasahitza;
         $scope.vefIns=item.pasahitza;
     }
     $scope.guardarCliente=function(){
-            idCliente=idCliente;
+            dniCliente=dniCliente;
             nombre=$scope.nombreIns;
             pasahitza= $scope.contrsenaIns;
             if($scope.contrsenaIns==$scope.vefIns){
                 $http({
                     url: "../../controller/controller_update.php",
                     method: "POST",
-                    params: { 'idCliente': idCliente,'nombre':nombre,'pasahitza':pasahitza }
+                    params: { 'dniCliente': dniCliente,'nombre':nombre,'pasahitza':pasahitza }
                 }).then(function(response) {
                     alert("Los datos han guardado")
                     $scope.insertarVista = 'false';
