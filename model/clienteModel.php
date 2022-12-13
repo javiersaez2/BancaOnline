@@ -29,6 +29,32 @@ class clienteModel extends clienteclass{
         
     }
 
+    public function setUserData() { 
+        $this->OpenConnect();
+        
+        $nombre=$this->nombre;
+        $pasahitza=$this->pasahitza;
+        
+        $sql="SELECT * FROM cliente WHERE nombre='$nombre' ";
+        $result= $this->link->query($sql);
+        
+        $check=0;
+        
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            if ($this->link->affected_rows == 1){
+                if ($pasahitza == $row["pasahitza"]){
+                    $check = 1;
+                } else {
+                    $check= -1;
+                }
+            }
+        }
+
+        mysqli_free_result($result);
+        $this->CloseConnect();
+        return $check;  
+    }
+
     public function setList()
     {
         $this->OpenConnect();
