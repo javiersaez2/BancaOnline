@@ -111,6 +111,6 @@ MyApp.controller('miController', function($scope, $http){
             }else{
                 alert("Contraseñas no son iguales")
             }
-       
+
     }
 })
