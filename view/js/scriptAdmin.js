@@ -18,18 +18,18 @@ MyApp.controller('miController', function($scope, $http){
 
 
     $scope.borrarUsuario= function (miIndex, item){
-        console.log(item.idCliente)
-        datos = item.idCliente;
+        console.log(item.dniCliente)
+        datos = item.dniCliente;
         var datosjson = JSON.stringify(datos)
         console.log(datosjson);
         $http({
             url: '../../controller/delete_usuario.php',
-            method: "GET",
+            method: "POST",
             params: { value: datos }
-        }).success(function (response) {
+        }).then(function (response) {
             alert("Funciona")
             verusuarios();
-        }).error(function () {
+        },function (error){
             console.error("Ocurrio un error", response.status, response.data)
         })   //
     }
@@ -49,6 +49,7 @@ MyApp.controller('miController', function($scope, $http){
         }
         
         $scope.listaInsertar = {
+            dni: $scope.dniIns,
             nombre: $scope.nombreIns, 
             contrasena: $scope.contrsenaIns, 
         };
@@ -61,7 +62,7 @@ MyApp.controller('miController', function($scope, $http){
         })    
             .then (function (response) {
                 alert('Datos insertados con exito '+ response.data);
-                console.log(response.data)
+                console.log(response.data.list.secreto);
                 $scope.insertarVista = 'false';        
 
             })
@@ -75,31 +76,28 @@ MyApp.controller('miController', function($scope, $http){
 
 
 
-    $scope.borrarUsuario=function(miIndex, item){
-        console.log(item)
-    }
 
 
     ////////Update//////////
-    var idCliente=0;
+    var dniCliente=0;
 
     $scope.modificarUsuario=function(miIndex, item){
         $scope.insertarVista = 'true';
         console.log(item)
-        idCliente=item.idCliente;
+        dniCliente=item.dniCliente;
         $scope.nombreIns=item.nombre;
        $scope.contrsenaIns=item.pasahitza;
         $scope.vefIns=item.pasahitza;
     }
     $scope.guardarCliente=function(){
-            idCliente=idCliente;
+            dniCliente=dniCliente;
             nombre=$scope.nombreIns;
             pasahitza= $scope.contrsenaIns;
             if($scope.contrsenaIns==$scope.vefIns){
                 $http({
                     url: "../../controller/controller_update.php",
                     method: "POST",
-                    params: { 'idCliente': idCliente,'nombre':nombre,'pasahitza':pasahitza }
+                    params: { 'dniCliente': dniCliente,'nombre':nombre,'pasahitza':pasahitza }
                 }).then(function(response) {
                     alert("Los datos han guardado")
                     $scope.insertarVista = 'false';
@@ -111,6 +109,6 @@ MyApp.controller('miController', function($scope, $http){
             }else{
                 alert("Contraseñas no son iguales")
             }
-       
+
     }
 })
