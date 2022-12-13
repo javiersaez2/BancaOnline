@@ -2,6 +2,8 @@ var MyApp = angular.module('MyApp',[]);
 
 MyApp.controller('miController', function($scope, $http){
     /////cargar los datos de la tabla usuario de la base de datos 
+    verusuarios()
+    function verusuarios(){
     $http.get('../../controller/controlador_consulta_usuarios.php')
     .then(function(response) {
 
@@ -11,7 +13,7 @@ MyApp.controller('miController', function($scope, $http){
     .catch(function(response) {
         console.error('Error occurred:', response.status, response.data)
     })
-
+    }
 
 
 
@@ -26,6 +28,7 @@ MyApp.controller('miController', function($scope, $http){
             params: { value: datos }
         }).success(function (response) {
             alert("Funciona")
+            verusuarios();
         }).error(function () {
             console.error("Ocurrio un error", response.status, response.data)
         })   //
@@ -40,11 +43,11 @@ MyApp.controller('miController', function($scope, $http){
 
     $scope.nuevoCliente=function(){
        
-        /*
-        if ($scope.contrsenaIns == $scope.vefIns) {
-            console.log("A");
+        
+        if ($scope.contrsenaIns != $scope.vefIns) {
+            return false;
         }
-        */
+        
         $scope.listaInsertar = {
             nombre: $scope.nombreIns, 
             contrasena: $scope.contrsenaIns, 
@@ -53,15 +56,16 @@ MyApp.controller('miController', function($scope, $http){
         console.log(datosInsert)
         ////////FETCH DE INSERTAR/////
         $http({url: '../../controller/c_insertarClientes.php', 
-                method: 'GET',
+                method: 'POST',
                 params: {value: datosInsert}
         })    
-            .success (function (response) {
-                alert('Datos insertados con exito '+ response.data.list);
+            .then (function (response) {
+                alert('Datos insertados con exito '+ response.data);
+                console.log(response.data)
                 $scope.insertarVista = 'false';        
 
             })
-            .error(function (response){
+            .catch(function (response){
                 console.log('Error ocurred: ', response.status);
                 console.log('Error ocurred: ', response.data);
 
@@ -73,5 +77,40 @@ MyApp.controller('miController', function($scope, $http){
 
     $scope.borrarUsuario=function(miIndex, item){
         console.log(item)
+    }
+
+
+    ////////Update//////////
+    var idCliente=0;
+
+    $scope.modificarUsuario=function(miIndex, item){
+        $scope.insertarVista = 'true';
+        console.log(item)
+        idCliente=item.idCliente;
+        $scope.nombreIns=item.nombre;
+       $scope.contrsenaIns=item.pasahitza;
+        $scope.vefIns=item.pasahitza;
+    }
+    $scope.guardarCliente=function(){
+            idCliente=idCliente;
+            nombre=$scope.nombreIns;
+            pasahitza= $scope.contrsenaIns;
+            if($scope.contrsenaIns==$scope.vefIns){
+                $http({
+                    url: "../../controller/controller_update.php",
+                    method: "POST",
+                    params: { 'idCliente': idCliente,'nombre':nombre,'pasahitza':pasahitza }
+                }).then(function(response) {
+                    alert("Los datos han guardado")
+                    $scope.insertarVista = 'false';
+                    verusuarios()
+                })
+                .catch(function(response) {
+                    console.error('Error occurred:', response.status, response.data)
+                })
+            }else{
+                alert("Contraseñas no son iguales")
+            }
+       
     }
 })

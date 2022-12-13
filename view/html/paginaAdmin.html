@@ -28,6 +28,7 @@
             </p>
 
             <button ng-click="nuevoCliente()">NUEVO</button>
+            <button ng-click="guardarCliente()">Guardar Modificaciones</button>
             
           </form>
         </div>  
@@ -42,7 +43,7 @@
             <td style="border: 2px solid;">{{fila.pasahitza}}</td>
             <td style="border: 2px solid;">{{fila.secreto}}</td>
             <td style="border: 2px solid;">{{fila.tipo}}</td>
-            <td style="border: 2px solid;"><button ng-click="modificarUsuario()">Modificar</button></td>
+            <td style="border: 2px solid;"><button ng-click="modificarUsuario($index,fila)">Modificar</button></td>
             <td style="border: 2px solid;"><button ng-click="borrarUsuario($index,fila)">Borrar</button></td>
         </tr>
     </table>

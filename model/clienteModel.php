@@ -86,11 +86,11 @@ class clienteModel extends clienteclass{
         $this->OpenConnect();
         $nombre= $this->getNombre();
         $pasahitza= $this->getPasahitza();
-        $secreto = mt_rand(1000, 9999);
+        $secreto = mt_rand(0000, 9999);
         $tipo = 0;
 
         $sql="INSERT INTO cliente (nombre, pasahitza, secreto, tipo) VALUES ('$nombre', '$pasahitza', $secreto, $tipo)";
-        
+        echo $sql;
         $this->link->query($sql);
 
         if ($this->link->affected_rows == 1)
@@ -105,8 +105,8 @@ class clienteModel extends clienteclass{
     public function delete()
     {
          $this->OpenConnect();
-        //  $idCliente= $this-> idCliente;
-         $sql="delete from cliente where cliente.idCliente=2";
+         $idCliente= $this-> idCliente;
+         $sql="delete from cliente where idCliente=".$idCliente."";
           
          $this->link->query($sql);
          echo $sql;
@@ -155,7 +155,11 @@ class clienteModel extends clienteclass{
         $pasahitza=$this->pasahitza;
         
         
-        $sql = "CALL spUpdateCliente($idCliente,'$nombre','$pasahitza')";
+        $sql = "update cliente
+        set idCliente=$idCliente,
+        nombre='$nombre',
+        pasahitza='$pasahitza'
+        where idCliente=$idCliente";
         
         $this->link->query($sql);
         
