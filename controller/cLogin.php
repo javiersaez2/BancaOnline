@@ -6,7 +6,7 @@ $data=json_decode(file_get_contents("php://input"),true);
 $user = new ClienteModel();
 $user->nombre=$data["izena"];
 $user->pasahitza=$data["pasahitza"];
-$check = $user->setUserData();
+// $check = $user->setUserData();
 
 $response = array();
 
