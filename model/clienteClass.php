@@ -3,28 +3,28 @@
 
 class clienteclass
 {
-    protected $idCliente;
+    protected $dniCliente;
     protected $nombre;
     protected $pasahitza;
     protected $secreto;
     protected $tipo; 
 
     /**
-     * Get the value of idCliente
+     * Get the value of dniCliente
      */ 
-    public function getIdCliente()
+    public function getdniCliente()
     {
-        return $this->idCliente;
+        return $this->dniCliente;
     }
 
     /**
-     * Set the value of idCliente
+     * Set the value of dniCliente
      *
      * @return  self
      */ 
-    public function setIdCliente($idCliente)
+    public function setdniCliente($dniCliente)
     {
-        $this->idCliente = $idCliente;
+        $this->dniCliente = $dniCliente;
 
         return $this;
     }

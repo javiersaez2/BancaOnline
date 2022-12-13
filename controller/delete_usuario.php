@@ -2,10 +2,10 @@
 <?php
 require_once '../model/clienteModel.php';
 
-$idCliente = $_GET['value'];
-echo $idCliente;
+$dniCliente = $_GET['value'];
+echo $dniCliente;
 $cliente = new clienteModel();
-$cliente->setIdCliente($idCliente);
+$cliente->setdniCliente($dniCliente);
 $cliente->delete();
 unset($cliente);
 
