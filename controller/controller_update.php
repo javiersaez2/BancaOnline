@@ -11,7 +11,6 @@ $nombre = filter_input(INPUT_GET, "nombre");
 $pasahitza = filter_input(INPUT_GET, "pasahitza");
 
 
-
 if (isset($dniCliente)) {
     $cliente ->setdniCliente($dniCliente) ;
    if($nombre != null){

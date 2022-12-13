@@ -4,7 +4,7 @@ miApp.controller('miControlador', function($scope, $http){
     $scope.passMostrar = true;
     
     $scope.comprobarDatos=function() {
-        var izena = $scope.izenaData; var pasahitza = $scope.pasahitzaData; var codSecreto = $scope.codSecretoData;
+        var izena = $scope.izenaData; var pasahitza = $scope.pasahitzaData; var codSecreto = $scope.CodSecretoData;
 
         $http({
             url: '../../controller/cLogin.php',
@@ -18,6 +18,7 @@ miApp.controller('miControlador', function($scope, $http){
             }else {
                 alert(response.error);
                 codSecretoKont++;
+                $scope.pasahitzaData = " ";
             }
 
             if (codSecretoKont == 3){
