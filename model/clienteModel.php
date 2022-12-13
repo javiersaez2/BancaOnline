@@ -116,7 +116,7 @@ class clienteModel extends clienteclass{
     {
          $this->OpenConnect();
          $dniCliente= $this-> dniCliente;
-         $sql="delete from cliente where dniCliente=".$dniCliente."";
+         $sql="delete from cliente where dniCliente='".$dniCliente."'";
           
          $this->link->query($sql);
          echo $sql;
