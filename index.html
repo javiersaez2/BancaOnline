@@ -7,12 +7,22 @@
 
 <body ng-app="miApp">
     <section ng-controller="miControlador">
-        <label for="nombre">Nombre</label>
-        <input type="text" ng-model="izena">
+        <div ng-show="loginInicialMostrar">
+            <label for="nombre">Nombre</label>
+            <input type="text" ng-model="izena">
+
+            <br>
+
+            <label for="Contraseña">Contraseña</label>
+            <input type="text" ng-model="pasahitza">
+        </div>
+
         <br>
-        <label for="Contraseña">Contraseña</label>
-        <input type="text" ng-model="pasahitza">
-        <br>
+        <div ng-show="codSecretoMostrar">
+            <label for="Contraseña">Codigo Secreto</label>
+            <input type="text" ng-model="CodSecreto">
+        </div>
+
         <button ng-click="comprobarDatos()">Login</button>
     </section>
 
