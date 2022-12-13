@@ -38,6 +38,7 @@ MyApp.controller('miController', function($scope, $http){
     $scope.listaInsertar = [];
 
     $scope.nuevoUsuario=function(){
+        $scope.modificarVista = 'false';
         $scope.insertarVista = 'true';
     }
 
@@ -79,28 +80,31 @@ MyApp.controller('miController', function($scope, $http){
 
 
     ////////Update//////////
-    var dniCliente=0;
 
     $scope.modificarUsuario=function(miIndex, item){
-        $scope.insertarVista = 'true';
+        document.getElementById("dniModificar").disabled = true;
+        $scope.modificarVista = 'true';
+        $scope.insertarVista = 'false';
         console.log(item)
-        dniCliente=item.dniCliente;
-        $scope.nombreIns=item.nombre;
-       $scope.contrsenaIns=item.pasahitza;
-        $scope.vefIns=item.pasahitza;
+        $scope.dniModificar=item.dniCliente;
+        $scope.nombreModificar=item.nombre;
+       $scope.contrasenaModificar=item.pasahitza;
+        $scope.vefModificar=item.pasahitza;
+
     }
     $scope.guardarCliente=function(){
-            dniCliente=dniCliente;
-            nombre=$scope.nombreIns;
-            pasahitza= $scope.contrsenaIns;
-            if($scope.contrsenaIns==$scope.vefIns){
+
+            dniCliente=$scope.dniModificar;
+            nombre=$scope.nombreModificar;
+            pasahitza= $scope.contrasenaModificar;
+            if($scope.contrasenaModificar==$scope.vefModificar){
                 $http({
                     url: "../../controller/controller_update.php",
                     method: "POST",
                     params: { 'dniCliente': dniCliente,'nombre':nombre,'pasahitza':pasahitza }
                 }).then(function(response) {
                     alert("Los datos han guardado")
-                    $scope.insertarVista = 'false';
+                    $scope.modificarVista = 'false';
                     verusuarios()
                 })
                 .catch(function(response) {

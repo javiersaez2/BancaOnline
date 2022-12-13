@@ -166,13 +166,13 @@ class clienteModel extends clienteclass{
         
         
         $sql = "update cliente
-        set dniCliente=$dniCliente,
+        set dniCliente='$dniCliente',
         nombre='$nombre',
         pasahitza='$pasahitza'
-        where dniCliente=$dniCliente";
+        where dniCliente='$dniCliente'";
         
         $this->link->query($sql);
-        
+        echo $sql;
         if ($this->link->affected_rows==1) {
             return "el usuario se ha modificado con exito. Num de modification : ".$this->link->affected_rows;
         }
