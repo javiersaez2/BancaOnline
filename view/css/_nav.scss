@@ -33,6 +33,7 @@ header {
 }
 .nav-items {
 	display: flex;
+	list-style: $vaciar;
     }
     .nav-item {
 	margin: $nav-item-margin;
