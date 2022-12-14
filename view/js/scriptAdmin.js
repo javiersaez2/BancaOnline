@@ -117,10 +117,10 @@ MyApp.controller('miController', function($scope, $http){
 
     $scope.logout=function(){
         $http({
-            url: "controller/cLogout.php",
+            url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "index.html";
+            window.location.href = "/index.html";
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
         })	
