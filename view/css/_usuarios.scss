@@ -15,19 +15,20 @@ section {
 
     .tarjetas {
 
+    
       position: relative;
+
       margin: 5px;
       backdrop-filter: blur(5px);
-      background-color: rgba(255, 255, 255, 0.3);
-      border-radius: 15px;
-      box-shadow: 35px 35px 68px 0px rgba(181, 126, 220, 0.5), inset -8px -8px 16px 0px rgba(181, 126, 220, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
+      box-shadow: 35px 35px 68px 0px rgba(181, 126, 220, 0.5), inset -8px -8px 16px 0px rgba(181, 126, 220, 0.6), inset 0px 11px 28px 0px white;
 
 
       .columna2 {
         color: white;
-        width: 100px;
+        width: 280px;
         height: 25px;
         padding: 5px;
+        background-color: rgba(49, 49, 49, 0.2);
 
       }
 
@@ -36,7 +37,9 @@ section {
         width: 130px;
         height: 25px;
         padding: 5px;
-  
+   
+
+        background-color: rgba(49, 49, 49, 0.2);
       }
     }
 
