@@ -55,8 +55,8 @@ miApp.controller('miControlador', function($scope, $http){
         }).then(function (response) {
             if (response.data.error != "logged"){
                 alert(response.data.error);
-                if (window.location == "/index.html"){
-                    window.location.href="/index.html"
+                if (window.location == "index.html"){
+                    window.location.href="index.html"
                 }
                 $scope.iniciarSesionSection = true;
             } else {
@@ -66,8 +66,8 @@ miApp.controller('miControlador', function($scope, $http){
                 if (response.data.tipo == 1){
                     window.location.href = "/view/html/paginaAdmin.html";
                 } else {
-                    if (window.location == "/index.html"){
-                        window.location.href = "/index.html";
+                    if (window.location == "index.html"){
+                        window.location.href = "index.html";
                     }
                 }
             }
@@ -81,7 +81,7 @@ miApp.controller('miControlador', function($scope, $http){
             url: "controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/index.html";
+            window.location.href = "index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
