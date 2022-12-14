@@ -30,6 +30,12 @@ header {
 	background-color: $color-blanco;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+	@include flexcenter();
+
+	img{
+		width: 30%;
+		height: 80px;
+	}
 }
 .nav-items {
 	display: flex;
