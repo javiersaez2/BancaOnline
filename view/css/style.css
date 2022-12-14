@@ -180,12 +180,20 @@ header {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  justify-content: space-between !important;
+  margin-top: 3%;
   margin-bottom: 3%;
 }
 #quienesSomos #contenidoSomos h2 {
+  text-align: center;
   color: #fbfbfb;
   margin-bottom: 10%;
+  height: 4%;
 }
-#quienesSomos #contenidoSomos p {
+#quienesSomos #contenidoSomos #infoSomos {
+  height: 95%;
+}
+#quienesSomos #contenidoSomos #infoSomos p {
   color: #fbfbfb;
+  margin: 1%;
 }/*# sourceMappingURL=style.css.map */
