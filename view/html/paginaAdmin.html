@@ -1,87 +1,126 @@
 <!DOCTYPE html>
 <html ng-app="MyApp">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../js/angular.min.js"></script>
-    <title>Pagina Admin</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../js/angular.min.js"></script>
+  <link href="../css/style_usuarios.css" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
+  <title>Pagina Admin</title>
 </head>
+
 <body ng-controller="miController">
+  <header>
+    <div class="company-logo">Z</div>
+    <nav class="navbar">
+      <ul class="nav-items">
+        <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">LOGIN</a></li>
+      </ul>
+      
+    </nav>
+    <div class="menu-toggle">
+      <i class="bx bx-menu"></i>
+      <i class="bx bx-x"></i>
+    </div>
+  </header>
+
+  <div id="zonaInsertar" ng-show="insertarVista == 'true'">
+    <div class="wrapper">
+      <h3>Insertar y Modificar</h3>
+      <form action="#">
+        <p>
+          <label for="dni">DNI</label>
+          <input type="text" ng-model="dniIns">
+        </p>
+        <p>
+          <label for="nombre">Nombre Cliente</label>
+          <input type="text" ng-model="nombreIns">
+        </p>
+        <p>
+          <label for="contrasena">Contrasena</label>
+          <input type="password" ng-model="contrsenaIns">
+        </p>
+        <p>
+          <label for="contrasena2">Verificar Contrasena</label>
+          <input type="password" ng-model="vefIns">
+        </p>
+
+        <button ng-click="nuevoCliente()">NUEVO</button>
+        <button ng-click="guardarCliente()">Guardar Modificaciones</button>
+
+      </form>
+    </div>
+  </div>
+
+  <section>
     <button ng-click="nuevoUsuario()">Añadir nuevo usuario</button>
+    <div class="tbl-content">
 
-    <div id="zonaInsertar" ng-show="insertarVista == 'true'">   
-        <div class="wrapper">
-          <h3>Insertar</h3>
-          <form action="#">
-            <p>
-              <label for="dni">DNI</label>
-              <input type="text" ng-model="dniIns" id="dniIns">
-            </p>
-            <p>
-              <label for="nombre">Nombre Cliente</label>
-              <input type="text" ng-model="nombreIns">
-            </p>
-            <p>
-              <label for="contrasena">Contrasena</label>
-              <input type="password" ng-model="contrsenaIns">
-            </p>
-            <p>
-                <label for="contrasena2">Verificar Contrasena</label>
-                <input type="password" ng-model="vefIns">
-            </p>
+   
+        <div class="tarjetas" ng-repeat='fila in usuarios'>
+          <table>
+           
+            <tr>
+              <td class="columna1">
+                Nombre: 
+              </td>
+              <td class="columna2">
+                {{fila.nombre}}
+              </td>
+            </tr>
+            <tr>
+              <td class="columna1">
+              DNI:
+              </td>
+              <td class="columna2">
+                {{fila.dniCliente}}
+              </td>
+            </tr>
+            <tr>
+                  <td class="columna1">
 
-            <button ng-click="nuevoCliente()">NUEVO</button>
-            
-          </form>
-        </div>  
+             Clave:
+              </td>
+              <td class="columna2">
+                {{fila.pasahitza}}
+              </td>
+            </tr>
+            <tr>
+                  <td class="columna1">
+                CodigoSecreto:
+              </td>
+              <td class="columna2">
+                {{fila.secreto}}
+              </td>
+            </tr>
+            <tr>
+                  <td class="columna1">
+                Tipo: 
+              </td>
+              <td class="columna2">
+                {{fila.tipo}}
+              </td>
+            </tr>
+            <tr>
+                  <td class="columna1">
+                <button ng-click="modificarUsuario($index,fila)">Modificar</button>
+              </td>
+              <td class="columna2">
+                <i class="fa-solid fa-user-minus fa-1xl" ng-click="borrarUsuario($index,fila)"></i>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
 
-      <div id="zonaModificar" ng-show="modificarVista == 'true'">   
-        <div class="wrapper">
-          <h3>Modificar</h3>
-          <form action="#">
-            <p>
-              <label for="dni">DNI</label>
-              <input type="text" ng-model="dniModificar" id="dniModificar">
-            </p>
-            <p>
-              <label for="nombre">Nombre Cliente</label>
-              <input type="text" ng-model="nombreModificar">
-            </p>
-            <p>
-              <label for="contrasena">Contrasena</label>
-              <input type="text" ng-model="contrasenaModificar">
-            </p>
-            <p>
-                <label for="contrasena2">Verificar Contrasena</label>
-                <input type="text" ng-model="vefModificar">
-            </p>
-
-            <button ng-click="guardarCliente()">Guardar Modificaciones</button>
-            
-          </form>
-        </div>  
-      </div>
-
-
-
-    <table >
-      <tr>
-        <th>DNI</th><th>Nombre</th><th>Clave</th><th>CodigoSecreto</th><th>Tipo</th>
-      </tr>
-        <tr ng-repeat='fila in usuarios' >
-            <td style="border: 2px solid;">{{fila.dniCliente}}</td>
-            <td style="border: 2px solid;">{{fila.nombre}}</td>
-            <td style="border: 2px solid;">{{fila.pasahitza}}</td>
-            <td style="border: 2px solid;">{{fila.secreto}}</td>
-            <td style="border: 2px solid;">{{fila.tipo}}</td>
-            <td style="border: 2px solid;"><button ng-click="modificarUsuario($index,fila)">Modificar</button></td>
-            <td style="border: 2px solid;"><button ng-click="borrarUsuario($index,fila)">Borrar</button></td>
-        </tr>
-    </table>
-
-    <button ng-click="logout()">LOG OUT</button>
-    <script src="../js/scriptAdmin.js"></script>
+    </div>
+  </section>
+  <script src="../js/scriptAdmin.js"></script>
 </body>
+
 </html>
