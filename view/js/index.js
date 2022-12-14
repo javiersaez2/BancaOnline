@@ -27,7 +27,7 @@ miApp.controller('miControlador', function($scope, $http){
                 console.log("bien")
                 codSecretoKont = 0;
                 if (response.data.tipo == 1){
-                    window.location.href = "/view/html/paginaAdmin.html";
+                    window.location.href = "view/html/paginaAdmin.html";
                 } else {
                     window.location.href = "index.html";
                 }
@@ -64,7 +64,7 @@ miApp.controller('miControlador', function($scope, $http){
                 $scope.iniciarSesionSection = false; 
                 $scope.butonLogOut = true;
                 if (response.data.tipo == 1){
-                    window.location.href = "/view/html/paginaAdmin.html";
+                    window.location.href = "view/html/paginaAdmin.html";
                 } else {
                     if (window.location == "index.html"){
                         window.location.href = "index.html";
