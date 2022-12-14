@@ -1,13 +1,14 @@
 <?php
-require_once '../model/userModel.php';
+include_once '../model/clienteModel.php';
 
 session_start();
 
 $response=array();
 
-if ((isset($_SESSION['userName']))){
+if ((isset($_SESSION['izena']))){
     
-    $response['userName']= $_SESSION['userName'];
+    $response['izena']= $_SESSION['izena'];
+    $response['tipo']= $_SESSION['tipo'];
     $response['error']="logged";
     
 } else{

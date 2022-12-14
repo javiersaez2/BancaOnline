@@ -28,7 +28,7 @@
  
 
 
-    <section ng-controller="miControlador">
+    <section ng-controller="miControlador" ng-show="iniciarSesionSection" ng-init="loggedVerify()">
 
         <label for="nombre">Nombre</label>
         <input type="text" ng-model="izenaData">
