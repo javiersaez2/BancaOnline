@@ -153,19 +153,19 @@ header {
   aspect-ratio: 4.4/2;
 }
 #portada .center {
-  right: 0;
-  top: 60%;
+  right: 40%;
+  top: 35%;
   position: absolute;
   margin: 0;
   background: #a34ae3;
-  padding: 20px;
-  padding-right: 30%;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  border-right: 20px solid rgb(196, 140, 236);
   border-left: 20px solid rgb(196, 140, 236);
   border-top: 20px solid #B57EDC;
   border-bottom: 20px solid #B57EDC;
@@ -182,41 +182,7 @@ header {
   text-decoration: none;
   text-transform: uppercase;
   font-family: "Noto Sans", sans-serif;
-  margin-top: 20px;
-}
-#portada .center .btn:after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  outline: 2px solid #fff;
-  opacity: 0.2;
-  transition: all 0.3s;
-  -webkit-animation: pulse 2s infinite alternate;
-          animation: pulse 2s infinite alternate;
-}
-@-webkit-keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.2;
-  }
-  100% {
-    transform: scale(1.1, 1.25);
-    opacity: 0.5;
-  }
-}
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.2;
-  }
-  100% {
-    transform: scale(1.1, 1.25);
-    opacity: 0.5;
-  }
+  margin-top: 5px;
 }
 
 #quienesSomos {
