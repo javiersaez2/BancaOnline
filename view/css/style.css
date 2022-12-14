@@ -23,7 +23,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: black;
+  background: -webkit-linear-gradient(120deg, #7ED4DC, #B57EDC);
   padding: 1rem 2rem;
 }
 
