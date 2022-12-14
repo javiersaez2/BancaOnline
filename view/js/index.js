@@ -20,7 +20,7 @@ miApp.controller('miControlador', function($scope, $http){
         $http({
             url: 'controller/cLogin.php',
             method: "POST",
-            params: {data: JSON.stringify({izena: izena, pasahitza: pasahitza, codSecreto: codSecreto})}
+            params: {data: JSON.stringify({izena: izena, pasahitza: pasahitza, codSecreto: codSecreto, contador:codSecretoKont})}
         }).then(function (response) {
             console.log(response);
             if (response.data.error == "no error"){

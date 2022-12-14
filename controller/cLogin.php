@@ -9,6 +9,7 @@ $user->pass=$data->pasahitza;
 if (!empty($data->codSecreto)){
     $user->codSecreto=$data->codSecreto;    
 }
+$user->cont=$data->contador;
 
 $list = $user->setUserData();
 $response = array();
@@ -32,7 +33,7 @@ if ($list["check"] == 0) {
     else if ($list["check"] == -1){
         $response["error"] = "WRONG PASSWORD";
     } else if ($list["check"] == -2){
-        $response["error"] = "WRONG SECRET CODE";
+        $response["error"] = "WRONG KEYWORD";
     }
 }
 
