@@ -3,3 +3,12 @@
     justify-content: center;
     
 }
+
+@mixin bx{
+    cursor: pointer;
+	background: -webkit-linear-gradient( 120deg, $color-secundario, $color-principal );
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	display: none !important;
+    
+}
