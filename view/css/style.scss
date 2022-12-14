@@ -26,7 +26,6 @@
         width: 40%;
         @include flexcenter();
         flex-direction: column;
-        justify-content: space-between !important; 
         margin-top: 3%;
         margin-bottom: 3%;
 
@@ -34,15 +33,16 @@
             text-align: $centrar;
             color: $color-blanco;
             margin-bottom: 10%;
+            margin: 3%;
             height: 4%;
         }
 
         #infoSomos{
-            height: 95%;
+            height: 94%;
 
             p{
                 color: $color-blanco;
-                margin: 1%;
+                margin: 3%;
             }
         }
 
