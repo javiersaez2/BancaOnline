@@ -12,42 +12,6 @@
             //object-fit: contain;
         }
     }
-    
-    .center {
-        right: 40%;
-        top: 35%;
-        position: absolute;
-        margin: 0;
-        background: $color-terciario1;
-        padding: 5px;
-
-        display: flex;
-        align-items:center;
-        justify-content: center;
-        @include flexcenter();
-        flex-direction: column;
-
-        border-right: 20px solid $color-terciario3;
-        border-left: 20px solid $color-terciario3;
-        border-top: 20px solid $color-principal;
-        border-bottom: 20px solid $color-principal;
-        opacity: .9;
-
-        .btn {
-            display: inline-block;
-            position: relative;
-            cursor: pointer;
-            color: #fff;
-            font-size: 25px;
-            color: #fff;
-            padding: 20px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-family: 'Noto Sans', sans-serif;
-            margin-top: 5px;
-        }
-         
-    }
 
 }
 
