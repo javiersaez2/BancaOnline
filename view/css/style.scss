@@ -2,3 +2,19 @@
 @import "_funcion";
 @import "_nav";
 @import "_index";
+
+#quienesSomos{
+    @include flexcenter();
+    background-color: aquamarine;
+
+    #imagenSomos{
+
+        img{
+
+        }
+    }
+
+    #contenidoSomos{
+
+    }
+}

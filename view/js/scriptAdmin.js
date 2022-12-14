@@ -46,6 +46,7 @@ MyApp.controller('miController', function($scope, $http){
        
         
         if ($scope.contrsenaIns != $scope.vefIns) {
+            alert("Las claves no coinciden");
             return false;
         }
         
