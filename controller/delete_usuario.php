@@ -3,7 +3,7 @@
 require_once '../model/clienteModel.php';
 
 $dniCliente = $_GET['value'];
-echo $dniCliente;
+//echo $dniCliente;
 $cliente = new clienteModel();
 $cliente->setdniCliente($dniCliente);
 $cliente->delete();
