@@ -152,21 +152,23 @@ header {
   aspect-ratio: 4.4/2;
 }
 #portada .center {
-  left: 65%;
-  top: 30%;
+  right: 0;
+  top: 60%;
   position: absolute;
   margin: 0;
   background: #a34ae3;
+  padding: 20px;
+  padding-right: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border-right: 20px solid black;
-  border-left: 20px solid black;
+  border-left: 20px solid rgb(196, 140, 236);
   border-top: 20px solid #B57EDC;
   border-bottom: 20px solid #B57EDC;
+  opacity: 0.9;
 }
 #portada .center .btn {
   display: inline-block;
@@ -179,6 +181,7 @@ header {
   text-decoration: none;
   text-transform: uppercase;
   font-family: "Noto Sans", sans-serif;
+  margin-top: 20px;
 }
 #portada .center .btn:after {
   content: "";

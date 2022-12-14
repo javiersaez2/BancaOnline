@@ -18,21 +18,24 @@
     }
     
     .center {
-        left: 65%;
-        top: 30%;
+        right: 0;
+        top: 60%;
         position: absolute;
         margin: 0;
         background: $color-terciario1;
+        padding: 20px;
+        padding-right: 30%;
+
         display: flex;
         align-items:center;
         justify-content: center;
         @include flexcenter();
         flex-direction: column;
 
-        border-right: 20px solid $color-negro;
-        border-left: 20px solid $color-negro;
+        border-left: 20px solid $color-terciario3;
         border-top: 20px solid $color-principal;
         border-bottom: 20px solid $color-principal;
+        opacity: .9;
 
         .btn {
             display: inline-block;
@@ -45,6 +48,7 @@
             text-decoration: none;
             text-transform: uppercase;
             font-family: 'Noto Sans', sans-serif;
+            margin-top: 20px;
         }
          
         .btn:after {
