@@ -81,7 +81,7 @@
 #quienesSomos{
     @include flexcenter();
     flex-direction: row;
-    background-color: $color-terciario1;
+    background-color: $color-blanco;
 
     justify-content: space-evenly !important; 
     width: 100%;
@@ -104,7 +104,7 @@
         flex-direction: column;
         margin-top: 3%;
         margin-bottom: 3%;
-        color: $color-blanco;
+        color: $color-negro;
 
         h2{
             text-align: $centrar;

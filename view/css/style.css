@@ -222,7 +222,7 @@ header {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  background-color: #a34ae3;
+  background-color: #fbfbfb;
   justify-content: space-evenly !important;
   width: 100%;
 }
@@ -244,7 +244,7 @@ header {
   flex-direction: column;
   margin-top: 3%;
   margin-bottom: 3%;
-  color: #fbfbfb;
+  color: black;
 }
 #quienesSomos #contenidoSomos h2 {
   text-align: center;
