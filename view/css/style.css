@@ -1,28 +1,10 @@
 @import "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400";
-/* ================= VARIABLE ================ */
-/* ================= BASE ==================== */
-/* -- BODY -- */
-/* ================= HEADER ================ */
-/* =============== MEDIA QUERIES ======= */
-/* ================= HEADER ================ */
 * {
   padding: 0;
   margin: 0;
 }
 
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-img {
-  width: 100%;
-  height: auto;
-}
-
+/* ================= HEADER ================ */
 .bx {
   font-size: 2.5rem;
 }
@@ -105,6 +87,7 @@ header {
   display: none !important;
 }
 
+/* =============== MEDIA QUERIES ======= */
 @media screen and (max-width: 768px) {
   .container {
     padding: 0 1rem;

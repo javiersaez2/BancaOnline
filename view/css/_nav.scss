@@ -1,26 +1,12 @@
 @import "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400";
-/* ================= VARIABLE ================ */
-/* ================= BASE ==================== */
-/* -- BODY -- */
-/* ================= HEADER ================ */
-/* =============== MEDIA QUERIES ======= */
-/* ================= HEADER ================ */
+
 * {
 	padding: 0;
 	margin: 0;
 	
 }
+/* ================= HEADER ================ */
 
-li {
-	list-style: none;
-}
-a {
-	text-decoration: none;
-}
-img {
-	width: 100%;
-	height: auto;
-}
 .bx {
 	font-size: 2.5rem;
 }
@@ -37,9 +23,9 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	background-color: $color-negro;
-	padding: 1rem 2rem;
+	padding: $header-padding;
 }
-.company-logo {
+.company-logo {/////IMAGEN DEL LOGO
 	font-size: 2.5rem;
 	background: -webkit-linear-gradient( 120deg, $color-secundario, $color-principal );
 	-webkit-background-clip: text;
@@ -47,13 +33,13 @@ header {
 }
 .nav-items {
 	display: flex;
-}
-.nav-item {
-	margin: 0 2rem;
+    }
+    .nav-item {
+	margin: $nav-item-margin;
 }
 .nav-link {
-	font-size: 1.1rem;
-	letter-spacing: 0.05rem;
+	font-size: $nav-link-fontsize;
+	letter-spacing: $nav-link-letterspacing;
 	position: relative;
 	background: -webkit-linear-gradient( $color-secundario, $color-principal );
 	-webkit-background-clip: text;
@@ -81,19 +67,14 @@ header {
 	display: none;
 }
 .bx-menu {
-	cursor: pointer;
-	background: -webkit-linear-gradient( 120deg, $color-secundario, $color-principal );
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	display: none !important;
+	@include bx();
 }
 .bx-x {
-	cursor: pointer;
-	background: -webkit-linear-gradient( 120deg, $color-secundario, $color-principal );
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	display: none !important;
+	@include bx();
 }
+
+
+/* =============== MEDIA QUERIES ======= */
 @media screen and (max-width: 768px) {
 	.container {
 		padding: 0 1rem;
