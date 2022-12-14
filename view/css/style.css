@@ -152,16 +152,21 @@ header {
   aspect-ratio: 4.4/2;
 }
 #portada .center {
-  left: 50%;
-  top: 50%;
+  left: 65%;
+  top: 30%;
   position: absolute;
-  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%, 0% 50%);
-          clip-path: polygon(50% 0%, 0% 100%, 100% 100%, 0% 50%);
   margin: 0;
-  background: #ba68c8;
+  background: #a34ae3;
   display: flex;
   align-items: center;
   justify-content: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-right: 20px solid black;
+  border-left: 20px solid black;
+  border-top: 20px solid #B57EDC;
+  border-bottom: 20px solid #B57EDC;
 }
 #portada .center .btn {
   display: inline-block;

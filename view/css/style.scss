@@ -18,15 +18,21 @@
     }
     
     .center {
-        left: 50%;
-        top: 50%;
+        left: 65%;
+        top: 30%;
         position: absolute;
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%, 0% 50%);
         margin: 0;
-        background: #ba68c8;
+        background: $color-terciario1;
         display: flex;
         align-items:center;
         justify-content: center;
+        @include flexcenter();
+        flex-direction: column;
+
+        border-right: 20px solid $color-negro;
+        border-left: 20px solid $color-negro;
+        border-top: 20px solid $color-principal;
+        border-bottom: 20px solid $color-principal;
 
         .btn {
             display: inline-block;
@@ -53,6 +59,7 @@
             opacity: .2;
             transition: all .3s;
             animation: pulse 2s infinite alternate;
+            
         }
     }
     @keyframes pulse {
