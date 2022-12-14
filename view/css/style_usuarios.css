@@ -154,27 +154,29 @@ section .tbl-content {
 }
 section .tbl-content .tarjetas {
   position: relative;
-  border: 1px solid rgba(80, 80, 80, 0.5);
   margin: 5px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  box-shadow: 35px 35px 68px 0px rgba(181, 126, 220, 0.5), inset -8px -8px 16px 0px rgba(181, 126, 220, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
 }
 section .tbl-content .tarjetas .columna2 {
   color: white;
-  width: 110px;
+  width: 100px;
   height: 25px;
   padding: 5px;
-  background-color: rgba(49, 49, 49, 0.2);
 }
 section .tbl-content .tarjetas .columna1 {
   color: white;
   width: 130px;
   height: 25px;
   padding: 5px;
-  background-color: rgba(49, 49, 49, 0.2);
 }
 
 /* demo styles */
 body {
-  background: linear-gradient(to right, #25c481, #25b7c4);
+  background: linear-gradient(to right, #B57EDC, #7ED4DC);
   font-family: "Roboto", sans-serif;
 }
 
