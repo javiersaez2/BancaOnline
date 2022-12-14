@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba de despliegue cPanel</title>
+    <link href="view/css/style.css" rel="stylesheet" type="text/css" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body ng-app="miApp">
+
+<!--HEADER-->
+<header>
+    <section ng-controller="miControlador" ng-init="loggedVerify()">
+        <div ng-show="iniciarSesionSection">
+            <label for="nombre">Nombre</label>
+            <input type="text" ng-model="izenaData">
+
+                <br>
+            <div ng-show="passMostrar">
+                <label for="Contraseña">Contraseña</label>
+                <input type="text" ng-model="pasahitzaData">
+            </div>
+
+            <br>
+            <div ng-show="codSecretoMostrar">
+                <label for="Contraseña">Codigo Secreto</label>
+                <input type="text" ng-model="CodSecretoData">
+            </div>
+
+            <button ng-click="comprobarDatosSesion()">Login</button>
+        </div>
+        <button ng-show="butonLogOut" ng-click="logout()">LOG OUT</button>
+    </section>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/index.js" type="text/javascript"></script>
+    <script src="../js/nav.js" type="text/javascript"></script>
+</body>
+
+</html>
