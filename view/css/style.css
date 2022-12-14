@@ -23,13 +23,13 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: black;
+  background: -webkit-linear-gradient(120deg, #7ED4DC, #B57EDC);
   padding: 1rem 2rem;
 }
 
 .company-logo {
   font-size: 2.5rem;
-  background: -webkit-linear-gradient(120deg, #7ED4DC, #B57EDC);
+  background-color: #fbfbfb;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -46,13 +46,13 @@ header {
   font-size: 1.1rem;
   letter-spacing: 0.05rem;
   position: relative;
-  background: -webkit-linear-gradient(#7ED4DC, #B57EDC);
+  background: #fbfbfb;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .nav-link::before {
   content: "";
-  background: linear-gradient(#B57EDC, #7ED4DC);
+  background: #fbfbfb;
   width: 100%;
   height: 0.05rem;
   position: absolute;
@@ -138,4 +138,45 @@ header {
   header {
     padding: 1rem 5rem;
   }
+}
+#quienesSomos {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly !important;
+  background-color: #a34ae3;
+  width: 100%;
+}
+#quienesSomos #imagenSomos {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+#quienesSomos #imagenSomos img {
+  width: 100%;
+  height: 400px;
+}
+#quienesSomos #contenidoSomos {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+#quienesSomos #contenidoSomos h2 {
+  text-align: center;
+  color: #fbfbfb;
+  margin-bottom: 10%;
+  margin: 3%;
+  height: 4%;
+}
+#quienesSomos #contenidoSomos #infoSomos {
+  height: 94%;
+}
+#quienesSomos #contenidoSomos #infoSomos p {
+  color: #fbfbfb;
+  margin: 3%;
 }/*# sourceMappingURL=style.css.map */

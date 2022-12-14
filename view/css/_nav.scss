@@ -22,12 +22,17 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+<<<<<<< HEAD
 	background-color: $color-negro;
 	padding: $header-padding;
+=======
+	background: -webkit-linear-gradient( 120deg, $color-secundario, $color-principal );
+	padding: 1rem 2rem;
+>>>>>>> 900c3e75f94278b398eccb044da731a047e26005
 }
 .company-logo {/////IMAGEN DEL LOGO
 	font-size: 2.5rem;
-	background: -webkit-linear-gradient( 120deg, $color-secundario, $color-principal );
+	background-color: $color-blanco;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -41,12 +46,12 @@ header {
 	font-size: $nav-link-fontsize;
 	letter-spacing: $nav-link-letterspacing;
 	position: relative;
-	background: -webkit-linear-gradient( $color-secundario, $color-principal );
+	background: $color-blanco;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	&::before {
 		content: "";
-		background: linear-gradient($color-principal, $color-secundario);
+		background: $color-blanco;
 		width: 100%;
 		height: 0.05rem;
 		position: absolute;

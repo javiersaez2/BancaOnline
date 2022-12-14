@@ -6,7 +6,9 @@ $data=json_decode($_GET["data"]);
 $user = new clienteModel();
 $user->izena=$data->izena;
 $user->pass=$data->pasahitza;
-$user->codSecreto=$data->codSecreto;
+if (!empty($data->codSecreto)){
+    $user->codSecreto=$data->codSecreto;    
+}
 
 $list = $user->setUserData();
 $response = array();

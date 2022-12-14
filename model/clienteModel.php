@@ -43,7 +43,7 @@ class clienteModel extends clienteclass{
         $tipo = -1;
         if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
             if ($this->link->affected_rows == 1){
-                if ($codSecreto != " " || $pasahitza != ""){
+                if ($codSecreto != null && $pasahitza != null){
                     if ($pasahitza == $row["pasahitza"]){
                         $check = 1;
                         $tipo = $row["tipo"];
