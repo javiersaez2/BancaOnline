@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="MyApp">
-
 <head>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,13 +30,13 @@
     </div>
   </header>
 
-  <div id="zonaInsertar" ng-show="insertarVista == 'true'">
+  <div id="zonaInsertar" ng-show="insertarVista == 'true'">   
     <div class="wrapper">
-      <h3>Insertar y Modificar</h3>
+      <h3>Insertar</h3>
       <form action="#">
         <p>
           <label for="dni">DNI</label>
-          <input type="text" ng-model="dniIns">
+          <input type="text" ng-model="dniIns" id="dniIns">
         </p>
         <p>
           <label for="nombre">Nombre Cliente</label>
@@ -47,16 +47,43 @@
           <input type="password" ng-model="contrsenaIns">
         </p>
         <p>
-          <label for="contrasena2">Verificar Contrasena</label>
-          <input type="password" ng-model="vefIns">
+            <label for="contrasena2">Verificar Contrasena</label>
+            <input type="password" ng-model="vefIns">
         </p>
 
         <button ng-click="nuevoCliente()">NUEVO</button>
-        <button ng-click="guardarCliente()">Guardar Modificaciones</button>
-
+        
       </form>
-    </div>
+    </div>  
   </div>
+
+  <div id="zonaModificar" ng-show="modificarVista == 'true'">   
+    <div class="wrapper">
+      <h3>Modificar</h3>
+      <form action="#">
+        <p>
+          <label for="dni">DNI</label>
+          <input type="text" ng-model="dniModificar" id="dniModificar">
+        </p>
+        <p>
+          <label for="nombre">Nombre Cliente</label>
+          <input type="text" ng-model="nombreModificar">
+        </p>
+        <p>
+          <label for="contrasena">Contrasena</label>
+          <input type="text" ng-model="contrasenaModificar">
+        </p>
+        <p>
+            <label for="contrasena2">Verificar Contrasena</label>
+            <input type="text" ng-model="vefModificar">
+        </p>
+
+        <button ng-click="guardarCliente()">Guardar Modificaciones</button>
+        
+      </form>
+    </div>  
+  </div>
+
 
   <section>
     <button ng-click="nuevoUsuario()">Añadir nuevo usuario</button>
@@ -108,8 +135,26 @@
               </td>
             </tr>
             <tr>
+              <td class="columna1">
+                Cuenta corriente
+          </td>
+          <td class="columna2">
+            ES12 2090 0000 29 0350000083
+
+          </td>
+        </tr>
+        <tr>
+          <td class="columna1">
+            Cuenta corriente
+      </td>
+      <td class="columna2">
+        ES12 2090 0000 29 0350000083
+
+      </td>
+    </tr>
+            <tr>
                   <td class="columna1">
-                <button ng-click="modificarUsuario($index,fila)">Modificar</button>
+                 <button ng-click="modificarUsuario($index,fila)">Modificar</button>
               </td>
               <td class="columna2">
                 <i class="fa-solid fa-user-minus fa-1xl" ng-click="borrarUsuario($index,fila)"></i>
