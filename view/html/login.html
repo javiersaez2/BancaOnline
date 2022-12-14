@@ -17,7 +17,7 @@
             <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
             <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
             <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">LOGIN</a></li>
+            <li class="nav-item"><a href="#" class="nav-link" >LOGIN</a></li>
             <li class="nav-item"><button ng-show="butonLogOut" ng-click="logout()">LOG OUT</button></li>
             </ul>
             
@@ -28,8 +28,8 @@
         </div>
     </header>
 
-    <section ng-controller="miControlador" ng-init="loggedVerify()">
-        <div ng-show="iniciarSesionSection">
+     <section ng-controller="miControlador" ng-init="loggedVerify()">
+     <!--   <div ng-show="iniciarSesionSection">
             <label for="nombre">Nombre</label>
             <input type="text" ng-model="izenaData">
 
@@ -47,10 +47,30 @@
 
             <button ng-click="comprobarDatosSesion()">Login</button>
         </div>
-        <button ng-show="butonLogOut" ng-click="logout()">LOG OUT</button>
-    </section>
+        
+        -->
+    
 
-  
+    <div class="box" ng-show="iniciarSesionSection">
+        <h2>Login</h2>
+        <form>
+          <div class="inputBox">
+            <input type="text" ng-model="izenaData">
+            <label>Nombre</label>
+          </div>
+          <div class="inputBox" ng-show="passMostrar">
+            <input type="text" ng-model="pasahitzaData">
+            <label>Contraseña</label>
+          </div>
+          <div class="inputBox" ng-show="codSecretoMostrar">
+            <input type="text" ng-model="CodSecretoData">
+            <label>Codigo Secreto</label>
+          </div>
+          <input type="submit" value="Submit" ng-click="comprobarDatosSesion()">
+        </form>
+        <button ng-show="butonLogOut" ng-click="logout()">LOG OUT</button>
+      </div>
+    </section> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/index.js" type="text/javascript"></script>
     <script src="../js/nav.js" type="text/javascript"></script>
