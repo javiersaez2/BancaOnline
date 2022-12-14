@@ -43,7 +43,7 @@ class clienteModel extends clienteclass{
         $tipo = -1;
         if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
             if ($this->link->affected_rows == 1){
-                if ($codSecreto == null){
+                if ($codSecreto != " " || $pasahitza != ""){
                     if ($pasahitza == $row["pasahitza"]){
                         $check = 1;
                         $tipo = $row["tipo"];
@@ -166,10 +166,10 @@ class clienteModel extends clienteclass{
         
         
         $sql = "update cliente
-        set dniCliente=$dniCliente,
+        set dniCliente='$dniCliente',
         nombre='$nombre',
         pasahitza='$pasahitza'
-        where dniCliente=$dniCliente";
+        where dniCliente='$dniCliente'";
         
         $this->link->query($sql);
         
@@ -182,6 +182,9 @@ class clienteModel extends clienteclass{
         }
         $this->CloseConnect();
     }
+<<<<<<< HEAD
     
    
+=======
+>>>>>>> 777f0da64659d0b2dd88f43d2429fdff30505aa9
 }
