@@ -2,6 +2,7 @@ var miApp=angular.module('miApp',[]);
 miApp.controller('miControlador', function($scope, $http){
     var codSecretoKont = 0;
     $scope.passMostrar = true;
+    $scope.iniciarSesionSection = true; 
     
     $scope.comprobarDatosSesion=function() {
         if ($scope.CodSecretoData == undefined || $scope.CodSecretoData == ""){
@@ -42,7 +43,37 @@ miApp.controller('miControlador', function($scope, $http){
                 $scope.passMostrar = false;
             }
         }).catch(function () {
-            console.error("Ocurrio un error", response.status, response.data)
+            console.error("Ocurrio un error", response.status, response.data);
         })  
     }
+
+
+    $scope.loggedVerify=function() {
+        console.log("aaa")
+
+        $http({
+            url: "../../controller/cLoggedVerify.php",
+            method: "GET"
+        }).then(function (response) {
+            console.log(response.data.izena);
+            console.log(response.data.error);
+
+            if (response.data.error != "logged"){
+                console.log("a");
+                alert(result.data.error);
+                window.location.href="../index.html"
+            } else {
+                console.log("b");
+                alert("Your login is " + result.data.izena);
+                $scope.iniciarSesionSection = false; 
+                if (response.data.tipo == 1){
+                    window.location.href = "/view/html/paginaAdmin.html";
+                } else {
+                    window.location.href = "/index.html";
+                }
+            }
+        }).catch(function () {
+            console.error("Ocurrio un error", response.status, response.data);
+        })	   
+    }	
 });

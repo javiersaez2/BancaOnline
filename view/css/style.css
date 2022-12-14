@@ -139,6 +139,15 @@ header {
     padding: 1rem 5rem;
   }
 }
+#portada {
+  margin: 0;
+}
+#portada #imagenPortada img {
+  width: 100%;
+  opacity: 0.6;
+  aspect-ratio: 4.7/2;
+}
+
 #quienesSomos {
   display: flex;
   justify-content: center;

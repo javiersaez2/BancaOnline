@@ -3,6 +3,21 @@
 @import "_nav";
 @import "_index";
 
+
+#portada{
+    margin: 0;
+
+    #imagenPortada{
+
+        img{
+            width: 100%;
+            opacity: .6;
+            aspect-ratio: 4.7/2;
+            //object-fit: contain;
+        }
+    }
+}
+
 #quienesSomos{
     @include flexcenter();
     flex-direction: row;
