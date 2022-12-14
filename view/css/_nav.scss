@@ -22,13 +22,10 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-<<<<<<< HEAD
 	background-color: $color-negro;
 	padding: $header-padding;
-=======
 	background: -webkit-linear-gradient( 120deg, $color-secundario, $color-principal );
 	padding: 1rem 2rem;
->>>>>>> 900c3e75f94278b398eccb044da731a047e26005
 }
 .company-logo {/////IMAGEN DEL LOGO
 	font-size: 2.5rem;

@@ -23,6 +23,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: black;
+  padding: 1rem 2rem;
   background: -webkit-linear-gradient(120deg, #7ED4DC, #B57EDC);
   padding: 1rem 2rem;
 }
@@ -139,6 +141,14 @@ header {
     padding: 1rem 5rem;
   }
 }
+#portada {
+  margin: 0;
+}
+#portada #imagenPortada img {
+  width: 100%;
+  height: 500px;
+}
+
 #quienesSomos {
   display: flex;
   justify-content: center;
