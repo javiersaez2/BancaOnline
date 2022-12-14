@@ -140,12 +140,74 @@ header {
   }
 }
 #portada {
+  position: relative;
   margin: 0;
+}
+#portada #imagenPortada {
+  position: relative;
 }
 #portada #imagenPortada img {
   width: 100%;
   opacity: 0.6;
   aspect-ratio: 4.4/2;
+}
+#portada .center {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%, 0% 50%);
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%, 0% 50%);
+  margin: 0;
+  background: #ba68c8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#portada .center .btn {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  color: #fff;
+  font-size: 25px;
+  color: #fff;
+  padding: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Noto Sans", sans-serif;
+}
+#portada .center .btn:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  outline: 2px solid #fff;
+  opacity: 0.2;
+  transition: all 0.3s;
+  -webkit-animation: pulse 2s infinite alternate;
+          animation: pulse 2s infinite alternate;
+}
+@-webkit-keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.1, 1.25);
+    opacity: 0.5;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.1, 1.25);
+    opacity: 0.5;
+  }
 }
 
 #quienesSomos {
@@ -187,62 +249,4 @@ header {
 }
 #quienesSomos #contenidoSomos #infoSomos p {
   margin: 3%;
-}
-
-.btn {
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  color: #fff;
-  font-size: 25px;
-  color: #fff;
-  padding: 20px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: "Noto Sans", sans-serif;
-}
-
-.btn:after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  outline: 2px solid #fff;
-  opacity: 0.2;
-  transition: all 0.3s;
-  -webkit-animation: pulse 2s infinite alternate;
-          animation: pulse 2s infinite alternate;
-}
-
-.center {
-  margin: 0;
-  background: #ba68c8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@-webkit-keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.2;
-  }
-  100% {
-    transform: scale(1.1, 1.25);
-    opacity: 0.5;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.2;
-  }
-  100% {
-    transform: scale(1.1, 1.25);
-    opacity: 0.5;
-  }
 }/*# sourceMappingURL=style.css.map */
