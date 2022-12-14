@@ -37,6 +37,7 @@ header {
 
 .nav-items {
   display: flex;
+  list-style: none;
 }
 
 .nav-item {
