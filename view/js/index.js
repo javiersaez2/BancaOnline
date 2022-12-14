@@ -3,7 +3,7 @@ miApp.controller('miControlador', function($scope, $http){
     var codSecretoKont = 0;
     $scope.passMostrar = true;
     $scope.iniciarSesionSection = true; 
-    
+
     $scope.comprobarDatosSesion=function() {
         if ($scope.CodSecretoData == undefined || $scope.CodSecretoData == ""){
             $scope.CodSecretoData = " ";
@@ -49,31 +49,42 @@ miApp.controller('miControlador', function($scope, $http){
 
 
     $scope.loggedVerify=function() {
-        console.log("aaa")
-
         $http({
             url: "../../controller/cLoggedVerify.php",
-            method: "GET"
+            method: "POST"
         }).then(function (response) {
-            console.log(response.data.izena);
-            console.log(response.data.error);
-
             if (response.data.error != "logged"){
-                console.log("a");
-                alert(result.data.error);
-                window.location.href="../index.html"
+                alert(response.data.error);
+                if (window.location == "/index.html"){
+                    window.location.href="/index.html"
+                }
+                $scope.iniciarSesionSection = true;
             } else {
-                console.log("b");
-                alert("Your login is " + result.data.izena);
+                alert("Your login is " + response.data.izena);
                 $scope.iniciarSesionSection = false; 
+                $scope.butonLogOut = true;
                 if (response.data.tipo == 1){
                     window.location.href = "/view/html/paginaAdmin.html";
                 } else {
-                    window.location.href = "/index.html";
+                    if (window.location == "/index.html"){
+                        window.location.href = "/index.html";
+                    }
                 }
             }
-        }).catch(function () {
+        }).catch(function (response) {
             console.error("Ocurrio un error", response.status, response.data);
         })	   
     }	
+
+    $scope.logout=function(){
+        $http({
+            url: "../../controller/cLogout.php",
+            method: "POST"
+        }).then(function () {
+            window.location.href = "/index.html";
+            $scope.butonLogOut = false;
+        }).catch(function () {
+            console.error("Ocurrio un error", response.status, response.data);
+        })	
+    }
 });

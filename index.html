@@ -28,25 +28,28 @@
   </header>
  
 
+    <section ng-controller="miControlador" ng-init="loggedVerify()">
 
-    <section ng-controller="miControlador" ng-show="iniciarSesionSection" ng-init="loggedVerify()">
+        <div ng-show="iniciarSesionSection">
+            <label for="nombre">Nombre</label>
+            <input type="text" ng-model="izenaData">
 
-        <label for="nombre">Nombre</label>
-        <input type="text" ng-model="izenaData">
+                <br>
+            <div ng-show="passMostrar">
+                <label for="Contraseña">Contraseña</label>
+                <input type="text" ng-model="pasahitzaData">
+            </div>
 
             <br>
-        <div ng-show="passMostrar">
-            <label for="Contraseña">Contraseña</label>
-            <input type="text" ng-model="pasahitzaData" ng-minlength="1">
-        </div>
+            <div ng-show="codSecretoMostrar">
+                <label for="Contraseña">Codigo Secreto</label>
+                <input type="text" ng-model="CodSecretoData">
+            </div>
 
-        <br>
-        <div ng-show="codSecretoMostrar">
-            <label for="Contraseña">Codigo Secreto</label>
-            <input type="text" ng-model="CodSecretoData" ng-minlength="1">
+            <button ng-click="comprobarDatosSesion()">Login</button>
         </div>
+        <button ng-show="butonLogOut" ng-click="logout()">LOG OUT</button>
 
-        <button ng-click="comprobarDatosSesion()">Login</button>
     </section>
 
 

@@ -94,26 +94,35 @@ MyApp.controller('miController', function($scope, $http){
 
     }
     $scope.guardarCliente=function(){
+        dniCliente=$scope.dniModificar;
+        nombre=$scope.nombreModificar;
+        pasahitza= $scope.contrasenaModificar;
+        if($scope.contrasenaModificar==$scope.vefModificar){
+            $http({
+                url: "../../controller/controller_update.php",
+                method: "POST",
+                params: { 'dniCliente': dniCliente,'nombre':nombre,'pasahitza':pasahitza }
+            }).then(function(response) {
+                alert("Los datos han guardado")
+                $scope.modificarVista = 'false';
+                verusuarios()
+            })
+            .catch(function(response) {
+                console.error('Error occurred:', response.status, response.data)
+            })
+        }else{
+            alert("Contraseñas no son iguales")
+        }
+    }
 
-            dniCliente=$scope.dniModificar;
-            nombre=$scope.nombreModificar;
-            pasahitza= $scope.contrasenaModificar;
-            if($scope.contrasenaModificar==$scope.vefModificar){
-                $http({
-                    url: "../../controller/controller_update.php",
-                    method: "POST",
-                    params: { 'dniCliente': dniCliente,'nombre':nombre,'pasahitza':pasahitza }
-                }).then(function(response) {
-                    alert("Los datos han guardado")
-                    $scope.modificarVista = 'false';
-                    verusuarios()
-                })
-                .catch(function(response) {
-                    console.error('Error occurred:', response.status, response.data)
-                })
-            }else{
-                alert("Contraseñas no son iguales")
-            }
-
+    $scope.logout=function(){
+        $http({
+            url: "../../controller/cLogout.php",
+            method: "POST"
+        }).then(function () {
+            window.location.href = "/index.html";
+        }).catch(function () {
+            console.error("Ocurrio un error", response.status, response.data);
+        })	
     }
 })
