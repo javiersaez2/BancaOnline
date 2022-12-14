@@ -42,7 +42,7 @@ miApp.controller('miControlador', function($scope, $http){
                 $scope.codSecretoMostrar = true;
                 $scope.passMostrar = false;
             }
-        }).catch(function () {
+        }).catch(function (response) {
             console.error("Ocurrio un error", response.status, response.data);
         })  
     }
