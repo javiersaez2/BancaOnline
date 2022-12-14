@@ -33,17 +33,6 @@ header {
   background-color: #fbfbfb;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: flex;
-  justify-content: center;
-}
-.company-logo img {
-  width: 100%;
-  height: 90px;
-  border: 2px solid #a34ae3;
-}
-.company-logo p {
-  margin-top: 10%;
-  margin-left: 20px;
 }
 
 .nav-items {
