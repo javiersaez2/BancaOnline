@@ -29,7 +29,7 @@ miApp.controller('miControlador', function($scope, $http){
                 if (response.data.tipo == 1){
                     window.location.href = "/view/html/paginaAdmin.html";
                 } else {
-                    window.location.href = "/index.html";
+                    window.location.href = "index.html";
                 }
             }else {
                 alert(response.data.error);
