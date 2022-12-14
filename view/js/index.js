@@ -18,7 +18,7 @@ miApp.controller('miControlador', function($scope, $http){
         var izena = $scope.izenaData; var pasahitza = $scope.pasahitzaData; var codSecreto = $scope.CodSecretoData;
 
         $http({
-            url: 'controller/cLogin.php',
+            url: '../../controller/cLogin.php',
             method: "POST",
             params: {data: JSON.stringify({izena: izena, pasahitza: pasahitza, codSecreto: codSecreto, contador:codSecretoKont})}
         }).then(function (response) {
@@ -27,9 +27,9 @@ miApp.controller('miControlador', function($scope, $http){
                 console.log("bien")
                 codSecretoKont = 0;
                 if (response.data.tipo == 1){
-                    window.location.href = "view/html/paginaAdmin.html";
+                    window.location.href = "../html/paginaAdmin.html";
                 } else {
-                    window.location.href = "index.html";
+                    window.location.href = "../../index.html";
                 }
             }else {
                 alert(response.data.error);
@@ -50,13 +50,13 @@ miApp.controller('miControlador', function($scope, $http){
 
     $scope.loggedVerify=function() {
         $http({
-            url: "controller/cLoggedVerify.php",
+            url: "../../controller/cLoggedVerify.php",
             method: "POST"
         }).then(function (response) {
             if (response.data.error != "logged"){
                 alert(response.data.error);
-                if (window.location == "index.html"){
-                    window.location.href="index.html"
+                if (window.location == "../../index.html"){
+                    window.location.href="../../index.html"
                 }
                 $scope.iniciarSesionSection = true;
             } else {
@@ -64,10 +64,10 @@ miApp.controller('miControlador', function($scope, $http){
                 $scope.iniciarSesionSection = false; 
                 $scope.butonLogOut = true;
                 if (response.data.tipo == 1){
-                    window.location.href = "view/html/paginaAdmin.html";
+                    window.location.href = "../html/paginaAdmin.html";
                 } else {
-                    if (window.location == "index.html"){
-                        window.location.href = "index.html";
+                    if (window.location == "../../index.html"){
+                        window.location.href = "../../index.html";
                     }
                 }
             }
@@ -78,10 +78,10 @@ miApp.controller('miControlador', function($scope, $http){
 
     $scope.logout=function(){
         $http({
-            url: "controller/cLogout.php",
+            url: "../../controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "index.html";
+            window.location.href = "../../index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);

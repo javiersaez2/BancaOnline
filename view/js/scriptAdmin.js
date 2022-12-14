@@ -1,6 +1,8 @@
 var MyApp = angular.module('MyApp',[]);
 
 MyApp.controller('miController', function($scope, $http){
+    $scope.butonLogOut = true;
+
     /////cargar los datos de la tabla usuario de la base de datos 
     verusuarios()
     function verusuarios(){
