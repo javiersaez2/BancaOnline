@@ -150,7 +150,22 @@ header {
 #portada #imagenPortada img {
   width: 100%;
   opacity: 0.9;
-  aspect-ratio: 4.4/2;
+  aspect-ratio: 5/2;
+}
+#portada #financia {
+  position: absolute;
+  right: 50;
+  top: 70%;
+  background-color: #fbfbfb;
+  padding: 3%;
+}
+#portada #financia .prueba {
+  padding-top: 3%;
+}
+#portada #financia .prueba a {
+  text-decoration: none;
+  color: skyblue;
+  font-weight: bold;
 }
 
 #quienesSomos {
