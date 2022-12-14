@@ -147,15 +147,15 @@ header {
 #portada #imagenPortada img {
   width: 100%;
   opacity: 0.6;
-  aspect-ratio: 4.7/2;
+  aspect-ratio: 4.4/2;
 }
 
 #quienesSomos {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  justify-content: space-evenly !important;
   background-color: #a34ae3;
+  justify-content: space-evenly !important;
   width: 100%;
 }
 #quienesSomos #imagenSomos {
@@ -176,10 +176,10 @@ header {
   flex-direction: column;
   margin-top: 3%;
   margin-bottom: 3%;
+  color: #fbfbfb;
 }
 #quienesSomos #contenidoSomos h2 {
   text-align: center;
-  color: #fbfbfb;
   margin-bottom: 10%;
   margin: 3%;
   height: 4%;
@@ -188,6 +188,5 @@ header {
   height: 94%;
 }
 #quienesSomos #contenidoSomos #infoSomos p {
-  color: #fbfbfb;
   margin: 3%;
 }/*# sourceMappingURL=style.css.map */
