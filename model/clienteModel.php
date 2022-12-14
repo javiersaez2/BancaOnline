@@ -182,9 +182,6 @@ class clienteModel extends clienteclass{
         }
         $this->CloseConnect();
     }
-<<<<<<< HEAD
     
    
-=======
->>>>>>> 777f0da64659d0b2dd88f43d2429fdff30505aa9
 }
