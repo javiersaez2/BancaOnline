@@ -3,14 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Prueba de despliegue cPanel</title>
-    <link href="view/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body ng-app="miApp">
 
 <!--HEADER-->
-<header>
+    <header>
+        <div class="company-logo">Z</div>
+        <nav class="navbar">
+            <ul class="nav-items">
+            <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">LOGIN</a></li>
+            <li class="nav-item"><button ng-show="butonLogOut" ng-click="logout()">LOG OUT</button></li>
+            </ul>
+            
+        </nav>
+        <div class="menu-toggle">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x"></i>
+        </div>
+    </header>
+
     <section ng-controller="miControlador" ng-init="loggedVerify()">
         <div ng-show="iniciarSesionSection">
             <label for="nombre">Nombre</label>
