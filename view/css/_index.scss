@@ -14,13 +14,12 @@
     }
     
     .center {
-        right: 0;
-        top: 60%;
+        right: 40%;
+        top: 35%;
         position: absolute;
         margin: 0;
         background: $color-terciario1;
-        padding: 20px;
-        padding-right: 30%;
+        padding: 5px;
 
         display: flex;
         align-items:center;
@@ -28,6 +27,7 @@
         @include flexcenter();
         flex-direction: column;
 
+        border-right: 20px solid $color-terciario3;
         border-left: 20px solid $color-terciario3;
         border-top: 20px solid $color-principal;
         border-bottom: 20px solid $color-principal;
@@ -44,31 +44,11 @@
             text-decoration: none;
             text-transform: uppercase;
             font-family: 'Noto Sans', sans-serif;
-            margin-top: 20px;
+            margin-top: 5px;
         }
          
-        .btn:after {
-            content: "";
-            display: block;
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            outline: 2px solid #fff;
-            opacity: .2;
-            transition: all .3s;
-            animation: pulse 2s infinite alternate;
-            
-        }
     }
-    @keyframes pulse {
-        0%{transform:scale(1);
-        opacity: .2;}
-    
-        100%{transform:scale(1.1, 1.25);
-        opacity: .5;}
-    }
+
 }
 
 
