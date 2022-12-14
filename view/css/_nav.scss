@@ -36,12 +36,12 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: $color-negro;
+	background: -webkit-linear-gradient( 120deg, $color-secundario, $color-principal );
 	padding: 1rem 2rem;
 }
 .company-logo {
 	font-size: 2.5rem;
-	background: -webkit-linear-gradient( 120deg, $color-secundario, $color-principal );
+	background-color: $color-blanco;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -55,12 +55,12 @@ header {
 	font-size: 1.1rem;
 	letter-spacing: 0.05rem;
 	position: relative;
-	background: -webkit-linear-gradient( $color-secundario, $color-principal );
+	background: $color-blanco;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	&::before {
 		content: "";
-		background: linear-gradient($color-principal, $color-secundario);
+		background: $color-blanco;
 		width: 100%;
 		height: 0.05rem;
 		position: absolute;
