@@ -107,6 +107,10 @@
         display: none;
         height: 100%;
         width: 100%;
+        
+        img{
+            aspect-ratio: 4.5/2;
+        }
 
         /* Caption text */
         .text {
@@ -162,9 +166,8 @@
     }
 
     /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-        background-color: $color-secundario;
+    .prev:hover, .next:hover {
+        box-shadow: 4px 4px 4px 4px $color-secundario;
     }
 }
 
