@@ -96,6 +96,7 @@ header {
 		transform: scaleY(0);
 		transform-origin: bottom;
 		transition: transform 500ms;
+		z-index: 9;
 	}
 	.show-navbar {
 		display: flex;

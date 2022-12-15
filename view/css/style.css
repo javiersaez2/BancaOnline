@@ -108,6 +108,7 @@ header {
     transform: scaleY(0);
     transform-origin: bottom;
     transition: transform 500ms;
+    z-index: 9;
   }
   .show-navbar {
     display: flex;
@@ -151,6 +152,7 @@ header {
   width: 100%;
   opacity: 0.9;
   aspect-ratio: 4.6/2;
+  z-index: 1;
 }
 #portada #financia {
   position: absolute;
