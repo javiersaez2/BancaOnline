@@ -1,12 +1,12 @@
 <?php
 require_once  'connect_data.php';
 require_once  'clienteClass.php';
-
+require_once  'cuenta_corrienteModel.php';
 class clienteModel extends clienteclass
 {
 
     private $link;
-
+    private $objCuenta;
 
     ////////////////////////////////////////////////
     public function OpenConnect()
@@ -82,11 +82,11 @@ class clienteModel extends clienteclass
             $newCliente->nombre = $row['nombre'];
             $newCliente->pasahitza = $row['pasahitza'];
             $newCliente->secreto = $row['secreto'];
-            if ($row['tipo'] == 1){
-                $newCliente->tipo = "Admin";
-            } else {
-                $newCliente->tipo = "Usuario";
-            }
+            $newCliente->tipo = $row['tipo'];
+
+            $newCuenta=new cuenta_corrienteModel();
+            $newCuenta->setdniCliente($row['dniCliente']);    
+            $newCliente->objCuenta=$newCuenta->setListCuenta();;
 
             array_push($list, get_object_vars($newCliente));
         }

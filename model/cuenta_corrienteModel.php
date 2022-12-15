@@ -40,12 +40,12 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
             $newCuenta->titular = $row['titular'];
             $newCuenta->saldo = $row['saldo'];
             array_push($list, get_object_vars($newCuenta));
-         
+
         }
         mysqli_free_result($result);
         $this->CloseConnect();
         return $list;
-        
+
     }
     public function selectIban(){
         $this->OpenConnect();
