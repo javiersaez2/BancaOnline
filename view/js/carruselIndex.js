@@ -1,46 +1,44 @@
-var current = 0;
-var imagenes = new Array();
- 
-$(document).ready(function() {
-    var numImages = 6;
-    if (numImages <= 3) {
-        $('.right-arrow').css('display', 'none');
-        $('.left-arrow').css('display', 'none');
-    }
- 
-    $('.left-arrow').on('click',function() {
-        if (current > 0) {
-            current = current - 1;
-        } else {
-            current = numImages - 3;
-        }
- 
-        $(".carrusel").animate({"left": -($('#product_'+current).position().left)}, 600);
- 
-        return false;
-    });
- 
-    $('.left-arrow').on('hover', function() {
-        $(this).css('opacity','0.5');
-    }, function() {
-        $(this).css('opacity','1');
-    });
- 
-    $('.right-arrow').on('hover', function() {
-        $(this).css('opacity','0.5');
-    }, function() {
-        $(this).css('opacity','1');
-    });
- 
-    $('.right-arrow').on('click', function() {
-        if (numImages > current + 3) {
-            current = current+1;
-        } else {
-            current = 0;
-        }
- 
-        $(".carrusel").animate({"left": -($('#product_'+current).position().left)}, 600);
- 
-        return false;
-    }); 
- });
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+  console.log(slideIndex)
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+/*
+setInterval(displayHello, 5000);
+function displayHello() {
+    showSlides(slideIndex += 1);
+}
+*/
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {
+    slideIndex = 1
+
+  }    
+  if (n < 1) {
+    slideIndex = slides.length
+
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block"; 
+  console.log(  slideIndex-1);
+  console.log( "-------------");
+  
+   
+  dots[slideIndex-1].className += " active";
+
+}
