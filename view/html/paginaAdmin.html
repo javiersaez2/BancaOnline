@@ -139,7 +139,7 @@
                 Cuenta corriente
           </td>
           <td class="columna2">
-           <a href="#">Mas informacion</a>
+           <a  ng-click="MostrarCuentas($index,fila)">Mas informacion</a>
           </td>
         </tr>
 
@@ -158,6 +158,14 @@
     </div>
   </section>
 
+  <div>
+    <div class="cuenta" ng-repeat='cuentas in cuenta'>
+      <p>Cuenta corriente: {{cuentas.iban}}</p>
+      <p>DNI: {{cuentas.dniCliente}}</p>
+      <p>Titular : {{cuentas.titular}}</p>
+      <p>Saldo: {{cuentas.saldo}}</p>
+     
+  </div>
   <script src="../js/scriptAdmin.js"></script>
 </body>
 

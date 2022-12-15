@@ -2,9 +2,11 @@ var MyApp = angular.module('MyApp',[]);
 
 MyApp.controller('miController', function($scope, $http){
     $scope.butonLogOut = true;
-
+    $scope.cuenta=[]
     /////cargar los datos de la tabla usuario de la base de datos 
     verusuarios()
+
+    
     function verusuarios(){
     $http.get('../../controller/controlador_consulta_usuarios.php')
     .then(function(response) {
@@ -78,8 +80,16 @@ MyApp.controller('miController', function($scope, $http){
     }
 
 
-
-
+////////// - Mostrar cuenta corriente - /////////
+    $scope.MostrarCuentas=function(miIndex, item){
+        $scope.cuenta=[];
+console.log(miIndex)
+console.log("--")
+console.log(item.objCuenta.iban)
+for(i=0;i<item.objCuenta.length;i++){
+$scope.cuenta.push({iban:item.objCuenta[i].iban,dniCliente:item.objCuenta[i].dniCliente,titular:item.objCuenta[i].titular,saldo:item.objCuenta[i].saldo});
+console.log($scope.cuenta)}
+    }
 
 
     ////////Update//////////

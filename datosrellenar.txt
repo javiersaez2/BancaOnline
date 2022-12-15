@@ -3,7 +3,7 @@ INSERT INTO cliente(dniCliente, nombre, pasahitza, secreto, tipo) VALUES ('34323
 INSERT INTO cliente(dniCliente, nombre, pasahitza, secreto, tipo) VALUES ('32465784F', 'Fatima', '3456', 3321, 0);
 INSERT INTO cliente(dniCliente, nombre, pasahitza, secreto, tipo) VALUES ('34157377Z', 'Ander', '4567', 0652, 1);
 
-INSERT INTO cuenta_corriente(iban, dniCliente, titular, saldo) VALUES ('ES1220900000458901231110', 3, 'Javier Saez B', 46);
-INSERT INTO cuenta_corriente(iban, dniCliente, titular, saldo) VALUES ('ES1220900000458901232220', 3, 'Javier Saez A', 43);
-INSERT INTO cuenta_corriente(iban, dniCliente, titular, saldo) VALUES ('ES1220900000458901235460', 4, 'Ander Caballero A', 57);
-INSERT INTO cuenta_corriente(iban, dniCliente, titular, saldo) VALUES ('ES1220900034454322211456', 2, 'Markel Rajado B', 48);
+INSERT INTO cuenta_corriente(iban, dniCliente, titular, saldo) VALUES ('ES1220900000458901231110', '34455777P', 'Javier Saez B', 46);
+INSERT INTO cuenta_corriente(iban, dniCliente, titular, saldo) VALUES ('ES1220900000458901232220', '34455777P', 'Javier Saez A', 43);
+INSERT INTO cuenta_corriente(iban, dniCliente, titular, saldo) VALUES ('ES1220900000458901235460', '32465784F', 'Ander Caballero A', 57);
+INSERT INTO cuenta_corriente(iban, dniCliente, titular, saldo) VALUES ('ES1220900034454322211456', '34157377Z', 'Markel Rajado B', 48);
