@@ -1,12 +1,13 @@
 <?php
 require_once  'connect_data.php';
 require_once  'clienteClass.php';
+require_once 'cuenta_corrienteModel.php';
 
 class clienteModel extends clienteclass
 {
 
     private $link;
-
+    private $objCuenta;
 
     ////////////////////////////////////////////////
     public function OpenConnect()
@@ -81,6 +82,13 @@ class clienteModel extends clienteclass
             $newCliente->secreto = $row['secreto'];
             $newCliente->tipo = $row['tipo'];
 
+            $newCuenta=new cuenta_corrienteModel();
+            $newCuenta->setdniCliente($row['dniCliente']);
+           
+            
+          
+            $newCliente->objCuenta=$newCuenta->setListCuenta();;
+
             array_push($list, get_object_vars($newCliente));
         }
         mysqli_free_result($result);
@@ -98,13 +106,12 @@ class clienteModel extends clienteclass
         $tipo = 0;
 
         $sql = "INSERT INTO cliente (dniCliente, nombre, pasahitza, secreto, tipo) VALUES ('$dni', '$nombre', '$pasahitza', $secreto, $tipo)";
-        
+        echo $sql;
         $this->link->query($sql);
 
         if ($this->link->affected_rows == 1) {
             return "El usuario se creo: ";
         } else {
-
             return "Fallo al crear usuario: (" . $this->link->errno . ") " . $this->link->error;
         }
         $this->CloseConnect();

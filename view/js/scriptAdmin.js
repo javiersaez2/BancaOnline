@@ -83,25 +83,14 @@ MyApp.controller('miController', function($scope, $http){
 ////////// - Mostrar cuenta corriente - /////////
     $scope.MostrarCuentas=function(miIndex, item){
         $scope.cuenta=[];
-<<<<<<< HEAD
 console.log(miIndex)
 console.log("--")
 console.log(item.objCuenta.iban)
 for(i=0;i<item.objCuenta.length;i++){
 $scope.cuenta.push({iban:item.objCuenta[i].iban,dniCliente:item.objCuenta[i].dniCliente,titular:item.objCuenta[i].titular,saldo:item.objCuenta[i].saldo});
 console.log($scope.cuenta)}
-
-=======
-        console.log(miIndex)
-        console.log("--")
-        console.log(item.objCuenta.iban)
-        for(i=0;i<item.objCuenta.length;i++){
-            $scope.cuenta.push({iban:item.objCuenta[i].iban,dniCliente:item.objCuenta[i].dniCliente,titular:item.objCuenta[i].titular,saldo:item.objCuenta[i].saldo, cuentaPos: i+1});
-            console.log($scope.cuenta)
-        }
-        document.getElementById("demo-modal").style.visibility = "visible";
-        document.getElementById("demo-modal").style.opacity= 1;
->>>>>>> c554c3ea72fa22eefd68819b7e8458594a6d7d2f
+document.getElementById("demo-modal").style.visibility = "visible";
+document.getElementById("demo-modal").style.opacity= 1;
     }
 
     $scope.cerrarCuentas=function(){
