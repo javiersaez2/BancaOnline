@@ -146,11 +146,11 @@
 }
 
 .social-icons a.facebook:hover {
-  background-color: rgb(196, 140, 236);
+  background-color: #7ED4DC;
 }
 
 .social-icons a.twitter:hover {
-  background-color: rgb(196, 140, 236);
+  background-color: #7ED4DC;
 }
 
 @media (max-width: 767px) {
