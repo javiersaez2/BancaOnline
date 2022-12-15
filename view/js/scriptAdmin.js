@@ -2,9 +2,11 @@ var MyApp = angular.module('MyApp',[]);
 
 MyApp.controller('miController', function($scope, $http){
     $scope.butonLogOut = true;
-
+    $scope.cuenta=[]
     /////cargar los datos de la tabla usuario de la base de datos 
     verusuarios()
+
+    
     function verusuarios(){
     $http.get('../../controller/controlador_consulta_usuarios.php')
     .then(function(response) {
@@ -78,10 +80,35 @@ MyApp.controller('miController', function($scope, $http){
     }
 
 
+////////// - Mostrar cuenta corriente - /////////
+    $scope.MostrarCuentas=function(miIndex, item){
+        $scope.cuenta=[];
+<<<<<<< HEAD
+console.log(miIndex)
+console.log("--")
+console.log(item.objCuenta.iban)
+for(i=0;i<item.objCuenta.length;i++){
+$scope.cuenta.push({iban:item.objCuenta[i].iban,dniCliente:item.objCuenta[i].dniCliente,titular:item.objCuenta[i].titular,saldo:item.objCuenta[i].saldo});
+console.log($scope.cuenta)}
 
+=======
+        console.log(miIndex)
+        console.log("--")
+        console.log(item.objCuenta.iban)
+        for(i=0;i<item.objCuenta.length;i++){
+            $scope.cuenta.push({iban:item.objCuenta[i].iban,dniCliente:item.objCuenta[i].dniCliente,titular:item.objCuenta[i].titular,saldo:item.objCuenta[i].saldo, cuentaPos: i+1});
+            console.log($scope.cuenta)
+        }
+        document.getElementById("demo-modal").style.visibility = "visible";
+        document.getElementById("demo-modal").style.opacity= 1;
+>>>>>>> c554c3ea72fa22eefd68819b7e8458594a6d7d2f
+    }
 
-
-
+    $scope.cerrarCuentas=function(){
+        document.getElementById("demo-modal").style.visibility = "hidden";
+document.getElementById("demo-modal").style.opacity= 0;
+    
+    }
     ////////Update//////////
 
     $scope.modificarUsuario=function(miIndex, item){
@@ -117,14 +144,60 @@ MyApp.controller('miController', function($scope, $http){
         }
     }
 
+
+    ///////////////////////////////
+    ///////////////////////////////
+    // Comprobar y cerrar sesion //
+    ///////////////////////////////
+    ///////////////////////////////
+
+    $scope.loggedVerify=function() {
+        $http({
+            url: "/controller/cLoggedVerify.php",
+            method: "POST"
+        }).then(function (response) {
+            if (response.data.error != "logged"){
+                if (window.location.pathname != "/index.html"){
+                    window.location.href="/index.html"
+                }
+
+                $scope.cuentaUsuario = false;
+                $scope.botonAdmin = false;
+                $scope.butonLogin = true;
+            } else {
+                $scope.butonLogOut = true;
+                $scope.butonLogin = false;
+
+                if (response.data.tipo == 1){
+                    $scope.botonAdmin = true;
+                    $scope.cuentaUsuario = false;
+                    $scope.users = true;
+                } else {
+                    alert("User: " + response.data.izena + " | Sin acceso, tipo: " + response.data.tipo); 
+                    $scope.cuentaUsuario = true;
+                    $scope.botonAdmin = false;
+                    $scope.users = false;
+
+                    if (window.location.pathname != "/index.html"){
+                        window.location.href = "/index.html";
+                    }
+                }
+            }
+        }).catch(function (response) {
+            console.error("Ocurrio un error", response.status, response.data);
+        })	   
+    }	
+
     $scope.logout=function(){
         $http({
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
             window.location.href = "/index.html";
-        }).catch(function (response) {
+            $scope.butonLogOut = false;
+        }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
         })	
     }
 })
+
