@@ -167,12 +167,13 @@
 <div id="demo-modal" class="modal">
     <div class="modal__content">
       <div class="cuenta" ng-repeat='cuentas in cuenta'>
-        <p>Cuenta corriente: {{cuentas.iban}}</p>
-        <p>DNI: {{cuentas.dniCliente}}</p>
-        <p>Titular : {{cuentas.titular}}</p>
-        <p>Saldo: {{cuentas.saldo}}</p>
-       
-    </div>
+        <h4>{{cuentas.cuentaPos}}. Cuenta</h4>
+        <p> Cuenta corriente: {{cuentas.iban}}</p>
+        <p> DNI: {{cuentas.dniCliente}}</p>
+        <p> Titular : {{cuentas.titular}}</p>
+        <p> Saldo: {{cuentas.saldo}}</p>
+        <br>
+      </div>
         <a ng-click="cerrarCuentas()" class="modal__close">&times;</a>
     </div>
 </div>
