@@ -89,9 +89,15 @@ console.log(item.objCuenta.iban)
 for(i=0;i<item.objCuenta.length;i++){
 $scope.cuenta.push({iban:item.objCuenta[i].iban,dniCliente:item.objCuenta[i].dniCliente,titular:item.objCuenta[i].titular,saldo:item.objCuenta[i].saldo});
 console.log($scope.cuenta)}
+document.getElementById("demo-modal").style.visibility = "visible";
+document.getElementById("demo-modal").style.opacity= 1;
     }
 
-
+    $scope.cerrarCuentas=function(){
+        document.getElementById("demo-modal").style.visibility = "hidden";
+document.getElementById("demo-modal").style.opacity= 0;
+    
+    }
     ////////Update//////////
 
     $scope.modificarUsuario=function(miIndex, item){
@@ -183,3 +189,4 @@ console.log($scope.cuenta)}
         })	
     }
 })
+

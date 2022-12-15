@@ -18,7 +18,7 @@ miApp.controller('miControlador', function($scope, $http){
         var izena = $scope.izenaData; var pasahitza = $scope.pasahitzaData; var codSecreto = $scope.CodSecretoData;
 
         $http({
-            url: '/controller/cLogin.php',
+            url: '../../controller/cLogin.php',
             method: "POST",
             params: {data: JSON.stringify({izena: izena, pasahitza: pasahitza, codSecreto: codSecreto, contador:codSecretoKont})}
         }).then(function (response) {
