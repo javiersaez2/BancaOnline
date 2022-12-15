@@ -3,13 +3,32 @@
 #portada{
     position: relative;
     margin: 0;
+
     #imagenPortada{
         position: relative;
         img{
             width: 100%;
             opacity: .9;
-            aspect-ratio: 4.4/2;
+            aspect-ratio: 5/2;
             //object-fit: contain;
+        }
+    }
+
+    #financia{
+        position: absolute;
+        right: 50;
+        top: 70%;
+        background-color: $color-blanco;
+        padding: 3%;
+
+        .prueba{
+            padding-top: 3%;
+
+            a{
+                text-decoration: $vaciar;
+                color: skyblue;
+                font-weight: bold;
+            }
         }
     }
 

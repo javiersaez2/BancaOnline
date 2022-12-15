@@ -26,11 +26,14 @@ miApp.controller('miControlador', function($scope, $http){
             if (response.data.error == "no error"){
                 console.log("bien")
                 codSecretoKont = 0;
+                $scope.butonLogin = false;
                 if (response.data.tipo == 1){
                     window.location.href = "../html/paginaAdmin.html";
                 } else {
                     window.location.href = "../../index.html";
                 }
+                
+                
             }else {
                 alert(response.data.error);
                 codSecretoKont++;
