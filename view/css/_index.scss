@@ -99,7 +99,7 @@
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 87%;
+    max-width: 86%;
     max-height: 20%;
     position: relative;
     margin: auto;
@@ -111,6 +111,8 @@
 
         img{
             aspect-ratio: 4.5/2;
+            box-shadow: 4px -4px 0px 0px $color-negro;
+
         }
 
         /* Caption text */
