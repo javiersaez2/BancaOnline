@@ -1,13 +1,12 @@
 <?php
 require_once  'connect_data.php';
 require_once  'clienteClass.php';
-require_once 'cuenta_corrienteModel.php';
 
 class clienteModel extends clienteclass
 {
 
     private $link;
-    private $objCuenta;
+
 
     ////////////////////////////////////////////////
     public function OpenConnect()
@@ -31,24 +30,22 @@ class clienteModel extends clienteclass
     {
         $this->OpenConnect();
 
-        $dni = $this->dni;
+        $nombre = $this->izena;
         $pasahitza = $this->pass;
         $codSecreto = $this->codSecreto;
         $konta = $this->cont;
 
-        $sql = "SELECT * FROM cliente WHERE dniCliente='$dni' ";
+        $sql = "SELECT * FROM cliente WHERE nombre='$nombre' ";
         $result = $this->link->query($sql);
 
         $check = 0;
         $tipo = -1;
-        $izena = "";
         if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             if ($this->link->affected_rows == 1) {
                 if ($konta < 3) {
                     if ($pasahitza == $row["pasahitza"]) {
                         $check = 1;
                         $tipo = $row["tipo"];
-                        $izena = $row["nombre"];
                     } else {
                         $check = -1;
                     }
@@ -56,7 +53,6 @@ class clienteModel extends clienteclass
                     if ($codSecreto == $row["secreto"]) {
                         $check = 1;
                         $tipo = $row["tipo"];
-                        $izena = $row["nombre"];
                     } else {
                         $check = -2;
                     }
@@ -66,7 +62,7 @@ class clienteModel extends clienteclass
 
         mysqli_free_result($result);
         $this->CloseConnect();
-        return array("check" => $check, "tipo" => $tipo, "izena"=>$izena);
+        return array("check" => $check, "tipo" => $tipo);
     }
 
     public function setList()
@@ -83,18 +79,7 @@ class clienteModel extends clienteclass
             $newCliente->nombre = $row['nombre'];
             $newCliente->pasahitza = $row['pasahitza'];
             $newCliente->secreto = $row['secreto'];
-            if ($row['tipo'] == 1){
-                $newCliente->tipo = "Admin";
-            } else {
-                $newCliente->tipo = "Usuario";
-            }
-
-            $newCuenta=new cuenta_corrienteModel();
-            $newCuenta->setdniCliente($row['dniCliente']);
-            
-            
-          
-            $newCliente->objCuenta=$newCuenta->setListCuenta();;
+            $newCliente->tipo = $row['tipo'];
 
             array_push($list, get_object_vars($newCliente));
         }
@@ -109,10 +94,9 @@ class clienteModel extends clienteclass
         $dni = $this->getDniCliente();
         $nombre = $this->getNombre();
         $pasahitza = $this->getPasahitza();
-        $secreto = mt_rand(1111, 9999);
+        $secreto = mt_rand(0000, 9999);
         $tipo = 0;
 
-        $checkNumSecreto = "SELECT ";
         $sql = "INSERT INTO cliente (dniCliente, nombre, pasahitza, secreto, tipo) VALUES ('$dni', '$nombre', '$pasahitza', $secreto, $tipo)";
         
         $this->link->query($sql);
