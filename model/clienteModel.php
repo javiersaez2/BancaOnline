@@ -1,12 +1,13 @@
 <?php
 require_once  'connect_data.php';
 require_once  'clienteClass.php';
+require_once 'cuenta_corrienteModel.php';
 
 class clienteModel extends clienteclass
 {
 
     private $link;
-
+    private $objCuenta;
 
     ////////////////////////////////////////////////
     public function OpenConnect()
@@ -87,6 +88,13 @@ class clienteModel extends clienteclass
             } else {
                 $newCliente->tipo = "Usuario";
             }
+
+            $newCuenta=new cuenta_corrienteModel();
+            $newCuenta->setdniCliente($row['dniCliente']);
+            
+            
+          
+            $newCliente->objCuenta=$newCuenta->setListCuenta();;
 
             array_push($list, get_object_vars($newCliente));
         }
