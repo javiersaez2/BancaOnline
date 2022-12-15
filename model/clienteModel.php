@@ -31,12 +31,13 @@ class clienteModel extends clienteclass
     {
         $this->OpenConnect();
 
+        $dni = $this->dni;
         $nombre = $this->izena;
         $pasahitza = $this->pass;
         $codSecreto = $this->codSecreto;
         $konta = $this->cont;
 
-        $sql = "SELECT * FROM cliente WHERE nombre='$nombre' ";
+        $sql = "SELECT * FROM cliente WHERE dniCliente='$dni' ";
         $result = $this->link->query($sql);
 
         $check = 0;
