@@ -90,33 +90,43 @@
 
 ////CARRUSEL/////
 #carrusel {
-    float:left;
-    width:600px;
+    width: 80%;
     overflow:hidden;
     height:203px;
     position:relative;
-    margin-top:20px;
-    margin-bottom:20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin: auto;
+    
+    .left-arrow {
+        position:absolute;
+        left:0;
+        z-index:1;
+        top:80%;
+        margin-top:-9px;
+        img{
+            width: 75px;
+            height: 75px;
+        }
+    }
+
+    .right-arrow {
+        position:absolute;
+        right:0;
+        z-index:1;
+        top:80%;
+        margin-top:-9px;
+
+        img{
+            width: 75px;
+            height: 75px;
+        }
+    }
 }
- 
-#carrusel .left-arrow {
-    position:absolute;
-    left:10px;
-    z-index:1;
-    top:50%;
-    margin-top:-9px;
-}
- 
-#carrusel .right-arrow {
-    position:absolute;
-    right:10px;
-    z-index:1;
-    top:50%;
-    margin-top:-9px;
-}
+
  
 .carrusel {
-    width:4000px;
+    width: 100%;
     left:0px;
     position:absolute;
     z-index:0;
@@ -124,9 +134,9 @@
  
 .carrusel>div {
     float: left;
-    height: 203px;
+    height: 303px;
     margin-right: 5px;
-    width: 195px;
+    width: 100%;
     text-align:center;
 }
  
