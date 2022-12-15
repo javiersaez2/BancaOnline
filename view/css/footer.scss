@@ -1,4 +1,4 @@
-@import "_variables.scss";
+@import '_variables';
 
 .site-footer {
     margin-top: 475px;
@@ -7,7 +7,16 @@
     font-size: 15px;
     line-height: 24px;
     color: #737373;
+    .container{
+        .row{
+            display: block;
+            flex-direction: column;
+        }
+    }
 }
+
+
+
 
 .site-footer hr {
     border-top-color: #bbb;
@@ -32,16 +41,16 @@
 
 .site-footer a:hover {
     color: #3366cc;
-    text-decoration: none;
+    text-decoration: $vaciar;
 }
 
 .footer-links {
     padding-left: 0;
-    list-style: none
+    list-style: $vaciar;
 }
 
 .footer-links li {
-    display: block
+    display: block;
 }
 
 .footer-links a {
@@ -52,7 +61,7 @@
 .footer-links a:focus,
 .footer-links a:hover {
     color: #3366cc;
-    text-decoration: none;
+    text-decoration: $vaciar;
 }
 
 .footer-links.inline li {
@@ -90,14 +99,14 @@
 
     .site-footer .copyright-text,
     .site-footer .social-icons {
-        text-align: center
+        text-align: $centrar;
     }
 }
 
 .social-icons {
     padding-left: 0;
     margin-bottom: 0;
-    list-style: none
+    list-style: $vaciar;
 }
 
 .social-icons li {
@@ -121,7 +130,7 @@
     line-height: 44px;
     width: 44px;
     height: 44px;
-    text-align: center;
+    text-align: $centrar;
     margin-right: 8px;
     border-radius: 100%;
     padding: 4px;
