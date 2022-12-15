@@ -138,16 +138,18 @@ MyApp.controller('miController', function($scope, $http){
                 $scope.botonAdmin = false;
                 $scope.butonLogin = true;
             } else {
-                alert("Admin: " + response.data.izena); 
                 $scope.butonLogOut = true;
                 $scope.butonLogin = false;
 
                 if (response.data.tipo == 1){
                     $scope.botonAdmin = true;
                     $scope.cuentaUsuario = false;
+                    $scope.users = true;
                 } else {
+                    alert("User: " + response.data.izena + " | Sin acceso, tipo: " + response.data.tipo); 
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
+                    $scope.users = false;
 
                     if (window.location.pathname != "/index.html"){
                         window.location.href = "/index.html";
