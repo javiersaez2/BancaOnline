@@ -235,7 +235,7 @@ header {
 }
 #carrusel .right-arrow {
   position: absolute;
-  right: 0;
+  right: 10;
   z-index: 1;
   top: 80%;
   margin-top: -9px;
@@ -256,7 +256,7 @@ header {
   float: left;
   height: 303px;
   margin-right: 5px;
-  width: 100%;
+  width: 30%;
   text-align: center;
 }
 
