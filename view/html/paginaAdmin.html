@@ -32,8 +32,17 @@
         </div>
     </header>
 
-  <div id="zonaInsertar" ng-show="insertarVista == 'true'">   
-    <div class="wrapper">
+    <div id="demo-modal2" class="modal">
+      <div id="zonaInsertar" ng-show="insertarVista == 'true'">   
+      <div class="modal__content">
+        <div class="cuenta" ng-repeat='cuentas in cuenta'>
+
+         
+      </div>
+          <a ng-click="cerrarCuentas()" class="modal__close">&times;</a>
+ 
+ 
+
       <h3>Insertar</h3>
       <form action="#">
         <p>
@@ -58,9 +67,10 @@
       </form>
     </div>  
   </div>
-
+</div>
+</div>
   <div id="zonaModificar" ng-show="modificarVista == 'true'">   
-    <div class="wrapper">
+
       <h3>Modificar</h3>
       <form action="#">
         <p>
