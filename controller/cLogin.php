@@ -8,16 +8,11 @@ $user->dni=$data->dni;
 $user->pass=$data->pasahitza;
 if (!empty($data->codSecreto)){
     $user->codSecreto=$data->codSecreto;    
-}
-$user->cont=$data->contador;
-
-$list = $user->setUserData();
-$response = array();
 
 if ($list["check"] == 0) {
-    
+
     $response["error"] = "WRONG DNI";
-    
+
 } else {
     if ($list["check"] == 1){
         if (!isset($_SESSION)){
@@ -25,7 +20,7 @@ if ($list["check"] == 0) {
         }
         $_SESSION["izena"]=$list["izena"];
         $_SESSION["tipo"]=$list["tipo"];
-        
+
         $response["error"] = "no error";
         $response["izena"]=$_SESSION['izena'];
         $response["tipo"]=$_SESSION["tipo"];
@@ -37,6 +32,5 @@ if ($list["check"] == 0) {
     }
 }
 
-echo json_encode($response);
-	
-	
+echo json_encode($response); 
+}
