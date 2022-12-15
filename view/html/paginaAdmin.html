@@ -19,7 +19,7 @@
         <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
         <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
         <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">LOGIN</a></li>
+        <li class="nav-item" ng-show="butonLogin"><a href="#" class="nav-link">LOGIN</a></li>
         <li class="nav-item"><button ng-show="butonLogOut" ng-click="logout()">LOG OUT</button></li>
       </ul>
       
@@ -131,9 +131,9 @@
                 Tipo: 
               </td>
               <td class="columna2">
-                {{fila.tipo}}
-              </td>
+
             </tr>
+            <div class="tarjetas" ng-repeat=8>
             <tr>
               <td class="columna1">
                 Cuenta corriente
@@ -152,6 +152,7 @@
 
       </td>
     </tr>
+  </div>
             <tr>
                   <td class="columna1">
                  <button ng-click="modificarUsuario($index,fila)">Modificar</button>
