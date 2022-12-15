@@ -241,6 +241,8 @@ header {
 }
 .slideshow-container .mySlides .numbertext {
   color: black;
+  font-weight: bolder;
+  background-color: #7ED4DC;
   font-size: 12px;
   padding: 8px 12px;
   position: absolute;
