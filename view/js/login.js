@@ -15,12 +15,12 @@ miApp.controller('miControlador', function($scope, $http){
             $scope.pasahitzaData = "";    
         }
 
-        var izena = $scope.izenaData; var pasahitza = $scope.pasahitzaData; var codSecreto = $scope.CodSecretoData;
+        var dni = $scope.dniData; var pasahitza = $scope.pasahitzaData; var codSecreto = $scope.CodSecretoData;
 
         $http({
             url: '../../controller/cLogin.php',
             method: "POST",
-            params: {data: JSON.stringify({izena: izena, pasahitza: pasahitza, codSecreto: codSecreto, contador:codSecretoKont})}
+            params: {data: JSON.stringify({dni: dni, pasahitza: pasahitza, codSecreto: codSecreto, contador:codSecretoKont})}
         }).then(function (response) {
             console.log(response);
             if (response.data.error == "no error"){

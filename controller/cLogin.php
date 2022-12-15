@@ -4,7 +4,7 @@ include_once '../model/clienteModel.php';
 $data=json_decode($_GET["data"]);
 
 $user = new clienteModel();
-$user->izena=$data->izena;
+$user->dni=$data->dni;
 $user->pass=$data->pasahitza;
 if (!empty($data->codSecreto)){
     $user->codSecreto=$data->codSecreto;    
@@ -16,14 +16,14 @@ $response = array();
 
 if ($list["check"] == 0) {
     
-    $response["error"] = "WRONG USERNAME";
+    $response["error"] = "WRONG DNI";
     
 } else {
     if ($list["check"] == 1){
         if (!isset($_SESSION)){
             session_start();
         }
-        $_SESSION["izena"]=$data->izena;
+        $_SESSION["izena"]=$list["izena"];
         $_SESSION["tipo"]=$list["tipo"];
         
         $response["error"] = "no error";
