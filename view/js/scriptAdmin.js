@@ -42,8 +42,9 @@ MyApp.controller('miController', function($scope, $http){
     $scope.listaInsertar = [];
 
     $scope.nuevoUsuario=function(){
-        $scope.modificarVista = 'false';
-        $scope.insertarVista = 'true';
+      
+        document.getElementById("demo-modal2").style.visibility = "visible";
+document.getElementById("demo-modal2").style.opacity= 1;
     }
 
     $scope.nuevoCliente=function(){

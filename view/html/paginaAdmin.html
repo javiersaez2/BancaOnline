@@ -32,43 +32,7 @@
         </div>
     </header>
 
-    <div id="demo-modal2" class="modal">
-      <div id="zonaInsertar" ng-show="insertarVista == 'true'">   
-      <div class="modal__content">
-        <div class="cuenta" ng-repeat='cuentas in cuenta'>
 
-         
-      </div>
-          <a ng-click="cerrarCuentas()" class="modal__close">&times;</a>
- 
- 
-
-      <h3>Insertar</h3>
-      <form action="#">
-        <p>
-          <label for="dni">DNI</label>
-          <input type="text" ng-model="dniIns" id="dniIns">
-        </p>
-        <p>
-          <label for="nombre">Nombre Cliente</label>
-          <input type="text" ng-model="nombreIns">
-        </p>
-        <p>
-          <label for="contrasena">Contrasena</label>
-          <input type="password" ng-model="contrsenaIns">
-        </p>
-        <p>
-            <label for="contrasena2">Verificar Contrasena</label>
-            <input type="password" ng-model="vefIns">
-        </p>
-
-        <button ng-click="nuevoCliente()">NUEVO</button>
-        
-      </form>
-    </div>  
-  </div>
-</div>
-</div>
   <div id="zonaModificar" ng-show="modificarVista == 'true'">   
 
       <h3>Modificar</h3>
@@ -173,7 +137,40 @@
   <div>
    
 
+    <div id="demo-modal2" class="modal">
 
+      <div class="modal__content">
+      
+      <a ng-click="cerrarCuentas()" class="modal__close">&times;</a>
+
+
+  <h3>Insertar</h3>
+  <form action="#">
+    <p>
+      <label for="dni">DNI</label>
+      <input type="text" ng-model="dniIns" id="dniIns">
+    </p>
+    <p>
+      <label for="nombre">Nombre Cliente</label>
+      <input type="text" ng-model="nombreIns">
+    </p>
+    <p>
+      <label for="contrasena">Contrasena</label>
+      <input type="password" ng-model="contrsenaIns">
+    </p>
+    <p>
+        <label for="contrasena2">Verificar Contrasena</label>
+        <input type="password" ng-model="vefIns">
+    </p>
+
+    <button ng-click="nuevoCliente()">NUEVO</button>
+    
+  </form>
+</div>  
+</div>
+</div>
+</div>
+</div>
 <div id="demo-modal" class="modal">
     <div class="modal__content">
       <div class="cuenta" ng-repeat='cuentas in cuenta'>
