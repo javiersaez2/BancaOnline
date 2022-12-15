@@ -249,7 +249,7 @@ header {
 .slideshow-container .prev, .slideshow-container .next {
   cursor: pointer;
   position: absolute;
-  top: 300;
+  top: 50%;
   width: auto;
   padding: 16px;
   margin-top: -22px;
@@ -265,8 +265,8 @@ header {
 }
 .slideshow-container .prev img, .slideshow-container .next img {
   height: 50vh;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   -webkit-clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
           clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
 }
