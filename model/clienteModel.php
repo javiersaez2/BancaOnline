@@ -115,24 +115,18 @@ class clienteModel extends clienteclass
         $this->CloseConnect();
     }
 
-    public function delete()
+    public function deleteCliente()
     {
         $this->OpenConnect();
         $dniCliente = $this->dniCliente;
-        $sql = "delete from cuenta_corriente where dniCliente='" . $dniCliente . "'";
-        $this->link->query($sql);
-        // echo $sql;
-        //if ($this->link->affected_rows == 1) {
-            $sql2 = "delete from cliente where dniCliente='" . $dniCliente . "'";
-            $this->link->query($sql2);
+            $sql = "delete from cliente where dniCliente='" . $dniCliente . "'";
+            $this->link->query($sql);
             if ($this->link->affected_rows == 1) {
                 return "El usuario se borró: ";
             } else {
                 return "Fallo al borrar usuario: (" . $this->link->errno . ") " . $this->link->error;
             }
-        // } else {
-        //     return "Fallo al borrar cuenta_corriente: (" . $this->link->errno . ") " . $this->link->error;
-        // }
+       
         $this->CloseConnect();
     }
 
