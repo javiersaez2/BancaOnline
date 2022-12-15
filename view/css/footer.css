@@ -153,10 +153,6 @@
   background-color: rgb(196, 140, 236);
 }
 
-.social-icons a.linkedin:hover {
-  background-color: rgb(196, 140, 236);
-}
-
 @media (max-width: 767px) {
   .social-icons li.title {
     display: block;

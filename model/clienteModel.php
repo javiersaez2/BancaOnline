@@ -31,6 +31,10 @@ class clienteModel extends clienteclass
         $this->OpenConnect();
 
         $dni = $this->dni;
+<<<<<<< HEAD
+=======
+        $izena = $this->izena;
+>>>>>>> 3da47fc809d5b3c4b7faf14632df7df0764caca1
         $pasahitza = $this->pass;
         $codSecreto = $this->codSecreto;
         $konta = $this->cont;
@@ -47,7 +51,12 @@ class clienteModel extends clienteclass
                     if ($pasahitza == $row["pasahitza"]) {
                         $check = 1;
                         $tipo = $row["tipo"];
+<<<<<<< HEAD
                         $izena = $row["nombre"];
+=======
+                        $izena = $row["izena"];
+
+>>>>>>> 3da47fc809d5b3c4b7faf14632df7df0764caca1
                     } else {
                         $check = -1;
                     }
@@ -55,7 +64,12 @@ class clienteModel extends clienteclass
                     if ($codSecreto == $row["secreto"]) {
                         $check = 1;
                         $tipo = $row["tipo"];
+<<<<<<< HEAD
                         $izena = $row["nombre"];
+=======
+                        $izena = $row["izena"];
+
+>>>>>>> 3da47fc809d5b3c4b7faf14632df7df0764caca1
                     } else {
                         $check = -2;
                     }
@@ -100,9 +114,10 @@ class clienteModel extends clienteclass
         $dni = $this->getDniCliente();
         $nombre = $this->getNombre();
         $pasahitza = $this->getPasahitza();
-        $secreto = mt_rand(0000, 9999);
+        $secreto = mt_rand(1111, 9999);
         $tipo = 0;
 
+        $checkNumSecreto = "SELECT ";
         $sql = "INSERT INTO cliente (dniCliente, nombre, pasahitza, secreto, tipo) VALUES ('$dni', '$nombre', '$pasahitza', $secreto, $tipo)";
         echo $sql;
         $this->link->query($sql);
