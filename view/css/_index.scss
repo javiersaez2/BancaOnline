@@ -107,7 +107,7 @@
         display: none;
         height: 100%;
         width: 100%;
-        
+
         img{
             aspect-ratio: 4.5/2;
         }
@@ -163,11 +163,6 @@
     .next {
         right: 0;
         border-radius: 3px 0 0 3px;
-    }
-
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover, .next:hover {
-        box-shadow: 4px 4px 4px 4px $color-secundario;
     }
 }
 
