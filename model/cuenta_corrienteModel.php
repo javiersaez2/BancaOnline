@@ -25,4 +25,55 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
         mysqli_close($this->link);
     }
 
+    public function selectIban(){
+        $this->OpenConnect();
+
+        $sql = "SELECT * FROM cuenta_corriente ORDER BY iban DESC";
+        $result = $this->link->query($sql);
+
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+
+            $this->setIban($row['iban']);
+            
+            $sub = intval(substr($this->getIban(), -10));
+            
+            $sub = $sub + 1;
+
+            $sub = strval($sub);
+
+            $bus = substr($this->getIban(), 0, -10);
+
+            $bus = $bus.$sub;
+            
+            $this->setIban($bus);
+
+        }
+        mysqli_free_result($result);
+        $this->CloseConnect();
+    }
+
+    public function insert(){
+    
+        $this->OpenConnect();  
+        
+        $iban= $this->iban;
+        $dniCliente= $this->dniCliente;
+        $titular= $this->titular;
+        $saldo= $this->saldo;
+
+        
+        $sql = "INSERT INTO `cuenta_corriente`(`iban`, `dniCliente`,`titular`,  `saldo`) VALUES ('$iban','$dniCliente','$titular',0)";
+        
+        $this->link->query($sql);
+        
+        if ($this->link->affected_rows == 1)
+        {
+            $msg= $sql." La cuenta se ha insertado con exito. Num de inserts: ".$this->link->affected_rows;
+        } else {
+            $msg=$sql." Fallo al insertar una cuenta nuevo: (" . $this->link->errno . ") " . $this->link->error;
+        }
+        $this->CloseConnect();
+        return $msg;
+    }
+
 }

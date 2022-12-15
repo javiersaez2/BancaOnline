@@ -98,12 +98,13 @@ class clienteModel extends clienteclass
         $tipo = 0;
 
         $sql = "INSERT INTO cliente (dniCliente, nombre, pasahitza, secreto, tipo) VALUES ('$dni', '$nombre', '$pasahitza', $secreto, $tipo)";
-        echo $sql;
+        
         $this->link->query($sql);
 
         if ($this->link->affected_rows == 1) {
             return "El usuario se creo: ";
         } else {
+
             return "Fallo al crear usuario: (" . $this->link->errno . ") " . $this->link->error;
         }
         $this->CloseConnect();
