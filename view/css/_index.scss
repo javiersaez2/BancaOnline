@@ -90,12 +90,11 @@
 
 ////CARRUSEL/////
 #carrusel {
-    width: 80%;
+    width: 87%;
     overflow:hidden;
-    height:203px;
+    height:403px;
     position:relative;
     margin-top: 50px;
-    margin-bottom: 20px;
     margin: auto;
     
     .left-arrow {
@@ -134,9 +133,9 @@
  
 .carrusel>div {
     float: left;
-    height: 303px;
+    height: 403px;
     margin-right: 5px;
-    width: 30%;
+    width: 100%;
     text-align:center;
 }
  
