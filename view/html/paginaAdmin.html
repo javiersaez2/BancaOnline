@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="MyApp">
+
 <head>
 
   <meta charset="UTF-8">
@@ -12,52 +13,52 @@
 </head>
 
 <body ng-controller="miController" ng-init="loggedVerify()" ng-show="users">
-    <header>
-        <div class="company-logo">Zornotza</div>
-        <nav class="navbar">
-        <ul class="nav-items">
-            <li class="nav-item"><a href="/index.html" class="nav-link">HOME</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
-            <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
-            <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a></li>
-            <li class="nav-item" ng-show="cuentaUsuario"><a class="nav-link">CUENTA</a></li>
-            <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
-        </ul>
-        
-        </nav>
-        <div class="menu-toggle">
-            <i class="bx bx-menu"></i>
-            <i class="bx bx-x"></i>
-        </div>
-    </header>
+  <header>
+    <div class="company-logo">Zornotza</div>
+    <nav class="navbar">
+      <ul class="nav-items">
+        <li class="nav-item"><a href="/index.html" class="nav-link">HOME</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
+        <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
+        <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a></li>
+        <li class="nav-item" ng-show="cuentaUsuario"><a class="nav-link">CUENTA</a></li>
+        <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
+      </ul>
+
+    </nav>
+    <div class="menu-toggle">
+      <i class="bx bx-menu"></i>
+      <i class="bx bx-x"></i>
+    </div>
+  </header>
 
 
-  <div id="zonaModificar" ng-show="modificarVista == 'true'">   
+  <div id="zonaModificar" ng-show="modificarVista == 'true'">
 
-      <h3>Modificar</h3>
-      <form action="#">
-        <p>
-          <label for="dni">DNI</label>
-          <input type="text" ng-model="dniModificar" id="dniModificar">
-        </p>
-        <p>
-          <label for="nombre">Nombre Cliente</label>
-          <input type="text" ng-model="nombreModificar">
-        </p>
-        <p>
-          <label for="contrasena">Contrasena</label>
-          <input type="text" ng-model="contrasenaModificar">
-        </p>
-        <p>
-            <label for="contrasena2">Verificar Contrasena</label>
-            <input type="text" ng-model="vefModificar">
-        </p>
+    <h3>Modificar</h3>
+    <form action="#">
+      <p>
+        <label for="dni">DNI</label>
+        <input type="text" ng-model="dniModificar" id="dniModificar">
+      </p>
+      <p>
+        <label for="nombre">Nombre Cliente</label>
+        <input type="text" ng-model="nombreModificar">
+      </p>
+      <p>
+        <label for="contrasena">Contrasena</label>
+        <input type="text" ng-model="contrasenaModificar">
+      </p>
+      <p>
+        <label for="contrasena2">Verificar Contrasena</label>
+        <input type="text" ng-model="vefModificar">
+      </p>
 
-        <button ng-click="guardarCliente()">Guardar Modificaciones</button>
-        
-      </form>
-    </div>  
+      <button ng-click="guardarCliente(item)">Guardar Modificaciones</button>
+
+    </form>
+  </div>
   </div>
 
 
@@ -65,113 +66,116 @@
     <button ng-click="nuevoUsuario()">Añadir nuevo usuario</button>
     <div class="tbl-content">
 
-   
-        <div class="tarjetas" ng-repeat='fila in usuarios'>
-          <table>
-           
-            <tr>
-              <td class="columna1">
-                Nombre: 
-              </td>
-              <td class="columna2">
-                {{fila.nombre}}
-              </td>
-            </tr>
-            <tr>
-              <td class="columna1">
+
+      <div class="tarjetas" ng-repeat='fila in usuarios'>
+        <table>
+
+          <tr>
+            <td class="columna1">
+              Nombre:
+            </td>
+            <td class="columna2">
+              {{fila.nombre}}
+            </td>
+          </tr>
+          <tr>
+            <td class="columna1">
               DNI:
-              </td>
-              <td class="columna2">
-                {{fila.dniCliente}}
-              </td>
-            </tr>
-            <tr>
-                  <td class="columna1">
+            </td>
+            <td class="columna2">
+              {{fila.dniCliente}}
+            </td>
+          </tr>
+          <tr>
+            <td class="columna1">
 
-             Clave:
-              </td>
-              <td class="columna2">
-                {{fila.pasahitza}}
-              </td>
-            </tr>
-            <tr>
-                  <td class="columna1">
-                CodigoSecreto:
-              </td>
-              <td class="columna2">
-                {{fila.secreto}}
-              </td>
-            </tr>
-            <tr>
-                  <td class="columna1">
-                Tipo: 
-              </td>
-              <td class="columna2">
-                {{fila.tipo}}
-            </tr>
+              Clave:
+            </td>
+            <td class="columna2">
+              {{fila.pasahitza}}
+            </td>
+          </tr>
+          <tr>
+            <td class="columna1">
+              CodigoSecreto:
+            </td>
+            <td class="columna2">
+              {{fila.secreto}}
+            </td>
+          </tr>
+          <tr>
+            <td class="columna1">
+              Tipo:
+            </td>
+            <td class="columna2">
+              {{fila.tipo}}
+          </tr>
 
-            <tr>
-              <td class="columna1">
-                Cuenta corriente
-          </td>
-          <td class="columna2">
-           <a ng-click="MostrarCuentas($index,fila)">Mas informacion</a>
-          </td>
-        </tr>
+          <tr>
+            <td class="columna1">
+              Cuenta corriente
+            </td>
+            <td class="columna2">
+              <a ng-click="MostrarCuentas($index,fila)">Mas informacion</a>
+            </td>
+          </tr>
 
-            <tr>
-                  <td class="columna1">
-                 <button ng-click="modificarUsuario($index,fila)">Modificar</button>
-              </td>
-              <td class="columna2">
-                <i class="fa-solid fa-user-minus fa-1xl" ng-click="borrarUsuario($index,fila)"></i>
-              </td>
-            </tr>
-          </table>
-        </div>
+          <tr>
+            <td class="columna1">
+              <button ng-click="modificarUsuario($index,fila)">Modificar</button>
+            </td>
+            <td class="columna2">
+              <i class="fa-solid fa-user-minus fa-1xl" ng-click="borrarUsuario($index,fila)"></i>
+            </td>
+          </tr>
+        </table>
       </div>
+    </div>
 
     </div>
   </section>
 
   <div>
-   
 
-    <div id="demo-modal2" class="modal">
+
+
+
+<!----------- | MODALES | ------------------>
+    <div id="demo-modal1" class="modal">
 
       <div class="modal__content">
-      
-      <a ng-click="cerrarCuentas()" class="modal__close">&times;</a>
 
+        <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
+        <h3>Insertar</h3>
+        <form action="#">
+          <p>
+            <label for="dni">DNI</label>
+            <input type="text" ng-model="dniIns" id="dniIns">
+          </p>
+          <p>
+            <label for="nombre">Nombre Cliente</label>
+            <input type="text" ng-model="nombreIns">
+          </p>
+          <p>
+            <label for="contrasena">Contrasena</label>
+            <input type="password" ng-model="contrsenaIns">
+          </p>
+          <p>
+            <label for="contrasena2">Verificar Contrasena</label>
+            <input type="password" ng-model="vefIns">
+          </p>
 
-  <h3>Insertar</h3>
-  <form action="#">
-    <p>
-      <label for="dni">DNI</label>
-      <input type="text" ng-model="dniIns" id="dniIns">
-    </p>
-    <p>
-      <label for="nombre">Nombre Cliente</label>
-      <input type="text" ng-model="nombreIns">
-    </p>
-    <p>
-      <label for="contrasena">Contrasena</label>
-      <input type="password" ng-model="contrsenaIns">
-    </p>
-    <p>
-        <label for="contrasena2">Verificar Contrasena</label>
-        <input type="password" ng-model="vefIns">
-    </p>
+          <button ng-click="nuevoCliente()">NUEVO</button>
 
-    <button ng-click="nuevoCliente()">NUEVO</button>
-    
-  </form>
-</div>  
-</div>
-</div>
-</div>
-</div>
-<div id="demo-modal" class="modal">
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <!-- Modal de cuentas corrientes -->
+  <div id="demo-modal0" class="modal">
     <div class="modal__content">
       <div class="cuenta" ng-repeat='cuentas in cuenta'>
         <h4>{{cuentas.cuentaPos}}. Cuenta</h4>
@@ -181,9 +185,9 @@
         <p> Saldo: {{cuentas.saldo}}</p>
         <br>
       </div>
-        <a ng-click="cerrarCuentas()" class="modal__close">&times;</a>
+      <a ng-click="cerrarCuentas('0')" class="modal__close">&times;</a>
     </div>
-</div>
+  </div>
   <script src="../js/scriptAdmin.js"></script>
   <script src="../js/nav.js" type="text/javascript"></script>
 </body>
