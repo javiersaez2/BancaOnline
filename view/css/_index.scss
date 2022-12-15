@@ -1,30 +1,30 @@
-
 /////////CARRUSEL Y CARA DE LA PAGINA///////////
-#portada{
+#portada {
     position: relative;
     margin: 0;
 
-    #imagenPortada{
+    #imagenPortada {
         position: relative;
-        img{
+
+        img {
             width: 100%;
             opacity: .9;
-            aspect-ratio: 5/2;
+            aspect-ratio: 4.6/2;
             //object-fit: contain;
         }
     }
 
-    #financia{
+    #financia {
         position: absolute;
         right: 50;
         top: 70%;
         background-color: $color-blanco;
         padding: 3%;
 
-        .prueba{
+        .prueba {
             padding-top: 3%;
 
-            a{
+            a {
                 text-decoration: $vaciar;
                 color: skyblue;
                 font-weight: bold;
@@ -37,27 +37,32 @@
 
 
 /////////QUIENES SOMOS///////////
-#quienesSomos{
+.quienesSomos {
     @include flexcenter();
     flex-direction: row;
     background-color: $color-blanco;
 
-    justify-content: space-evenly !important; 
+    justify-content: space-evenly !important;
     width: 100%;
 
-    #imagenSomos{
+    .imagenSomos {
         width: 40%;
         @include flexcenter();
         margin-top: 3%;
         margin-bottom: 3%;
 
-        img{
+        img {
+            width: 100%;
+            height: 400px;
+        }
+
+        iframe {
             width: 100%;
             height: 400px;
         }
     }
 
-    #contenidoSomos{
+    .contenidoSomos {
         width: 40%;
         @include flexcenter();
         flex-direction: column;
@@ -65,17 +70,17 @@
         margin-bottom: 3%;
         color: $color-negro;
 
-        h2{
+        h2 {
             text-align: $centrar;
             margin-bottom: 10%;
             margin: 3%;
             height: 4%;
         }
 
-        #infoSomos{
+        .infoSomos {
             height: 94%;
 
-            p{
+            p {
                 margin: 3%;
             }
         }
@@ -84,5 +89,126 @@
 }
 
 
+//////CARRUSEL/////
+/// 
 
- 
+
+
+
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 87%;
+    max-height: 20%;
+    position: relative;
+    margin: auto;
+
+    .mySlides {
+        display: none;
+        height: 100%;
+        width: 100%;
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: black;
+            font-weight: bolder;
+            background-color: $color-secundario;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+    }
+
+    /* Next & previous buttons */
+    .prev,.next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+
+        img {
+            height: 50vh;
+            width: 90px;
+            height: 90px;
+            clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+        }
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: $color-secundario;
+    }
+}
+
+
+
+
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+
+    .prev, .next, .text {
+        font-size: 11px
+    }
+}

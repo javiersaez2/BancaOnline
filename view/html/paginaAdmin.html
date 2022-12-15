@@ -11,24 +11,26 @@
   <title>Pagina Admin</title>
 </head>
 
-<body ng-controller="miController">
-  <header>
-    <div class="company-logo">Z</div>
-    <nav class="navbar">
-      <ul class="nav-items">
-        <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
-        <li class="nav-item" ng-show="butonLogin"><a href="#" class="nav-link">LOGIN</a></li>
-        <li class="nav-item"><button ng-show="butonLogOut" ng-click="logout()">LOG OUT</button></li>
-      </ul>
-      
-    </nav>
-    <div class="menu-toggle">
-      <i class="bx bx-menu"></i>
-      <i class="bx bx-x"></i>
-    </div>
-  </header>
+<body ng-controller="miController" ng-init="loggedVerify()" ng-show="users">
+    <header>
+        <div class="company-logo">Zornotza</div>
+        <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item"><a href="/index.html" class="nav-link">HOME</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
+            <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
+            <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a></li>
+            <li class="nav-item" ng-show="cuentaUsuario"><a class="nav-link">CUENTA</a></li>
+            <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
+        </ul>
+        
+        </nav>
+        <div class="menu-toggle">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x"></i>
+        </div>
+    </header>
 
   <div id="zonaInsertar" ng-show="insertarVista == 'true'">   
     <div class="wrapper">
@@ -167,6 +169,7 @@
      
   </div>
   <script src="../js/scriptAdmin.js"></script>
+  <script src="../js/nav.js" type="text/javascript"></script>
 </body>
 
 </html>
