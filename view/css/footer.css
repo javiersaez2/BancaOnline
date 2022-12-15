@@ -6,6 +6,10 @@
   line-height: 24px;
   color: #737373;
 }
+.site-footer .container .row {
+  display: block;
+  flex-direction: column;
+}
 
 .site-footer hr {
   border-top-color: #bbb;
