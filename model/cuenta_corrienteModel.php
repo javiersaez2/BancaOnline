@@ -98,4 +98,20 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
         return $msg;
     }
 
+    public function deleteCuenta()
+    {
+        $this->OpenConnect();
+        $dniCliente = $this->dniCliente;
+        $sql = "delete from cuenta_corriente where dniCliente='" . $dniCliente . "'";
+        $this->link->query($sql);
+        
+            if ($this->link->affected_rows == 1) {
+                return "La cuenta_corriente se borró: ";
+            } else {
+                return "Fallo al borrar cuenta_corriente: (" . $this->link->errno . ") " . $this->link->error;
+            }
+       
+        $this->CloseConnect();
+    }
+
 }
