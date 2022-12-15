@@ -79,7 +79,11 @@ class clienteModel extends clienteclass
             $newCliente->nombre = $row['nombre'];
             $newCliente->pasahitza = $row['pasahitza'];
             $newCliente->secreto = $row['secreto'];
-            $newCliente->tipo = $row['tipo'];
+            if ($row['tipo'] == 1){
+                $newCliente->tipo = "Admin";
+            } else {
+                $newCliente->tipo = "Usuario";
+            }
 
             array_push($list, get_object_vars($newCliente));
         }
