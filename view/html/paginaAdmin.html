@@ -59,7 +59,6 @@
 
     </form>
   </div>
-  </div>
 
 
   <section>
@@ -185,6 +184,9 @@
         <p> Saldo: {{cuentas.saldo}}</p>
         <br>
       </div>
+
+
+      <button ng-click="guardarCuenta({{cuentas}})">Nueva Cuenta</button>
       <a ng-click="cerrarCuentas('0')" class="modal__close">&times;</a>
     </div>
   </div>

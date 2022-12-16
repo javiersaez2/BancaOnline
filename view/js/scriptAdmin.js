@@ -102,6 +102,27 @@ MyApp.controller('miController', function ($scope, $http) {
         document.getElementById("demo-modal"+numero+"").style.opacity = 0;
 
     }
+
+    ////////// - Crear y modificar cuenta corriente - /////////
+    $scope.guardarCuenta = function (data) {
+        console.log(data);
+        
+        // var dnicliente = data;
+
+        // $http({
+        //     url: '../../controller/delete_usuario.php',
+        //     method: "POST",
+        //     params: { dniCliente: dniCliente }
+        // }).then(function (response) {
+        //     alert("Funciona")
+        //     verusuarios();
+        // }, function (error) {
+        //     console.error("Ocurrio un error", response.status, response.data)
+        // }) 
+
+    }
+
+
     ////////Update//////////
 
     $scope.modificarUsuario = function (miIndex, item) {
