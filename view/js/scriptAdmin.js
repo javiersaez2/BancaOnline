@@ -89,7 +89,7 @@ MyApp.controller('miController', function ($scope, $http) {
         console.log("--")
         console.log(item.objCuenta.iban)
         for (i = 0; i < item.objCuenta.length; i++) {
-            $scope.cuenta.push({ iban: item.objCuenta[i].iban, dniCliente: item.objCuenta[i].dniCliente, titular: item.objCuenta[i].titular, saldo: item.objCuenta[i].saldo });
+            $scope.cuenta.push({ iban: item.objCuenta[i].iban, dniCliente: item.objCuenta[i].dniCliente, titular: item.objCuenta[i].titular, saldo: item.objCuenta[i].saldo, cuentaPos: i+1});
             console.log($scope.cuenta)
         }
         document.getElementById("demo-modal0").style.visibility = "visible";

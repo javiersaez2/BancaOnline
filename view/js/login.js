@@ -5,17 +5,26 @@ miApp.controller('miControlador', function($scope, $http){
     $scope.iniciarSesionSection = true; 
 
     $scope.comprobarDatosSesion=function() {
+        var pasahitza = "";
+        var dni = "";
+        var codSecreto = "";
+        if ($scope.dniData == undefined || $scope.dniData == ""){
+            dni = " ";
+        } else {
+            dni = $scope.dniData;
+        }
+        
         if ($scope.CodSecretoData == undefined || $scope.CodSecretoData == ""){
-            $scope.CodSecretoData = " ";
+            codSecreto = " ";
+        } else {
+            codSecreto = $scope.CodSecretoData;   
         }
 
         if ($scope.pasahitzaData == undefined || $scope.pasahitzaData == ""){
-            $scope.pasahitzaData = "  ";    
-        } else if (codSecretoKont >= 3){
-            $scope.pasahitzaData = "";    
+            pasahitza = " ";    
+        } else {
+            pasahitza = $scope.pasahitzaData;   
         }
-
-        var dni = $scope.dniData; var pasahitza = $scope.pasahitzaData; var codSecreto = $scope.CodSecretoData;
 
         $http({
             url: '../../controller/cLogin.php',
