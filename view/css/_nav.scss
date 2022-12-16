@@ -1,29 +1,39 @@
-@import "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400";
+
 
 * {
 	padding: 0;
 	margin: 0;
+	
 	
 }
 /* ================= HEADER ================ */
 
 .bx {
 	font-size: 2.5rem;
+	
+
 }
 .container {
 	padding: 0 2rem;
+	
+	
 }
 body {
 	font-family: "Raleway", sans-serif;
-	font-size: 1rem;
-	background-color: $color-blanco;
+}
+.navsticky{
+	position: sticky;
+	top: 0;
 }
 header {
+	position: sticky;
+	top: 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	background: -webkit-linear-gradient( 120deg, $color-secundario, $color-principal );
 	padding: 1rem 2rem;
+	
 }
 .company-logo {/////IMAGEN DEL LOGO
 	font-size: 2.5rem;
@@ -35,6 +45,7 @@ header {
 .nav-items {
 	display: flex;
 	list-style: $vaciar;
+	
     }
     .nav-item {
 	margin: $nav-item-margin;
@@ -83,6 +94,9 @@ header {
 	}
 	header {
 		padding: 0.5rem 1rem;
+			position: sticky;
+	position: -webkit-sticky;
+	top: 0; /* required */
 	}
 	.navbar {
 		background-color: $color-negro;
@@ -96,7 +110,7 @@ header {
 		transform: scaleY(0);
 		transform-origin: bottom;
 		transition: transform 500ms;
-		z-index: 9;
+		z-index: 1;
 	}
 	.show-navbar {
 		display: flex;
