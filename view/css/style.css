@@ -151,6 +151,10 @@ header {
     padding: 1rem 5rem;
   }
 }
+body {
+  background: linear-gradient(to right, #B57EDC, #7ED4DC);
+}
+
 #portada {
   position: relative;
   margin: 0;
@@ -163,7 +167,7 @@ header {
 }
 #portada #imagenPortada img {
   width: 100%;
-  opacity: 0.9;
+  opacity: 9;
   aspect-ratio: 4.5/2;
   z-index: 1;
   filter: brightness(30%);
@@ -177,6 +181,7 @@ header {
   font-family: "Raleway";
   text-align: center;
   color: #fbfbfb;
+  opacity: 9;
 }
 #portada #imagenPortada .financias .separador {
   padding-top: 3%;
@@ -190,22 +195,26 @@ header {
 
 .quienesSomos {
   display: flex;
-  justify-content: center;
   flex-direction: row;
-  background-color: #fbfbfb;
-  justify-content: space-evenly !important;
+  justify-content: center;
   width: 100%;
 }
 .quienesSomos .imagenSomos {
   width: 40%;
   display: flex;
   justify-content: center;
+  margin: 0.5%;
   margin-top: 3%;
-  margin-bottom: 3%;
 }
 .quienesSomos .imagenSomos img {
   width: 100%;
   height: 400px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .quienesSomos .imagenSomos iframe {
   width: 100%;
@@ -216,9 +225,16 @@ header {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 3%;
-  margin-bottom: 3%;
+  margin: 0.5%;
+  margin-top: 5%;
   color: black;
+  color: #fbfbfb;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .quienesSomos .contenidoSomos h2 {
   text-align: center;
