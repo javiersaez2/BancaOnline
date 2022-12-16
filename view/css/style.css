@@ -387,6 +387,12 @@ header {
   text-decoration: none;
 }
 
+.columnas {
+  width: 30%;
+  margin: auto;
+  margin-top: 3px;
+}
+
 .footer-links {
   padding-left: 0;
   list-style: none;
