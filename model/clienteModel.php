@@ -181,4 +181,20 @@ class clienteModel extends clienteclass
         }
         $this->CloseConnect();
     }
+
+    // public function selectClienteById(){
+    //     $this->OpenConnect();
+
+    //     $dniCliente = $this->dniCliente;
+
+    //     $sql = "SELECT * FROM cliente WHERE dniCliente='$dni' ";
+    //     $result = $this->link->query($sql);
+
+    //     if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        
+    //     }
+
+    //     mysqli_free_result($result);
+    //     $this->CloseConnect();
+    // }
 }
