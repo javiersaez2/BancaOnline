@@ -1,10 +1,10 @@
 var MyApp=angular.module('MyApp',[]);
 MyApp.controller('miController', function($scope, $http){
-    var Amortizazioa = 0;
-    var Aldiak = 0;
-    var Kuota = 0;
-    var Interesa = 0;
-    var Metatua = 0;
+    let Amortizazioa = 0.00;
+    let Aldiak = 0.00;
+    let Kuota = 0.00;
+    let Interesa = 0.00;
+    let Metatua = 0.00;
     $scope.lista = [];
 
     $scope.calcular = function() {
@@ -27,8 +27,9 @@ MyApp.controller('miController', function($scope, $http){
                 ////////////////////
                 Metatua = Metatua + Amortizazioa;
                 ///////////////////
+
                 $scope.lista.push({
-                    Aldiak: Aldiak.toFixed(2),
+                    Aldiak: Aldiak,
                     Kuota: Kuota.toFixed(2),
                     Interesa: Interesa.toFixed(2),
                     Amortizazioa: Amortizazioa.toFixed(2),
@@ -37,6 +38,9 @@ MyApp.controller('miController', function($scope, $http){
                 });
             }
         }
+        //$scope.lista = $scope.lista.replace(/,/g, '.');
+        //const valorNumerico = parseFloat(valor).toFixed(2)
+
         $scope.periodo = $scope.lista;
     }
 
