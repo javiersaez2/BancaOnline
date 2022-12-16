@@ -379,7 +379,13 @@ body {
 .site-footer .container .row {
   display: flex;
   justify-content: center;
-  flex-direction: row-reverse;
+  flex-direction: row;
+}
+.site-footer .container .row2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  text-align: center;
 }
 .site-footer hr {
   border-top-color: #bbb;

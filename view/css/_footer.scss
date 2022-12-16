@@ -9,8 +9,16 @@
     .container {
         .row {
             @include flexcenter();
-            flex-direction: row-reverse;
+            flex-direction: row;
+        }        
+        
+        .row2 {
+            @include flexcenter();
+            flex-direction: column-reverse;
+            text-align: $centrar;
         }
+
+
     }
 
 
