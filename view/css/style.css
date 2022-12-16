@@ -386,13 +386,7 @@ body {
   justify-content: center;
   flex-direction: column-reverse;
   text-align: center;
-}
-.site-footer hr {
-  border-top-color: #bbb;
-  opacity: 0.5;
-}
-.site-footer hr.small {
-  margin: 20px 0;
+  margin: 50px;
 }
 .site-footer h6 {
   color: #fff;

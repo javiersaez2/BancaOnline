@@ -16,19 +16,10 @@
             @include flexcenter();
             flex-direction: column-reverse;
             text-align: $centrar;
+            margin: 50px;
         }
 
 
-    }
-
-
-    hr {
-        border-top-color: #bbb;
-        opacity: 0.5;
-    }
-
-    hr.small {
-        margin: 20px 0;
     }
 
     h6 {
