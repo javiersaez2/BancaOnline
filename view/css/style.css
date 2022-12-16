@@ -390,9 +390,22 @@ header {
 .columnas {
   width: 30%;
   margin: auto;
-  margin-top: 3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
+@media (max-width: 700px) {
+  .site-footer {
+    margin-top: 100px;
+  }
+  .site-footer .container .row {
+    flex-direction: column;
+  }
+  .site-footer .columnas {
+    width: 70%;
+    text-align: center;
+  }
+}
 .footer-links {
   padding-left: 0;
   list-style: none;
