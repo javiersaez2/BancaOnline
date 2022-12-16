@@ -12,7 +12,8 @@
 <body ng-app="miApp">
 
 <!--HEADER-->
-<header ng-controller="miControlador" ng-init="loggedVerify()">
+<div class="navsticky;">
+  <header ng-controller="miControlador" ng-init="loggedVerify()">
     <div class="company-logo">Zornotza</div>
     <nav class="navbar">
       <ul class="nav-items">
@@ -31,22 +32,23 @@
       <i class="bx bx-x"></i>
     </div>
   </header>
-
+</div>
+  
 
 
   <section id="portada">
     <div id="imagenPortada"> 
       <img src="view/img/banco.jpg" alt="">
-    </div>
+
 
         
-    <div id="financia"> 
-      <h3>FINANCIACIONES & PRESTAMOS </h3>
-        <div class="prueba">
-          <a href="#">HACER PRUEBA</a>
+    <div class="financias" id="financia"> 
+      <a>ZORNOTZA </a>
+        <div class="separador">
+          <a href="#">Mas informacion </a>
         </div>
     </div>
-        
+  </div>      
   </section>
   
   <div class="quienesSomos">
