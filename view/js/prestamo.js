@@ -5,6 +5,8 @@ MyApp.controller('miController', function($scope, $http){
     var Kuota = 0;
     var Interesa = 0;
     var Metatua = 0;
+    $scope.lista = [];
+
     $scope.calcular = function() {
         $scope.ver = 'true';
         $scope.lista = [];
@@ -36,5 +38,21 @@ MyApp.controller('miController', function($scope, $http){
             }
         }
         $scope.periodo = $scope.lista;
+    }
+
+
+    $scope.volver = function() {
+        $scope.ver = 'false';
+        $scope.lista = [];
+        $scope.sistema="";
+        $scope.duracion="";
+        $scope.numero=0;
+        $scope.gastos=0;
+        $scope.capital=0;
+        $scope.periodoPago="";
+        $scope.tipo="";
+        $scope.interes=0;
+        $scope.periodoCarencia=0;
+
     }
 })
