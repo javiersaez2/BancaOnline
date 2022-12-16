@@ -1,5 +1,5 @@
-var miApp=angular.module('miApp',[]);
-miApp.controller('miControlador', function($scope, $http){
+var MyApp=angular.module('MyApp',[]);
+MyApp.controller('miController', function($scope, $http){
     var Amortizazioa = 0;
     var Aldiak = 0;
     var Kuota = 0;
