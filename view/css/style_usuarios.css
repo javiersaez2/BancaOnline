@@ -81,7 +81,7 @@ header {
 
 .bx-menu {
   cursor: pointer;
-  background: -webkit-linear-gradient(120deg, #7ED4DC, #B57EDC);
+  background: #fbfbfb;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: none !important;
@@ -89,7 +89,7 @@ header {
 
 .bx-x {
   cursor: pointer;
-  background: -webkit-linear-gradient(120deg, #7ED4DC, #B57EDC);
+  background: #fbfbfb;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: none !important;

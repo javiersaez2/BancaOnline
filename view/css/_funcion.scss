@@ -6,7 +6,7 @@
 
 @mixin bx{
     cursor: pointer;
-	background: -webkit-linear-gradient( 120deg, $color-secundario, $color-principal );
+	background: $color-blanco;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	display: none !important;
