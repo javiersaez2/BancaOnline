@@ -782,6 +782,7 @@ select {
   }
   .form table {
     margin-top: 40px;
+    width: 100%;
   }
   .form table tr th {
     border-bottom: 4px solid black;
