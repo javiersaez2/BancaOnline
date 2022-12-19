@@ -28,7 +28,7 @@ body {
             position: absolute;
      
             padding: 3%;
-            font-size: 10rem;
+            font-size: 14vw;
             letter-spacing: 1.05rem;
             font-family: "Raleway";
             text-align: center;
@@ -43,7 +43,7 @@ body {
                     text-decoration: $vaciar;
                     color: $color-blanco;
                     letter-spacing: 0.5rem;
-                    font-size: 2rem;
+                    font-size: 3vw;
                 }
             }
         }
@@ -59,10 +59,13 @@ body {
 .quienesSomos {
     display: flex;
     flex-direction: row;
-
     justify-content: center;
-
     width: 100%;
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction:column;  
+      width: 100%;
+}
 
     .imagenSomos {
         width: 40%;
@@ -137,8 +140,9 @@ body {
   }
   
   @media screen and (max-width: 768px) {
-    min-height: 500px;
+    max-height: 500px;
     height: auto;
+    width: 80%;
     margin: 180px auto;
   }
   
@@ -186,7 +190,7 @@ body {
     width: 300px;
     flex-shrink: 0;
     height: 300px;
-    background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+    background-image: linear-gradient(147deg, $color-secundario 0%, $color-principal 74%);
 
     border-radius: 20px;
     transform: translateX(-80px);
@@ -200,7 +204,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+    background-image: linear-gradient(147deg, $color-secundario 0%, $color-principal 74%);
       border-radius: 20px;
     opacity: 0.8;
   }
@@ -278,19 +282,17 @@ body {
   
   &__button {
         display: inline-flex;
-    background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
+    background-image: linear-gradient(147deg, $color-secundario 0%, $color-principal 74%);
     padding: 15px 35px;
     border-radius: 50px;
     color: #fff;
-    box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
+    box-shadow: 0px 14px 80px $color-principal;
     text-decoration: none;
     font-weight: 500;
         justify-content: center;
     text-align: center;
     letter-spacing: 1px;
-    @media screen and (max-width: 576px) {
-      width: 100%;
-    }
+ 
     
   }
   .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
@@ -335,7 +337,7 @@ body {
       transition: all .3s;
       &-active {
     opacity: 1;
-    background: #fd3838;
+    background: $color-secundario;
     height: 30px;
     box-shadow: 0px 0px 20px rgba(252, 56, 56, 0.3);
         
