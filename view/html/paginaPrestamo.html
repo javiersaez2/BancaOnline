@@ -34,8 +34,8 @@
         </div>
     </header>
     <div class="form" ng-hide="ver =='true'">
-        <div>
-            <div >
+        <div class="triplete1">
+            <div>
                 <label>Sistema de Amortización</label>
                 <select ng-model="sistema">
                     <option value="lineal">Lineal</option>
@@ -54,7 +54,8 @@
                 <input type="text" ng-model="numero">
             </div>
         </div>
-        <div>
+
+        <div class="triplete2">
             <div>
                 <label>Gastos de Apertura</label>
                 <input type="text" ng-model="gastos">
@@ -73,7 +74,8 @@
                 </select>
             </div>
         </div>
-        <div>
+
+        <div class="triplete3">
             <div>
                 <label>Tipo de Base Temporal</label>
                 <select name="" id="" ng-model="tipo">
@@ -93,30 +95,31 @@
                 <input type="text" ng-model="periodoCarencia">
             </div>
         </div>
-        <input type="button" value="Calcular" ng-click="calcular()">
+        
+        <input id="botonCalcular" type="button" value="Calcular" ng-click="calcular()">
     </div>
 
     <div class="form" ng-show="ver =='true'">
         <table>
             <tr>
-                <th style="border: 2px solid;">Aldiak</th>
-                <th style="border: 2px solid;">Kuota</th>
-                <th style="border: 2px solid;">Interesa</th>
-                <th style="border: 2px solid;">Amortizazioa</th>
-                <th style="border: 2px solid;">Amortizazioa Metatua</th>
-                <th style="border: 2px solid;">Amortizazioa Kapitala</th>
+                <th>Aldiak</th>
+                <th>Kuota</th>
+                <th>Interesa</th>
+                <th>Amortizazioa</th>
+                <th>Amortizazioa Metatua</th>
+                <th>Amortizazioa Kapitala</th>
             </tr>
             <tr ng-repeat='fila in periodo'>
-                <td style="border: 2px solid;">{{fila.Aldiak}}</td>
-                <td style="border: 2px solid;">{{fila.Kuota}}</td>
-                <td style="border: 2px solid;">{{fila.Interesa}}</td>
-                <td style="border: 2px solid;">{{fila.Amortizazioa}}</td>
-                <td style="border: 2px solid;">{{fila.Metatua}}</td>
-                <td style="border: 2px solid;">{{fila.Kapitala}}</td>
+                <td class="parte1tabla">{{fila.Aldiak}}</td>
+                <td>{{fila.Kuota}}</td>
+                <td>{{fila.Interesa}}</td>
+                <td>{{fila.Amortizazioa}}</td>
+                <td>{{fila.Metatua}}</td>
+                <td>{{fila.Kapitala}}</td>
             </tr>
         </table>
 
-        <input type="button" value="Regresar" ng-click="volver()">
+        <input id="regresarPrestamo" type="button" value="Regresar" ng-click="volver()">
 
     </div>
     <script src="../js/prestamo.js"></script>
