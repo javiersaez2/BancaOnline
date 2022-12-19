@@ -808,4 +808,20 @@ select {
     grid-column-end: 3;
     margin-top: 70px;
   }
+  table {
+    margin-top: 40px;
+  }
+  table tr th {
+    border: 2px solid red;
+  }
+  table tr td {
+    border: 2px solid;
+    text-align: right;
+  }
+  table tr .parte1tabla {
+    text-align: center;
+  }
+  #regresarPrestamo {
+    margin-top: 70px;
+  }
 }/*# sourceMappingURL=style.css.map */
