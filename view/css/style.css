@@ -769,4 +769,14 @@ select {
     background-color: #f2f2f2;
     padding: 20px;
   }
+}
+@media (min-width: 950px) {
+  .form {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .form .triplete {
+    width: 30%;
+  }
 }/*# sourceMappingURL=style.css.map */

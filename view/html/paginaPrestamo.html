@@ -34,8 +34,8 @@
         </div>
     </header>
     <div class="form" ng-hide="ver =='true'">
-        <div>
-            <div >
+        <div class="triplete">
+            <div>
                 <label>Sistema de Amortización</label>
                 <select ng-model="sistema">
                     <option value="lineal">Lineal</option>
@@ -54,7 +54,8 @@
                 <input type="text" ng-model="numero">
             </div>
         </div>
-        <div>
+
+        <div class="triplete">
             <div>
                 <label>Gastos de Apertura</label>
                 <input type="text" ng-model="gastos">
@@ -73,7 +74,8 @@
                 </select>
             </div>
         </div>
-        <div>
+
+        <div class="triplete">
             <div>
                 <label>Tipo de Base Temporal</label>
                 <select name="" id="" ng-model="tipo">
@@ -93,6 +95,7 @@
                 <input type="text" ng-model="periodoCarencia">
             </div>
         </div>
+        
         <input type="button" value="Calcular" ng-click="calcular()">
     </div>
 

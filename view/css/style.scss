@@ -79,7 +79,6 @@
 
 @media (min-width: 350px) {
 
-
   input[type=text],
   select {
     width: 100%;
@@ -113,4 +112,13 @@
   }
 }
 
-@media (min-width: 950px) {}
+@media (min-width: 950px) {
+  .form{
+    @include flexcenter();
+    flex-direction: row;
+    
+    .triplete{
+      width: 30%;
+    }
+  }
+}
