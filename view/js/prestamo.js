@@ -8,12 +8,21 @@ MyApp.controller('miController', function($scope, $http){
     $scope.lista = [];
 
     $scope.calcular = function() {
+
+        //($scope.numero == "" || $scope.capital == "" || $scope.interes == "")
+        if ($scope.sistema == "" || $scope.duracion == ""){
+            console.log("Por favor, asigne tipo de sistema o duracion");
+            return false;
+            
+        }
+
         $scope.ver = 'true';
         $scope.lista = [];
         if ($scope.sistema == "lineal") {
             var kapitala = $scope.capital;
             ////////////////////
             Amortizazioa = ($scope.capital / $scope.numero);
+
             ////////////////////
             for (let index = 0; index < $scope.numero; index++) {
                 /////////////////////
