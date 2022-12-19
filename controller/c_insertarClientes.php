@@ -7,6 +7,7 @@ $data=json_decode($_GET['value']);
 $nombre = $data->nombre;
 $pasahitza = $data->contrasena;
 $dniCliente = $data->dni;
+$tipo = $data->tipo;
 
 //var_dump($nombre+' '+$pasahitza);
 
@@ -23,8 +24,9 @@ if (!isset($nombre) && !isset($pasahitza) && !isset($dniCliente)){
     $cliente->setDniCliente($dniCliente);
     $cliente->setNombre($nombre);
     $cliente->setPasahitza($pasahitza);
-
-    $response["list"]=$cliente->insert();
+    $cliente->setTipo($tipo);
+    
+    $response["error"]=$cliente->insert();
 
     $cuenta = new cuenta_corrienteModel();
     $cuenta->selectIban();
@@ -37,8 +39,6 @@ if (!isset($nombre) && !isset($pasahitza) && !isset($dniCliente)){
     $cuenta2->setdniCliente($cliente->getdniCliente());
     $cuenta2->setTitular($cliente->getNombre());
     $cuenta2->insert();
-
-    $response["error"] = 'no error';
     
 }
 

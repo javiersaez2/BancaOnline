@@ -10,26 +10,20 @@ MyApp.controller('miController', function($scope, $http){
     $scope.calcular = function() {
         if ($scope.sistema == null  ){
            alert("Por favor, asigne tipo de sistema");
-            return false;
-
         }
        else  if ($scope.duracion == null) {
            alert("Por favor, asigne tipo de duracion");
-            return false;
         }
-        if ($scope.numero == null) {
+        else if ($scope.numero == null) {
            alert("Por favor, asigne Cantidad Meses / Años");
-            return false;
         }
-        if ($scope.capital == null) {
+        else if ($scope.capital == null) {
            alert("Por favor, asigne Capital");
-            return false;
         }
-        if ($scope.interes == null) {
+        else if ($scope.interes == null) {
            alert("Por favor, asigne Tasa de Interés %");
-            return false;
         }
-
+        else{
         $scope.ver = 'true';
         $scope.lista = [];
         if ($scope.sistema == "lineal") {
@@ -40,7 +34,7 @@ MyApp.controller('miController', function($scope, $http){
             ////////////////////
             for (let index = 0; index < $scope.numero; index++) {
                 /////////////////////
-                Interesa = ($scope.capital * $scope.interes) / 100;
+                Interesa = (kapitala * $scope.interes) / 100;
                 /////////////////////
                 kapitala = kapitala - Amortizazioa;
                 ////////////////////
@@ -61,6 +55,32 @@ MyApp.controller('miController', function($scope, $http){
                 });
             }
         }
+
+        if ($scope.sistema == "frances") {
+            var kapitala = $scope.capital;
+            Kuota = ($scope.capital * ($scope.interes/100))/(1-(Math.pow((1+($scope.interes/100)), (-($scope.numero)))));
+            for (let index = 0; index < $scope.numero; index++) {
+                ////////////////////
+                Aldiak = index + 1;
+                ///////////////////
+                Interesa = (kapitala * $scope.interes) / 100; 
+                ///////////////////
+                Amortizazioa=Kuota-Interesa;
+                ///////////////////
+                Metatua = Metatua + Amortizazioa;
+                ///////////////////
+                kapitala = kapitala - Amortizazioa;
+                $scope.lista.push({
+                    Aldiak: Aldiak,
+                    Kuota: Kuota.toFixed(2),
+                    Interesa: Interesa.toFixed(2),
+                    Amortizazioa: Amortizazioa.toFixed(2),
+                    Metatua: Metatua.toFixed(2),
+                    Kapitala:kapitala.toFixed(2)
+                });
+            }
+        }
+    }
         //$scope.lista = $scope.lista.replace(/,/g, '.');
         //const valorNumerico = parseFloat(valor).toFixed(2)
 
@@ -69,9 +89,9 @@ MyApp.controller('miController', function($scope, $http){
 
 
     $scope.volver = function() {
-        $scope.ver = 'false';
+       /*  $scope.ver = 'false';
         $scope.lista = [];
-        $scope.sistema="";
+       $scope.sistema="";
         $scope.duracion="";
         $scope.numero=0;
         $scope.gastos=0;
@@ -79,7 +99,8 @@ MyApp.controller('miController', function($scope, $http){
         $scope.periodoPago="";
         $scope.tipo="";
         $scope.interes=0;
-        $scope.periodoCarencia=0;
+        $scope.periodoCarencia=0;*/
+        location.reload();
 
     }
 })

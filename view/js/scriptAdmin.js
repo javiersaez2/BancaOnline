@@ -6,11 +6,12 @@ MyApp.controller('miController', function ($scope, $http) {
     /////cargar los datos de la tabla usuario de la base de datos 
     verusuarios()
 
-
+    ///////////////////////////////
+    // Mostrar lista de usuarios //
+    ///////////////////////////////
     function verusuarios() {
         $http.get('../../controller/controlador_consulta_usuarios.php')
             .then(function (response) {
-
                 console.log(response.data.list);
                 $scope.usuarios = response.data.list;
             })
@@ -20,7 +21,9 @@ MyApp.controller('miController', function ($scope, $http) {
     }
 
 
-
+    /////////////////////
+    // Borrar usuarios //
+    /////////////////////
     $scope.borrarUsuario = function (miIndex, item) {
         console.log(item.dniCliente)
         datos = item.dniCliente;
@@ -37,7 +40,10 @@ MyApp.controller('miController', function ($scope, $http) {
             console.error("Ocurrio un error", response.status, response.data)
         })   //
     }
+
+    ////////////////////
     //INSERTAR CLIENTE//
+    ////////////////////
     $scope.insertarVista = 'false';
     $scope.listaInsertar = [];
 
@@ -58,12 +64,14 @@ MyApp.controller('miController', function ($scope, $http) {
             dni: $scope.dniIns,
             nombre: $scope.nombreIns,
             contrasena: $scope.contrsenaIns,
+            tipo: $scope.tipoIns
         };
         console.log($scope.dniIns);
         console.log($scope.nombreIns);
         console.log($scope.contrsenaIns);
         var datosInsert = JSON.stringify($scope.listaInsertar);
         console.log(datosInsert)
+
         ////////FETCH DE INSERTAR/////
         $http({
             url: '../../controller/c_insertarClientes.php',
@@ -71,10 +79,13 @@ MyApp.controller('miController', function ($scope, $http) {
             params: { value: datosInsert }
         })
             .then(function (response) {
-                alert('Datos insertados con exito ' + response.data);
-                console.log(response.data.list.secreto);
+                alert(response.data.error);
                 $scope.insertarVista = 'false';
+                verusuarios();
 
+
+                document.getElementById("demo-modal1").style.visibility = "hidden";
+                document.getElementById("demo-modal1").style.opacity = 0;
             })
             .catch(function (response) {
                 console.log('Error ocurred: ', response.status);
@@ -83,8 +94,9 @@ MyApp.controller('miController', function ($scope, $http) {
             })
     }
 
-
+    /////////////////////////////////////////////////
     ////////// - Mostrar cuenta corriente - /////////
+    /////////////////////////////////////////////////
     $scope.MostrarCuentas = function (miIndex, item) {
         $scope.cuenta = [];
         console.log(miIndex)
@@ -105,26 +117,44 @@ MyApp.controller('miController', function ($scope, $http) {
 
     }
 
-    ////////// - Crear y modificar cuenta corriente - /////////
+    ////////////////////////////////////////////////////////
+    ////////// - Crear y borrar cuenta corriente - /////////
+    ///////////////////////////////////////////////////////
     $scope.guardarCuenta = function (datos) {
         var dni = datos.dniCliente;
+        var nombreCliente = datos.nombre;
 
         $http({
             url: '../../controller/c_insertarCuenta.php',
             method: "POST",
-            params: {value:{dniCliente: dni}}
+            params: {value:{dniCliente: dni, nombre: nombreCliente}}
         }).then(function (response) {
             alert(response.data.error)
-            window.location.reload();
+            verusuarios();
         }, function (error) {
             console.error("Ocurrio un error", response.status, response.data)
         }) 
 
     }
 
+    $scope.borrarCuenta = function(datos){
+        var iban = datos.iban;
 
+        $http({
+            url: '../../controller/delete_cuenta.php',
+            method: "POST",
+            params: {value:{iban: iban}}
+        }).then(function (response) {
+            alert(response.data.error)
+            window.location.reload();
+        }, function (error) {
+            console.error("Ocurrio un error", response.status, response.data)
+        }) 
+    }
+
+    ////////////////////////
     ////////Update//////////
-
+    ////////////////////////
     $scope.modificarUsuario = function (miIndex, item) {
         document.getElementById("demo-modal2").style.visibility = "visible";
         document.getElementById("demo-modal2").style.opacity = 1;
@@ -149,10 +179,12 @@ MyApp.controller('miController', function ($scope, $http) {
                 method: "POST",
                 params: { 'dniCliente': dniCliente, 'nombre': nombre, 'pasahitza': pasahitza }
             }).then(function (response) {
-                alert("Los datos han guardado")
+                alert(response.data.error);
                 $scope.modificarVista = 'false';
-                verusuarios()
-                window.location.reload();
+                verusuarios();
+
+                document.getElementById("demo-modal2").style.visibility = "hidden";
+                document.getElementById("demo-modal2").style.opacity = 0;
             })
                 .catch(function (response) {
                     console.error('Error occurred:', response.status, response.data)

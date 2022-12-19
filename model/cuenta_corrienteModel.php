@@ -101,7 +101,7 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
         return $msg;
     }
 
-    public function deleteCuenta()
+    public function deleteCuentaByIdCliente()
     {
         $this->OpenConnect();
         $dniCliente = $this->dniCliente;
@@ -113,6 +113,22 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
             } else {
                 return "Fallo al borrar cuenta_corriente: (" . $this->link->errno . ") " . $this->link->error;
             }
+       
+        $this->CloseConnect();
+    }
+
+    public function deleteCuenta()
+    {
+        $this->OpenConnect();
+        $iban = $this->iban;
+        $sql = "delete from cuenta_corriente where iban='$iban'";
+        $this->link->query($sql);
+        
+        if ($this->link->affected_rows == 1) {
+            return "Cuenta corriente borrada con exito";
+        } else {
+            return "Fallo al borrar cuenta_corriente: (" . $this->link->errno . ") " . $this->link->error;
+        }
        
         $this->CloseConnect();
     }

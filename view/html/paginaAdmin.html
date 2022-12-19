@@ -155,7 +155,6 @@
 
         <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
         
-        <h3>Insertar</h3>
         
         <!-- <form action="#"> -->
           <div class="form__group field">
@@ -175,8 +174,17 @@
             <label for="contrasena2" class="form__label"  >Verificar Contrasena</label>
           </div>
 
+          <div class="form__group field">
+            <label for="select"class="form__label">tipo de   usuario</label>
+            <select name="select"  class="form__field for_option" ng-model="tipoIns"  placeholder="Contrasena2">
+              <option value="" disabled selected hidden>Seleccione el usuario</option>
+              <option value="1">Admin</option>
+              <option value="0">Normal</option>
+            </select>
+          </div>
+          
 <br>
-          <button ng-click="nuevoCliente()">NUEVO</button>
+          <button ng-click="nuevoCliente()">NUEVO</button></p>
         </form>
       </div>
     </div>
@@ -187,7 +195,25 @@
 
     <div class="modal__content">
       <div id="zonaModificar" ng-show="modificarVista == 'true'">
+        <div class="form__group field">
+          <input type="input" class="form__field"   ng-model="dniIns"  placeholder="DNI" name="dni" id='dniIns' required />
+          <label for="name"class="form__label">DNI</label>
+        </div>
+        <div class="form__group field">
+          <input type="input" class="form__field" ng-model="nombreIns"  placeholder="Nombre" name="nombre" id='nombre' required />
+          <label for="name" class="form__label">Nombre</label>
+        </div>
+        <div class="form__group field">
+          <input type="input" class="form__field"  ng-model="contrsenaIns" placeholder="Contrasena" name="contrasena" id='contrasena' required />
+          <label type="password" for="password"  class="form__label">Contraseña</label>
+        </div>
+        <div class="form__group field">
+          <input type="password" class="form__field" ng-model="vefIns"  placeholder="Contrasena2" name="contrasena2" id='contrasena2' required />
+          <label for="contrasena2" class="form__label"  >Verificar Contrasena</label>
+        </div>
+        </div>
 
+        
         <h3>Modificar</h3>
         <form action="#">
           <p>
