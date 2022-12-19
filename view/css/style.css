@@ -772,11 +772,25 @@ select {
 }
 @media (min-width: 950px) {
   .form {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 4;
+    grid-template-rows: 2;
+    grid-gap: 10px;
   }
-  .form .triplete {
-    width: 30%;
+  .form .triplete1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  .form .triplete2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+  .form .triplete3 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+  }
+  .form input {
+    grid-column-start: 2;
+    grid-column-end: 3;
   }
 }/*# sourceMappingURL=style.css.map */
