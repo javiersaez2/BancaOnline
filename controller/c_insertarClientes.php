@@ -24,7 +24,7 @@ if (!isset($nombre) && !isset($pasahitza) && !isset($dniCliente)){
     $cliente->setNombre($nombre);
     $cliente->setPasahitza($pasahitza);
 
-    $response["list"]=$cliente->insert();
+    $response["error"]=$cliente->insert();
 
     $cuenta = new cuenta_corrienteModel();
     $cuenta->selectIban();
@@ -37,8 +37,6 @@ if (!isset($nombre) && !isset($pasahitza) && !isset($dniCliente)){
     $cuenta2->setdniCliente($cliente->getdniCliente());
     $cuenta2->setTitular($cliente->getNombre());
     $cuenta2->insert();
-
-    $response["error"] = 'no error';
     
 }
 
