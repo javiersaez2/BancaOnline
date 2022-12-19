@@ -40,6 +40,10 @@ header {
 	background-color: $color-blanco;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+	img{
+		width: 100%;
+		height: 70px;
+	}
 
 }
 .nav-items {

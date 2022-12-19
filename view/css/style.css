@@ -41,6 +41,10 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.company-logo img {
+  width: 100%;
+  height: 70px;
+}
 
 .nav-items {
   display: flex;
