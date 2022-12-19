@@ -220,12 +220,14 @@
         <p> DNI: {{cuentas.dniCliente}}</p>
         <p> Titular : {{cuentas.titular}}</p>
         <p> Saldo: {{cuentas.saldo}}</p>
-        <br>
+        <button ng-click="borrarCuenta(cuentas)">Borrar cuenta</button>
+        <br><br>
       </div>
 
       <a ng-click="cerrarCuentas('0')" class="modal__close">&times;</a>
     </div>
   </div>
+
   <script src="../js/scriptAdmin.js"></script>
   <script src="../js/nav.js" type="text/javascript"></script>
 </body>

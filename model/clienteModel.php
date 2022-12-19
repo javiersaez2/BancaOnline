@@ -68,6 +68,10 @@ class clienteModel extends clienteclass
         return array("check" => $check, "tipo" => $tipo, "izena"=>$izena);
     }
 
+
+    ///////////////////////////
+    // Mostrar lista usuario //
+    ///////////////////////////
     public function setList()
     {
         $this->OpenConnect();
@@ -94,6 +98,10 @@ class clienteModel extends clienteclass
         $this->CloseConnect();
         return $list;
     }
+
+    /////////////////////
+    // Insert Cliente //
+    ////////////////////
     public function insert()
     {
         $this->OpenConnect();
@@ -104,17 +112,20 @@ class clienteModel extends clienteclass
         $tipo = 0;
 
         $sql = "INSERT INTO cliente (dniCliente, nombre, pasahitza, secreto, tipo) VALUES ('$dni', '$nombre', '$pasahitza', $secreto, $tipo)";
-        echo $sql;
         $this->link->query($sql);
 
         if ($this->link->affected_rows == 1) {
-            return "El usuario se creo: ";
+            return "Usuario añadido con exito";
         } else {
             return "Fallo al crear usuario: (" . $this->link->errno . ") " . $this->link->error;
         }
         $this->CloseConnect();
     }
 
+
+    /////////////////////
+    // Delete Cliente //
+    ////////////////////
     public function deleteCliente()
     {
         $this->OpenConnect();
@@ -130,7 +141,9 @@ class clienteModel extends clienteclass
         $this->CloseConnect();
     }
 
-    //metodo para show update
+    //////////////////
+    // Show Update //
+    /////////////////
     public function showUpdate()
     {
         $this->OpenConnect();
@@ -175,7 +188,7 @@ class clienteModel extends clienteclass
         $this->link->query($sql);
 
         if ($this->link->affected_rows == 1) {
-            return "el usuario se ha modificado con exito. Num de modification : " . $this->link->affected_rows;
+            return "El usuario se ha modificado con exito.";
         } else {
             return $sql . "Fallo al modification un usuario : (" . $this->link->errno . ")" . $this->link->error;
         }
