@@ -8,12 +8,27 @@ MyApp.controller('miController', function($scope, $http){
     $scope.lista = [];
 
     $scope.calcular = function() {
-
         //($scope.numero == "" || $scope.capital == "" || $scope.interes == "")
-        if ($scope.sistema == "" || $scope.duracion == ""){
-            console.log("Por favor, asigne tipo de sistema o duracion");
+        if ($scope.sistema == null  ){
+           alert("Por favor, asigne tipo de sistema");
             return false;
-            
+
+        }
+       else  if ($scope.duracion == null) {
+           alert("Por favor, asigne tipo de duracion");
+            return false;
+        }
+        if ($scope.numero == null) {
+           alert("Por favor, asigne Cantidad Meses / Años");
+            return false;
+        }
+        if ($scope.capital == null) {
+           alert("Por favor, asigne Capital");
+            return false;
+        }
+        if ($scope.interes == null) {
+           alert("Por favor, asigne Tasa de Interés %");
+            return false;
         }
 
         $scope.ver = 'true';
