@@ -119,11 +119,12 @@ MyApp.controller('miController', function ($scope, $http) {
     ///////////////////////////////////////////////////////
     $scope.guardarCuenta = function (datos) {
         var dni = datos.dniCliente;
+        var nombreCliente = datos.nombre;
 
         $http({
             url: '../../controller/c_insertarCuenta.php',
             method: "POST",
-            params: {value:{dniCliente: dni}}
+            params: {value:{dniCliente: dni, nombre: nombreCliente}}
         }).then(function (response) {
             alert(response.data.error)
             verusuarios();
