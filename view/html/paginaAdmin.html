@@ -34,7 +34,7 @@
   </header>
 
 
-  <div id="zonaModificar" ng-show="modificarVista == 'true'">
+  <!-- <div id="zonaModificar" ng-show="modificarVista == 'true'">
 
     <h3>Modificar</h3>
     <form action="#">
@@ -58,7 +58,7 @@
       <button ng-click="guardarCliente(item)">Guardar Modificaciones</button>
 
     </form>
-  </div>
+  </div> -->
 
 
   <section>
@@ -174,13 +174,42 @@
           </p>
 
           <button ng-click="nuevoCliente()">NUEVO</button>
-
         </form>
       </div>
     </div>
   </div>
-  </div>
-  </div>
+
+  <!--Modal modificar usuario-->
+  <div id="demo-modal2" class="modal">
+
+    <div class="modal__content">
+      <div id="zonaModificar" ng-show="modificarVista == 'true'">
+
+        <h3>Modificar</h3>
+        <form action="#">
+          <p>
+            <label for="dni">DNI</label>
+            <input type="text" ng-model="dniModificar" id="dniModificar">
+          </p>
+          <p>
+            <label for="nombre">Nombre Cliente</label>
+            <input type="text" ng-model="nombreModificar">
+          </p>
+          <p>
+            <label for="contrasena">Contrasena</label>
+            <input type="text" ng-model="contrasenaModificar">
+          </p>
+          <p>
+            <label for="contrasena2">Verificar Contrasena</label>
+            <input type="text" ng-model="vefModificar">
+          </p>
+    
+          <button ng-click="guardarCliente(item)">Guardar Modificaciones</button>
+          <a ng-click="cerrarCuentas('2')" class="modal__close">&times;</a>
+        </form>
+      </div>
+    </div>
+  </div> 
 
   <!-- Modal de cuentas corrientes -->
   <div id="demo-modal0" class="modal">

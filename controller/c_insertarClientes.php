@@ -44,3 +44,5 @@ if (!isset($nombre) && !isset($pasahitza) && !isset($dniCliente)){
 
 echo json_encode($response);
 unset($cliente);
+unset($cuenta);
+unset($cuenta2);

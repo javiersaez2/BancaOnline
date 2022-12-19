@@ -31,7 +31,7 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             params: { value: datos }
         }).then(function (response) {
-            alert("Funciona")
+            alert(response.data.error)
             verusuarios();
         }, function (error) {
             console.error("Ocurrio un error", response.status, response.data)
@@ -42,7 +42,6 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.listaInsertar = [];
 
     $scope.nuevoUsuario = function () {
-
         document.getElementById("demo-modal1").style.visibility = "visible";
         document.getElementById("demo-modal1").style.opacity = 1;
     }
@@ -107,13 +106,13 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.guardarCuenta = function (datos) {
         var dni = datos.dniCliente;
 
-
         $http({
-            url: '../../controller/delete_usuario.php',
+            url: '../../controller/c_insertarCuenta.php',
             method: "POST",
-            params: { dniCliente: dni }
+            params: {value:{dniCliente: dni}}
         }).then(function (response) {
-
+            alert(response.data.error)
+            window.location.reload();
         }, function (error) {
             console.error("Ocurrio un error", response.status, response.data)
         }) 
@@ -124,6 +123,9 @@ MyApp.controller('miController', function ($scope, $http) {
     ////////Update//////////
 
     $scope.modificarUsuario = function (miIndex, item) {
+        document.getElementById("demo-modal2").style.visibility = "visible";
+        document.getElementById("demo-modal2").style.opacity = 1;
+
         document.getElementById("dniModificar").disabled = true;
         $scope.modificarVista = 'true';
         $scope.insertarVista = 'false';
@@ -132,8 +134,8 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.nombreModificar = item.nombre;
         $scope.contrasenaModificar = item.pasahitza;
         $scope.vefModificar = item.pasahitza;
-
     }
+
     $scope.guardarCliente = function () {
         dniCliente = $scope.dniModificar;
         nombre = $scope.nombreModificar;
@@ -147,6 +149,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 alert("Los datos han guardado")
                 $scope.modificarVista = 'false';
                 verusuarios()
+                window.location.reload();
             })
                 .catch(function (response) {
                     console.error('Error occurred:', response.status, response.data)
@@ -169,7 +172,8 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST"
         }).then(function (response) {
             if (response.data.error != "logged") {
-                if (window.location.pathname != "/index.html") {
+                if (window.location.pathname == "/view/html/paginaAdmin.html") {
+                    alert("Error: Usuario sin permisos");
                     window.location.href = "/index.html"
                 }
 
