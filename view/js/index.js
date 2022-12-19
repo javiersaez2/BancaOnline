@@ -42,6 +42,25 @@ miApp.controller('miControlador', function($scope, $http){
 });
 
 
+
+// $("#simulador").click(function() {
+//     $('html,body').animate({
+//         scrollTop: $("#slides").offset()},
+//         'slow');
+// });
+$("#simulador").on('click', function (e) {
+    e.preventDefault();
+  
+    var targetEle = this.hash;
+    var $targetEle = $(targetEle);
+  
+    $('#slides').stop().animate({
+        'scrollTop': $targetEle.offset().top
+    }, 800, 'swing', function () {
+        window.location.hash = targetEle;
+    });
+});
+
 var swiper = new Swiper('.blog-slider', {
     spaceBetween: 30,
     effect: 'fade',

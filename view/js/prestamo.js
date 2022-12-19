@@ -8,12 +8,35 @@ MyApp.controller('miController', function($scope, $http){
     $scope.lista = [];
 
     $scope.calcular = function() {
+        if ($scope.sistema == null  ){
+           alert("Por favor, asigne tipo de sistema");
+            return false;
+
+        }
+       else  if ($scope.duracion == null) {
+           alert("Por favor, asigne tipo de duracion");
+            return false;
+        }
+        if ($scope.numero == null) {
+           alert("Por favor, asigne Cantidad Meses / Años");
+            return false;
+        }
+        if ($scope.capital == null) {
+           alert("Por favor, asigne Capital");
+            return false;
+        }
+        if ($scope.interes == null) {
+           alert("Por favor, asigne Tasa de Interés %");
+            return false;
+        }
+
         $scope.ver = 'true';
         $scope.lista = [];
         if ($scope.sistema == "lineal") {
             var kapitala = $scope.capital;
             ////////////////////
             Amortizazioa = ($scope.capital / $scope.numero);
+
             ////////////////////
             for (let index = 0; index < $scope.numero; index++) {
                 /////////////////////
