@@ -763,11 +763,14 @@ select {
   }
   input[type=button]:hover {
     background-color: #45a049;
+    width: 100%;
   }
   .form {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
+    margin: auto;
+    text-align: center;
   }
 }
 @media (min-width: 950px) {
@@ -783,17 +786,26 @@ select {
     grid-column-start: 1;
     grid-column-end: 2;
   }
+  .form .triplete1 div {
+    margin-top: 30px;
+  }
   .form .triplete2 {
     grid-column-start: 2;
     grid-column-end: 3;
+  }
+  .form .triplete2 div {
+    margin-top: 30px;
   }
   .form .triplete3 {
     grid-column-start: 3;
     grid-column-end: 4;
   }
+  .form .triplete3 div {
+    margin-top: 30px;
+  }
   .form #botonCalcular {
     grid-column-start: 2;
     grid-column-end: 3;
-    margin-top: 40px;
+    margin-top: 70px;
   }
 }/*# sourceMappingURL=style.css.map */
