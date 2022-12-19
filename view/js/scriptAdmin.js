@@ -59,6 +59,9 @@ MyApp.controller('miController', function ($scope, $http) {
             nombre: $scope.nombreIns,
             contrasena: $scope.contrsenaIns,
         };
+        console.log($scope.dniIns);
+        console.log($scope.nombreIns);
+        console.log($scope.contrsenaIns);
         var datosInsert = JSON.stringify($scope.listaInsertar);
         console.log(datosInsert)
         ////////FETCH DE INSERTAR/////
