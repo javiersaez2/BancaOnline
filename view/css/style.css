@@ -774,10 +774,30 @@ select {
   }
   .form {
     border-radius: 5px;
-    background-color: #f2f2f2;
     padding: 20px;
     margin: auto;
     text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .form table {
+    margin-top: 40px;
+  }
+  .form table tr th {
+    border-bottom: 4px solid black;
+  }
+  .form table tr td {
+    text-align: right;
+  }
+  .form table tr .parte1tabla {
+    text-align: center;
+  }
+  .form #regresarPrestamo {
+    margin-top: 70px;
   }
 }
 @media (min-width: 950px) {
@@ -813,22 +833,6 @@ select {
   .form #botonCalcular {
     grid-column-start: 2;
     grid-column-end: 3;
-    margin-top: 70px;
-  }
-  table {
-    margin-top: 40px;
-  }
-  table tr th {
-    border: 2px solid red;
-  }
-  table tr td {
-    border: 2px solid;
-    text-align: right;
-  }
-  table tr .parte1tabla {
-    text-align: center;
-  }
-  #regresarPrestamo {
     margin-top: 70px;
   }
 }/*# sourceMappingURL=style.css.map */

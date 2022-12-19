@@ -122,7 +122,7 @@ class clienteModel extends clienteclass
             $sql = "delete from cliente where dniCliente='" . $dniCliente . "'";
             $this->link->query($sql);
             if ($this->link->affected_rows == 1) {
-                return "El usuario se borró: ";
+                return "Usuario eliminado con exito";
             } else {
                 return "Fallo al borrar usuario: (" . $this->link->errno . ") " . $this->link->error;
             }
@@ -182,19 +182,21 @@ class clienteModel extends clienteclass
         $this->CloseConnect();
     }
 
-    // public function selectClienteById(){
-    //     $this->OpenConnect();
+    public function selectClienteById(){
+        $this->OpenConnect();
 
-    //     $dniCliente = $this->dniCliente;
+        $dniCli = $this->dniCli;
+        $nombreCliente = "";
 
-    //     $sql = "SELECT * FROM cliente WHERE dniCliente='$dni' ";
-    //     $result = $this->link->query($sql);
+        $sql = "SELECT * FROM cliente WHERE dniCliente='$dniCli' ";
+        $result = $this->link->query($sql);
 
-    //     if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-        
-    //     }
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $nombreCliente = $row["nombre"];
+        }
 
-    //     mysqli_free_result($result);
-    //     $this->CloseConnect();
-    // }
+        return $nombreCliente;
+        mysqli_free_result($result);
+        $this->CloseConnect();
+    }
 }
