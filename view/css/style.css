@@ -271,6 +271,12 @@ body {
   height: 400px;
   transition: all 0.3s;
   margin-top: 5em;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 @media screen and (max-width: 992px) {
   .blog-slider {
@@ -360,7 +366,6 @@ body {
   width: 300px;
   flex-shrink: 0;
   height: 300px;
-  background-image: linear-gradient(147deg, #7ED4DC 0%, #B57EDC 74%);
   border-radius: 20px;
   transform: translateX(-80px);
   overflow: hidden;
@@ -372,7 +377,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(147deg, #7ED4DC 0%, #B57EDC 74%);
   border-radius: 20px;
   opacity: 0.8;
 }
@@ -423,7 +427,7 @@ body {
   transition: all 0.4s;
 }
 .blog-slider__code {
-  color: #7b7992;
+  color: rgb(249, 218, 249);
   margin-bottom: 15px;
   display: block;
   font-weight: 500;
@@ -431,11 +435,11 @@ body {
 .blog-slider__title {
   font-size: 24px;
   font-weight: 700;
-  color: #0d0925;
+  color: #fbfbfb;
   margin-bottom: 20px;
 }
 .blog-slider__text {
-  color: #4e4a67;
+  color: rgb(249, 218, 249);
   margin-bottom: 30px;
   line-height: 1.5em;
 }
@@ -756,7 +760,7 @@ select {
   }
   input[type=button] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: rgb(60, 84, 238);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -765,15 +769,36 @@ select {
     cursor: pointer;
   }
   input[type=button]:hover {
-    background-color: #45a049;
+    background-color: rgb(85, 106, 241);
     width: 100%;
   }
   .form {
     border-radius: 5px;
-    background-color: #f2f2f2;
     padding: 20px;
     margin: auto;
     text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .form table {
+    margin-top: 40px;
+    width: 100%;
+  }
+  .form table tr th {
+    border-bottom: 4px solid black;
+  }
+  .form table tr td {
+    text-align: right;
+  }
+  .form table tr .parte1tabla {
+    text-align: center;
+  }
+  .form #regresarPrestamo {
+    margin-top: 70px;
   }
 }
 @media (min-width: 950px) {
@@ -809,22 +834,6 @@ select {
   .form #botonCalcular {
     grid-column-start: 2;
     grid-column-end: 3;
-    margin-top: 70px;
-  }
-  table {
-    margin-top: 40px;
-  }
-  table tr th {
-    border: 2px solid red;
-  }
-  table tr td {
-    border: 2px solid;
-    text-align: right;
-  }
-  table tr .parte1tabla {
-    text-align: center;
-  }
-  #regresarPrestamo {
     margin-top: 70px;
   }
 }/*# sourceMappingURL=style.css.map */

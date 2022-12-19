@@ -4,12 +4,18 @@ include_once '../model/cuenta_corrienteModel.php';
 
 $data=json_decode($_GET['value']);
 
+$response = array();
 $cliente = new clienteModel();
 $cuenta = new cuenta_corrienteModel();
 
-$cliente->dniCliente=$data->dniCliente;
+$cliente->dniCli=$data->dniCliente;
 
-$response = array();
+$cuenta->selectIban();
+$cuenta->setdniCliente($data->dniCliente);
+$cuenta->setTitular($cliente->selectClienteById());
+$cuenta->setSaldo(0);
+$response["error"] = $cuenta->insert();
 
 echo json_encode($response);
 unset($cliente);
+unset($cuenta);

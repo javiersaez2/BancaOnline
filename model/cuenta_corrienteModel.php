@@ -53,23 +53,26 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
         $sql = "SELECT * FROM cuenta_corriente ORDER BY iban DESC";
         $result = $this->link->query($sql);
 
-        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        if ($this->link->affected_rows > 0){
+            if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                $this->setIban($row['iban']);
+                
+                $sub = intval(substr($this->getIban(), -10));
+                
+                $sub = $sub + 1;
 
-            $this->setIban($row['iban']);
-            
-            $sub = intval(substr($this->getIban(), -10));
-            
-            $sub = $sub + 1;
+                $sub = strval($sub);
 
-            $sub = strval($sub);
+                $bus = substr($this->getIban(), 0, -10);
 
-            $bus = substr($this->getIban(), 0, -10);
-
-            $bus = $bus.$sub;
-            
-            $this->setIban($bus);
-
+                $bus = $bus.$sub;
+                
+                $this->setIban($bus);
+            }
+        } else {
+            $this->setIban("ES1220900000450350000001");    
         }
+
         mysqli_free_result($result);
         $this->CloseConnect();
     }
@@ -90,7 +93,7 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
         
         if ($this->link->affected_rows == 1)
         {
-            $msg= $sql." La cuenta se ha insertado con exito. Num de inserts: ".$this->link->affected_rows;
+            $msg= "La cuenta se ha insertado con exito. Num de inserts: ".$this->link->affected_rows;
         } else {
             $msg=$sql." Fallo al insertar una cuenta nuevo: (" . $this->link->errno . ") " . $this->link->error;
         }
@@ -113,5 +116,4 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
        
         $this->CloseConnect();
     }
-
 }
