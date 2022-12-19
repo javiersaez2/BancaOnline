@@ -8,7 +8,6 @@ MyApp.controller('miController', function($scope, $http){
     $scope.lista = [];
 
     $scope.calcular = function() {
-        //($scope.numero == "" || $scope.capital == "" || $scope.interes == "")
         if ($scope.sistema == null  ){
            alert("Por favor, asigne tipo de sistema");
             return false;
