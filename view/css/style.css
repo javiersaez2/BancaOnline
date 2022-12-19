@@ -793,9 +793,12 @@ select {
   }
   .form table tr td {
     text-align: right;
+    border: 2px solid black;
+    width: 10%;
   }
   .form table tr .parte1tabla {
     text-align: center;
+    width: 4%;
   }
   .form #regresarPrestamo {
     margin-top: 70px;
