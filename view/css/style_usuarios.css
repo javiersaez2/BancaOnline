@@ -335,4 +335,8 @@ body {
   box-shadow: none;
 }
 
+.for_option * {
+  color: black;
+}
+
 /* demo *//*# sourceMappingURL=style_usuarios.css.map */

@@ -181,5 +181,9 @@ body {
 /* reset input */
 .form__field{
   &:required,&:invalid { box-shadow:none; }
+
+}
+.for_option *{
+  color: $color-negro;
 }
 /* demo */
