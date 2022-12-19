@@ -776,6 +776,8 @@ select {
     grid-template-columns: 4;
     grid-template-rows: 2;
     grid-gap: 10px;
+    margin: 5px;
+    padding: 30px;
   }
   .form .triplete1 {
     grid-column-start: 1;
@@ -789,8 +791,9 @@ select {
     grid-column-start: 3;
     grid-column-end: 4;
   }
-  .form input {
+  .form #botonCalcular {
     grid-column-start: 2;
     grid-column-end: 3;
+    margin-top: 40px;
   }
 }/*# sourceMappingURL=style.css.map */

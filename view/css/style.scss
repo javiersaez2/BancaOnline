@@ -114,29 +114,33 @@
 
 @media (min-width: 950px) {
   .form{
-    //@include flexcenter();
-    //flex-direction: row;
     display: grid;
     grid-template-columns: 4;
     grid-template-rows: 2;
     grid-gap: 10px;
+    margin: 5px;
+    padding: 30px;
+
 
     .triplete1{
       grid-column-start: 1;
       grid-column-end: 2;
-
     }
     .triplete2{
       grid-column-start: 2;
       grid-column-end: 3;
+
     }
     .triplete3{
       grid-column-start: 3;
       grid-column-end: 4;
+
     }
-    input{
+    
+    #botonCalcular{
       grid-column-start: 2;
       grid-column-end: 3;
+      margin-top: 40px;
     }
   }
 }
