@@ -173,6 +173,14 @@
             <input type="password" ng-model="vefIns">
           </p>
 
+          <p>
+            <label for="select">Tipo usuario</label>
+            <select name="select" ng-model="tipoIns">
+              <option value="1">Admin</option>
+              <option value="0">Normal</option>
+            </select>
+          </p>
+
           <button ng-click="nuevoCliente()">NUEVO</button>
         </form>
       </div>

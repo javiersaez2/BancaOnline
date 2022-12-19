@@ -12,7 +12,6 @@ MyApp.controller('miController', function ($scope, $http) {
     function verusuarios() {
         $http.get('../../controller/controlador_consulta_usuarios.php')
             .then(function (response) {
-
                 console.log(response.data.list);
                 $scope.usuarios = response.data.list;
             })
@@ -65,6 +64,7 @@ MyApp.controller('miController', function ($scope, $http) {
             dni: $scope.dniIns,
             nombre: $scope.nombreIns,
             contrasena: $scope.contrsenaIns,
+            tipo: $scope.tipoIns
         };
         var datosInsert = JSON.stringify($scope.listaInsertar);
         console.log(datosInsert)
@@ -79,6 +79,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 alert(response.data.error);
                 $scope.insertarVista = 'false';
                 verusuarios();
+
 
                 document.getElementById("demo-modal1").style.visibility = "hidden";
                 document.getElementById("demo-modal1").style.opacity = 0;

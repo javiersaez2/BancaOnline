@@ -109,7 +109,7 @@ class clienteModel extends clienteclass
         $nombre = $this->getNombre();
         $pasahitza = $this->getPasahitza();
         $secreto = mt_rand(0000, 9999);
-        $tipo = 0;
+        $tipo = $this->getTipo();
 
         $sql = "INSERT INTO cliente (dniCliente, nombre, pasahitza, secreto, tipo) VALUES ('$dni', '$nombre', '$pasahitza', $secreto, $tipo)";
         $this->link->query($sql);
