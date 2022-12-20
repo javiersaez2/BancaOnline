@@ -99,6 +99,7 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+
   }
 
   input[type=button]:hover {
@@ -116,7 +117,7 @@
     table{
       margin-top: 40px;
       width: 100%;
-  
+
       tr{
         th{
           border-bottom: 4px solid $color-negro;
