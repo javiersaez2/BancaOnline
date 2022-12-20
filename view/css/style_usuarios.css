@@ -106,12 +106,16 @@ header {
     top: 0; /* required */
   }
   .navbar {
-    background-color: black;
+    background: -webkit-linear-gradient(120deg, rgba(163, 74, 227, 0.8588235294), rgba(81, 194, 204, 0.8901960784));
+    box-shadow: 0 4px 30px rgba(43, 18, 60, 0.3529411765);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(183, 82, 255, 0.4784313725);
     position: absolute;
-    top: 3.5rem;
+    top: 5.4rem;
     right: 0;
-    width: 100%;
-    height: 100vh;
+    width: 50%;
+    height: auto;
     display: flex;
     justify-content: center;
     transform: scaleY(0);
@@ -157,15 +161,15 @@ section .tbl-content {
   height: 80vh;
   width: 100%;
   overflow-x: auto;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
   flex-wrap: wrap;
 }
 section .tbl-content .tarjetas {
   position: relative;
   margin: 5px;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
   box-shadow: 35px 35px 68px 0px rgba(181, 126, 220, 0.5), inset -8px -8px 16px 0px rgba(181, 126, 220, 0.6), inset 0px 11px 28px 0px #fbfbfb;
 }
 section .tbl-content .tarjetas .columna2 {
@@ -173,14 +177,14 @@ section .tbl-content .tarjetas .columna2 {
   width: 280px;
   height: 25px;
   padding: 5px;
-  background-color: rgba(49, 49, 49, 0.2);
+  background-color: rgba(39, 39, 39, 0.2);
 }
 section .tbl-content .tarjetas .columna1 {
   color: #fbfbfb;
-  width: 130px;
+  width: 170px;
   height: 25px;
   padding: 5px;
-  background-color: rgba(49, 49, 49, 0.2);
+  background-color: rgba(39, 39, 39, 0.2);
 }
 
 .modal {
@@ -323,6 +327,45 @@ body {
   font-size: 1rem;
   color: #7ED4DC;
   font-weight: 700;
+}
+
+/* Botones */
+.button-23 {
+  background-color: #f3f3f3;
+  border: 1px solid rgba(34, 34, 34, 0.7333333333);
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: rgba(34, 34, 34, 0.7960784314);
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 6px;
+  margin: 0;
+  padding: 11px 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.1s;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.button-23:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+
+.button-23:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(0.96);
+}
+
+.button-23:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  opacity: 1;
 }
 
 /* reset input */
