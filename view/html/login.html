@@ -10,23 +10,25 @@
 <body ng-app="miApp" ng-controller="miControlador" ng-init="loggedVerify()">
 
 <!--HEADER-->
-    <header>
-        <div class="company-logo">Zornotza</div>
-        <nav class="navbar">
-        <ul class="nav-items">
-            <li class="nav-item"><a href="/index.html" class="nav-link">HOME</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
-            <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
-            <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
-        </ul>
-        
-        </nav>
-        <div class="menu-toggle">
-            <i class="bx bx-menu"></i>
-            <i class="bx bx-x"></i>
-        </div>
-    </header>
+<header>
+    <div class="company-logo"><img src="/view/img/LogoZornotza.png" alt=""></div>
+    <nav class="navbar">
+      <ul class="nav-items">
+        <li class="nav-item"><a href="/index.html" class="nav-link">HOME</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
+        <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
+        <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a></li>
+        <li class="nav-item" ng-show="cuentaUsuario"><a class="nav-link">CUENTA</a></li>
+        <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
+      </ul>
+      
+    </nav>
+    <div class="menu-toggle">
+      <i class="bx bx-menu"></i>
+      <i class="bx bx-x"></i>
+    </div>
+  </header>
 
      <section ng-controller="miControlador">    
         <div class="box" ng-show="iniciarSesionSection">
