@@ -6,7 +6,7 @@ section {
     height: 80vh;
     width: 100%;
     overflow-x: auto;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     display: flex;
 
     flex-wrap: wrap;
@@ -180,11 +180,12 @@ body {
 
 /* Botones */
 .button-23 {
-  background-color: #FFFFFF;
-  border: 1px solid #222222;
+  background-color: #f3f3f3;
+  border: 1px solid #222222bb;
+  
   border-radius: 4px;
   box-sizing: border-box;
-  color: #222222;
+  color: #222222cb;
   cursor: pointer;
   display: inline-block;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
