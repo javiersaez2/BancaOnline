@@ -30,15 +30,29 @@ MyApp.controller('miController', function ($scope, $http) {
             $scope.ver = 'true';
             $scope.lista = [];
             if ($scope.sistema == "lineal") {
-                var kapitala = $scope.capital;
+                
                 
                 if ($scope.periodoPago == "SEMESTRAL") {
+                    var kapitala1 = $scope.capital;
                     var intr = Math.sqrt(1+($scope.interes/100))-1
-                console.log(intr)
+                var mat=0;;
                     for (let i = 1; i <= $scope.numero; i++) {
                         for (let j = 1; j <= 2; j++) {
                             if (j==1) {
-                                
+                                Interesa=kapitala1*intr;
+                                Amortizazioa=0;
+                                Metatua=0;
+                                kapitala1=kapitala1;
+                                Kuota=kapitala1*intr;
+                            }else{
+                               
+                                Interesa=kapitala1*intr;
+                                Amortizazioa=$scope.capital/$scope.numero;
+                                kapitala1=kapitala1 - Amortizazioa;
+                                Kuota= Amortizazioa+Interesa;
+                                console.log(Metatua)
+                                Metatua=mat + Amortizazioa;
+                                mat=Metatua;
                             }
                             Aldiak = i +"-"+ j;
                             $scope.lista.push({
@@ -47,13 +61,14 @@ MyApp.controller('miController', function ($scope, $http) {
                                 Interesa: Interesa.toFixed(2),
                                 Amortizazioa: Amortizazioa.toFixed(2),
                                 Metatua: Metatua.toFixed(2),
-                                //Kapitala: kapitala.toFixed(2)
+                                Kapitala: kapitala1
                             });
                         }
                         
                     }
                 }
                 if ($scope.periodoPago == "ANUAL") {
+                    var kapitala = $scope.capital;
                     ////////////////////
                     Amortizazioa = ($scope.capital / $scope.numero);
                     ////////////////////

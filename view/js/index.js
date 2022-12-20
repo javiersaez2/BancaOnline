@@ -42,7 +42,7 @@ miApp.controller('miControlador', function($scope, $http){
 });
 
 
-
+//////////////////SCROLL BOTON SIMULADORS
 // $("#simulador").click(function() {
 //     $('html,body').animate({
 //         scrollTop: $("#slides").offset()},

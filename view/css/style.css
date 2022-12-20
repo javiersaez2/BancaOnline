@@ -18,15 +18,10 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-.navsticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-}
-
 header {
   position: -webkit-sticky;
   position: sticky;
+  z-index: 9;
   top: 0;
   display: flex;
   align-items: center;
@@ -791,6 +786,7 @@ select {
   .form table {
     margin-top: 40px;
     width: 100%;
+    font-family: sans-serif;
   }
   .form table tr th {
     border-bottom: 4px solid black;
