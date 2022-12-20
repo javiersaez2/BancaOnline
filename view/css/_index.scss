@@ -39,25 +39,37 @@ body {
       text-align: center;
       color: $color-blanco;
       opacity: 9;
-
-
-      .separador {
-        padding-top: 5vh;
-
-        a {
-          text-decoration: $vaciar;
-          color: $color-blanco;
-          letter-spacing: 0.5rem;
-          font-size: 3vw;
+      @media screen and (max-width: 576px) {
+        font-size: 10vw;
+      }
+      .svg-padding{            
+        padding-top: 10%;
 
           .svg-wrapper {
-            padding-top: 10%;
-            position: relative;
-            
+            text-decoration: $vaciar;
+            color: $color-blanco;
+            letter-spacing: 0.5rem;
+            font-size: 3vw;
             transform: translateY(-50%);
             margin: 0 auto;
-            width: 520px;
             text-align: center;
+
+            svg{
+              height: 60px;
+              width: 520px;
+              @media screen and (max-width: 576px) {
+                height: 30px;
+                width: 520px;
+              }
+            }
+            rect{
+              height: 60px;
+              width: 520px;
+              @media screen and (max-width: 576px) {
+                height: 30px;
+                width: 520px;
+              }
+            }
           }
 
           .shape {
@@ -78,9 +90,9 @@ body {
             top: -48px;
             position: relative;
             text-align: center;
-            height: 60px;
-            width: 520px;
-            font-variant: small-caps;
+            @media screen and (max-width: 576px) {
+              top: -30px;
+            }
           }
 
           .shape-border {
@@ -90,14 +102,13 @@ body {
 
           }
         }
-      }
     }
-  }
+    }
+  
 }
 
 
-
-/////////QUIENES SOMOS///////////
+////////////////// - QUIENES SOMOS - //////////////////
 .quienesSomos {
   display: flex;
   flex-direction: row;

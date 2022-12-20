@@ -190,24 +190,44 @@ body {
   color: #fbfbfb;
   opacity: 9;
 }
-#portada #imagenPortada .financias .separador {
-  padding-top: 5vh;
+@media screen and (max-width: 576px) {
+  #portada #imagenPortada .financias {
+    font-size: 10vw;
+  }
 }
-#portada #imagenPortada .financias .separador a {
+#portada #imagenPortada .financias .svg-padding {
+  padding-top: 10%;
+}
+#portada #imagenPortada .financias .svg-padding .svg-wrapper {
   text-decoration: none;
   color: #fbfbfb;
   letter-spacing: 0.5rem;
   font-size: 3vw;
-}
-#portada #imagenPortada .financias .separador a .svg-wrapper {
-  padding-top: 10%;
-  position: relative;
   transform: translateY(-50%);
   margin: 0 auto;
-  width: 520px;
   text-align: center;
 }
-#portada #imagenPortada .financias .separador a .shape {
+#portada #imagenPortada .financias .svg-padding .svg-wrapper svg {
+  height: 60px;
+  width: 520px;
+}
+@media screen and (max-width: 576px) {
+  #portada #imagenPortada .financias .svg-padding .svg-wrapper svg {
+    height: 30px;
+    width: 520px;
+  }
+}
+#portada #imagenPortada .financias .svg-padding .svg-wrapper rect {
+  height: 60px;
+  width: 520px;
+}
+@media screen and (max-width: 576px) {
+  #portada #imagenPortada .financias .svg-padding .svg-wrapper rect {
+    height: 30px;
+    width: 520px;
+  }
+}
+#portada #imagenPortada .financias .svg-padding .shape {
   stroke-dasharray: 0 580;
   stroke-dashoffset: 580;
   stroke-width: 4px;
@@ -217,18 +237,20 @@ body {
   transition: stroke-width 2.7s, stroke-dashoffset 2.7s, stroke-dasharray 1.3s;
   transition-delay: 0s;
 }
-#portada #imagenPortada .financias .separador a .text {
+#portada #imagenPortada .financias .svg-padding .text {
   line-height: 32px;
   letter-spacing: 8px;
   color: #fff;
   top: -48px;
   position: relative;
   text-align: center;
-  height: 60px;
-  width: 520px;
-  font-variant: small-caps;
 }
-#portada #imagenPortada .financias .separador a .shape-border {
+@media screen and (max-width: 576px) {
+  #portada #imagenPortada .financias .svg-padding .text {
+    top: -30px;
+  }
+}
+#portada #imagenPortada .financias .svg-padding .shape-border {
   stroke-width: 4px;
   stroke-dashoffset: 0;
   stroke-dasharray: 480 100;
