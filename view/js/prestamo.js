@@ -1,5 +1,6 @@
 var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
+    
     let Amortizazioa = 0.00;
     let Aldiak = 0.00;
     let Kuota = 0.00;
@@ -126,5 +127,55 @@ MyApp.controller('miController', function ($scope, $http) {
     }
     $scope.volver = function () {
         location.reload();
+    }
+
+
+    $scope.loggedVerify = function () {
+        $http({
+            url: "../../controller/cLoggedVerify.php",
+            method: "POST"
+        }).then(function (response) {
+            if (response.data.error != "logged") {
+                if (window.location.pathname == "/view/html/paginaAdmin.html") {
+                    alert("Error: Usuario sin permisos");
+                    window.location.href = "/index.html"
+                }
+
+                $scope.cuentaUsuario = false;
+                $scope.botonAdmin = false;
+                $scope.butonLogin = true;
+            } else {
+                $scope.butonLogOut = true;
+                $scope.butonLogin = false;
+
+                if (response.data.tipo == 1) {
+                    $scope.botonAdmin = true;
+                    $scope.cuentaUsuario = false;
+                    $scope.users = true;
+                } else {
+                    alert("User: " + response.data.izena + " | Sin acceso, tipo: " + response.data.tipo);
+                    $scope.cuentaUsuario = true;
+                    $scope.botonAdmin = false;
+                    $scope.users = false;
+
+                    if (window.location.pathname != "/index.html") {
+                        window.location.href = "/index.html";
+                    }
+                }
+            }
+        }).catch(function (response) {
+            console.error("Ocurrio un error", response.status, response.data);
+        })
+    }
+    $scope.logout = function () {
+        $http({
+            url: "/controller/cLogout.php",
+            method: "POST"
+        }).then(function () {
+            window.location.href = "/index.html";
+            $scope.butonLogOut = false;
+        }).catch(function () {
+            console.error("Ocurrio un error", response.status, response.data);
+        })
     }
 })
