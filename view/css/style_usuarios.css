@@ -388,7 +388,7 @@ section .tbl-content .tarjetas .columna1 {
   max-width: 90%;
   padding: 1em 2em;
   height: auto;
-  max-height: 100vh;
+  max-height: 80vh;
   overflow-x: auto;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
