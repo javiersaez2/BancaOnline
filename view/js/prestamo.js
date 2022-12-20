@@ -19,7 +19,6 @@ MyApp.controller('miController', function ($scope, $http) {
         }
     });
     $scope.calcular = function () {
-        alert($("#tipoBase").val())
         if ($scope.sistema == null) {
             alert("Por favor, asigne tipo de sistema");
         }
@@ -72,11 +71,11 @@ MyApp.controller('miController', function ($scope, $http) {
                             Aldiak = i + "-" + j;
                             $scope.lista.push({
                                 Aldiak: Aldiak,
-                                Kuota: Kuota.toFixed(2),
-                                Interesa: Interesa.toFixed(2),
-                                Amortizazioa: Amortizazioa.toFixed(2),
-                                Metatua: Metatua.toFixed(2),
-                                Kapitala: kapitala1
+                                Kuota:new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Kuota.toFixed(2)) ,
+                            Interesa: new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Interesa.toFixed(2)),
+                            Amortizazioa:new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format( Amortizazioa.toFixed(2)),
+                            Metatua:new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Metatua.toFixed(2)) ,
+                            Kapitala:new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Number( kapitala1).toFixed(2)) 
                             });
                         }
 
@@ -94,11 +93,11 @@ MyApp.controller('miController', function ($scope, $http) {
                         Metatua = Metatua + Amortizazioa;
                         $scope.lista.push({
                             Aldiak: Aldiak,
-                            Kuota: Kuota.toFixed(2),
-                            Interesa: Interesa.toFixed(2),
-                            Amortizazioa: Amortizazioa.toFixed(2),
-                            Metatua: Metatua.toFixed(2),
-                            Kapitala: kapitala.toFixed(2)
+                            Kuota:new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Kuota.toFixed(2)) ,
+                            Interesa: new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Interesa.toFixed(2)),
+                            Amortizazioa:new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format( Amortizazioa.toFixed(2)),
+                            Metatua:new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Metatua.toFixed(2)) ,
+                            Kapitala:new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(kapitala.toFixed(2)) 
                         });
                     }
                 }
@@ -114,11 +113,11 @@ MyApp.controller('miController', function ($scope, $http) {
                     kapitala = kapitala - Amortizazioa;
                     $scope.lista.push({
                         Aldiak: Aldiak,
-                        Kuota: Kuota.toFixed(2),
-                        Interesa: Interesa.toFixed(2),
-                        Amortizazioa: Amortizazioa.toFixed(2),
-                        Metatua: Metatua.toFixed(2),
-                        Kapitala: kapitala.toFixed(2)
+                        Kuota:new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Kuota.toFixed(2)) ,
+                        Interesa: new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Interesa.toFixed(2)),
+                        Amortizazioa:new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format( Amortizazioa.toFixed(2)),
+                        Metatua:new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Metatua.toFixed(2)) ,
+                        Kapitala:new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(kapitala.toFixed(2)) 
                     });
                 }
             }

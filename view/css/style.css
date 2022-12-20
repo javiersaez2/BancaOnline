@@ -784,21 +784,27 @@ select {
     border: 1px solid rgba(255, 255, 255, 0.3);
   }
   .form table {
-    margin-top: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
     width: 100%;
-    font-family: sans-serif;
-  }
-  .form table tr th {
-    border-bottom: 4px solid black;
-  }
-  .form table tr td {
     text-align: right;
-    border: 2px solid black;
-    width: 10%;
   }
-  .form table tr .parte1tabla {
-    text-align: center;
-    width: 4%;
+  .form table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  .form table tr:hover {
+    background-color: #ddd;
+  }
+  .form table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #a34ae3;
+    color: white;
+  }
+  .form table td, .form table th {
+    border: 1px solid #ddd;
+    padding: 8px;
   }
   .form #regresarPrestamo {
     margin-top: 70px;

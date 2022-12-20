@@ -115,29 +115,30 @@
     @include glass();
 
     table{
-      margin-top: 40px;
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
       width: 100%;
-        font-family: sans-serif;
-
-      tr{
-        th{
-          border-bottom: 4px solid $color-negro;
+      text-align: right;
+        tr {
+          &:nth-child(even) {
+            background-color: #f2f2f2;
+          }
+          &:hover {
+            background-color: #ddd;
+          }
         }
-        td{
-          text-align: right;
-          border: 2px solid $color-negro;
-          width: 10%;
-
+        th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: $color-terciario1;
+          color: white;
         }
-        .parte1tabla{
-          text-align: center;
-          width: 4%;
-        }
-  
-  
-      }
     }
-    
+    table td, table th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
     #regresarPrestamo{
       margin-top: 70px;
     }
