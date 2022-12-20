@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/angular.min.js"></script>
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <script src="../js/jquery-1.11.3.min.js" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
     <title>Pagina Admin</title>
 </head>
@@ -66,7 +67,7 @@
             </div>
             <div>
                 <label>Periodo de pago de intereses</label>
-                <select name="" id="" ng-model="periodoPago">
+                <select name="" id="periodoIntereses" ng-model="periodoPago">
                     <option value="ANUAL">ANUAL</option>
                     <option value="SEMESTRAL">SEMESTRAL </option>
                     <option value="CUATRIMESTRAL">CUATRIMESTRAL </option>
@@ -78,11 +79,11 @@
         <div class="triplete3">
             <div>
                 <label>Tipo de Base Temporal</label>
-                <select name="" id="" ng-model="tipo">
-                    <option value="ANUAL">ANUAL</option>
+                <select name="" id="tipoBase" ng-model="tipo">
+                    <!-- <option value="ANUAL">ANUAL</option>
                     <option value="SEMESTRAL">SEMESTRAL </option>
                     <option value="CUATRIMESTRAL">CUATRIMESTRAL </option>
-                    <option value="MENSUAL">MENSUAL</option>
+                    <option value="MENSUAL">MENSUAL</option> -->
                 </select>
             </div>
             <div>
