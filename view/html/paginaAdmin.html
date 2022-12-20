@@ -13,8 +13,8 @@
 </head>
 
 <body ng-controller="miController" ng-init="loggedVerify()" ng-show="users">
-  <header>
-    <div class="company-logo">Zornotza</div>
+  <header ng-controller="miControlador" ng-init="loggedVerify()">
+    <div class="company-logo"><img src="/view/img/logo2.png" alt=""></div>
     <nav class="navbar">
       <ul class="nav-items">
         <li class="nav-item"><a href="/index.html" class="nav-link">HOME</a></li>
@@ -25,7 +25,7 @@
         <li class="nav-item" ng-show="cuentaUsuario"><a class="nav-link">CUENTA</a></li>
         <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
       </ul>
-
+      
     </nav>
     <div class="menu-toggle">
       <i class="bx bx-menu"></i>
@@ -115,7 +115,7 @@
               Cuenta corriente
             </td>
             <td class="columna2">
-              <a ng-click="MostrarCuentas($index,fila)">Mas informacion</a>
+              <a ng-click="MostrarCuentas($index,fila)" class="icono info">Mas informacion</a>
             </td>
           </tr>
 
@@ -124,7 +124,7 @@
               Eliminar usuario
             </td>
             <td class="columna2">
-              <i class="fa-solid fa-user-minus fa-1xl" ng-click="borrarUsuario($index,fila)"></i>
+              <i class="fa-solid fa-user-minus fa-1xl icono" ng-click="borrarUsuario($index,fila)"></i>
             </td>
           </tr>
 
@@ -133,7 +133,7 @@
               Modificar usuario
             </td>
             <td class="columna2">
-              <i class="fa-solid fa-user-pen" ng-click="modificarUsuario($index,fila)"></i>
+              <i class="fa-solid fa-user-pen icono" ng-click="modificarUsuario($index,fila)"></i>
             </td>
           </tr>
 
@@ -142,7 +142,7 @@
               Nueva cuenta corriente
             </td>
             <td class="columna2">
-              <i class="fa-solid fa-piggy-bank" ng-click="guardarCuenta(fila)"></i>
+              <i class="fa-solid fa-piggy-bank icono" ng-click="guardarCuenta(fila)"></i>
             </td>
           </tr>
         </table>
