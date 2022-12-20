@@ -2,194 +2,197 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../js/angular.min.js"></script>
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
-    <script src="../js/jquery-1.11.3.min.js" type="text/javascript"></script>
-    <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
-    <title>Pagina Admin</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../js/angular.min.js"></script>
+  <link href="../css/style.css" rel="stylesheet" type="text/css" />
+  <script src="../js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
+  <title>Pagina Admin</title>
 </head>
 
-<body ng-controller="miController">
-    <header>
-        <div class="company-logo"><img src="/view/img/LogoZornotza.png" alt=""></div>
-        <nav class="navbar">
-          <ul class="nav-items">
-            <li class="nav-item"><a href="/index.html" class="nav-link">HOME</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
-            <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
+<body ng-controller="miController" ng-init="loggedVerify()">
+  <header>
+    <div class="company-logo"><img src="/view/img/LogoZornotza.png" alt=""></div>
+    <nav class="navbar">
+      <ul class="nav-items">
+        <li class="nav-item"><a href="/index.html" class="nav-link">HOME</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">OFFER</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
+        <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
         <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a></li>
         <li class="nav-item" ng-show="cuentaUsuario"><a class="nav-link">CUENTA</a></li>
         <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
-          </ul>
-          
-        </nav>
-        <div class="menu-toggle">
-          <i class="bx bx-menu"></i>
-          <i class="bx bx-x"></i>
-        </div>
-      </header>
-    
-    <div class="form" ng-hide="ver =='true'">
-        <div class="triplete1">
-            <div>
-                <label>Sistema de Amortización</label>
-                <select ng-model="sistema">
-                    <option value="lineal">Lineal</option>
-                    <option value="frances">Francés</option>
-                </select>
-            </div>
-            <div>
-                <label>Duración (meses/años) </label>
-                <select name="" id="" ng-model="duracion">
-                    <option value="meses">Meses</option>
-                    <option value="anos">Años</option>
-                </select>
-            </div>
-            <div>
-                <label>Cantidad Meses / Años</label>
-                <input type="text" ng-model="numero">
-            </div>
-        </div>
+      </ul>
 
-        <div class="triplete2">
-            <div>
-                <label>Gastos de Apertura</label>
-                <input type="text" ng-model="gastos">
-            </div>
-            <div>
-                <label>Capital</label>
-                <input type="text" ng-model="capital">
-            </div>
-            <div>
-                <label>Periodo de pago de intereses</label>
-                <select name="" id="periodoIntereses" ng-model="periodoPago">
-                    <option value="ANUAL">ANUAL</option>
-                    <option value="SEMESTRAL">SEMESTRAL </option>
-                    <option value="CUATRIMESTRAL">CUATRIMESTRAL </option>
-                    <option value="MENSUAL">MENSUAL</option>
-                </select>
-            </div>
-        </div>
+    </nav>
+    <div class="menu-toggle">
+      <i class="bx bx-menu"></i>
+      <i class="bx bx-x"></i>
+    </div>
+  </header>
 
-        <div class="triplete3">
-            <div>
-                <label>Tipo de Base Temporal</label>
-                <select name="" id="tipoBase" ng-model="tipo">
-                    <!-- <option value="ANUAL">ANUAL</option>
+  <div class="form" ng-hide="ver =='true'">
+    <div class="triplete1">
+      <div>
+        <label>Sistema de Amortización</label>
+        <select ng-model="sistema">
+          <option value="lineal">Lineal</option>
+          <option value="frances">Francés</option>
+        </select>
+      </div>
+      <div>
+        <label>Duración (meses/años) </label>
+        <select name="" id="" ng-model="duracion">
+          <option value="meses">Meses</option>
+          <option value="anos">Años</option>
+        </select>
+      </div>
+      <div>
+        <label>Cantidad Meses / Años</label>
+        <input type="text" ng-model="numero">
+      </div>
+    </div>
+
+    <div class="triplete2">
+      <div>
+        <label>Gastos de Apertura</label>
+        <input type="text" ng-model="gastos">
+      </div>
+      <div>
+        <label>Capital</label>
+        <input type="text" ng-model="capital">
+      </div>
+      <div>
+        <label>Periodo de pago de intereses</label>
+        <select name="" id="periodoIntereses" ng-model="periodoPago">
+          <option value="ANUAL">ANUAL</option>
+          <option value="SEMESTRAL">SEMESTRAL </option>
+          <option value="CUATRIMESTRAL">CUATRIMESTRAL </option>
+          <option value="MENSUAL">MENSUAL</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="triplete3">
+      <div>
+        <label>Tipo de Base Temporal</label>
+        <select name="" id="tipoBase" ng-model="tipo">
+          <!-- <option value="ANUAL">ANUAL</option>
                     <option value="SEMESTRAL">SEMESTRAL </option>
                     <option value="CUATRIMESTRAL">CUATRIMESTRAL </option>
                     <option value="MENSUAL">MENSUAL</option> -->
-                </select>
-            </div>
-            <div>
-                <label>Tasa de Interés %</label>
-                <input type="text" ng-model="interes">
-            </div>
-            <div>
-    
-                <label>Periodo de Carencia</label>
-                <input type="text" ng-model="periodoCarencia">
-            </div>
-        </div>
-        
-        <input id="botonCalcular" type="button" value="Calcular" ng-click="calcular()">
+        </select>
+      </div>
+      <div>
+        <label>Tasa de Interés %</label>
+        <input type="text" ng-model="interes">
+      </div>
+      <div>
+
+        <label>Periodo de Carencia</label>
+        <input type="text" ng-model="periodoCarencia">
+      </div>
     </div>
 
-    <div class="form" ng-show="ver =='true'">
-        <table>
-            <tr>
-                <th>Urteak</th>
-                <th>a</th>
-                <th>A</th>
-                <th>I</th>
-                <th>ΣA</th>
-                <th>Pendiente</th>
-            </tr>
-            <tr ng-repeat='fila in periodo'>
-                <td class="parte1tabla">{{fila.Aldiak}}</td>
-                <td>{{fila.Kuota}} </td>
-                <td>{{fila.Amortizazioa}} </td>
-                <td>{{fila.Interesa}} </td>
-                <td>{{fila.Metatua}} </td>
-                <td>{{fila.Kapitala}} </td>
-            </tr>
-        </table>
+    <input id="botonCalcular" type="button" value="Calcular" ng-click="calcular()">
+  </div>
 
-        <input id="regresarPrestamo" type="button" value="Regresar" ng-click="volver()">
+  <div class="form" ng-show="ver =='true'">
+    <table>
+      <tr>
+        <th>Urteak</th>
+        <th>a</th>
+        <th>A</th>
+        <th>I</th>
+        <th>ΣA</th>
+        <th>Pendiente</th>
+      </tr>
+      <tr ng-repeat='fila in periodo'>
+        <td class="parte1tabla">{{fila.Aldiak}}</td>
+        <td>{{fila.Kuota}} </td>
+        <td>{{fila.Amortizazioa}} </td>
+        <td>{{fila.Interesa}} </td>
+        <td>{{fila.Metatua}} </td>
+        <td>{{fila.Kapitala}} </td>
+      </tr>
+    </table>
 
+    <input id="regresarPrestamo" type="button" value="Regresar" ng-click="volver()">
+
+  </div>
+
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="columnas">
+          <h6>DESTACADOS</h6>
+          <ul class="footer-links">
+            <li><a href="#">Calcular Prestamo Simple</a></li>
+            <li><a href="#">Calcular Prestamo Francés</a></li>
+            <li><a href="#">Calcular Prestamo Lineal</a></li>
+            <li><a href="#">Calcular Prestamo Americano</a></li>
+            <li><a href="#">Cuenta Online</a></li>
+            <li><a href="#">Horarios</a></li>
+            <li><a href="#">Trabaja con nosotros</a></li>
+            <li><a href="#">Zornotza Agentes</a></li>
+          </ul>
+        </div>
+
+        <div class="columnas">
+          <h6>INFORMACIÓN LEGAL Y SEGURIDAD</h6>
+          <ul class="footer-links">
+            <li><a href="#">Aviso Legal</a></li>
+            <li><a href="#">Politica de cookies</a></li>
+            <li><a href="#">Anuncios</a></li>
+            <li><a href="#">Ley de servicios de pago</a></li>
+            <li><a href="#">Acessibilidad</a></li>
+            <li><a href="#">Seguridad online</a></li>
+            <li><a href="#">Reclamaciones</a></li>
+            <li><a href="#">Pormociones</a></li>
+          </ul>
+        </div>
+
+        <div class="columnas">
+          <h6>WWBS FP ZORNOTZA</h6>
+          <ul class="footer-links">
+            <li><a href="#">Sobre Grupo 4</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Asistente</a></li>
+            <li><a href="#">Consumidor</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Politicas de Privacidad</a></li>
+            <li><a href="#">Finanzas Personales</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-
-
-    <footer class="site-footer">
-        <div class="container">
-          <div class="row">
-            <div class="columnas">
-              <h6>DESTACADOS</h6>
-              <ul class="footer-links">
-                <li><a href="#">Calcular Prestamo Simple</a></li>
-                <li><a href="#">Calcular Prestamo Francés</a></li>
-                <li><a href="#">Calcular Prestamo Lineal</a></li>
-                <li><a href="#">Calcular Prestamo Americano</a></li>
-                <li><a href="#">Cuenta Online</a></li>
-                <li><a href="#">Horarios</a></li>
-                <li><a href="#">Trabaja con nosotros</a></li>
-                <li><a href="#">Zornotza Agentes</a></li>
-              </ul>
-            </div>
-    
-            <div class="columnas">
-              <h6>INFORMACIÓN LEGAL Y SEGURIDAD</h6>
-              <ul class="footer-links">
-                <li><a href="#">Aviso Legal</a></li>
-                <li><a href="#">Politica de cookies</a></li>
-                <li><a href="#">Anuncios</a></li>
-                <li><a href="#">Ley de servicios de pago</a></li>
-                <li><a href="#">Acessibilidad</a></li>
-                <li><a href="#">Seguridad online</a></li>
-                <li><a href="#">Reclamaciones</a></li>
-                <li><a href="#">Pormociones</a></li>
-              </ul>
-            </div>
-    
-            <div class="columnas">
-              <h6>WWBS FP ZORNOTZA</h6>
-              <ul class="footer-links">
-                <li><a href="#">Sobre Grupo 4</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#">Asistente</a></li>
-                <li><a href="#">Consumidor</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Politicas de Privacidad</a></li>
-                <li><a href="#">Finanzas Personales</a></li>
-              </ul>
-            </div>
-          </div>
+    <div class="container">
+      <div class="row2">
+        <div class="columnas">
+          <p class="copyright-text">Copyright &copy;Grupo4 Zonortza 2022.</p>
+          <a href="#">Todos los derechos reservados</a>.
         </div>
-        <div class="container">
-          <div class="row2">
-            <div class="columnas">
-              <p class="copyright-text">Copyright &copy;Grupo4 Zonortza 2022.</p>
-              <a href="#">Todos los derechos reservados</a>.
-            </div>
-    
-            <div class="columnas">
-              <ul class="social-icons">
-                <li><a class="facebook" href="#"><i class="fa fa-facebook"><img src="https://www.facebook.com/images/fb_icon_325x325.png" alt=""></i></a></li>
-                <li><a class="twitter" href="#"><i class="fa fa-twitter"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/800px-Twitter-logo.svg.png" alt=""></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-    </footer>
 
-    
-    <script src="../js/prestamo.js"></script>
-    <script src="../js/nav.js" type="text/javascript"></script>
-    
+        <div class="columnas">
+          <ul class="social-icons">
+            <li><a class="facebook" href="#"><i class="fa fa-facebook"><img
+                    src="https://www.facebook.com/images/fb_icon_325x325.png" alt=""></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa fa-twitter"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/800px-Twitter-logo.svg.png"
+                    alt=""></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="../js/prestamo.js"></script>
+  <script src="../js/nav.js" type="text/javascript"></script>
+
 </body>
 
 </html>
