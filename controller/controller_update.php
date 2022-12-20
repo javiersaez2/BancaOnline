@@ -1,14 +1,15 @@
 <?php
 
 include_once '../model/clienteModel.php';
+$data=json_decode($_GET['value']);
 
 $cliente  = new clienteModel();
 
 $response = array();
 
-$dniCliente = filter_input(INPUT_GET, "dniCliente");
-$nombre = filter_input(INPUT_GET, "nombre");
-$pasahitza = filter_input(INPUT_GET, "pasahitza");
+$dniCliente = $data->dniCliente;
+$nombre = $data->nombre;
+$pasahitza = $data->pasahitza;
 
 
 if (isset($dniCliente)) {
