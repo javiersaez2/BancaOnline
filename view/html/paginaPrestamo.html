@@ -102,18 +102,18 @@
     <div class="form" ng-show="ver =='true'">
         <table>
             <tr>
-                <th>Aldiak</th>
-                <th>Kuota</th>
-                <th>Interesa</th>
-                <th>Amortizazioa</th>
-                <th>Amortizazioa Metatua</th>
-                <th>Amortizazioa Kapitala</th>
+                <th>Urteak</th>
+                <th>a</th>
+                <th>A</th>
+                <th>I</th>
+                <th>ΣA</th>
+                <th>Pendiente</th>
             </tr>
             <tr ng-repeat='fila in periodo'>
                 <td class="parte1tabla">{{fila.Aldiak}}</td>
                 <td>{{fila.Kuota}} €</td>
-                <td>{{fila.Interesa}} €</td>
                 <td>{{fila.Amortizazioa}} €</td>
+                <td>{{fila.Interesa}} €</td>
                 <td>{{fila.Metatua}} €</td>
                 <td>{{fila.Kapitala}} €</td>
             </tr>
