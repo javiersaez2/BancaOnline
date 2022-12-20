@@ -218,6 +218,15 @@ body {
   opacity: 1;
 }
 
+/*Icono*/
+.icono:hover{
+  cursor: pointer;
+}
+
+.info{
+  text-decoration: underline;
+}
+
 /* reset input */
 .form__field{
   &:required,&:invalid { box-shadow:none; }
