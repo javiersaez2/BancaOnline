@@ -62,7 +62,7 @@
 
 
   <section>
-    <i ng-click="nuevoUsuario()" class="fa-solid fa-user-plus"></i>
+    <button ng-click="nuevoUsuario()" class="button-23">Añadir nuevo usuario</button>
     <div class="tbl-content">
 
 
@@ -96,7 +96,7 @@
           </tr>
           <tr>
             <td class="columna1">
-              CodigoSecreto:
+              Codigo secreto:
             </td>
             <td class="columna2">
               {{fila.secreto}}
@@ -121,10 +121,19 @@
 
           <tr>
             <td class="columna1">
-              <button ng-click="modificarUsuario($index,fila)">Modificar</button>
+              Eliminar usuario
             </td>
             <td class="columna2">
               <i class="fa-solid fa-user-minus fa-1xl" ng-click="borrarUsuario($index,fila)"></i>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Modificar usuario
+            </td>
+            <td class="columna2">
+              <i class="fa-solid fa-user-pen" ng-click="modificarUsuario($index,fila)"></i>
             </td>
           </tr>
 
@@ -166,8 +175,8 @@
             <label for="name" class="form__label">Nombre</label>
           </div>
           <div class="form__group field">
-            <input type="input" class="form__field"  ng-model="contrsenaIns" placeholder="Contrasena" name="contrasena" id='contrasena' required />
-            <label type="password" for="password"  class="form__label">Contraseña</label>
+            <input type="password" class="form__field"  ng-model="contrsenaIns" placeholder="Contrasena" name="contrasena" id='contrasena' required />
+            <label for="password"  class="form__label">Contraseña</label>
           </div>
           <div class="form__group field">
             <input type="password" class="form__field" ng-model="vefIns"  placeholder="Contrasena2" name="contrasena2" id='contrasena2' required />
@@ -184,7 +193,7 @@
           </div>
           
 <br>
-          <button ng-click="nuevoCliente()">NUEVO</button></p>
+          <button ng-click="nuevoCliente()" class="button-23">Crear</button></p>
         </form>
       </div>
     </div>
@@ -214,7 +223,7 @@
         <br>
 
        
-          <button ng-click="guardarCliente(item)">Guardar Modificaciones</button>
+          <button ng-click="guardarCliente(item)" class="button-23">Guardar Modificaciones</button>
           <a ng-click="cerrarCuentas('2')" class="modal__close">&times;</a>
         </form>
       </div>
@@ -230,7 +239,7 @@
         <p> DNI: {{cuentas.dniCliente}}</p>
         <p> Titular : {{cuentas.titular}}</p>
         <p> Saldo: {{cuentas.saldo}}</p>
-        <button ng-click="borrarCuenta(cuentas)">Borrar cuenta</button>
+        <button ng-click="borrarCuenta(cuentas)" class="button-23">Borrar cuenta</button>
         <br><br>
       </div>
 
