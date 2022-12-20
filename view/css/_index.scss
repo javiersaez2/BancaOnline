@@ -1,8 +1,11 @@
-
+html{
+    scroll-behavior: smooth;
+}
 body {
     background: -webkit-linear-gradient(left, $color-principal, $color-secundario);
     background: linear-gradient(to right, $color-principal, $color-secundario);
 }
+
 /////////CARRUSEL Y CARA DE LA PAGINA///////////
 #portada {
     position: relative;
@@ -131,7 +134,7 @@ body {
     border-radius: 25px;
     height: 400px;
   transition: all .3s;
-  margin-top:5em ;
+
   @include glass2();
 
    
