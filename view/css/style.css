@@ -26,13 +26,18 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: -webkit-linear-gradient(120deg, #7ED4DC, #B57EDC);
+  background: -webkit-linear-gradient(120deg, #fbfbfb, #fbfbfb);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 1rem 2rem;
 }
 
 .company-logo {
   font-size: 2.5rem;
-  background-color: #fbfbfb;
+  background-color: black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -54,13 +59,13 @@ header {
   font-size: 1.1rem;
   letter-spacing: 0.05rem;
   position: relative;
-  background: #fbfbfb;
+  background: black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .nav-link::before {
   content: "";
-  background: #fbfbfb;
+  background: black;
   width: 100%;
   height: 0.05rem;
   position: absolute;
@@ -107,16 +112,12 @@ header {
     top: 0; /* required */
   }
   .navbar {
-    background: -webkit-linear-gradient(120deg, rgba(163, 74, 227, 0.8588235294), rgba(81, 194, 204, 0.8901960784));
-    box-shadow: 0 4px 30px rgba(43, 18, 60, 0.3529411765);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(183, 82, 255, 0.4784313725);
+    background-color: black;
     position: absolute;
-    top: 5.4rem;
+    top: 3.5rem;
     right: 0;
-    width: 50%;
-    height: auto;
+    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     transform: scaleY(0);
@@ -293,6 +294,7 @@ body {
   border-radius: 25px;
   height: 400px;
   transition: all 0.3s;
+  margin-top: 5 em;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
