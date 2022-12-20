@@ -3,7 +3,7 @@ html{
 }
 body {
     background: -webkit-linear-gradient(left, $color-principal, $color-secundario);
-    background: linear-gradient(to right, $color-principal, $color-secundario);
+    background: $color-blanco
 }
 
 /////////CARRUSEL Y CARA DE LA PAGINA///////////
@@ -134,7 +134,7 @@ body {
     border-radius: 25px;
     height: 400px;
   transition: all .3s;
-
+  margin-top:5  em ;
   @include glass2();
 
    
