@@ -2,8 +2,6 @@
 
 include_once '../model/ClienteModel.php';
 
-
-
 $response=array();
     
 $cliente=new ClienteModel();
