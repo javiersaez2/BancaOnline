@@ -175,7 +175,7 @@
           </div>
 
           <div class="form__group field">
-            <label for="select"class="form__label">tipo de   usuario</label>
+            <label for="select"class="form__label">Tipo</label>
             <select name="select"  class="form__field for_option" ng-model="tipoIns"  placeholder="Contrasena2">
               <option value="" disabled selected hidden>Seleccione el usuario</option>
               <option value="1">Admin</option>
@@ -230,8 +230,8 @@
         <p> DNI: {{cuentas.dniCliente}}</p>
         <p> Titular : {{cuentas.titular}}</p>
         <p> Saldo: {{cuentas.saldo}}</p>
-        <button ng-click="borrarCuenta(cuentas)">Borrar cuenta</p>
-        <br>
+        <button ng-click="borrarCuenta(cuentas)">Borrar cuenta</button>
+        <br><br>
       </div>
 
       <a ng-click="cerrarCuentas('0')" class="modal__close">&times;</a>
