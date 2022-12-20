@@ -164,6 +164,7 @@ section .tbl-content {
   overflow-x: auto;
   border: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 section .tbl-content .tarjetas {
@@ -175,7 +176,7 @@ section .tbl-content .tarjetas {
 }
 section .tbl-content .tarjetas .columna2 {
   color: #fbfbfb;
-  width: 280px;
+  width: 250px;
   height: 25px;
   padding: 5px;
   background-color: rgba(39, 39, 39, 0.2);
