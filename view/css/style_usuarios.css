@@ -322,7 +322,7 @@ header {
   }
 }
 section {
-  padding: 50px;
+  padding: 120px;
 }
 section .tbl-content {
   height: 80vh;
@@ -330,7 +330,7 @@ section .tbl-content {
   overflow-x: auto;
   border: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
-  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 section .tbl-content .tarjetas {
@@ -368,6 +368,8 @@ section .tbl-content .tarjetas .columna1 {
   justify-content: center;
   background: rgba(77, 77, 77, 0.7);
   transition: all 0.4s;
+  height: 150vh;
+  z-index: 9999;
 }
 
 .modal:target {
@@ -378,9 +380,12 @@ section .tbl-content .tarjetas .columna1 {
 .modal__content {
   border-radius: 4px;
   position: relative;
-  width: 500px;
+  width: 450px;
   max-width: 90%;
   padding: 1em 2em;
+  height: auto;
+  max-height: 80vh;
+  overflow-x: auto;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
