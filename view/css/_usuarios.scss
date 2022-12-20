@@ -20,11 +20,11 @@ section {
 
       margin: 5px;
       backdrop-filter: blur(5px);
-      box-shadow: 35px 35px 68px 0px rgba(181, 126, 220, 0.5), inset -8px -8px 16px 0px rgba(181, 126, 220, 0.6), inset 0px 11px 28px 0px white;
+      box-shadow: 35px 35px 68px 0px rgba(181, 126, 220, 0.5), inset -8px -8px 16px 0px rgba(181, 126, 220, 0.6), inset 0px 11px 28px 0px $color-blanco;
 
 
       .columna2 {
-        color: white;
+        color: $color-blanco;
         width: 280px;
         height: 25px;
         padding: 5px;
@@ -33,7 +33,7 @@ section {
       }
 
       .columna1 {
-        color: white;
+        color: $color-blanco;
         width: 130px;
         height: 25px;
         padding: 5px;
@@ -72,8 +72,8 @@ section {
   position: relative;
   width: 500px;
   max-width: 90%;
-  background: #fff;
   padding: 1em 2em;
+  @include glass()
 }
 
 .modal__footer {
@@ -116,3 +116,74 @@ body {
 ::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
+
+
+
+
+
+
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid $color-blanco;
+  outline: 0;
+  font-size: 1.3rem;
+  color: $color-blanco;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: $color-blanco;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $color-secundario;
+    font-weight:700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $color-secundario,$color-principal);
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+
+}
+.for_option *{
+  color: $color-negro;
+}
+/* demo */

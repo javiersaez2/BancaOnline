@@ -171,17 +171,17 @@ section .tbl-content .tarjetas {
   margin: 5px;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
-  box-shadow: 35px 35px 68px 0px rgba(181, 126, 220, 0.5), inset -8px -8px 16px 0px rgba(181, 126, 220, 0.6), inset 0px 11px 28px 0px white;
+  box-shadow: 35px 35px 68px 0px rgba(181, 126, 220, 0.5), inset -8px -8px 16px 0px rgba(181, 126, 220, 0.6), inset 0px 11px 28px 0px #fbfbfb;
 }
 section .tbl-content .tarjetas .columna2 {
-  color: white;
+  color: #fbfbfb;
   width: 280px;
   height: 25px;
   padding: 5px;
   background-color: rgba(49, 49, 49, 0.2);
 }
 section .tbl-content .tarjetas .columna1 {
-  color: white;
+  color: #fbfbfb;
   width: 130px;
   height: 25px;
   padding: 5px;
@@ -213,8 +213,13 @@ section .tbl-content .tarjetas .columna1 {
   position: relative;
   width: 500px;
   max-width: 90%;
-  background: #fff;
   padding: 1em 2em;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .modal__footer {
@@ -252,4 +257,86 @@ body {
 
 ::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}/*# sourceMappingURL=style_usuarios.css.map */
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #fbfbfb;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #fbfbfb;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field::-moz-placeholder {
+  color: transparent;
+}
+.form__field:-ms-input-placeholder {
+  color: transparent;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:-moz-placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+.form__field:-ms-input-placeholder ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #fbfbfb;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  -o-border-image: linear-gradient(to right, #7ED4DC, #B57EDC);
+     border-image: linear-gradient(to right, #7ED4DC, #B57EDC);
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #7ED4DC;
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
+}
+
+.for_option * {
+  color: black;
+}
+
+/* demo *//*# sourceMappingURL=style_usuarios.css.map */
