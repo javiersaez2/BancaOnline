@@ -62,7 +62,7 @@
 
 
   <section>
-    <button ng-click="nuevoUsuario()">Añadir nuevo usuario</button>
+    <button ng-click="nuevoUsuario()" class="button-23">Añadir nuevo usuario</button>
     <div class="tbl-content">
 
 
@@ -96,7 +96,7 @@
           </tr>
           <tr>
             <td class="columna1">
-              CodigoSecreto:
+              Codigo secreto:
             </td>
             <td class="columna2">
               {{fila.secreto}}
@@ -121,10 +121,19 @@
 
           <tr>
             <td class="columna1">
-              <button ng-click="modificarUsuario($index,fila)">Modificar</button>
+              Eliminar usuario
             </td>
             <td class="columna2">
               <i class="fa-solid fa-user-minus fa-1xl" ng-click="borrarUsuario($index,fila)"></i>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Modificar usuario
+            </td>
+            <td class="columna2">
+              <i class="fa-solid fa-user-pen" ng-click="modificarUsuario($index,fila)"></i>
             </td>
           </tr>
 
@@ -214,7 +223,7 @@
         <br>
 
        
-          <button ng-click="guardarCliente(item)">Guardar Modificaciones</button>
+          <button ng-click="guardarCliente(item)" class="button-23">Guardar Modificaciones</button>
           <a ng-click="cerrarCuentas('2')" class="modal__close">&times;</a>
         </form>
       </div>
@@ -230,7 +239,7 @@
         <p> DNI: {{cuentas.dniCliente}}</p>
         <p> Titular : {{cuentas.titular}}</p>
         <p> Saldo: {{cuentas.saldo}}</p>
-        <button ng-click="borrarCuenta(cuentas)">Borrar cuenta</button>
+        <button ng-click="borrarCuenta(cuentas)" class="button-23">Borrar cuenta</button>
         <br><br>
       </div>
 

@@ -169,8 +169,8 @@ section .tbl-content {
 section .tbl-content .tarjetas {
   position: relative;
   margin: 5px;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
   box-shadow: 35px 35px 68px 0px rgba(181, 126, 220, 0.5), inset -8px -8px 16px 0px rgba(181, 126, 220, 0.6), inset 0px 11px 28px 0px #fbfbfb;
 }
 section .tbl-content .tarjetas .columna2 {
@@ -178,14 +178,14 @@ section .tbl-content .tarjetas .columna2 {
   width: 280px;
   height: 25px;
   padding: 5px;
-  background-color: rgba(49, 49, 49, 0.2);
+  background-color: rgba(39, 39, 39, 0.2);
 }
 section .tbl-content .tarjetas .columna1 {
   color: #fbfbfb;
-  width: 130px;
+  width: 170px;
   height: 25px;
   padding: 5px;
-  background-color: rgba(49, 49, 49, 0.2);
+  background-color: rgba(39, 39, 39, 0.2);
 }
 
 .modal {
@@ -328,6 +328,45 @@ body {
   font-size: 1rem;
   color: #7ED4DC;
   font-weight: 700;
+}
+
+/* Botones */
+.button-23 {
+  background-color: #FFFFFF;
+  border: 1px solid #222222;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 6px;
+  margin: 0;
+  padding: 11px 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.1s;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.button-23:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+
+.button-23:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(0.96);
+}
+
+.button-23:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  opacity: 1;
 }
 
 /* reset input */
