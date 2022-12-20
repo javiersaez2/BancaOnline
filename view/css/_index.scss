@@ -4,6 +4,7 @@ html{
 body {
     background: -webkit-linear-gradient(left, $color-principal, $color-secundario);
     background: linear-gradient(to right, $color-principal, $color-secundario);
+    
 }
 
 /////////CARRUSEL Y CARA DE LA PAGINA///////////
@@ -68,13 +69,21 @@ body {
       display: flex;
       flex-direction:column;  
       width: 100%;
-}
+      margin-top: 10%;
+    }
 
     .imagenSomos {
         width: 40%;
         @include flexcenter();
         margin: 0.5%;
         margin-top: 3%;
+        @media screen and (max-width: 768px) {
+          width: 80%;
+          margin: $auto;
+          margin-top: 5%;
+
+        }
+
           img {
             width: 100%;
             height: 400px;
@@ -96,6 +105,14 @@ body {
         color: $color-negro;
         color: $color-blanco;
         @include glass();
+        @media screen and (max-width: 768px) {
+          width: 80%;
+          margin: $auto;
+          margin-top: 5%;
+
+
+        }
+
         h2 {
             text-align: $centrar;
             margin-bottom: 10%;
@@ -113,6 +130,8 @@ body {
 
     }
 }
+
+
 
 
 ////////////////// - SLIDES - //////////////////
