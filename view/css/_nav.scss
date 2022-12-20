@@ -29,13 +29,14 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: -webkit-linear-gradient( 120deg, $color-secundario, $color-principal);
+	background: -webkit-linear-gradient( 120deg, $color-blanco, $color-blanco);
+	@include glassnav();
 	padding: 1rem 2rem;
 	
 }
 .company-logo {/////IMAGEN DEL LOGO
 	font-size: 2.5rem;
-	background-color: $color-blanco;
+	background-color: $color-negro;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	img{
@@ -56,12 +57,12 @@ header {
 	font-size: $nav-link-fontsize;
 	letter-spacing: $nav-link-letterspacing;
 	position: relative;
-	background: $color-blanco;
+	background: $color-negro;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	&::before {
 		content: "";
-		background: $color-blanco;
+		background: $color-negro;
 		width: 100%;
 		height: 0.05rem;
 		position: absolute;
@@ -86,7 +87,6 @@ header {
 }
 .bx-x {
 	@include bx();
-
 }
 
 
@@ -102,13 +102,12 @@ header {
 	top: 0; /* required */
 	}
 	.navbar {
-		@include glass3();
-
+		background-color: $color-negro;
 		position: absolute;
-		top: 5.4rem;
+		top: 3.5rem;
 		right: 0;
-		width: 50%;
-		height: auto;
+		width: 100%;
+		height: 100vh;
 		display: flex;
 		justify-content: center;
 		transform: scaleY(0);
