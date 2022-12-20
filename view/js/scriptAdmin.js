@@ -147,7 +147,8 @@ MyApp.controller('miController', function ($scope, $http) {
             params: {value:JSON.stringify({iban: iban})}
         }).then(function (response) {
             alert(response.data.error)
-            window.location.reload();
+            $scope.cerrarCuentas(0);
+            verusuarios();
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
         }) 
