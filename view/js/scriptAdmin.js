@@ -53,45 +53,46 @@ MyApp.controller('miController', function ($scope, $http) {
     }
 
     $scope.nuevoCliente = function () {
-
-
         if ($scope.contrsenaIns != $scope.vefIns) {
             alert("Las claves no coinciden");
-            return false;
+            $scope.contrsenaIns = "";
+            $scope.vefIns = "";
+        } else {
+            $scope.listaInsertar = {
+                dni: $scope.dniIns,
+                nombre: $scope.nombreIns,
+                contrasena: $scope.contrsenaIns,
+                tipo: $scope.tipoIns
+            };
+            console.log($scope.dniIns);
+            console.log($scope.nombreIns);
+            console.log($scope.contrsenaIns);
+            var datosInsert = JSON.stringify($scope.listaInsertar);
+            console.log(datosInsert)
+    
+            ////////FETCH DE INSERTAR/////
+            $http({
+                url: '../../controller/c_insertarClientes.php',
+                method: 'POST',
+                params: { value: datosInsert }
+            })
+                .then(function (response) {
+                    console.log(response.data.error);
+                    console.log(response);
+                    alert(response.data.error);
+                    $scope.insertarVista = 'false';
+                    verusuarios();
+    
+    
+                    document.getElementById("demo-modal1").style.visibility = "hidden";
+                    document.getElementById("demo-modal1").style.opacity = 0;
+                })
+                .catch(function (response) {
+                    console.log('Error ocurred: ', response.status);
+                    console.log('Error ocurred: ', response.data);
+    
+                })
         }
-
-        $scope.listaInsertar = {
-            dni: $scope.dniIns,
-            nombre: $scope.nombreIns,
-            contrasena: $scope.contrsenaIns,
-            tipo: $scope.tipoIns
-        };
-        console.log($scope.dniIns);
-        console.log($scope.nombreIns);
-        console.log($scope.contrsenaIns);
-        var datosInsert = JSON.stringify($scope.listaInsertar);
-        console.log(datosInsert)
-
-        ////////FETCH DE INSERTAR/////
-        $http({
-            url: '../../controller/c_insertarClientes.php',
-            method: 'POST',
-            params: { value: datosInsert }
-        })
-            .then(function (response) {
-                alert(response.data.error);
-                $scope.insertarVista = 'false';
-                verusuarios();
-
-
-                document.getElementById("demo-modal1").style.visibility = "hidden";
-                document.getElementById("demo-modal1").style.opacity = 0;
-            })
-            .catch(function (response) {
-                console.log('Error ocurred: ', response.status);
-                console.log('Error ocurred: ', response.data);
-
-            })
     }
 
     /////////////////////////////////////////////////
@@ -127,12 +128,12 @@ MyApp.controller('miController', function ($scope, $http) {
         $http({
             url: '../../controller/c_insertarCuenta.php',
             method: "POST",
-            params: {value:{dniCliente: dni, nombre: nombreCliente}}
+            params: {value:JSON.stringify({dniCliente: dni, nombre: nombreCliente})}
         }).then(function (response) {
             alert(response.data.error)
             verusuarios();
-        }, function (error) {
-            console.error("Ocurrio un error", response.status, response.data)
+        }).catch(function (response) {
+            console.error('Error occurred:', response.status, response.data)
         }) 
 
     }
@@ -143,12 +144,12 @@ MyApp.controller('miController', function ($scope, $http) {
         $http({
             url: '../../controller/delete_cuenta.php',
             method: "POST",
-            params: {value:{iban: iban}}
+            params: {value:JSON.stringify({iban: iban})}
         }).then(function (response) {
             alert(response.data.error)
             window.location.reload();
-        }, function (error) {
-            console.error("Ocurrio un error", response.status, response.data)
+        }).catch(function (response) {
+            console.error('Error occurred:', response.status, response.data)
         }) 
     }
 
@@ -177,7 +178,7 @@ MyApp.controller('miController', function ($scope, $http) {
             $http({
                 url: "../../controller/controller_update.php",
                 method: "POST",
-                params: { 'dniCliente': dniCliente, 'nombre': nombre, 'pasahitza': pasahitza }
+                params: { value:JSON.stringify({'dniCliente': dniCliente, 'nombre': nombre, 'pasahitza': pasahitza})}
             }).then(function (response) {
                 alert(response.data.error);
                 $scope.modificarVista = 'false';
@@ -185,10 +186,9 @@ MyApp.controller('miController', function ($scope, $http) {
 
                 document.getElementById("demo-modal2").style.visibility = "hidden";
                 document.getElementById("demo-modal2").style.opacity = 0;
+            }).catch(function (response) {
+                console.error('Error occurred:', response.status, response.data)
             })
-                .catch(function (response) {
-                    console.error('Error occurred:', response.status, response.data)
-                })
         } else {
             alert("Contraseñas no son iguales")
         }
