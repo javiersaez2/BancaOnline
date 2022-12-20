@@ -42,20 +42,57 @@ body {
 
 
       .separador {
-        padding-top: 3%;
+        padding-top: 5vh;
 
         a {
           text-decoration: $vaciar;
           color: $color-blanco;
           letter-spacing: 0.5rem;
           font-size: 3vw;
+
+          .svg-wrapper {
+            padding-top: 10%;
+            position: relative;
+            
+            transform: translateY(-50%);
+            margin: 0 auto;
+            width: 520px;
+            text-align: center;
+          }
+
+          .shape {
+            stroke-dasharray: 0 580;
+            stroke-dashoffset: 580;
+            stroke-width: 4px;
+            fill: transparent;
+            stroke: #fefefe;
+            border-bottom: 5px solid black;
+            transition: stroke-width 2.7s, stroke-dashoffset 2.7s, stroke-dasharray 1.3s;
+            transition-delay: 0s;
+          }
+
+          .text {
+            line-height: 32px;
+            letter-spacing: 8px;
+            color: #fff;
+            top: -48px;
+            position: relative;
+            text-align: center;
+            height: 60px;
+            width: 520px;
+            font-variant: small-caps;
+          }
+
+          .shape-border {
+            stroke-width: 4px;
+            stroke-dashoffset: 0;
+            stroke-dasharray: 480 100;
+
+          }
         }
       }
     }
   }
-
-
-
 }
 
 
@@ -157,7 +194,7 @@ body {
   border-radius: 25px;
   height: 400px;
   transition: all .3s;
-  margin-top:5em ;
+  margin-top: 5em;
   @include glass2();
 
 

@@ -31,17 +31,17 @@ header {
 	justify-content: space-between;
 	background: -webkit-linear-gradient( 120deg, $color-blanco, $color-blanco);
 	@include glassnav();
-	padding: 1rem 2rem;
+
 	
 }
 .company-logo {/////IMAGEN DEL LOGO
-	font-size: 2.5rem;
+
 	background-color: $color-negro;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	img{
 		width: 8vh;
-		height: 70px;
+
 	}
 
 }
@@ -96,7 +96,7 @@ header {
 		padding: 0 1rem;
 	}
 	header {
-		padding: 0.5rem 1rem;
+
 			position: sticky;
 	position: -webkit-sticky;
 	top: 0; /* required */
@@ -144,6 +144,6 @@ header {
 }
 @media (min-width: 769px) {
 	header {
-		padding: 1rem 5rem;
+		padding: 0rem 3rem;
 	}
 }

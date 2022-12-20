@@ -42,7 +42,15 @@ miApp.controller('miControlador', function($scope, $http){
 });
 
 
+////////////////// - Animacion simulador - //////////////////
+$(function() {
+    $('.shape').addClass("shape-border");
+    $('.svg-wrapper').click(function() {
+      $('.shape').toggleClass('shape-border');
+    });
+  });
 
+  ////////////////// - SLIDES SIMULADOR - //////////////////
 var swiper = new Swiper('.blog-slider', {
     spaceBetween: 30,
     effect: 'fade',
@@ -56,5 +64,8 @@ var swiper = new Swiper('.blog-slider', {
       clickable: true,
     }
   });
+
+
+
 
   

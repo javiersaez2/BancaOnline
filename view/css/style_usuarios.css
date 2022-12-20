@@ -31,18 +31,15 @@ header {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 1rem 2rem;
 }
 
 .company-logo {
-  font-size: 2.5rem;
   background-color: black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .company-logo img {
   width: 8vh;
-  height: 70px;
 }
 
 .nav-items {
@@ -105,7 +102,6 @@ header {
     padding: 0 1rem;
   }
   header {
-    padding: 0.5rem 1rem;
     position: sticky;
     position: -webkit-sticky;
     top: 0; /* required */
@@ -156,7 +152,7 @@ header {
 }
 @media (min-width: 769px) {
   header {
-    padding: 1rem 5rem;
+    padding: 0rem 3rem;
   }
 }
 .site-footer {
