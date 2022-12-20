@@ -14,11 +14,11 @@ const navBar = document.querySelector('.navbar');
 
 
 $('.bx-menu').ready(function (e) {
-    if(e.target.hasClass('bx-menu')){
+    //if(e.target.hasClass('bx-menu')){
         $('.navBar').addClass('show-navbar');
         $('.bx-menu').addClass('hide-bx');
         $('.bx-x').addClass('show-bx');
-    }
+    //}
 })
 
 /*
@@ -34,11 +34,11 @@ bxMenu.addEventListener('click', (e)=> {
 // --- close menu ---
 
 $('.bx-x').ready(function (e) {
-    if(e.target.hasClass('bx-x')){
+    //if(e.target.hasClass('bx-x')){
         $('.navBar').removeClass('show-navbar');
         $('.bx-menu').removeClass('hide-bx');
         $('.bx-x').removeClass('show-bx');
-    }
+    //}
 })
 /*
 bxX.addEventListener('click', (e)=> {
