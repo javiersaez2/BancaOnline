@@ -68,6 +68,7 @@ body {
               @media screen and (max-width: 576px) {
                 height: 30px;
                 width: 520px;
+                
               }
             }
           }
@@ -90,9 +91,14 @@ body {
             top: -48px;
             position: relative;
             text-align: center;
+
             @media screen and (max-width: 576px) {
               top: -30px;
             }
+         a{
+          text-decoration: $vaciar;
+          color: $color-blanco;
+         }
           }
 
           .shape-border {
