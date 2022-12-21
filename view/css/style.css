@@ -380,7 +380,7 @@ body {
 @media screen and (max-width: 576px) {
   #portada #imagenPortada .financias .svg-padding .svg-wrapper svg {
     height: 30px;
-    width: 520px;
+    width: 220px;
   }
 }
 #portada #imagenPortada .financias .svg-padding .svg-wrapper rect {
@@ -390,7 +390,7 @@ body {
 @media screen and (max-width: 576px) {
   #portada #imagenPortada .financias .svg-padding .svg-wrapper rect {
     height: 30px;
-    width: 520px;
+    width: 220px;
   }
 }
 #portada #imagenPortada .financias .svg-padding .shape {
