@@ -1,26 +1,34 @@
 section {
-  padding: 120px;
-
+  padding: 100px;
+  @media screen and (max-width: 576px) {
+   padding: 0;
+  }
+  
   .tbl-content {
+
+    height: 80vh;
     width: 100%;
     overflow-x: auto;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     display: flex;
+
     flex-wrap: wrap;
 
 
 
     .tarjetas {
+
+    
       position: relative;
 
       margin: 5px;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(5px);
       box-shadow: 35px 35px 68px 0px rgba(181, 126, 220, 0.5), inset -8px -8px 16px 0px rgba(181, 126, 220, 0.6), inset 0px 11px 28px 0px $color-blanco;
 
 
       .columna2 {
         color: $color-blanco;
-        width: 250px;
+        width: 211px;
         height: 25px;
         padding: 5px;
         background-color: rgba(39, 39, 39, 0.2);
@@ -42,9 +50,10 @@ section {
 
 
 .modal {
+  
   visibility: hidden;
   opacity: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -54,7 +63,6 @@ section {
   justify-content: center;
   background: rgba(77, 77, 77, .7);
   transition: all .4s;
-  height: 150vh;
   z-index: 9999;
 }
 
@@ -92,8 +100,8 @@ section {
   color: #585858;
   text-decoration: none;
 }
-ES1220900000450350000001
-ES122090000045350000002
+// ES1220900000450350000001
+// ES122090000045350000002
 
 .cuenta{
   color:white;
