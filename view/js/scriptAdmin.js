@@ -10,7 +10,7 @@ MyApp.controller('miController', function ($scope, $http) {
     // Mostrar lista de usuarios //
     ///////////////////////////////
     function verusuarios() {
-        $http.get('../../controller/controlador_consulta_usuarios.php')
+        $http.post('/controller/controlador_consulta_usuarios.php')
             .then(function (response) {
                 console.log(response.data.list);
                 $scope.usuarios = response.data.list;
