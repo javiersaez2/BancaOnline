@@ -51,7 +51,7 @@ body {
             letter-spacing: 0.5rem;
             font-size: 3vw;
             transform: translateY(-50%);
-            margin: 0 auto;
+            
             text-align: center;
 
             svg{
@@ -59,7 +59,7 @@ body {
               width: 520px;
               @media screen and (max-width: 576px) {
                 height: 30px;
-                width: 220px;
+                width: 40vh;
               }
             }
             rect{
@@ -67,7 +67,7 @@ body {
               width: 520px;
               @media screen and (max-width: 576px) {
                 height: 30px;
-                width: 220px;
+              
                 
               }
             }
@@ -86,13 +86,14 @@ body {
           }
 
           .text {
-            line-height: 32px;
+            line-height: 32px;  
             letter-spacing: 8px;
             color: #fff;
+            // width: 50%;
+            // left: 40%;
             top: -48px;
             position: relative;
             text-align: center;
-
             @media screen and (max-width: 576px) {
               top: -30px;
             }

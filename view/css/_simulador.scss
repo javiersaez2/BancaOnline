@@ -1,0 +1,140 @@
+
+#title {
+    h1{
+      font-family: "Arial", sans-serif;
+    }
+    h3{
+      font-family: "Arial", sans-serif;
+    }
+    h4{
+      font-family: "Arial", sans-serif;
+    }
+  }
+  
+
+  
+    input[type=text],
+    select {  
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  
+    input[type=button] {
+      width: 100%;
+      background-color: $color-terciario1;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  
+    }
+  
+    input[type=button]:hover {
+      background-color: $color-terciario4;
+      width: 100%;
+    }
+  
+    .form {
+      border-radius: 5px;
+      padding: 20px;
+      margin: auto;
+      text-align: $centrar;
+      @include glass();
+      .tbl-content {
+        height: 80vh;
+        width: 100%;
+        overflow-x: auto;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        flex-wrap: wrap;
+      table {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        text-align: right;
+  
+        tr {
+          &:nth-child(even) {
+            background-color: #f2f2f2;
+          }
+  
+          &:hover {
+            background-color: #ddd;
+          }
+        }
+  
+        th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: $color-terciario1;
+          color: white;
+        }
+      }
+  
+      table td,
+      table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+  
+      #regresarPrestamo {
+        margin-top: 70px;
+      }
+    }
+  }
+  
+  @media (min-width: 950px) {
+    .form {
+      display: grid;
+      grid-template-columns: 4;
+      grid-template-rows: 2;
+      grid-gap: 10px;
+      margin: 5px;
+      padding: 30px;
+  
+  
+      .triplete1 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+  
+        div {
+          margin-top: 30px;
+        }
+      }
+  
+      .triplete2 {
+        grid-column-start: 2;
+        grid-column-end: 3;
+  
+        div {
+          margin-top: 30px;
+        }
+      }
+  
+      .triplete3 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+  
+        div {
+          margin-top: 30px;
+        }
+      }
+  
+      #botonCalcular {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        margin-top: 70px;
+      }
+    }
+  
+  }
+  
+  

@@ -370,7 +370,6 @@ body {
   letter-spacing: 0.5rem;
   font-size: 3vw;
   transform: translateY(-50%);
-  margin: 0 auto;
   text-align: center;
 }
 #portada #imagenPortada .financias .svg-padding .svg-wrapper svg {
@@ -380,7 +379,7 @@ body {
 @media screen and (max-width: 576px) {
   #portada #imagenPortada .financias .svg-padding .svg-wrapper svg {
     height: 30px;
-    width: 220px;
+    width: 40vh;
   }
 }
 #portada #imagenPortada .financias .svg-padding .svg-wrapper rect {
@@ -390,7 +389,6 @@ body {
 @media screen and (max-width: 576px) {
   #portada #imagenPortada .financias .svg-padding .svg-wrapper rect {
     height: 30px;
-    width: 220px;
   }
 }
 #portada #imagenPortada .financias .svg-padding .shape {
@@ -764,6 +762,127 @@ body {
   }
 }
 
+#title h1 {
+  font-family: "Arial", sans-serif;
+}
+#title h3 {
+  font-family: "Arial", sans-serif;
+}
+#title h4 {
+  font-family: "Arial", sans-serif;
+}
+
+input[type=text],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=button] {
+  width: 100%;
+  background-color: #a34ae3;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=button]:hover {
+  background-color: #ab5fe0;
+  width: 100%;
+}
+
+.form {
+  border-radius: 5px;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.form .tbl-content {
+  height: 80vh;
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+}
+.form .tbl-content table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: right;
+}
+.form .tbl-content table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.form .tbl-content table tr:hover {
+  background-color: #ddd;
+}
+.form .tbl-content table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #a34ae3;
+  color: white;
+}
+.form .tbl-content table td,
+.form .tbl-content table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.form .tbl-content #regresarPrestamo {
+  margin-top: 70px;
+}
+
+@media (min-width: 950px) {
+  .form {
+    display: grid;
+    grid-template-columns: 4;
+    grid-template-rows: 2;
+    grid-gap: 10px;
+    margin: 5px;
+    padding: 30px;
+  }
+  .form .triplete1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  .form .triplete1 div {
+    margin-top: 30px;
+  }
+  .form .triplete2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+  .form .triplete2 div {
+    margin-top: 30px;
+  }
+  .form .triplete3 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+  }
+  .form .triplete3 div {
+    margin-top: 30px;
+  }
+  .form #botonCalcular {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-top: 70px;
+  }
+}
 .sectionlogin {
   background: #B57EDC;
   height: 88.3vh;
@@ -837,124 +956,4 @@ body {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
-}
-
-#title h1 {
-  font-family: "Arial", sans-serif;
-}
-#title h3 {
-  font-family: "Arial", sans-serif;
-}
-#title h4 {
-  font-family: "Arial", sans-serif;
-}
-
-@media (min-width: 350px) {
-  input[type=text],
-select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  input[type=button] {
-    width: 100%;
-    background-color: #a34ae3;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  input[type=button]:hover {
-    background-color: #ab5fe0;
-    width: 100%;
-  }
-  .form {
-    border-radius: 5px;
-    padding: 20px;
-    margin: auto;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-  .form .tbl-content {
-    height: 80vh;
-    width: 100%;
-    overflow-x: auto;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .form .tbl-content table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    text-align: right;
-  }
-  .form .tbl-content table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  .form .tbl-content table tr:hover {
-    background-color: #ddd;
-  }
-  .form .tbl-content table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #a34ae3;
-    color: white;
-  }
-  .form .tbl-content table td,
-.form .tbl-content table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  .form .tbl-content #regresarPrestamo {
-    margin-top: 70px;
-  }
-}
-@media (min-width: 950px) {
-  .form {
-    display: grid;
-    grid-template-columns: 4;
-    grid-template-rows: 2;
-    grid-gap: 10px;
-    margin: 5px;
-    padding: 30px;
-  }
-  .form .triplete1 {
-    grid-column-start: 1;
-    grid-column-end: 2;
-  }
-  .form .triplete1 div {
-    margin-top: 30px;
-  }
-  .form .triplete2 {
-    grid-column-start: 2;
-    grid-column-end: 3;
-  }
-  .form .triplete2 div {
-    margin-top: 30px;
-  }
-  .form .triplete3 {
-    grid-column-start: 3;
-    grid-column-end: 4;
-  }
-  .form .triplete3 div {
-    margin-top: 30px;
-  }
-  .form #botonCalcular {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    margin-top: 70px;
-  }
 }/*# sourceMappingURL=style.css.map */
