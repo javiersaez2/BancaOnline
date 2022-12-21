@@ -10,6 +10,7 @@
   <link href="/view/css/style_usuarios.css" rel="stylesheet" type="text/css" />
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
+
   <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
   <title>Pagina Admin</title>
 </head>
@@ -27,7 +28,7 @@
         <li class="nav-item" ng-show="cuentaUsuario"><a class="nav-link">CUENTA</a></li>
         <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
       </ul>
-      
+
     </nav>
     <div class="menu-toggle">
       <i class="bx bx-menu"></i>
@@ -159,42 +160,46 @@
 
 
 
-<!----------- | MODALES | ------------------>
+    <!----------- | MODALES | ------------------>
     <div id="demo-modal1" class="modal">
 
       <div class="modal__content">
 
         <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
-        
-        
+
+
         <form>
           <div class="form__group field">
-            <input type="input" class="form__field"   ng-model="dniIns"  placeholder="DNI" name="dni" id='dniIns' required />
-            <label for="name"class="form__label">DNI</label>
+            <input type="input" class="form__field" ng-model="dniIns" placeholder="DNI" name="dni" id='dniIns'
+              required />
+            <label for="name" class="form__label">DNI</label>
           </div>
           <div class="form__group field">
-            <input type="input" class="form__field" ng-model="nombreIns"  placeholder="Nombre" name="nombre" id='nombre2' required />
+            <input type="input" class="form__field" ng-model="nombreIns" placeholder="Nombre" name="nombre" id='nombre2'
+              required />
             <label for="name" class="form__label">Nombre</label>
           </div>
           <div class="form__group field">
-            <input type="password" class="form__field"  ng-model="contrsenaIns" placeholder="Contrasena" name="contrasena" id='contrasena' required />
-            <label for="password"  class="form__label">Contraseña</label>
+            <input type="password" class="form__field" ng-model="contrsenaIns" placeholder="Contrasena"
+              name="contrasena" id='contrasena' required />
+            <label for="password" class="form__label">Contraseña</label>
           </div>
           <div class="form__group field">
-            <input type="password" class="form__field" ng-model="vefIns"  placeholder="Contrasena2" name="contrasena2" id='contrasena2' required />
-            <label for="contrasena2" class="form__label"  >Verificar Contrasena</label>
+            <input type="password" class="form__field" ng-model="vefIns" placeholder="Contrasena2" name="contrasena2"
+              id='contrasena2' required />
+            <label for="contrasena2" class="form__label">Verificar Contrasena</label>
           </div>
 
           <div class="form__group field">
-            <label for="select"class="form__label">Tipo</label>
-            <select name="select"  class="form__field for_option" ng-model="tipoIns"  placeholder="Contrasena2">
+            <label for="select" class="form__label">Tipo</label>
+            <select name="select" class="form__field for_option" ng-model="tipoIns" placeholder="Contrasena2">
               <option value="" disabled selected hidden>Seleccione el usuario</option>
               <option value="1">Admin</option>
               <option value="0" selected>Normal</option>
             </select>
           </div>
-          
-<br>
+
+          <br>
           <button ng-click="nuevoCliente()" class="button-23">Crear</button></p>
         </form>
       </div>
@@ -204,32 +209,36 @@
   <!--Modal modificar usuario-->
   <div id="demo-modal2" class="modal">
     <div class="modal__content">
-        <form>
-          <div class="form__group field">
-            <input type="input" class="form__field"   ng-model="dniModificar"   placeholder="DNI" name="dni" id='dniModificar' required />
-            <label for="name"class="form__label">DNI</label>
-          </div>
-          <div class="form__group field">
-            <input type="input" class="form__field"  ng-model="nombreModificar"  placeholder="Nombre" name="nombreModificar" id='nombre' required />
-            <label for="name" class="form__label">Nombre</label>
-          </div>
-          <div class="form__group field">
-            <input type="password" class="form__field"  ng-model="contrasenaModificar" placeholder="Contrasena" name="contrasenaModificar" id='contrasenaModificar' required />
-            <label type="text" for="password"  class="form__label">Contraseña</label>
-          </div>
-          <div class="form__group field">
-            <input type="password" class="form__field" ng-model="vefModificar"  placeholder="Contrasena2" name="contrasena2" id='contrasena2Modificar' required />
-            <label for="contrasena2" class="form__label"  >Verificar Contrasena</label>
-          </div>
-          <br>
+      <form>
+        <div class="form__group field">
+          <input type="input" class="form__field" ng-model="dniModificar" placeholder="DNI" name="dni" id='dniModificar'
+            required />
+          <label for="name" class="form__label">DNI</label>
+        </div>
+        <div class="form__group field">
+          <input type="input" class="form__field" ng-model="nombreModificar" placeholder="Nombre" name="nombreModificar"
+            id='nombre' required />
+          <label for="name" class="form__label">Nombre</label>
+        </div>
+        <div class="form__group field">
+          <input type="password" class="form__field" ng-model="contrasenaModificar" placeholder="Contrasena"
+            name="contrasenaModificar" id='contrasenaModificar' required />
+          <label type="text" for="password" class="form__label">Contraseña</label>
+        </div>
+        <div class="form__group field">
+          <input type="password" class="form__field" ng-model="vefModificar" placeholder="Contrasena2"
+            name="contrasena2" id='contrasena2Modificar' required />
+          <label for="contrasena2" class="form__label">Verificar Contrasena</label>
+        </div>
+        <br>
 
-       
-          <button ng-click="guardarCliente(item)" class="button-23">Guardar Modificaciones</button>
-          <a ng-click="cerrarCuentas('2')" class="modal__close">&times;</a>
-        </form>
-      </div>
+
+        <button ng-click="guardarCliente(item)" class="button-23">Guardar Modificaciones</button>
+        <a ng-click="cerrarCuentas('2')" class="modal__close">&times;</a>
+      </form>
     </div>
-  </div> 
+  </div>
+  </div>
 
   <!-- Modal de cuentas corrientes -->
   <div id="demo-modal0" class="modal">
@@ -248,9 +257,9 @@
     </div>
   </div>
 
- <!--FOOTER-->
-   <!-- Site footer -->
-   <footer class="site-footer">
+  <!--FOOTER-->
+  <!-- Site footer -->
+  <footer class="site-footer">
     <div class="container">
       <div class="row">
         <div class="columnas">
@@ -304,21 +313,23 @@
 
         <div class="columnas">
           <ul class="social-icons">
-            <li><a class="facebook" href="#"><img src="https://www.facebook.com/images/fb_icon_325x325.png" alt=""></a></li>
-            <li><a class="twitter" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/800px-Twitter-logo.svg.png" alt=""></a></li>
+            <li><a class="facebook" href="#"><img src="https://www.facebook.com/images/fb_icon_325x325.png" alt=""></a>
+            </li>
+            <li><a class="twitter" href="#"><img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/800px-Twitter-logo.svg.png"
+                  alt=""></a></li>
 
           </ul>
         </div>
       </div>
     </div>
-</footer>
+  </footer>
 
 
-
+  <script src="/view/js/scriptAdmin.js"></script>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><!-- Slider -->
-  
-    <script src="/view/js/scriptAdmin.js"></script><script src="/view/js/nav.js" type="text/javascript"></script>
+  <script src="/view/js/nav.js" type="text/javascript"></script>
 </body>
 
 </html>
