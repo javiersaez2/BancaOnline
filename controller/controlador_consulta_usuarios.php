@@ -1,6 +1,5 @@
 <?php
-
-include_once '../model/ClienteModel.php';
+include_once '../model/clienteModel.php';
 
 $response=array();
     

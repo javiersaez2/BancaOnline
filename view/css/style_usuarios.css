@@ -322,25 +322,31 @@ header {
   }
 }
 section {
-  padding: 120px;
+  padding: 100px;
+}
+@media screen and (max-width: 576px) {
+  section {
+    padding: 0;
+  }
 }
 section .tbl-content {
+  height: 80vh;
   width: 100%;
   overflow-x: auto;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   flex-wrap: wrap;
 }
 section .tbl-content .tarjetas {
   position: relative;
   margin: 5px;
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   box-shadow: 35px 35px 68px 0px rgba(181, 126, 220, 0.5), inset -8px -8px 16px 0px rgba(181, 126, 220, 0.6), inset 0px 11px 28px 0px #fbfbfb;
 }
 section .tbl-content .tarjetas .columna2 {
   color: #fbfbfb;
-  width: 250px;
+  width: 211px;
   height: 25px;
   padding: 5px;
   background-color: rgba(39, 39, 39, 0.2);
@@ -356,7 +362,7 @@ section .tbl-content .tarjetas .columna1 {
 .modal {
   visibility: hidden;
   opacity: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -366,7 +372,6 @@ section .tbl-content .tarjetas .columna1 {
   justify-content: center;
   background: rgba(77, 77, 77, 0.7);
   transition: all 0.4s;
-  height: 150vh;
   z-index: 9999;
 }
 
@@ -410,7 +415,7 @@ section .tbl-content .tarjetas .columna1 {
   text-decoration: none;
 }
 
-ES1220900000450350000001 ES122090000045350000002 .cuenta {
+.cuenta {
   color: white;
   font-weight: 400;
 }

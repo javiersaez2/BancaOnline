@@ -10,7 +10,7 @@ MyApp.controller('miController', function ($scope, $http) {
     // Mostrar lista de usuarios //
     ///////////////////////////////
     function verusuarios() {
-        $http.get('../../controller/controlador_consulta_usuarios.php')
+        $http.post('/controller/controlador_consulta_usuarios.php')
             .then(function (response) {
                 console.log(response.data.list);
                 $scope.usuarios = response.data.list;
@@ -48,8 +48,7 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.listaInsertar = [];
 
     $scope.nuevoUsuario = function () {
-        document.getElementById("demo-modal1").style.visibility = "visible";
-        document.getElementById("demo-modal1").style.opacity = 1;
+     modalvisible(1);
     }
 
     $scope.nuevoCliente = function () {
@@ -89,8 +88,8 @@ MyApp.controller('miController', function ($scope, $http) {
                     $scope.contrsenaIns = "";
                     $scope.tipoIns = "";
                     $scope.vefIns = "";
-                    document.getElementById("demo-modal1").style.visibility = "hidden";
-                    document.getElementById("demo-modal1").style.opacity = 0;
+
+                    modalnovisible(1);
                 })
                 .catch(function (response) {
                     console.log('Error ocurred: ', response.status);
@@ -112,8 +111,7 @@ MyApp.controller('miController', function ($scope, $http) {
             $scope.cuenta.push({ iban: item.objCuenta[i].iban, dniCliente: item.objCuenta[i].dniCliente, titular: item.objCuenta[i].titular, saldo: item.objCuenta[i].saldo, cuentaPos: i+1});
             console.log($scope.cuenta)
         }
-        document.getElementById("demo-modal0").style.visibility = "visible";
-        document.getElementById("demo-modal0").style.opacity = 1;
+       modalvisible(0);
     }
 
     $scope.cerrarCuentas = function (numero) {
@@ -123,8 +121,7 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.contrsenaIns = "";
         $scope.tipoIns = "";
         $scope.vefIns = "";
-        document.getElementById("demo-modal"+numero+"").style.visibility = "hidden";
-        document.getElementById("demo-modal"+numero+"").style.opacity = 0;
+modalnovisible(numero);
 
     }
 
@@ -168,9 +165,8 @@ MyApp.controller('miController', function ($scope, $http) {
     ////////Update//////////
     ////////////////////////
     $scope.modificarUsuario = function (miIndex, item) {
-        document.getElementById("demo-modal2").style.visibility = "visible";
-        document.getElementById("demo-modal2").style.opacity = 1;
-
+    
+        modalvisible(2);
         document.getElementById("dniModificar").disabled = true;
         $scope.modificarVista = 'true';
         $scope.insertarVista = 'false';
@@ -195,8 +191,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 $scope.modificarVista = 'false';
                 verusuarios();
 
-                document.getElementById("demo-modal2").style.visibility = "hidden";
-                document.getElementById("demo-modal2").style.opacity = 0;
+                modalnovisible(2);
             }).catch(function (response) {
                 console.error('Error occurred:', response.status, response.data)
             })
@@ -263,3 +258,100 @@ MyApp.controller('miController', function ($scope, $http) {
     }
 })
 
+
+// function switchScroll() {
+//     if (document.getElementById('scroll').checked == true){
+//       enable_scroll();
+//     } else {
+//       disable_scroll();
+//     }
+//   }
+  
+
+
+
+
+
+
+function modalvisible(x) {
+    document.getElementById("demo-modal"+x+"").style.visibility = "visible";
+    document.getElementById("demo-modal"+x+"").style.opacity = 1;
+    disable_scroll();
+    disable_scroll_mobile();
+}
+
+function modalnovisible(x) {
+    document.getElementById("demo-modal"+x+"").style.visibility = "hidden";
+    document.getElementById("demo-modal"+x+"").style.opacity = 0;
+    enable_scroll();
+    enable_scroll_mobile();
+}
+  
+  // PREVENT DEFAULT HANDLER
+  function preventDefault(e) {
+    e = e || window.event;
+    if (e.preventDefault) {
+      e.preventDefault();
+    }
+    e.returnValue = false;
+  }
+  // PREVENT SCROLL KEYS
+  // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+  // left: 37, up: 38, right: 39, down: 40,
+  // (Source: http://stackoverflow.com/a/4770179)
+  function keydown(e) {
+    var keys = [32,33,34,35,36,37,38,39,40];
+    for (var i = keys.length; i--;) {
+      if (e.keyCode === keys[i]) {
+        preventDefault(e);
+        return;
+      }
+    }
+  }
+  // PREVENT MOUSE WHEEL
+  function wheel(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  }
+  // DISABLE SCROLL
+  function disable_scroll() {
+    if (document.addEventListener) {
+      document.addEventListener('wheel', wheel, false);
+      document.addEventListener('mousewheel', wheel, false);
+      document.addEventListener('DOMMouseScroll', wheel, false);
+    }
+    else {
+      document.attachEvent('onmousewheel', wheel);
+    }
+    document.onmousewheel = document.onmousewheel = wheel;
+    document.onkeydown = keydown;
+    
+    x = window.pageXOffset || document.documentElement.scrollLeft,
+    y = window.pageYOffset || document.documentElement.scrollTop,
+    window.onscroll = function() {
+      window.scrollTo(x, y);
+    };
+    // document.body.style.overflow = 'hidden'; // CSS
+    disable_scroll_mobile();
+  }
+  // ENABLE SCROLL
+  function enable_scroll() {
+    if (document.removeEventListener) {
+      document.removeEventListener('wheel', wheel, false);
+      document.removeEventListener('mousewheel', wheel, false);
+      document.removeEventListener('DOMMouseScroll', wheel, false);
+    }
+    document.onmousewheel = document.onmousewheel = document.onkeydown = null;
+    window.onscroll = function() {};
+    // document.body.style.overflow = 'auto'; // CSS
+    enable_scroll_mobile();
+  }
+  
+  // MOBILE
+  function disable_scroll_mobile(){
+    document.addEventListener('touchmove', preventDefault, false);
+  }
+  function enable_scroll_mobile(){
+    document.removeEventListener('touchmove', preventDefault, false);
+  }
