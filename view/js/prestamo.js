@@ -59,11 +59,11 @@ MyApp.controller('miController', function ($scope, $http) {
                     var mat = 0;;
                     $scope.lista.push({
                         Aldiak: 0,
-                        Kuota: "0,00",
-                        Interesa: "0,00",
-                        Amortizazioa: "0,00",
-                        Metatua: "0,00",
-                        Kapitala: kapitala1
+                        Kuota: "0,00 €",
+                        Interesa: "0,00 €",
+                        Amortizazioa: "0,00 €",
+                        Metatua: "0,00 €",
+                        Kapitala: new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Number(kapitala1).toFixed(2))
                     });
                     for (let i = 1; i <= $scope.numero; i++) {
                         for (let j = 1; j <= 2; j++) {
