@@ -59,7 +59,7 @@ body {
               width: 520px;
               @media screen and (max-width: 576px) {
                 height: 30px;
-                width: 520px;
+                width: 220px;
               }
             }
             rect{
@@ -67,7 +67,7 @@ body {
               width: 520px;
               @media screen and (max-width: 576px) {
                 height: 30px;
-                width: 520px;
+                width: 220px;
                 
               }
             }
@@ -82,6 +82,7 @@ body {
             border-bottom: 5px solid black;
             transition: stroke-width 2.7s, stroke-dashoffset 2.7s, stroke-dasharray 1.3s;
             transition-delay: 0s;
+
           }
 
           .text {

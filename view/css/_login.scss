@@ -1,71 +1,77 @@
 
-.sectionlogin{
+.sectionlogin {
   background: $color-principal;
   height: 88.3vh;
-}
-
-
-.box {
+  width: auto;
+  .box {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 70%;
     padding: 40px;
-  @include glassnav
+    @include glassnav;
+    @media (min-width: 559px){
+      width: 400px;
+    }
+
+    h2 {
+      margin: 0 0 30px;
+      padding: 0;
+      color: $color-negro;
+      text-align: center;
+    }
+
+    .inputBox {
+      position: relative;
+
+      input {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        color: $color-negro;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid $color-negro;
+        outline: none;
+        background: transparent;
+      }
+
+      label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        letter-spacing: 2px;
+        padding: 10px 0;
+        font-size: 16px;
+        color: $color-negro;
+        pointer-events: none;
+        transition: 0.5s;
+      }
+
+    }
+
+
   }
-  
-  .box h2 {
-    margin: 0 0 30px;
-    padding: 0;
-    color: $color-negro;
-    text-align: center;
-  }
-  
-  .box .inputBox {
-    position: relative;
-  }
-  
-  .box .inputBox input {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: $color-negro;
-    letter-spacing: 2px;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid $color-negro;
-    outline: none;
-    background: transparent;
-  }
-  
-  .box .inputBox label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    letter-spacing: 2px;
-    padding: 10px 0;
-    font-size: 16px;
-    color: $color-negro;
-    pointer-events: none;
-    transition: 0.5s;
-  }
-  
-  .box .inputBox input:focus ~ label,
-  .box .inputBox input:valid ~ label {
-    top: -25px;
-    left: 0;
-    color: $color-negro;
-    font-size: 12px;
-  }
-  
-  .box input[type="submit"] {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: $color-negro;
-    background: $color-principal;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
+}
+
+
+.box .inputBox input:focus~label,
+.box .inputBox input:valid~label {
+  top: -25px;
+  left: 0;
+  color: $color-negro;
+  font-size: 12px;
+}
+
+.box input[type="submit"] {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: $color-negro;
+  background: $color-principal;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
