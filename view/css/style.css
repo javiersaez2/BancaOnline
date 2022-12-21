@@ -838,6 +838,16 @@ body {
   border-radius: 5px;
 }
 
+#title h1 {
+  font-family: "Arial", sans-serif;
+}
+#title h3 {
+  font-family: "Arial", sans-serif;
+}
+#title h4 {
+  font-family: "Arial", sans-serif;
+}
+
 @media (min-width: 350px) {
   input[type=text],
 select {
