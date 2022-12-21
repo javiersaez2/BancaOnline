@@ -1,15 +1,19 @@
+
 .sectionlogin {
   background: $color-principal;
   height: 88.3vh;
-
+  width: auto;
   .box {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 70%;
     padding: 40px;
     @include glassnav;
+    @media (min-width: 559px){
+      width: 400px;
+    }
 
     h2 {
       margin: 0 0 30px;
