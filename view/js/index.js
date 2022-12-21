@@ -45,7 +45,7 @@ miApp.controller('miControlador', function($scope, $http){
 ////////////////// - Animacion simulador - //////////////////
 $(function() {
     $('.shape').addClass("shape-border");
-    $('.svg-wrapper').click(function() {
+    $('.svg-wrapper').hover(function() {
       $('.shape').toggleClass('shape-border');
     });
   });

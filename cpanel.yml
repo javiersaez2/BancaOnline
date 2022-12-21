@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/grupo4ze/public_html/
+    - rm -Rf $DEPLOYPATH/* 
+    - cp -Rf model $DEPLOYPATH
+    - cp -Rf view $DEPLOYPATH
+    - cp -Rf controller $DEPLOYPATH
+    - cp -Rf index.html $DEPLOYPATH

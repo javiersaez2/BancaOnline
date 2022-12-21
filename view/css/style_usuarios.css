@@ -325,12 +325,10 @@ section {
   padding: 120px;
 }
 section .tbl-content {
-  height: 80vh;
   width: 100%;
   overflow-x: auto;
   border: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
 }
 section .tbl-content .tarjetas {
@@ -410,6 +408,11 @@ section .tbl-content .tarjetas .columna1 {
   right: 10px;
   color: #585858;
   text-decoration: none;
+}
+
+.cuenta {
+  color: white;
+  font-weight: 400;
 }
 
 /* demo styles */

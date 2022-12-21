@@ -2,13 +2,10 @@ section {
   padding: 120px;
 
   .tbl-content {
-
-    height: 80vh;
     width: 100%;
     overflow-x: auto;
     border: 1px solid rgba(255, 255, 255, 0.4);
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
 
 
@@ -94,6 +91,13 @@ section {
   right: 10px;
   color: #585858;
   text-decoration: none;
+}
+ES1220900000450350000001
+ES122090000045350000002
+
+.cuenta{
+  color:white;
+  font-weight: 400;
 }
 
 /* demo styles */
