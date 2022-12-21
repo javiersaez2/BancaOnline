@@ -63,14 +63,14 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
 
                 $sub = strval($sub);
 
-                $bus = substr($this->getIban(), 0, -10);
+                $bus = substr($this->getIban(), 0, -9);
 
                 $bus = $bus.$sub;
                 
                 $this->setIban($bus);
             }
         } else {
-            $this->setIban("ES1220900000450350000001");    
+            $this->setIban("ES1220900000450350000001"); 
         }
 
         mysqli_free_result($result);
