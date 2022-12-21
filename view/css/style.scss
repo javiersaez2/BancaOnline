@@ -26,7 +26,7 @@
 
   input[type=button] {
     width: 100%;
-    background-color: rgb(60, 84, 238);
+    background-color: $color-terciario1;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -37,7 +37,7 @@
   }
 
   input[type=button]:hover {
-    background-color: rgb(85, 106, 241);
+    background-color: $color-terciario4;
     width: 100%;
   }
 
