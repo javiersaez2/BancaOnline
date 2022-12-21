@@ -83,7 +83,7 @@ header {
 
 .bx-menu {
   cursor: pointer;
-  background: #fbfbfb;
+  background: black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: none !important;
@@ -91,7 +91,7 @@ header {
 
 .bx-x {
   cursor: pointer;
-  background: #fbfbfb;
+  background: black;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: none !important;
