@@ -21,7 +21,7 @@ MyApp.controller('miController', function ($scope, $http) {
     });
     $scope.calcular = function () {
         $('#title').append("<h1>Sistema "+$scope.sistema+"  "+$scope.periodoPago+"</h1>");
-        $('#title').append("<h3>INT : "+$scope.interes+" %</h3>");
+        $('#title').append("<h3>INT = "+$scope.interes+" %</h3>");
        
         
         if ($scope.sistema == null) {
@@ -55,7 +55,7 @@ MyApp.controller('miController', function ($scope, $http) {
                     
                     var kapitala1 = $scope.capital;
                     var intr = Math.sqrt(1 + ($scope.interes / 100)) - 1;
-                    $('#title').append("<h4>i(k) : "+(intr*100).toFixed(4)+" %</h4>");
+                    $('#title').append("<h4>i(k) = "+(intr*100).toFixed(4)+" %</h4>");
                     var mat = 0;;
                     for (let i = 1; i <= $scope.numero; i++) {
                         for (let j = 1; j <= 2; j++) {
