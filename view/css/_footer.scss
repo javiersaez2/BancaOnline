@@ -10,8 +10,8 @@
         .row {
             @include flexcenter();
             flex-direction: row;
-        }        
-        
+        }
+
         .row2 {
             @include flexcenter();
             flex-direction: column-reverse;
@@ -154,12 +154,12 @@
             -o-transition: all .2s linear;
             transition: all .2s linear;
 
-            i {
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
+
+            img {
+                width: 100%;
+                height: 100%;
             }
+
         }
     }
 
