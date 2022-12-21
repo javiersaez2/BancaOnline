@@ -83,7 +83,12 @@ MyApp.controller('miController', function ($scope, $http) {
                     $scope.insertarVista = 'false';
                     verusuarios();
     
-    
+                    
+                    $scope.dniIns = "";
+                    $scope.nombreIns = "";
+                    $scope.contrsenaIns = "";
+                    $scope.tipoIns = "";
+                    $scope.vefIns = "";
                     document.getElementById("demo-modal1").style.visibility = "hidden";
                     document.getElementById("demo-modal1").style.opacity = 0;
                 })
@@ -113,6 +118,11 @@ MyApp.controller('miController', function ($scope, $http) {
 
     $scope.cerrarCuentas = function (numero) {
         console.log(numero)
+        $scope.dniIns = "";
+        $scope.nombreIns = "";
+        $scope.contrsenaIns = "";
+        $scope.tipoIns = "";
+        $scope.vefIns = "";
         document.getElementById("demo-modal"+numero+"").style.visibility = "hidden";
         document.getElementById("demo-modal"+numero+"").style.opacity = 0;
 
