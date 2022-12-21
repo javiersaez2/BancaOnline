@@ -8,11 +8,11 @@ MyApp.controller('miController', function ($scope, $http) {
     let Metatua = 0.00;
     $scope.lista = [];
     $('#periodoIntereses').on('change', function () {
-        if ($('#periodoIntereses').val() == "ANUAL") {
-            $("#tipoBase").html("<option value='ANUAL'>ANUAL</option>")
+        if ($('#periodoIntereses').val() == "Anual") {
+            $("#tipoBase").html("<option value='Anual'>Anual</option>")
         }
-        else if ($('#periodoIntereses').val() == "SEMESTRAL") {
-            $("#tipoBase").html("<option value='ANUAL'>ANUAL</option> <option value='SEMESTRAL'>SEMESTRAL</option>")
+        else if ($('#periodoIntereses').val() == "Semestral") {
+            $("#tipoBase").html("<option value='Anual'>Anual</option> <option value='Semestral'>Semestral</option>")
 
         }
         else {
@@ -20,6 +20,10 @@ MyApp.controller('miController', function ($scope, $http) {
         }
     });
     $scope.calcular = function () {
+        $('#title').append("<h1>Sistema "+$scope.sistema+"  "+$scope.periodoPago+"</h1>");
+        $('#title').append("<h3>INT = "+$scope.interes+" %</h3>");
+       
+        
         if ($scope.sistema == null) {
             alert("Por favor, asigne tipo de sistema");
         }
@@ -44,12 +48,14 @@ MyApp.controller('miController', function ($scope, $http) {
         else {
             $scope.ver = 'true';
             $scope.lista = [];
-            if ($scope.sistema == "lineal") {
+            if ($scope.sistema == "Lineal") {
 
 
-                if ($scope.periodoPago == "SEMESTRAL" && $("#tipoBase").val() == "ANUAL") {
+                if ($scope.periodoPago == "Semestral" && $("#tipoBase").val() == "Anual") {
+                    
                     var kapitala1 = $scope.capital;
-                    var intr = Math.sqrt(1 + ($scope.interes / 100)) - 1
+                    var intr = Math.sqrt(1 + ($scope.interes / 100)) - 1;
+                    $('#title').append("<h4>i(k) = "+(intr*100).toFixed(4)+" %</h4>");
                     var mat = 0;;
                     for (let i = 1; i <= $scope.numero; i++) {
                         for (let j = 1; j <= 2; j++) {
@@ -82,14 +88,14 @@ MyApp.controller('miController', function ($scope, $http) {
 
                     }
                 }
-                if (($scope.periodoPago == "ANUAL" && $("#tipoBase").val() == "ANUAL") || ($scope.periodoPago == "SEMESTRAL" && $("#tipoBase").val() == "SEMESTRAL")) {
-                    document.getElementById("tipoBase").innerHTML = "<option value='ANUAL'>ANUAL</option>"
+                if (($scope.periodoPago == "Anual" && $("#tipoBase").val() == "Anual") || ($scope.periodoPago == "Semestral" && $("#tipoBase").val() == "Semestral")) {
+                    document.getElementById("tipoBase").innerHTML = "<option value='Anual'>Anual</option>"
                     var kapitala = $scope.capital;
                     Amortizazioa = ($scope.capital / $scope.numero);
-                    for (let index = 0; index < $scope.numero; index++) {
+                    for (let index = 1; index <= $scope.numero; index++) {
                         Interesa = (kapitala * $scope.interes) / 100;
                         kapitala = kapitala - Amortizazioa;
-                        Aldiak = index + 1;
+                        Aldiak = index ;
                         Kuota = Interesa + Amortizazioa;
                         Metatua = Metatua + Amortizazioa;
                         $scope.lista.push({
@@ -103,11 +109,12 @@ MyApp.controller('miController', function ($scope, $http) {
                     }
                 }
             }
-            if ($scope.sistema == "frances") {
+            if ($scope.sistema == "Frances") {
                 var kapitala = $scope.capital;
                 Kuota = ($scope.capital * ($scope.interes / 100)) / (1 - (Math.pow((1 + ($scope.interes / 100)), (-($scope.numero)))));
-                for (let index = 0; index < $scope.numero; index++) {
-                    Aldiak = index + 1;
+                for (let index = 1; index <= $scope.numero; index++) {
+                    
+                    Aldiak = index ;
                     Interesa = (kapitala * $scope.interes) / 100;
                     Amortizazioa = Kuota - Interesa;
                     Metatua = Metatua + Amortizazioa;

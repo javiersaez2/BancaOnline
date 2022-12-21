@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="../js/angular.min.js"></script>
-  <link href="../css/style.css" rel="stylesheet" type="text/css" />
-  <script src="../js/jquery-1.11.3.min.js" type="text/javascript"></script>
+  <script src="/view/js/angular.min.js"></script>
+  <link href="/view/css/style.css" rel="stylesheet" type="text/css" />
+
+  <script src="/view/js/jquery-1.11.3.min.js" type="text/javascript"></script>
   <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
   <title>Pagina Admin</title>
 </head>
@@ -38,8 +39,8 @@
       <div>
         <label>Sistema de Amortización</label>
         <select ng-model="sistema">
-          <option value="lineal">Lineal</option>
-          <option value="frances">Francés</option>
+          <option value="Lineal">Lineal</option>
+          <option value="Frances">Francés</option>
         </select>
       </div>
       <div>
@@ -67,10 +68,10 @@
       <div>
         <label>Periodo de pago de intereses</label>
         <select name="" id="periodoIntereses" ng-model="periodoPago">
-          <option value="ANUAL">ANUAL</option>
-          <option value="SEMESTRAL">SEMESTRAL </option>
-          <option value="CUATRIMESTRAL">CUATRIMESTRAL </option>
-          <option value="MENSUAL">MENSUAL</option>
+          <option value="Anual">Anual</option>
+          <option value="Semestral">Semestral </option>
+          <option value="Cuatrimestral">Cuatrimestral </option>
+          <option value="Mensual">Mensual</option>
         </select>
       </div>
     </div>
@@ -79,10 +80,10 @@
       <div>
         <label>Tipo de Base Temporal</label>
         <select name="" id="tipoBase" ng-model="tipo">
-          <!-- <option value="ANUAL">ANUAL</option>
-                    <option value="SEMESTRAL">SEMESTRAL </option>
-                    <option value="CUATRIMESTRAL">CUATRIMESTRAL </option>
-                    <option value="MENSUAL">MENSUAL</option> -->
+          <!-- <option value="Anual">Anual</option>
+                    <option value="Semestral">Semestral </option>
+                    <option value="Cuatrimestral">Cuatrimestral </option>
+                    <option value="Mensual">Mensual</option> -->
         </select>
       </div>
       <div>
@@ -100,6 +101,9 @@
   </div>
 
   <div class="form" ng-show="ver =='true'">
+    <div id="title">
+
+</div>
     <table>
       <tr>
         <th>Urteak</th>
@@ -178,8 +182,8 @@
 
         <div class="columnas">
           <ul class="social-icons">
-            <li><a class="facebook" href="#"><i class="fa fa-facebook"><img src="https://www.facebook.com/images/fb_icon_325x325.png" alt=""></i></a></li>
-            <li><a class="twitter" href="#"><i class="fa fa-twitter"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/800px-Twitter-logo.svg.png" alt=""></i></a></li>
+            <li><a class="facebook" href="#"><img src="https://www.facebook.com/images/fb_icon_325x325.png" alt=""></i></a></li>
+            <li><a class="twitter" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/800px-Twitter-logo.svg.png" alt=""></i></a></li>
           </ul>
         </div>
       </div>
@@ -187,8 +191,8 @@
   </footer>
 
 
-  <script src="../js/prestamo.js"></script>
-  <script src="../js/nav.js" type="text/javascript"></script>
+  <script src="/view/js/prestamo.js"></script>
+  <script src="/view/js/nav.js" type="text/javascript"></script>
 
 </body>
 

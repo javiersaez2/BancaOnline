@@ -281,7 +281,7 @@ header {
   padding: 4px;
   transition: all 0.2s linear;
 }
-.social-icons li a i img {
+.social-icons li a img {
   width: 100%;
   height: 100%;
 }
@@ -836,6 +836,16 @@ body {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+#title h1 {
+  font-family: "Arial", sans-serif;
+}
+#title h3 {
+  font-family: "Arial", sans-serif;
+}
+#title h4 {
+  font-family: "Arial", sans-serif;
 }
 
 @media (min-width: 350px) {
