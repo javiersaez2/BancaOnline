@@ -368,7 +368,7 @@ body {
 
   &__button {
     display: inline-flex;
-    background-image: linear-gradient(147deg, $color-secundario 0%, $color-principal 74%);
+    background: $color-principal;
     padding: 15px 35px;
     border-radius: 50px;
     color: #fff;
