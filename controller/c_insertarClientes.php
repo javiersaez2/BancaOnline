@@ -2,14 +2,12 @@
 include_once '../model/clienteModel.php';
 include_once '../model/cuenta_corrienteModel.php';
 
-$data=json_decode($_GET['value']);
+$data = json_decode(file_get_contents("php://input"),true);
 
-$nombre = $data->nombre;
-$pasahitza = $data->contrasena;
-$dniCliente = $data->dni;
-$tipo = $data->tipo;
-
-//var_dump($nombre+' '+$pasahitza);
+$nombre = $data["nombre"];
+$pasahitza = $data["contrasena"];
+$dniCliente = $data["dni"];
+$tipo = $data["tipo"];
 
 $cliente = new clienteModel();
 $response = array();

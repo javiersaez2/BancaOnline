@@ -1,15 +1,15 @@
 <?php
 include_once '../model/clienteModel.php';
 
-$data=json_decode($_GET["data"]);
+$data = json_decode(file_get_contents("php://input"),true);
 
 $user = new clienteModel();
-$user->dni=$data->dni;
-$user->pass=$data->pasahitza;
-if (!empty($data->codSecreto)){
-    $user->codSecreto=$data->codSecreto;    
+$user->dni=$data["dni"];
+$user->pass=$data["pasahitza"];
+if (!empty($data["codSecreto"])){
+    $user->codSecreto=$data["codSecreto"];    
 }
-$user->cont=$data->contador;
+$user->cont=$data["contador"];
 
 $list = $user->setUserData();
 $response = array();
@@ -33,7 +33,7 @@ if ($list["check"] == 0) {
     else if ($list["check"] == -1){
         $response["error"] = "WRONG PASSWORD";
     } else if ($list["check"] == -2){
-        $response["error"] = "WRONG KEYWORD";
+        $response["error"] = "WRONG SECRET CODE";
     }
 }
 

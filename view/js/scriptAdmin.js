@@ -25,14 +25,11 @@ MyApp.controller('miController', function ($scope, $http) {
     // Borrar usuarios //
     /////////////////////
     $scope.borrarUsuario = function (miIndex, item) {
-        console.log(item.dniCliente)
-        datos = item.dniCliente;
-        var datosjson = JSON.stringify(datos)
-        console.log(datosjson);
+        var datosjson = {'dniCliente':item.dniCliente};
         $http({
             url: '../../controller/delete_usuario.php',
             method: "POST",
-            params: { value: datos }
+            data: JSON.stringify(datosjson)
         }).then(function (response) {
             alert(response.data.error)
             verusuarios();
@@ -58,26 +55,20 @@ MyApp.controller('miController', function ($scope, $http) {
             $scope.vefIns = "";
         } else {
             $scope.listaInsertar = {
-                dni: $scope.dniIns,
-                nombre: $scope.nombreIns,
-                contrasena: $scope.contrsenaIns,
-                tipo: $scope.tipoIns
+                'dni': $scope.dniIns,
+                'nombre': $scope.nombreIns,
+                'contrasena': $scope.contrsenaIns,
+                'tipo': $scope.tipoIns
             };
-            console.log($scope.dniIns);
-            console.log($scope.nombreIns);
-            console.log($scope.contrsenaIns);
             var datosInsert = JSON.stringify($scope.listaInsertar);
-            console.log(datosInsert)
     
             ////////FETCH DE INSERTAR/////
             $http({
                 url: '../../controller/c_insertarClientes.php',
                 method: 'POST',
-                params: { value: datosInsert }
+                data: datosInsert
             })
                 .then(function (response) {
-                    console.log(response.data.error);
-                    console.log(response);
                     alert(response.data.error);
                     $scope.insertarVista = 'false';
                     verusuarios();
@@ -115,14 +106,12 @@ MyApp.controller('miController', function ($scope, $http) {
     }
 
     $scope.cerrarCuentas = function (numero) {
-        console.log(numero)
         $scope.dniIns = "";
         $scope.nombreIns = "";
         $scope.contrsenaIns = "";
         $scope.tipoIns = "";
         $scope.vefIns = "";
-modalnovisible(numero);
-
+        modalnovisible(numero);
     }
 
     ////////////////////////////////////////////////////////
@@ -135,7 +124,7 @@ modalnovisible(numero);
         $http({
             url: '../../controller/c_insertarCuenta.php',
             method: "POST",
-            params: {value:JSON.stringify({dniCliente: dni, nombre: nombreCliente})}
+            data: JSON.stringify({'dniCliente': dni, 'nombre': nombreCliente})
         }).then(function (response) {
             alert(response.data.error)
             verusuarios();
@@ -151,7 +140,7 @@ modalnovisible(numero);
         $http({
             url: '../../controller/delete_cuenta.php',
             method: "POST",
-            params: {value:JSON.stringify({iban: iban})}
+            data: JSON.stringify({'iban': iban})
         }).then(function (response) {
             alert(response.data.error)
             $scope.cerrarCuentas(0);
@@ -165,12 +154,10 @@ modalnovisible(numero);
     ////////Update//////////
     ////////////////////////
     $scope.modificarUsuario = function (miIndex, item) {
-    
         modalvisible(2);
         document.getElementById("dniModificar").disabled = true;
         $scope.modificarVista = 'true';
         $scope.insertarVista = 'false';
-        console.log(item)
         $scope.dniModificar = item.dniCliente;
         $scope.nombreModificar = item.nombre;
         $scope.contrasenaModificar = item.pasahitza;
@@ -185,7 +172,7 @@ modalnovisible(numero);
             $http({
                 url: "../../controller/controller_update.php",
                 method: "POST",
-                params: { value:JSON.stringify({'dniCliente': dniCliente, 'nombre': nombre, 'pasahitza': pasahitza})}
+                data: JSON.stringify({'dniCliente': dniCliente, 'nombre': nombre, 'pasahitza': pasahitza})
             }).then(function (response) {
                 alert(response.data.error);
                 $scope.modificarVista = 'false';
