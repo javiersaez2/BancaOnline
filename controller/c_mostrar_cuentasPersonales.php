@@ -1,5 +1,6 @@
 <?php
 include_once '../model/cuenta_corrienteModel.php';
+session_start();
 
 $response=array();
     
