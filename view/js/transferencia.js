@@ -49,11 +49,12 @@ MyApp.controller('miController', function ($scope, $http) {
 
     $scope.AsignarSaldo = function(){
         $scope.SeleccionT=true;
+        console.log($scope.cuentasNoPersonales);
 
     }
 
     $scope.MostrarRestos = function(){
-        $scope.OtrasT=true;
+        console.log("Hola")
 
     }
 
