@@ -40,24 +40,85 @@
   <br>
   TRANSFERENCIA
 
-  <div>
-    <table>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
+  <section>
+    <div class="tbl-content">
 
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-  </div>
+      <h1>CUENTAS CORRIENTES PERSONALES</h1>
+
+      <div class="tarjetas" ng-repeat='fila in cuentas'>
+        <table>
+
+          <tr>
+            <td class="columna1">
+              IBAN:
+            </td>
+            <td class="columna2">
+              {{fila.dniCliente}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Titular:
+            </td>
+            <td class="columna2">
+              {{fila.pasahitza}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Saldo:
+            </td>
+            <td class="columna2">
+              {{fila.secreto}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Tipo:
+            </td>
+            <td class="columna2">
+              {{fila.tipo}}
+          </tr>
+
+
+
+          <!--
+          <tr>
+            <td class="columna1">
+              Eliminar usuario
+            </td>
+            <td class="columna2">
+              <i class="fa-solid fa-user-minus fa-1xl icono" ng-click="borrarUsuario($index,fila)"></i>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Modificar usuario
+            </td>
+            <td class="columna2">
+              <i class="fa-solid fa-user-pen icono" ng-click="modificarUsuario($index,fila)"></i>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Nueva cuenta corriente
+            </td>
+            <td class="columna2">
+              <i class="fa-solid fa-piggy-bank icono" ng-click="guardarCuenta(fila)"></i>
+            </td>
+          </tr>
+          -->
+        </table>
+      
+      </div>
+    </div>
+
+  </section>
 
 
 
