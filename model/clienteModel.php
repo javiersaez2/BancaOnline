@@ -41,6 +41,7 @@ class clienteModel extends clienteclass
         $check = 0;
         $tipo = -1;
         $izena = "";
+        $dni = "";
         if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             if ($this->link->affected_rows == 1) {
                 if ($konta < 3) {
@@ -48,6 +49,7 @@ class clienteModel extends clienteclass
                         $check = 1;
                         $tipo = $row["tipo"];
                         $izena = $row["nombre"];
+                        $dni = $row["dniCliente"];
                     } else {
                         $check = -1;
                     }
@@ -56,6 +58,7 @@ class clienteModel extends clienteclass
                         $check = 1;
                         $tipo = $row["tipo"];
                         $izena = $row["nombre"];
+                        $dni = $row["dniCliente"];
                     } else {
                         $check = -2;
                     }
@@ -65,7 +68,7 @@ class clienteModel extends clienteclass
 
         mysqli_free_result($result);
         $this->CloseConnect();
-        return array("check" => $check, "tipo" => $tipo, "izena"=>$izena);
+        return array("check" => $check, "tipo" => $tipo, "izena"=>$izena,"dni"=>$dni);
     }
 
 
