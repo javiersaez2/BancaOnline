@@ -1,12 +1,13 @@
 <?php
 include_once '../model/cuenta_corrienteModel.php';
+session_start();
 
 $response=array();
     
 $cuenta=new cuenta_corrienteModel();
-$cuenta->dni=$_SESSION["dni"];
+$cuenta->setDniCliente($_SESSION["dni"]);
     
-$response['list']= $cuenta->setListCuentasPersonales();
+$response['list']= $cuenta->setListCuenta();
 $response['error']='no error';
     
 echo json_encode($response);
