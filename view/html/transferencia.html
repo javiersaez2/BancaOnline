@@ -112,15 +112,62 @@
     /////////////////////////////////////////////////////////////
   -->
   <section>
-    <div class="tbl-content" ng-show="OtrasT">
+    <div class="tbl-content" ng-show="SeleccionT">
       <h1>CUENTAS CORRIENTES A LAS QUE DESEA TRANSFERIR SALDO</h1>
 
-      <div class="tarjetas">
-        <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales">
-          <option ng-repeat='contenidos in cuentasNoPersonales' value="{{contenidos.dniCliente}}">{{contenidos.dniCliente}}</option>
+      <div class="tarjetas" >
+        <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" ng-model="juan" ng-options="item as item.dniCliente for item in cuentasNoPersonales">
+          <option value=""></option>
         </select>
       </div>
     </div>
+
+
+      <!--
+    <div ng-show="OtrasT">
+      <div class="tarjetas" ng-repeat='contenidoss in cuentasNoPersonales'>
+        <table>
+          <tr>
+            <td class="columna1">
+              IBAN:
+            </td>
+            <td class="columna2">
+              {{contenidoss.iban}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Titular:
+            </td>
+            <td class="columna2">
+              {{contenidoss.titular}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Saldo:
+            </td>
+            <td class="columna2">
+              {{contenidoss.saldo}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              SELECCIONAR:
+            </td>
+            <td class="columna2">
+              <input type="button" class="fa-solid fa-user-minus fa-1xl icono" ng-click="EscogerPersonal($index,contenidoss)"></i>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+      -->
+
+
   </section>
 
 

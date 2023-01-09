@@ -139,7 +139,7 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
     {
         $dniCliente=$this->dniCliente;
         $this->OpenConnect();
-        $sql = "select * from cuenta_corriente where dniCliente!='$dniCliente' ";
+        $sql = "select * from cuenta_corriente where dniCliente!='$dniCliente' GROUP BY dniCliente ";
 
         $list=array();
 

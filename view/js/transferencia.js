@@ -7,6 +7,7 @@ MyApp.controller('miController', function ($scope, $http) {
 
     $scope.TablaPersonales=true;
     $scope.DineroT=false;
+    $scope.SeleccionT=false;
     $scope.OtrasT=false;
 
 
@@ -47,7 +48,13 @@ MyApp.controller('miController', function ($scope, $http) {
     }
 
     $scope.AsignarSaldo = function(){
-        $scope.OtrasT=true;
+        $scope.SeleccionT=true;
+        console.log($scope.cuentasNoPersonales);
+
+    }
+
+    $scope.MostrarRestos = function(){
+        console.log("Hola")
 
     }
 
