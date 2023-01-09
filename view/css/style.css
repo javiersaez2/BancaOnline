@@ -313,7 +313,7 @@ html {
 }
 
 body {
-  background: linear-gradient(to right, #B57EDC, #7ED4DC);
+  background: #fbfbfb;
 }
 
 #portada {
@@ -441,18 +441,13 @@ body {
 .quienesSomos .imagenSomos img {
   width: 100%;
   height: 400px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .quienesSomos .imagenSomos iframe {
   width: 100%;
   height: 400px;
 }
 .quienesSomos .contenidoSomos {
+  position: relative;
   width: 40%;
   display: flex;
   justify-content: center;
@@ -460,13 +455,7 @@ body {
   margin: 0.5%;
   margin-top: 5%;
   color: black;
-  color: #fbfbfb;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 @media screen and (max-width: 768px) {
   .quienesSomos .contenidoSomos {
@@ -497,19 +486,12 @@ body {
   position: relative;
   max-width: 800px;
   margin: auto;
-  background: #fff;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 25px;
   border-radius: 25px;
   height: 400px;
   transition: all 0.3s;
   margin-top: 5em;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 @media screen and (max-width: 992px) {
   .blog-slider {
@@ -540,7 +522,7 @@ body {
   }
 }
 .blog-slider__item.swiper-slide-active .blog-slider__img {
-  box-shadow: 4px 13px 30px 1px #B57EDC;
+  box-shadow: 4px 6px 8px 1px #B57EDC;
 }
 .blog-slider__item.swiper-slide-active .blog-slider__img img {
   opacity: 1;
@@ -660,19 +642,19 @@ body {
   transition: all 0.4s;
 }
 .blog-slider__code {
-  color: rgb(249, 218, 249);
+  color: black;
   margin-bottom: 15px;
   display: block;
-  font-weight: 500;
+  font-weight: 800;
 }
 .blog-slider__title {
   font-size: 24px;
   font-weight: 700;
-  color: #fbfbfb;
+  color: black;
   margin-bottom: 20px;
 }
 .blog-slider__text {
-  color: rgb(249, 218, 249);
+  color: black;
   margin-bottom: 30px;
   line-height: 1.5em;
 }
@@ -682,9 +664,9 @@ body {
   padding: 15px 35px;
   border-radius: 50px;
   color: #fff;
-  box-shadow: 0px 14px 80px #B57EDC;
+  box-shadow: 0px 14px 20px #B57EDC;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 700;
   justify-content: center;
   text-align: center;
   letter-spacing: 1px;
@@ -739,13 +721,41 @@ body {
   opacity: 1;
   background: #fbfbfb;
   height: 30px;
-  box-shadow: 0px 0px 20px rgba(252, 56, 56, 0.3);
+  box-shadow: 0px 0px 20px #a34ae3;
 }
 @media screen and (max-width: 768px) {
   .blog-slider__pagination .swiper-pagination-bullet-active {
     height: 11px;
     width: 30px;
   }
+}
+
+.blog-slider:before {
+  content: "";
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  padding: 5px;
+  background: linear-gradient(45deg, #B57EDC, #7ED4DC);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.contenidoSomos:before {
+  content: "";
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  position: absolute;
+  inset: 0;
+  padding: 4px;
+  background: linear-gradient(45deg, #B57EDC, #7ED4DC);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 
 #title h1 {
@@ -790,12 +800,15 @@ input[type=button]:hover {
   padding: 20px;
   margin: auto;
   text-align: center;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+          backdrop-filter: blur(5px);
+  position: absolute;
+  inset: 0;
+  padding: 4px;
+  background: linear-gradient(45deg, #B57EDC, #7ED4DC);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 .form .tbl-content {
   height: 80vh;
