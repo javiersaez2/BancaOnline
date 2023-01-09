@@ -172,11 +172,6 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST"
         }).then(function (response) {
             if (response.data.error != "logged") {
-                if (window.location.pathname == "/view/html/paginaAdmin.html") {
-                    alert("Error: Usuario sin permisos");
-                    window.location.href = "/index.html"
-                }
-
                 $scope.cuentaUsuario = false;
                 $scope.botonAdmin = false;
                 $scope.butonLogin = true;
@@ -187,16 +182,9 @@ MyApp.controller('miController', function ($scope, $http) {
                 if (response.data.tipo == 1) {
                     $scope.botonAdmin = true;
                     $scope.cuentaUsuario = false;
-                    $scope.users = true;
                 } else {
-                    alert("User: " + response.data.izena + " | Sin acceso, tipo: " + response.data.tipo);
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
-                    $scope.users = false;
-
-                    if (window.location.pathname != "/index.html") {
-                        window.location.href = "/index.html";
-                    }
                 }
             }
         }).catch(function (response) {
