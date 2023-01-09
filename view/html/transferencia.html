@@ -14,8 +14,9 @@
 </head>
 
 <body ng-controller="miController">
+
   <!--HEADER-->
-  <header ng-controller="miControlador" ng-init="loggedVerify()">
+  <header ng-init="loggedVerify()">
     <div class="company-logo"><img src="/view/img/LogoZornotza.png" alt=""></div>
     <nav class="navbar">
       <ul class="nav-items">
@@ -40,20 +41,25 @@
   <br>
   TRANSFERENCIA
 
-  <section>
-    <div class="tbl-content">
 
+    <!--/////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    ////////////////////  CUENTAS PERSONALES  ///////////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+  -->
+  <section>
+    <div class="tbl-content" ng-show="TablaPersonales">
       <h1>CUENTAS CORRIENTES PERSONALES</h1>
 
-      <div class="tarjetas" ng-repeat='fila in cuentas'>
+      <div class="tarjetas" ng-repeat='contenido in cuentas'>
         <table>
-
           <tr>
             <td class="columna1">
               IBAN:
             </td>
             <td class="columna2">
-              {{fila.iban}}
+              {{contenido.iban}}
             </td>
           </tr>
 
@@ -62,7 +68,7 @@
               Titular:
             </td>
             <td class="columna2">
-              {{fila.titular}}
+              {{contenido.titular}}
             </td>
           </tr>
 
@@ -71,43 +77,60 @@
               Saldo:
             </td>
             <td class="columna2">
-              {{fila.saldo}}
-            </td>
-          </tr>
-
-
-
-
-          <!--
-          <tr>
-            <td class="columna1">
-              Eliminar usuario
-            </td>
-            <td class="columna2">
-              <i class="fa-solid fa-user-minus fa-1xl icono" ng-click="borrarUsuario($index,fila)"></i>
+              {{contenido.saldo}}
             </td>
           </tr>
 
           <tr>
             <td class="columna1">
-              Modificar usuario
+              SELECCIONAR:
             </td>
             <td class="columna2">
-              <i class="fa-solid fa-user-pen icono" ng-click="modificarUsuario($index,fila)"></i>
+              <input type="button" class="fa-solid fa-user-minus fa-1xl icono" ng-click="EscogerPersonal($index,contenido)"></i>
             </td>
           </tr>
-          -->
         </table>
-      
       </div>
     </div>
+  </section>
 
+  <!--///////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    ///////////  CANTIDAD DE SALDO PARA TRANSFERIR  /////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+  -->
+  <div>
+    <input type="text" ng-model="saldoT" ng-show="DineroT" ng-keypress="AsignarSaldo()">
+  </div>
+
+
+  <!--///////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    ///////////  CUENTA A LA QUE TRANSFERIR SALDO  //////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+  -->
+  <section>
+    <div class="tbl-content" ng-show="OtrasT">
+      <h1>CUENTAS CORRIENTES A LAS QUE DESEA TRANSFERIR SALDO</h1>
+
+      <div class="tarjetas">
+        <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales">
+          <option ng-repeat='contenidos in cuentasNoPersonales' value="{{contenidos.dniCliente}}">{{contenidos.dniCliente}}</option>
+        </select>
+      </div>
+    </div>
   </section>
 
 
 
-  <!--FOOTER-->
-  <!-- Site footer -->
+  <!--///////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    ///////////////////////  FOOTER   ///////////////////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+  -->
   <footer class="site-footer">
     <div class="container">
       <div class="row">
