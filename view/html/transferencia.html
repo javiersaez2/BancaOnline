@@ -14,8 +14,9 @@
 </head>
 
 <body ng-controller="miController">
+
   <!--HEADER-->
-  <header ng-controller="miControlador" ng-init="loggedVerify()">
+  <header ng-init="loggedVerify()">
     <div class="company-logo"><img src="/view/img/LogoZornotza.png" alt=""></div>
     <nav class="navbar">
       <ul class="nav-items">
@@ -40,14 +41,19 @@
   <br>
   TRANSFERENCIA
 
+
+    <!--/////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    //////////////////////CUENTAS PERSONALES/////////////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+  -->
   <section>
     <div class="tbl-content">
-
       <h1>CUENTAS CORRIENTES PERSONALES</h1>
 
       <div class="tarjetas" ng-repeat='contenido in cuentas'>
         <table>
-
           <tr>
             <td class="columna1">
               IBAN:
@@ -75,33 +81,70 @@
             </td>
           </tr>
 
-
-
-
-          <!--
           <tr>
             <td class="columna1">
-              Eliminar usuario
+              SELECCIONAR:
             </td>
             <td class="columna2">
-              <i class="fa-solid fa-user-minus fa-1xl icono" ng-click="borrarUsuario($index,fila)"></i>
+              <button style="width: 40px; height: 10px;" type="button" class="fa-solid fa-user-minus fa-1xl icono" ng-click="EscogerPersonal($index,contenido)"></i>
             </td>
           </tr>
-
-          <tr>
-            <td class="columna1">
-              Modificar usuario
-            </td>
-            <td class="columna2">
-              <i class="fa-solid fa-user-pen icono" ng-click="modificarUsuario($index,fila)"></i>
-            </td>
-          </tr>
-          -->
         </table>
-      
       </div>
     </div>
+  </section>
 
+
+  <!--///////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    /////////////CUENTA A LA QUE TRANSFERIR SALDO////////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+  -->
+  <section>
+    <div class="tbl-content">
+      <h1>CUENTAS CORRIENTES A LAS QUE DESEA TRANSFERIR SALDO</h1>
+
+      <div class="tarjetas" ng-repeat='contenidos in cuentasNoPersonales'>
+        <table>
+          <tr>
+            <td class="columna1">
+              IBAN:
+            </td>
+            <td class="columna2">
+              {{contenidos.iban}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Titular:
+            </td>
+            <td class="columna2">
+              {{contenidos.titular}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Saldo:
+            </td>
+            <td class="columna2">
+              {{contenidos.saldo}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              SELECCIONAR:
+            </td>
+            <td class="columna2">
+              <button style="width: 40px; height: 10px;" type="button" class="fa-solid fa-user-minus fa-1xl icono" ng-click="EscogerPersonal($index,contenidos)"></i>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </section>
 
 
