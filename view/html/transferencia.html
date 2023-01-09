@@ -45,7 +45,7 @@
 
       <h1>CUENTAS CORRIENTES PERSONALES</h1>
 
-      <div class="tarjetas" ng-repeat='fila in cuentas'>
+      <div class="tarjetas" ng-repeat='contenido in cuentas'>
         <table>
 
           <tr>
@@ -53,7 +53,7 @@
               IBAN:
             </td>
             <td class="columna2">
-              {{fila.iban}}
+              {{contenido.iban}}
             </td>
           </tr>
 
@@ -62,7 +62,7 @@
               Titular:
             </td>
             <td class="columna2">
-              {{fila.titular}}
+              {{contenido.titular}}
             </td>
           </tr>
 
@@ -71,7 +71,7 @@
               Saldo:
             </td>
             <td class="columna2">
-              {{fila.saldo}}
+              {{contenido.saldo}}
             </td>
           </tr>
 
