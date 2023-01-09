@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="MyApp">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRANSFERENCIA - FP ZORNOTZA GRUPO 4</title>
-    <link rel="shortcut icon" href="/view/img/logo.PNG"/>
-      <link href="/view/css/style.css" rel="stylesheet" type="text/css" />
-      <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRANSFERENCIA - FP ZORNOTZA GRUPO 4</title>
+
+  <link rel="shortcut icon" href="/view/img/logo.PNG" />
+  <link href="/view/css/style.css" rel="stylesheet" type="text/css" />
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
 </head>
-<body>
-<!--HEADER-->
-<header ng-controller="miControlador" ng-init="loggedVerify()">
+
+<body ng-controller="miController">
+  <!--HEADER-->
+  <header ng-controller="miControlador" ng-init="loggedVerify()">
     <div class="company-logo"><img src="/view/img/LogoZornotza.png" alt=""></div>
     <nav class="navbar">
       <ul class="nav-items">
@@ -24,83 +27,154 @@
         <li class="nav-item" ng-show="cuentaUsuario"><a class="nav-link">CUENTA</a></li>
         <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
       </ul>
-      
+
     </nav>
     <div class="menu-toggle">
       <i class="bx bx-menu"></i>
       <i class="bx bx-x"></i>
     </div>
   </header>
-  
 
-<!-- Datos -->
-<br>
-TRANSFERENCIA
 
-  
-<!--FOOTER-->   
-<!-- Site footer -->
-   <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="columnas">
-            <h6>DESTACADOS</h6>
-            <ul class="footer-links">
-              <li><a href="#">Calcular Prestamo Simple</a></li>
-              <li><a href="#">Calcular Prestamo Francés</a></li>
-              <li><a href="#">Calcular Prestamo Lineal</a></li>
-              <li><a href="#">Calcular Prestamo Americano</a></li>
-              <li><a href="#">Cuenta Online</a></li>
-              <li><a href="#">Horarios</a></li>
-              <li><a href="#">Trabaja con nosotros</a></li>
-              <li><a href="#">Zornotza Agentes</a></li>
-            </ul>
-          </div>
+  <!-- Datos -->
+  <br>
+  TRANSFERENCIA
 
-          <div class="columnas">
-            <h6>INFORMACIÓN LEGAL Y SEGURIDAD</h6>
-            <ul class="footer-links">
-              <li><a href="#">Aviso Legal</a></li>
-              <li><a href="#">Politica de cookies</a></li>
-              <li><a href="#">Anuncios</a></li>
-              <li><a href="#">Ley de servicios de pago</a></li>
-              <li><a href="#">Acessibilidad</a></li>
-              <li><a href="#">Seguridad online</a></li>
-              <li><a href="#">Reclamaciones</a></li>
-              <li><a href="#">Pormociones</a></li>
-            </ul>
-          </div>
+  <section>
+    <div class="tbl-content">
 
-          <div class="columnas">
-            <h6>WWBS FP ZORNOTZA</h6>
-            <ul class="footer-links">
-              <li><a href="#">Sobre Grupo 4</a></li>
-              <li><a href="#">Contacto</a></li>
-              <li><a href="#">Asistente</a></li>
-              <li><a href="#">Consumidor</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Politicas de Privacidad</a></li>
-              <li><a href="#">Finanzas Personales</a></li>
-            </ul>
-          </div>
+      <h1>CUENTAS CORRIENTES PERSONALES</h1>
+
+      <div class="tarjetas" ng-repeat='fila in cuentas'>
+        <table>
+
+          <tr>
+            <td class="columna1">
+              IBAN:
+            </td>
+            <td class="columna2">
+              {{fila.iban}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Titular:
+            </td>
+            <td class="columna2">
+              {{fila.titular}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Saldo:
+            </td>
+            <td class="columna2">
+              {{fila.saldo}}
+            </td>
+          </tr>
+
+
+
+
+          <!--
+          <tr>
+            <td class="columna1">
+              Eliminar usuario
+            </td>
+            <td class="columna2">
+              <i class="fa-solid fa-user-minus fa-1xl icono" ng-click="borrarUsuario($index,fila)"></i>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="columna1">
+              Modificar usuario
+            </td>
+            <td class="columna2">
+              <i class="fa-solid fa-user-pen icono" ng-click="modificarUsuario($index,fila)"></i>
+            </td>
+          </tr>
+          -->
+        </table>
+      
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <!--FOOTER-->
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="columnas">
+          <h6>DESTACADOS</h6>
+          <ul class="footer-links">
+            <li><a href="#">Calcular Prestamo Simple</a></li>
+            <li><a href="#">Calcular Prestamo Francés</a></li>
+            <li><a href="#">Calcular Prestamo Lineal</a></li>
+            <li><a href="#">Calcular Prestamo Americano</a></li>
+            <li><a href="#">Cuenta Online</a></li>
+            <li><a href="#">Horarios</a></li>
+            <li><a href="#">Trabaja con nosotros</a></li>
+            <li><a href="#">Zornotza Agentes</a></li>
+          </ul>
+        </div>
+
+        <div class="columnas">
+          <h6>INFORMACIÓN LEGAL Y SEGURIDAD</h6>
+          <ul class="footer-links">
+            <li><a href="#">Aviso Legal</a></li>
+            <li><a href="#">Politica de cookies</a></li>
+            <li><a href="#">Anuncios</a></li>
+            <li><a href="#">Ley de servicios de pago</a></li>
+            <li><a href="#">Acessibilidad</a></li>
+            <li><a href="#">Seguridad online</a></li>
+            <li><a href="#">Reclamaciones</a></li>
+            <li><a href="#">Pormociones</a></li>
+          </ul>
+        </div>
+
+        <div class="columnas">
+          <h6>WWBS FP ZORNOTZA</h6>
+          <ul class="footer-links">
+            <li><a href="#">Sobre Grupo 4</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Asistente</a></li>
+            <li><a href="#">Consumidor</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Politicas de Privacidad</a></li>
+            <li><a href="#">Finanzas Personales</a></li>
+          </ul>
         </div>
       </div>
-      <div class="container">
-        <div class="row2">
-          <div class="columnas">
-            <p class="copyright-text">Copyright &copy;Grupo4 Zonortza 2022.</p>
-            <a href="#">Todos los derechos reservados</a>.
-          </div>
+    </div>
+    <div class="container">
+      <div class="row2">
+        <div class="columnas">
+          <p class="copyright-text">Copyright &copy;Grupo4 Zonortza 2022.</p>
+          <a href="#">Todos los derechos reservados</a>.
+        </div>
 
-          <div class="columnas">
-            <ul class="social-icons">
-              <li><a class="facebook" href="#"><img src="https://www.facebook.com/images/fb_icon_325x325.png" alt=""></a></li>
-              <li><a class="twitter" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/800px-Twitter-logo.svg.png" alt=""></a></li>
-            </ul>
-          </div>
+        <div class="columnas">
+          <ul class="social-icons">
+            <li><a class="facebook" href="#"><img src="https://www.facebook.com/images/fb_icon_325x325.png" alt=""></a>
+            </li>
+            <li><a class="twitter" href="#"><img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/800px-Twitter-logo.svg.png"
+                  alt=""></a></li>
+          </ul>
         </div>
       </div>
+    </div>
   </footer>
 
+  <script src="/view/js/angular.min.js"></script>
+  <script src="/view/js/transferencia.js" type="text/javascript"></script>
 </body>
+
 </html>
