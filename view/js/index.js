@@ -8,6 +8,7 @@ miApp.controller('miControlador', function($scope, $http){
             url: "/controller/cLoggedVerify.php",
             method: "POST"
         }).then(function (response) {
+         
             if (response.data.error != "logged"){
                 $scope.cuentaUsuario = false;
                 $scope.botonAdmin = false;
@@ -21,6 +22,7 @@ miApp.controller('miControlador', function($scope, $http){
                 } else {
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
+                    console.log(response);
                 }
             }
         }).catch(function (response) {

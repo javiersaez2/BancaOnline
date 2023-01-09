@@ -25,6 +25,7 @@ if ($list["check"] == 0) {
         }
         $_SESSION["izena"]=$list["izena"];
         $_SESSION["tipo"]=$list["tipo"];
+        $_SESSION["dni"]=$list["dni"];
         
         $response["error"] = "no error";
         $response["izena"]=$_SESSION['izena'];

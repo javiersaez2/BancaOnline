@@ -9,6 +9,7 @@ if ((isset($_SESSION['izena']))){
     
     $response['izena']= $_SESSION['izena'];
     $response['tipo']= $_SESSION['tipo'];
+    $response['dni']=$_SESSION['dni'];
     $response['error']="logged";
     
 } else{
