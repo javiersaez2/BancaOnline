@@ -53,7 +53,7 @@
               IBAN:
             </td>
             <td class="columna2">
-              {{fila.dniCliente}}
+              {{fila.iban}}
             </td>
           </tr>
 
@@ -62,7 +62,7 @@
               Titular:
             </td>
             <td class="columna2">
-              {{fila.pasahitza}}
+              {{fila.titular}}
             </td>
           </tr>
 
@@ -71,17 +71,10 @@
               Saldo:
             </td>
             <td class="columna2">
-              {{fila.secreto}}
+              {{fila.saldo}}
             </td>
           </tr>
 
-          <tr>
-            <td class="columna1">
-              Tipo:
-            </td>
-            <td class="columna2">
-              {{fila.tipo}}
-          </tr>
 
 
 
@@ -101,15 +94,6 @@
             </td>
             <td class="columna2">
               <i class="fa-solid fa-user-pen icono" ng-click="modificarUsuario($index,fila)"></i>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="columna1">
-              Nueva cuenta corriente
-            </td>
-            <td class="columna2">
-              <i class="fa-solid fa-piggy-bank icono" ng-click="guardarCuenta(fila)"></i>
             </td>
           </tr>
           -->

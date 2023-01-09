@@ -2,13 +2,13 @@
 var MyApp = angular.module('MyApp', []);
 
 MyApp.controller('miController', function ($scope, $http) {
-    $scope.butonLogOut = true;
-    $scope.cuenta = []
+    //$scope.butonLogOut = true;
+    //$scope.cuenta = []
     /////cargar los datos de la tabla usuario de la base de datos 
     vercuentas()
 
     function vercuentas() {
-        $http.post('/controller/controlador_mostrar_cuentas.php')
+        $http.post('/controller/c_mostrar_cuentasPersonales.php')
             .then(function (response) {
                 console.log(response.data.list);
                 $scope.cuentas = response.data.list;
