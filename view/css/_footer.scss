@@ -16,7 +16,7 @@
             @include flexcenter();
             flex-direction: column-reverse;
             text-align: $centrar;
-            margin: 50px 50px 5px 50px;
+            margin: 40px 50px 0px 50px;
         }
 
 
@@ -73,16 +73,17 @@
 
     li {
         display: block;
+        padding-left: 10px
     }
 
     a {
         color: #737373;
+        text-decoration: $vaciar;
 
         &:active,
         &:focus,
         &:hover {
             color: #3366cc;
-            text-decoration: $vaciar;
         }
     }
 
