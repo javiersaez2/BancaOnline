@@ -116,13 +116,14 @@
       <h1>CUENTAS CORRIENTES A LAS QUE DESEA TRANSFERIR SALDO</h1>
 
       <div class="tarjetas">
-        <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" >
-          <option ng-repeat='contenidos in cuentasNoPersonales' value="{{contenidos.dniCliente}}">{{contenidos.dniCliente}}</option>
+        <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" ng-options="contenidos as contenidos.dniCliente for contenidos in cuentasNoPersonales">
+          <option value="{{contenidos.dniCliente}}">{{contenidos.dniCliente}}</option>
         </select>
       </div>
+    </div>
 
-      <!--
-      <div class="tarjetas" ng-repeat='contenidoss in cuentas'>
+    <div ng-show="OtrasT">
+      <div class="tarjetas" ng-repeat='contenidoss in cuentasNoPersonales'>
         <table>
           <tr>
             <td class="columna1">
@@ -161,10 +162,12 @@
           </tr>
         </table>
       </div>
+    </div>
+      <!--
+
       -->
 
 
-    </div>
   </section>
 
 
