@@ -205,18 +205,26 @@ class clienteModel extends clienteclass
     public function selectClienteById(){
         $this->OpenConnect();
 
-        $dniCli = $this->dniCli;
-        $nombreCliente = "";
-
+        $dniCli = $this->dniCliente;
+        $list= array();
         $sql = "SELECT * FROM cliente WHERE dniCliente='$dniCli' ";
         $result = $this->link->query($sql);
 
         if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $nombreCliente = $row["nombre"];
-        }
+            $newCliente = new ClienteModel();
+            $newCliente->dniCliente = $row['dniCliente'];
+            $newCliente->nombre = $row['nombre'];
+            $newCliente->pasahitza = $row['pasahitza'];
+            $newCliente->secreto = $row['secreto'];
 
-        return $nombreCliente;
+            $newCuenta=new cuenta_corrienteModel();
+            $newCuenta->setdniCliente(($row['dniCliente']));    
+            $newCliente->objCuenta=$newCuenta->setListCuenta();;
+
+            array_push($list, get_object_vars($newCliente));
+        }
         mysqli_free_result($result);
         $this->CloseConnect();
+        return $list;
     }
 }

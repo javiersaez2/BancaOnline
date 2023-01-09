@@ -1,44 +1,38 @@
 
 var miApp = angular.module('miApp', []);
 
-
-miApp.controller('miControlador', function ($scope, $http) {
-
+miApp.controller('miControlador', function($scope, $http){
     $scope.passMostrar = true;
-    $scope.iniciarSesionSection = true;
+    $scope.iniciarSesionSection = true; 
 
-    $scope.loggedVerify = function () {
-
+    $scope.loggedVerify=function() {
         $http({
             url: "/controller/cLoggedVerify.php",
             method: "POST"
         }).then(function (response) {
-            $scope.dnirecogido = true;
-            if (response.data.error != "logged") {
+         
+            if (response.data.error != "logged"){
                 $scope.cuentaUsuario = false;
                 $scope.botonAdmin = false;
                 $scope.butonLogin = true;
-            } else {
+            } else {             
                 $scope.butonLogOut = true;
                 $scope.butonLogin = false;
-                if (response.data.tipo == 1) {
+                if (response.data.tipo == 1){
                     $scope.botonAdmin = true;
                     $scope.cuentaUsuario = false;
                 } else {
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
-                    $scope.dni = response.data.dni//DNI recibido
-
-                    console.log($scope.dni);
-                    $scope.datoscliente()
+                    console.log(response);
                 }
             }
         }).catch(function (response) {
             console.error("Ocurrio un error", response.status, response.data);
-        })
-    }
+        })	   
+    }	
 
-    $scope.logout = function () {
+    $scope.logout=function(){
         $http({
             url: "/controller/cLogout.php",
             method: "POST"
@@ -47,12 +41,23 @@ miApp.controller('miControlador', function ($scope, $http) {
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
+        })	
+    }
+});
+
+miApp.controller('datoscliente', function ($scope, $http) {
+
+    $scope.passMostrar = true;
+    $scope.iniciarSesionSection = true;
+
+    $scope. datoscliente= function () {
+
+        $http({
+            url: "/controller/c_infocuenta.php",
+            method: "POST"
+        }).then(function (response) {
+            alert("a");
+            console.log(response.data.list)
         })
     }
-    $scope.datoscliente = function () {
-        alert("a");
-
-        console.log($scope.dni);
-    }
-
 })
