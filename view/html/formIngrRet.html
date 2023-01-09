@@ -52,6 +52,13 @@
         <option value="0" selected>Normal</option> -->
       </select>
     </div>
+    <div>
+        <select name="select"  ng-model="tipo" placeholder="tipo" id="tipo">
+          <option value="" >Seleccione el tipo</option>
+          <option value="ingresar">Ingresar</option>
+          <option value="retirar" selected>Retirar</option> 
+        </select>
+      </div>
     <br>
     <input id="boton" type="button" value="Aceptar" ng-click="mover()">
   </form>
