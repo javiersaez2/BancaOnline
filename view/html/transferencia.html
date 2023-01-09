@@ -44,12 +44,12 @@
 
     <!--/////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
-    //////////////////////CUENTAS PERSONALES/////////////////////
+    ////////////////////  CUENTAS PERSONALES  ///////////////////
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
   -->
   <section>
-    <div class="tbl-content">
+    <div class="tbl-content" ng-show="TablaPersonales">
       <h1>CUENTAS CORRIENTES PERSONALES</h1>
 
       <div class="tarjetas" ng-repeat='contenido in cuentas'>
@@ -86,71 +86,51 @@
               SELECCIONAR:
             </td>
             <td class="columna2">
-              <button style="width: 40px; height: 10px;" type="button" class="fa-solid fa-user-minus fa-1xl icono" ng-click="EscogerPersonal($index,contenido)"></i>
+              <input type="button" class="fa-solid fa-user-minus fa-1xl icono" ng-click="EscogerPersonal($index,contenido)"></i>
             </td>
           </tr>
         </table>
       </div>
     </div>
   </section>
+
+  <!--///////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    ///////////  CANTIDAD DE SALDO PARA TRANSFERIR  /////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+  -->
+  <div>
+    <input type="text" ng-model="saldoT" ng-show="DineroT" ng-keypress="AsignarSaldo()">
+  </div>
 
 
   <!--///////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
-    /////////////CUENTA A LA QUE TRANSFERIR SALDO////////////////
+    ///////////  CUENTA A LA QUE TRANSFERIR SALDO  //////////////
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
   -->
   <section>
-    <div class="tbl-content">
+    <div class="tbl-content" ng-show="OtrasT">
       <h1>CUENTAS CORRIENTES A LAS QUE DESEA TRANSFERIR SALDO</h1>
 
-      <div class="tarjetas" ng-repeat='contenidos in cuentasNoPersonales'>
-        <table>
-          <tr>
-            <td class="columna1">
-              IBAN:
-            </td>
-            <td class="columna2">
-              {{contenidos.iban}}
-            </td>
-          </tr>
-
-          <tr>
-            <td class="columna1">
-              Titular:
-            </td>
-            <td class="columna2">
-              {{contenidos.titular}}
-            </td>
-          </tr>
-
-          <tr>
-            <td class="columna1">
-              Saldo:
-            </td>
-            <td class="columna2">
-              {{contenidos.saldo}}
-            </td>
-          </tr>
-
-          <tr>
-            <td class="columna1">
-              SELECCIONAR:
-            </td>
-            <td class="columna2">
-              <button style="width: 40px; height: 10px;" type="button" class="fa-solid fa-user-minus fa-1xl icono" ng-click="EscogerPersonal($index,contenidos)"></i>
-            </td>
-          </tr>
-        </table>
+      <div class="tarjetas">
+        <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales">
+          <option ng-repeat='contenidos in cuentasNoPersonales' value="{{contenidos.dniCliente}}">{{contenidos.dniCliente}}</option>
+        </select>
       </div>
     </div>
   </section>
 
 
 
-  <!--FOOTER-->
-  <!-- Site footer -->
+  <!--///////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    ///////////////////////  FOOTER   ///////////////////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+  -->
   <footer class="site-footer">
     <div class="container">
       <div class="row">
