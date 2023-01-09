@@ -10,9 +10,9 @@
       <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
 </head>
-<body>
+<body ng-controller="miControl" >
 <!--HEADER-->
-<header ng-controller="miControl" ng-init="loggedVerify()">
+<header ng-init="loggedVerify()">
     <div class="company-logo"><img src="/view/img/LogoZornotza.png" alt=""></div>
     <nav class="navbar">
       <ul class="nav-items">
@@ -33,30 +33,25 @@
   </header>
   
 
-<!-- Datos -->
 <br>
-Ingresar/Retirar
+<h1 style="text-align: center;">Ingresar/Retirar</h1>
 <br>
 <form>
     <div>
-      <input type="input"  ng-model="cantidad" placeholder="cantidad" name="cantidad" id='cantidad' />
-      <!-- <label >Cantidad</label> -->
+      <input type="text"  ng-model="cantidad" placeholder="cantidad" name="cantidad" id='cantidad' />
     </div>
     <div>
-      <input type="input"  ng-model="concepto" placeholder="concepto" name="concepto" id='concepto'/>
-      <!-- <label>Concepto</label> -->
+      <input type="text"  ng-model="concepto" placeholder="concepto" name="concepto" id='concepto'/>
     </div>
     <div>
-      <!-- <label>Cuentas</label> -->
       <select name="select"  ng-model="cuentas" placeholder="cuentas">
-        <option value="" disabled selected hidden>Seleccione la cuenta</option>
+        <option value="" >Seleccione la cuenta</option>
         <!-- <option value="1">Admin</option>
         <option value="0" selected>Normal</option> -->
       </select>
     </div>
-
     <br>
-    <button ng-click="mover()" >Aceptar</button>
+    <input id="boton" type="button" value="Aceptar" ng-click="mover()">
   </form>
 <br>
 <br>
