@@ -39,8 +39,8 @@
 
   <!-- Datos -->
   <br>
-  TRANSFERENCIA
 
+  <h2>TRANSFERENCIA</h2>
 
     <!--/////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
@@ -48,48 +48,44 @@
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
   -->
-  <section>
-    <div class="tbl-content" ng-show="TablaPersonales">
-      <h1>CUENTAS CORRIENTES PERSONALES</h1>
+  <section class="tablasDeCuentas">
+    <h2>SELECCIONE SU CUENTA CORRIENTE</h2>
 
-      <div class="tarjetas" ng-repeat='contenido in cuentas'>
+    <div class="contenidoTabla" ng-show="TablaPersonales">
+
+      <div class="tarjetitas" ng-repeat='contenido in cuentas'>
         <table>
           <tr>
-            <td class="columna1">
+            <td class="colum1">
               IBAN:
             </td>
-            <td class="columna2">
+            <td class="colum2">
               {{contenido.iban}}
             </td>
           </tr>
 
           <tr>
-            <td class="columna1">
+            <td class="colum1">
               Titular:
             </td>
-            <td class="columna2">
+            <td class="colum2">
               {{contenido.titular}}
             </td>
           </tr>
 
           <tr>
-            <td class="columna1">
+            <td class="colum1">
               Saldo:
             </td>
-            <td class="columna2">
+            <td class="colum2">
               {{contenido.saldo}}
             </td>
           </tr>
 
-          <tr>
-            <td class="columna1">
-              SELECCIONAR:
-            </td>
-            <td class="columna2">
-              <input type="button" class="fa-solid fa-user-minus fa-1xl icono" ng-click="EscogerPersonal($index,contenido)"></i>
-            </td>
-          </tr>
+
         </table>
+        <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="EscogerPersonal($index,contenido)"></i>
+
       </div>
     </div>
   </section>
@@ -118,48 +114,41 @@
     </select>
   </div>
 
-  <section>
-    <div class="tbl-content"  ng-show="OtrasT">
-      <h1>CUENTAS CORRIENTES A LAS QUE DESEA TRANSFERIR SALDO</h1>
+  <section  class="tablasDeCuentas" ng-show="OtrasT">
+    <h2>CUENTAS CORRIENTES A LAS QUE DESEA TRANSFERIR SALDO</h2>
 
-      <div class="tarjetas" ng-repeat='contenidoss in cuentasNoPersonales'>
+    <div class="contenidoTabla">
+      <div class="tarjetitas" ng-repeat='contenidoss in OtrasCuentas'>
         <table>
           <tr>
-            <td class="columna1">
+            <td class="colum1">
               IBAN:
             </td>
-            <td class="columna2">
+            <td class="colum2">
               {{contenidoss.iban}}
             </td>
           </tr>
 
           <tr>
-            <td class="columna1">
+            <td class="colum1">
               Titular:
             </td>
-            <td class="columna2">
+            <td class="colum2">
               {{contenidoss.titular}}
             </td>
           </tr>
 
           <tr>
-            <td class="columna1">
+            <td class="colum1">
               Saldo:
             </td>
-            <td class="columna2">
+            <td class="colum2">
               {{contenidoss.saldo}}
             </td>
           </tr>
-
-          <tr>
-            <td class="columna1">
-              SELECCIONAR:
-            </td>
-            <td class="columna2">
-              <input type="button" class="fa-solid fa-user-minus fa-1xl icono" ng-click="EscogerPersonal($index,contenidoss)"></i>
-            </td>
-          </tr>
         </table>
+        <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="transferir($index,contenidoss)"></i>
+
       </div>
     </div>
 
