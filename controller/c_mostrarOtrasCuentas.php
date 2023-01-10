@@ -13,5 +13,5 @@ $response["error"] = "no error";
 
 
 echo json_encode($response);
-unset($response);
+unset($cuenta);
 ?>

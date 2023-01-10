@@ -3,6 +3,8 @@ var MyApp = angular.module('MyApp', []);
 
 MyApp.controller('miController', function ($scope, $http) {
 
+    dinero = 0;
+
     $scope.saldoT=0;
 
     $scope.TablaPersonales=true;
@@ -28,6 +30,9 @@ MyApp.controller('miController', function ($scope, $http) {
     }
 
 
+    /*
+        MOSTRAR CUENTAS DE OTROS POR DNI
+    */
     vercuentasNoPersonales();
     function vercuentasNoPersonales(){
         $http.post('/controller/c_mostrar_cuentasTransferir.php')
@@ -43,23 +48,39 @@ MyApp.controller('miController', function ($scope, $http) {
 
 
 
+    /*
+        ESCOGER TU CUENTA
+    */
     $scope.EscogerPersonal = function($index, contenido){
         $scope.DineroT=true;
+        $scope.saldoT = 0;
+
     }
 
+
+    /*
+        ASIGNAR EL SALDO
+    */
     $scope.AsignarSaldo = function(){
         $scope.SeleccionT=true;
+        dinero = $scope.saldoT;
+
         console.log($scope.cuentasNoPersonales);
 
     }
 
+
+    /*
+        MOSTRAR LAS DEMAS
+    */
     $scope.MostrarRestos = function(){
-        dni = $scope.juan;
+        dni = {"dniCliente": $scope.juan.dniCliente};
+        console.log(dni);
 
         $http({
             url: '../../controller/c_mostrarOtrasCuentas.php',
             method: "POST",
-            data: JSON.stringify({'dniCliente': dni})
+            data: JSON.stringify(dni)
         }).then(function (response) {
             console.log(response.data.list);
             $scope.OtrasCuentas = response.data.list;
@@ -72,5 +93,9 @@ MyApp.controller('miController', function ($scope, $http) {
 
     }
 
+    
+    /*
+        TRANSFERENCIA
+    */
 
 })
