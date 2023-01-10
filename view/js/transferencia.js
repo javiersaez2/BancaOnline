@@ -69,6 +69,7 @@ MyApp.controller('miController', function ($scope, $http) {
         MOSTRAR LAS DEMAS
     */
     $scope.MostrarRestos = function(){
+        //$scope.juan -> Lo que se esconde dentro
         dni = {"dniCliente": $scope.juan.dniCliente};
         //console.log(dni);
 

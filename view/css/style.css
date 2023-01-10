@@ -960,6 +960,12 @@ input[type=button]:hover {
 }
 
 .tablasDeCuentas {
+  width: 90%;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
   margin: auto;
 }
 @media screen and (max-width: 576px) {
@@ -969,12 +975,15 @@ input[type=button]:hover {
 }
 .tablasDeCuentas h2 {
   color: purple;
+  padding: 10px;
 }
 .tablasDeCuentas .contenidoTabla {
   width: 100%;
+  padding-top: 20px;
   overflow-x: auto;
   border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .tablasDeCuentas .contenidoTabla .tarjetitas {
@@ -994,4 +1003,14 @@ input[type=button]:hover {
   height: 25px;
   padding: 5px;
   background-color: rgba(39, 39, 39, 0.2);
+}
+
+#infomarcionNecesaria {
+  width: 81%;
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: 1;
+  grid-gap: 5px;
+  margin: auto;
 }/*# sourceMappingURL=style.css.map */

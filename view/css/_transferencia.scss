@@ -1,4 +1,9 @@
 .tablasDeCuentas {
+    width: 90%;
+    padding-top: 10px;
+    @include flexcenter();
+    flex-direction: column;
+    text-align: $centrar;
     margin: auto;
 
     @media screen and (max-width: 576px) {
@@ -7,13 +12,16 @@
 
     h2{
         color: purple;
+        padding: 10px;
     }
 
     .contenidoTabla {
         width: 100%;
+        padding-top: 20px;
+
         overflow-x: auto;
         border: 1px solid rgba(255, 255, 255, 0.3);
-        display: flex;
+        @include flexcenter();
         flex-wrap: wrap;
 
         .tarjetitas {
@@ -34,7 +42,6 @@
                 width: 170px;
                 height: 25px;
                 padding: 5px;
-
                 background-color: rgba(39, 39, 39, 0.2);
             }
 
@@ -42,4 +49,16 @@
         }
 
     }
+}
+
+#infomarcionNecesaria{
+    
+    width: 81%;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 1;
+    grid-gap: 5px;
+    margin: auto;
+
 }
