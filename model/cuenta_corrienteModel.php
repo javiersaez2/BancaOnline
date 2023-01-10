@@ -184,4 +184,36 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
         return $list;
 
     }
+
+    public function ingresar(){
+        
+        $this->OpenConnect();
+        $iban=$this->iban;
+        $cantidad=$this->saldo;
+        $sql = "UPDATE cuenta_corriente SET saldo = (saldo + $cantidad) WHERE iban = '$iban';";
+        
+        $this->link->query($sql);
+        if ($this->link->affected_rows==1) {
+            return "el saldo ha ingresado = ".$cantidad;
+        } else {
+            return 0;
+        }
+        $this->CloseConnect();
+    }
+
+    public function retirar(){
+        
+        $this->OpenConnect();
+        $iban=$this->iban;
+        $cantidad=$this->saldo;
+        $sql = "UPDATE cuenta_corriente SET saldo = (saldo - $cantidad) WHERE iban = '$iban';";
+        
+        $this->link->query($sql);
+        if ($this->link->affected_rows==1) {
+            return "el saldo ha retirado = ".$cantidad;
+        } else {
+            return 0;
+        }
+        $this->CloseConnect();
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 include_once '../model/movimientoModel.php';
 include_once '../model/cuenta_movimientoModel.php';
+include_once '../model/cuenta_corrienteModel.php';
 
 $data = json_decode(file_get_contents("php://input"),true);
 
@@ -19,7 +20,10 @@ $cuentaMovimiento->setIdMovimiento($id);
 $cuentaMovimiento->setCantidad($data["cantidad"]);
 $response["cuentaMov"] = $cuentaMovimiento->insert();
 
-
+$cuenta = new cuenta_corrienteModel();
+$cuenta -> setSaldo($data["cantidad"]);
+$cuenta -> setIban($data["iban"]);
+$response["retirar"] = $cuenta->retirar();
 
 echo json_encode($response);
 ?>

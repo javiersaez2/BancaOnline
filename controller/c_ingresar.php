@@ -22,7 +22,7 @@ $response["cuentaMov"] = $cuentaMovimiento->insert();
 $cuenta = new cuenta_corrienteModel();
 $cuenta -> setSaldo($data["cantidad"]);
 $cuenta -> setIban($data["iban"]);
-
+$response["ingresar"] = $cuenta->ingresar();
 
 echo json_encode($response);
 
