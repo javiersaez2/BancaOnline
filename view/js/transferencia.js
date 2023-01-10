@@ -54,7 +54,8 @@ MyApp.controller('miController', function ($scope, $http) {
     }
 
     $scope.MostrarRestos = function(){
-        console.log("Hola")
+        console.log("Hola");
+        $scope.OtrasT=true;
 
     }
 
