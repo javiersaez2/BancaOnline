@@ -101,7 +101,7 @@ MyApp.controller('miController', function ($scope, $http) {
 
         lista = {"iban": iban, "saldo": saldo};
 
-
+        /*
         $http({
             url: '../../controller/c_trasferencia.php',
             method: "POST",
@@ -112,7 +112,8 @@ MyApp.controller('miController', function ($scope, $http) {
 
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
-        })     
+        })  
+        */   
     }
 
 })
