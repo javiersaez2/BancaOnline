@@ -957,4 +957,45 @@ input[type=button]:hover {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.tablasDeCuentas {
+  padding: 100px;
+}
+@media screen and (max-width: 576px) {
+  .tablasDeCuentas {
+    padding: 0;
+  }
+}
+.tablasDeCuentas .contenidoTabla {
+  height: 80vh;
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+}
+.tablasDeCuentas .contenidoTabla h2 {
+  color: purple;
+}
+.tablasDeCuentas .contenidoTabla .tarjetitas {
+  position: relative;
+  margin: 5px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.tablasDeCuentas .contenidoTabla .tarjetitas .colum2 {
+  width: 211px;
+  height: 25px;
+  padding: 5px;
+  background-color: rgba(39, 39, 39, 0.2);
+}
+.tablasDeCuentas .contenidoTabla .tarjetitas .colum1 {
+  width: 170px;
+  height: 25px;
+  padding: 5px;
+  background-color: rgba(39, 39, 39, 0.2);
+}
+.tablasDeCuentas .contenidoTabla .tarjetitas .botonesDeAceptar {
+  color: blue;
 }/*# sourceMappingURL=style.css.map */
