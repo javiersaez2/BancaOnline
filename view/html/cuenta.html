@@ -50,13 +50,18 @@
                 <div class="profile-card__img">
                   <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="profile card">
                 </div>
-                <p>Juan</p>
-                75485478E  
+                <div *ngFor="#infocuenta of infocuenta">
+                  <p>{{infocuenta["nombre"]}}</p>
+                  {{infocuenta["dniCliente"]}} - 
+                  {{infocuenta["secreto"]}} 
+                </div>
                 
                   
-                <div class="cuentacorriente"> 
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse labore maiores iure vero unde sit beatae! Non, minima eveniet! Iure temporibus, repudiandae doloribus amet magnam ipsam quae fugit voluptatibus libero ullam natus delectus quasi sequi, deserunt incidunt, ea nesciunt repellendus. A porro maxime placeat alias vero rerum aliquam quas quos aut nostrum cumque iusto in vitae totam, omnis earum. Ipsam dignissimos enim expedita dolorum asperiores quae aperiam accusantium ab porro est voluptate, eius officia quos sapiente autem reprehenderit non labore voluptatum dolore iste cupiditate. Et, atque molestias natus nemo id, dolorem ad ipsa iure quam architecto ut, optio recusandae accusamus accusantium veniam illum voluptatum nulla. Optio quaerat aut dolorum quos ipsum tenetur voluptatem magni omnis alias iusto enim, animi modi veniam! Voluptatibus modi alias, placeat iste, optio harum cumque perferendis ducimus cupiditate molestias, sed fugiat quibusdam inventore minus non voluptas. Nisi eum dignissimos quasi doloribus quisquam, enim porro dolore nesciunt nobis ducimus nulla praesentium cum quia ad distinctio rerum pariatur facere quis, nihil qui reprehenderit assumenda dolor. Aperiam pariatur repellendus explicabo sit reiciendis magnam ad vitae cumque id vero omnis soluta architecto tempora maiores rem natus, minus sunt temporibus eos facere eum praesentium. Veritatis qui quas, eum voluptate, facere aspernatur delectus vel beatae culpa maiores nulla dolores ut id quis. Veniam tempore enim ducimus nemo eos eligendi cumque praesentium ratione natus voluptatum autem aliquam temporibus, veritatis esse atque soluta tenetur reprehenderit dolor quam cum. Fugit sapiente dolor aperiam labore tempora deleniti repellendus vel porro, quam reprehenderit magnam? Dignissimos magnam natus ratione. Voluptate molestiae dignissimos perspiciatis amet voluptatibus, dicta laborum earum dolore fuga nesciunt quas! Nostrum repudiandae sit dolorem magnam exercitationem totam molestias minima, iste laborum consectetur quaerat culpa repellat iusto dicta ut voluptate modi impedit animi quo mollitia? Quas fugit iusto praesentium consequatur aut suscipit nulla commodi. Quisquam, voluptatibus illo.
-              </div>
+                <div class="cuentacorriente">
+                  <div class="datoscorriente" ng-repeat="infocuenta in infocuenta.objCuenta">
+                    {{infocuenta.iban}} - {{infocuenta.saldo}}€ _____<button>Movimiento</button> 
+                  </div>
+                  </div>
             </div>
           
 
