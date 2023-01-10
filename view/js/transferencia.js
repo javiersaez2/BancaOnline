@@ -54,6 +54,20 @@ MyApp.controller('miController', function ($scope, $http) {
     }
 
     $scope.MostrarRestos = function(){
+        dni = $scope.juan;
+
+        $http({
+            url: '../../controller/c_mostrarOtrasCuentas.php',
+            method: "POST",
+            data: JSON.stringify({'dniCliente': dni})
+        }).then(function (response) {
+            console.log(response.data.list);
+            $scope.OtrasCuentas = response.data.list;
+
+        }).catch(function (response) {
+            console.error('Error occurred:', response.status, response.data)
+        }) 
+        
         $scope.OtrasT=true;
 
     }
