@@ -79,12 +79,12 @@ MyApp.controller('miController', function ($scope, $http) {
         }).then(function (response) {
             //console.log(response.data.list);
             $scope.OtrasCuentas = response.data.list;
+            $scope.OtrasT=true;
+
 
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
-        }) 
-        
-        $scope.OtrasT=true;
+        })         
 
     }
 
@@ -99,6 +99,20 @@ MyApp.controller('miController', function ($scope, $http) {
 
         console.log(iban+" \ "+saldo);
 
+        lista = {"iban": iban, "saldo": saldo};
+
+
+        $http({
+            url: '../../controller/c_trasferencia.php',
+            method: "POST",
+            data: JSON.stringify(lista)
+        }).then(function (response) {
+            console.log(response.data.error);
+
+
+        }).catch(function (response) {
+            console.error('Error occurred:', response.status, response.data)
+        })     
     }
 
 })
