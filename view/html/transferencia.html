@@ -52,44 +52,39 @@
     <div class="contenidoTabla" ng-show="TablaPersonales">
       <h2>CUENTAS CORRIENTES PERSONALES</h2>
 
-      <div class="tarjetas" ng-repeat='contenido in cuentas'>
+      <div class="tarjetitas" ng-repeat='contenido in cuentas'>
         <table>
           <tr>
-            <td class="columna1">
+            <td class="colum1">
               IBAN:
             </td>
-            <td class="columna2">
+            <td class="colum2">
               {{contenido.iban}}
             </td>
           </tr>
 
           <tr>
-            <td class="columna1">
+            <td class="colum1">
               Titular:
             </td>
-            <td class="columna2">
+            <td class="colum2">
               {{contenido.titular}}
             </td>
           </tr>
 
           <tr>
-            <td class="columna1">
+            <td class="colum1">
               Saldo:
             </td>
-            <td class="columna2">
+            <td class="colum2">
               {{contenido.saldo}}
             </td>
           </tr>
 
-          <tr>
-            <td class="columna1">
-              SELECCIONAR:
-            </td>
-            <td class="columna2">
-              <input type="button" class="fa-solid fa-user-minus fa-1xl icono" ng-click="EscogerPersonal($index,contenido)"></i>
-            </td>
-          </tr>
+
         </table>
+        <input type="button" class="botonesDeAceptar" ng-click="EscogerPersonal($index,contenido)"></i>
+
       </div>
     </div>
   </section>
@@ -122,44 +117,37 @@
     <div class="contenidoTabla"  ng-show="OtrasT">
       <h2>CUENTAS CORRIENTES A LAS QUE DESEA TRANSFERIR SALDO</h2>
 
-      <div class="tarjetas" ng-repeat='contenidoss in OtrasCuentas'>
+      <div class="tarjetitas" ng-repeat='contenidoss in OtrasCuentas'>
         <table>
           <tr>
-            <td class="columna1">
+            <td class="colum1">
               IBAN:
             </td>
-            <td class="columna2">
+            <td class="colum2">
               {{contenidoss.iban}}
             </td>
           </tr>
 
           <tr>
-            <td class="columna1">
+            <td class="colum1">
               Titular:
             </td>
-            <td class="columna2">
+            <td class="colum2">
               {{contenidoss.titular}}
             </td>
           </tr>
 
           <tr>
-            <td class="columna1">
+            <td class="colum1">
               Saldo:
             </td>
-            <td class="columna2">
+            <td class="colum2">
               {{contenidoss.saldo}}
             </td>
           </tr>
-
-          <tr>
-            <td class="columna1">
-              SELECCIONAR:
-            </td>
-            <td class="columna2">
-              <input type="button" class="fa-solid fa-user-minus fa-1xl icono" ng-click="transferir($index,contenidoss)"></i>
-            </td>
-          </tr>
         </table>
+        <input type="button" class="botonesDeAceptar" ng-click="transferir($index,contenidoss)"></i>
+
       </div>
     </div>
 

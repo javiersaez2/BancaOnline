@@ -14,17 +14,14 @@
   
   
   
-      .tarjetas {
-  
-      
+      .tarjetitas {
         position: relative;
-  
         margin: 5px;
         backdrop-filter: blur(5px);
         box-shadow: 35px 35px 68px 0px rgba(181, 126, 220, 0.5), inset -8px -8px 16px 0px rgba(181, 126, 220, 0.6), inset 0px 11px 28px 0px $color-blanco;
   
   
-        .columna2 {
+        .colum2 {
           color: $color-blanco;
           width: 211px;
           height: 25px;
@@ -33,7 +30,7 @@
   
         }
   
-        .columna1 {
+        .colum1 {
           color: $color-blanco;
           width: 170px;
           height: 25px;
