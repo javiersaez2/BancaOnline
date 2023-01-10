@@ -13,10 +13,10 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
 </head>
 
-<body ng-controller="miController">
+<body ng-controller="miController" ng-init="loggedVerify()">
 
   <!--HEADER-->
-  <header ng-init="loggedVerify()">
+  <header>
     <div class="company-logo"><img src="/view/img/LogoZornotza.png" alt=""></div>
     <nav class="navbar">
       <ul class="nav-items">
@@ -40,7 +40,6 @@
   <!-- Datos -->
   <br>
 
-  <h2>TRANSFERENCIA</h2>
 
     <!--/////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
@@ -49,6 +48,8 @@
     /////////////////////////////////////////////////////////////
   -->
   <section class="tablasDeCuentas">
+    <h1>TRANSFERENCIA</h1>
+
     <h2>SELECCIONE SU CUENTA CORRIENTE</h2>
 
     <div class="contenidoTabla" ng-show="TablaPersonales">
@@ -78,7 +79,7 @@
               Saldo:
             </td>
             <td class="colum2">
-              {{contenido.saldo}}
+              {{contenido.saldo}} €
             </td>
           </tr>
 
@@ -96,23 +97,28 @@
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
   -->
-  <div>
-    <input type="text" ng-model="saldoT" ng-show="DineroT" ng-keypress="AsignarSaldo()">
+  <div id="infomarcionNecesaria">
+    <div class="seleccion">
+      <input type="text" ng-model="saldoT" ng-show="DineroT" ng-keypress="AsignarSaldo()">
+    </div>
+
+
+    <!--///////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////
+      ///////////  CUENTA A LA QUE TRANSFERIR SALDO  //////////////
+      /////////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////
+    -->
+
+    <div class="seleccion" ng-show="SeleccionT">
+      <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" ng-model="juan" ng-options="item as item.dniCliente for item in cuentasNoPersonales" ng-click="MostrarRestos()">
+        <option value=""></option>
+      </select>
+    </div>
   </div>
 
 
-  <!--///////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////
-    ///////////  CUENTA A LA QUE TRANSFERIR SALDO  //////////////
-    /////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////
-  -->
 
-  <div class="tarjetas" ng-show="SeleccionT">
-    <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" ng-model="juan" ng-options="item as item.dniCliente for item in cuentasNoPersonales" ng-click="MostrarRestos()">
-      <option value=""></option>
-    </select>
-  </div>
 
   <section  class="tablasDeCuentas" ng-show="OtrasT">
     <h2>CUENTAS CORRIENTES A LAS QUE DESEA TRANSFERIR SALDO</h2>
@@ -143,7 +149,7 @@
               Saldo:
             </td>
             <td class="colum2">
-              {{contenidoss.saldo}}
+              {{contenidoss.saldo}} €
             </td>
           </tr>
         </table>

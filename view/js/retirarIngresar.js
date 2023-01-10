@@ -13,37 +13,39 @@ MyApp.controller('miControl', function ($scope, $http) {
                 console.error('Error occurred:', response.status, response.data)
             })
     }
+    // $scope.change = function() {
+    //     console.log($scope.cuentas)
+    //     $scope.saldoVer = 'true';
+    //     $('#saldo').append(25);
+    // };
     $scope.mover = function () {
 
         var iban= $('#cuentas').val();
         var cantidad =$scope.cantidad;
         var concepto = $scope.concepto;
         var tipo = $scope.tipo;
-        console.log(iban)
-        console.log(cantidad)
-        console.log(concepto)
-        console.log(tipo)
-if (tipo == "ingresar") {
-    $http({
-        url: '../../controller/c_ingresar.php',
-        method: "POST",
-        data: JSON.stringify({'iban': iban, 'cantidad': cantidad, 'concepto': concepto, 'tipo': tipo})
-    }).then(function (response) {
-        alert(response.data.error)
-    }).catch(function (response) {
-        console.error('Error occurred:', response.status, response.data)
-    }) 
-}if (tipo == "retirar") {
-    $http({
-        url: '../../controller/c_retirar.php',
-        method: "POST",
-        data: JSON.stringify({'iban': iban, 'cantidad': cantidad, 'concepto': concepto, 'tipo': tipo})
-    }).then(function (response) {
-        alert(response.data.error)
-    }).catch(function (response) {
-        console.error('Error occurred:', response.status, response.data)
-    }) 
-}
+
+        if (tipo == "ingresar") {
+            $http({
+                url: '../../controller/c_ingresar.php',
+                method: "POST",
+                data: JSON.stringify({'iban': iban, 'cantidad': cantidad, 'concepto': concepto, 'tipo': tipo})
+            }).then(function (response) {
+                alert("Biennnnnnnnnnn")
+            }).catch(function (response) {
+                console.error('Error occurred:', response.status, response.data)
+            }) 
+        }if (tipo == "retirar") {
+            $http({
+                url: '../../controller/c_retirar.php',
+                method: "POST",
+                data: JSON.stringify({'iban': iban, 'cantidad': cantidad, 'concepto': concepto, 'tipo': tipo})
+            }).then(function (response) {
+                alert("Biennnnnnnnnnn")
+            }).catch(function (response) {
+                console.error('Error occurred:', response.status, response.data)
+            }) 
+        }
        
         
     }

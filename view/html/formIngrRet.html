@@ -39,26 +39,28 @@
 <h1 style="text-align: center;">Ingresar/Retirar</h1>
 <br>
 <form>
+  <div>
+    <select name="select"  ng-model="cuentas" placeholder="cuentas" id="cuentas" >
+      <option value="" >Seleccione la cuenta</option>
+    </select>
+  </div>
+  <div ng-show="saldoVer =='true'">
+    <h2>saldo = <h3 id="saldo"></h3></h2>    
+</div>
+  <div>
+      <select name="select"  ng-model="tipo" placeholder="tipo" id="tipo">
+        <option value="" >Seleccione el tipo</option>
+        <option value="ingresar">Ingresar</option>
+        <option value="retirar" selected>Retirar</option> 
+      </select>
+    </div>
+   
     <div>
       <input type="text"  ng-model="cantidad" placeholder="cantidad" name="cantidad" id='cantidad' />
     </div>
     <div>
       <input type="text"  ng-model="concepto" placeholder="concepto" name="concepto" id='concepto'/>
     </div>
-    <div>
-      <select name="select"  ng-model="cuentas" placeholder="cuentas" id="cuentas">
-        <option value="" >Seleccione la cuenta</option>
-        <!-- <option value="1">Admin</option>
-        <option value="0" selected>Normal</option> -->
-      </select>
-    </div>
-    <div>
-        <select name="select"  ng-model="tipo" placeholder="tipo" id="tipo">
-          <option value="" >Seleccione el tipo</option>
-          <option value="ingresar">Ingresar</option>
-          <option value="retirar" selected>Retirar</option> 
-        </select>
-      </div>
     <br>
     <input id="boton" type="button" value="Aceptar" ng-click="mover()">
   </form>

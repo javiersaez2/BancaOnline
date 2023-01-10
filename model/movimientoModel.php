@@ -35,16 +35,29 @@ class movimientoModel extends movimientoClass
         $sql = "INSERT INTO `movimiento`(`tipoMovimiento`,`concepto`) VALUES ('$tipo','$concepto')";
         
         $this->link->query($sql);
-        
+
         if ($this->link->affected_rows == 1)
         {
-            $id = $this->link->insert_id;
-            return $id;
-            // $msg= "el movimiento se ha insertado con exito. Num de inserts: ".$this->link->affected_rows;
+            $msg= "el movimiento se ha insertado con exito. Num de inserts: ".$this->link->affected_rows;
         } else {
-            return" Fallo al insertar un movimiento nuevo: (" . $this->link->errno . ") " . $this->link->error;
+            $msg=" Fallo al insertar un movimiento nuevo: (" . $this->link->errno . ") " . $this->link->error;
         }
+        return $msg;
         $this->CloseConnect();
        
    }
+
+   public function selectIid(){
+    $this->OpenConnect();
+     $sql = "SELECT max(idMovimiento) as 'idMovimiento' FROM movimiento";
+    $result = $this->link->query($sql);
+
+    if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+         
+        $valor=$row['idMovimiento'];
+    } 
+    return $valor;
+    mysqli_free_result($result);
+    $this->CloseConnect();
+}
 }

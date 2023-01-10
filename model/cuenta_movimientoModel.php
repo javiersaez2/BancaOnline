@@ -31,20 +31,19 @@ class cuenta_movimientosModel extends cuenta_movimientosClass
         
         $iban= $this->iban;
         $idMovimiento= $this->idMovimiento;
-        $fecha= $this->fecha;
         $cantidad= $this->cantidad;
 
-        
-        $sql = "INSERT INTO `cuenta_movimiento`(`iban`,`idMovimiento`,`fecha`,`cantidad`) VALUES ('$iban','$idMovimiento','$fecha',$cantidad)";
+        $sql = "INSERT INTO cuenta_movimiento(iban,idMovimiento,fecha,cantidad) VALUES ('$iban',$idMovimiento,now(),$cantidad)";
         
         $this->link->query($sql);
         
         if ($this->link->affected_rows == 1)
         {
-            return" el cuenta_movimiento se ha insertado con exito. Num de inserts: ".$this->link->affected_rows;
+            $msg= "el cuenta_movimiento se ha insertado con exito. Num de inserts: ".$this->link->affected_rows;
         } else {
-            return" Fallo al insertar un cuenta_movimiento nuevo: (" . $this->link->errno . ") " . $this->link->error;
+            $msg= "Fallo al insertar un cuenta_movimiento nuevo: (" . $this->link->errno . ") " . $this->link->error;
         }
+        return $msg;
         $this->CloseConnect();
        
    }

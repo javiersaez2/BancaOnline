@@ -24,6 +24,7 @@
 		linear-gradient(#fff 0 0);
 	-webkit-mask-composite: xor;
 			mask-composite: exclude;
+	z-index: 0;
 	
 }
 @mixin glass2 {
@@ -64,8 +65,16 @@
 }
 @mixin glassnav {
 	background: rgba(255, 255, 255, 0.8);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.342);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);	
+}
 
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+@mixin glasslogin {
+	background: rgba(255, 255, 255, 0.8);
+	// box-shadow: $color-principal 0px 20px 30px -10px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, $color-principal 0px 2px 4px -1px;
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
 	border: 1px solid rgba(255, 255, 255, 0.3);
@@ -77,4 +86,14 @@ box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 3px );
 -webkit-backdrop-filter: blur( 3px );
 border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+@mixin glassmodal {
+	background: rgba(255, 255, 255, 0.267);
+	box-shadow: 0 4px 30px #2b123c5a;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 2px solid #0000007a;
+	
+	
 }
