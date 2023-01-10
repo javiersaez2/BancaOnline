@@ -113,7 +113,7 @@
   -->
 
   <div class="tarjetas" ng-show="SeleccionT">
-    <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" ng-model="juan" ng-options="item as item.dniCliente for item in cuentasNoPersonales" ng-click="MostrarRestos">
+    <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" ng-model="juan" ng-options="item as item.dniCliente for item in cuentasNoPersonales" ng-click="MostrarRestos()">
       <option value=""></option>
     </select>
   </div>
