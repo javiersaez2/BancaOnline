@@ -1,29 +1,26 @@
 .tablasDeCuentas {
-    padding: 100px;
+    margin: auto;
 
     @media screen and (max-width: 576px) {
         padding: 0;
     }
 
+    h2{
+        color: purple;
+    }
+
     .contenidoTabla {
-        height: 80vh;
         width: 100%;
         overflow-x: auto;
         border: 1px solid rgba(255, 255, 255, 0.3);
         display: flex;
         flex-wrap: wrap;
 
-
-        h2{
-            color: purple;
-        }
-
         .tarjetitas {
             position: relative;
             margin: 5px;
             backdrop-filter: blur(5px);
             
-
 
             .colum2 {
                 width: 211px;
@@ -39,10 +36,6 @@
                 padding: 5px;
 
                 background-color: rgba(39, 39, 39, 0.2);
-            }
-
-            .botonesDeAceptar {
-                color: blue;
             }
 
 

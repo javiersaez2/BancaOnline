@@ -960,23 +960,22 @@ input[type=button]:hover {
 }
 
 .tablasDeCuentas {
-  padding: 100px;
+  margin: auto;
 }
 @media screen and (max-width: 576px) {
   .tablasDeCuentas {
     padding: 0;
   }
 }
+.tablasDeCuentas h2 {
+  color: purple;
+}
 .tablasDeCuentas .contenidoTabla {
-  height: 80vh;
   width: 100%;
   overflow-x: auto;
   border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   flex-wrap: wrap;
-}
-.tablasDeCuentas .contenidoTabla h2 {
-  color: purple;
 }
 .tablasDeCuentas .contenidoTabla .tarjetitas {
   position: relative;
@@ -995,7 +994,4 @@ input[type=button]:hover {
   height: 25px;
   padding: 5px;
   background-color: rgba(39, 39, 39, 0.2);
-}
-.tablasDeCuentas .contenidoTabla .tarjetitas .botonesDeAceptar {
-  color: blue;
 }/*# sourceMappingURL=style.css.map */

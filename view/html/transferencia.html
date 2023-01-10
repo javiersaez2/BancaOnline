@@ -49,8 +49,9 @@
     /////////////////////////////////////////////////////////////
   -->
   <section class="tablasDeCuentas">
+    <h2>SELECCIONE SU CUENTA CORRIENTE</h2>
+
     <div class="contenidoTabla" ng-show="TablaPersonales">
-      <h2>CUENTAS CORRIENTES PERSONALES</h2>
 
       <div class="tarjetitas" ng-repeat='contenido in cuentas'>
         <table>
@@ -83,7 +84,7 @@
 
 
         </table>
-        <input type="button" class="botonesDeAceptar" ng-click="EscogerPersonal($index,contenido)"></i>
+        <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="EscogerPersonal($index,contenido)"></i>
 
       </div>
     </div>
@@ -113,10 +114,10 @@
     </select>
   </div>
 
-  <section>
-    <div class="contenidoTabla"  ng-show="OtrasT">
-      <h2>CUENTAS CORRIENTES A LAS QUE DESEA TRANSFERIR SALDO</h2>
+  <section  class="tablasDeCuentas" ng-show="OtrasT">
+    <h2>CUENTAS CORRIENTES A LAS QUE DESEA TRANSFERIR SALDO</h2>
 
+    <div class="contenidoTabla">
       <div class="tarjetitas" ng-repeat='contenidoss in OtrasCuentas'>
         <table>
           <tr>
@@ -146,7 +147,7 @@
             </td>
           </tr>
         </table>
-        <input type="button" class="botonesDeAceptar" ng-click="transferir($index,contenidoss)"></i>
+        <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="transferir($index,contenidoss)"></i>
 
       </div>
     </div>
