@@ -7,11 +7,11 @@ $response = array();
 $cuenta = new cuenta_corrienteModel();
 
 $cuenta->setDniCliente($data["dniCliente"]);
-$response["list"] = $cuenta->cuentasTransferibles();
 
+$response["list"] = $cuenta->cuentasTransferibles();
 $response["error"] = "no error";
 
 
 echo json_encode($response);
-unset($cuenta);
+unset($response);
 ?>

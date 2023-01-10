@@ -166,6 +166,7 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
         $this->OpenConnect();
         $sql = "select * from cuenta_corriente where dniCliente='$dniCliente'";
 
+        //var_dump($sql);
         $list=array();
 
         $result = $this->link->query($sql);
