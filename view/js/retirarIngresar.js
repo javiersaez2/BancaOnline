@@ -13,6 +13,11 @@ MyApp.controller('miControl', function ($scope, $http) {
                 console.error('Error occurred:', response.status, response.data)
             })
     }
+    // $scope.change = function() {
+    //     console.log($scope.cuentas)
+    //     $scope.saldoVer = 'true';
+    //     $('#saldo').append(25);
+    // };
     $scope.mover = function () {
 
         var iban= $('#cuentas').val();

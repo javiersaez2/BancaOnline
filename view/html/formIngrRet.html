@@ -40,10 +40,13 @@
 <br>
 <form>
   <div>
-    <select name="select"  ng-model="cuentas" placeholder="cuentas" id="cuentas">
+    <select name="select"  ng-model="cuentas" placeholder="cuentas" id="cuentas" >
       <option value="" >Seleccione la cuenta</option>
     </select>
   </div>
+  <div ng-show="saldoVer =='true'">
+    <h2>saldo = <h3 id="saldo"></h3></h2>    
+</div>
   <div>
       <select name="select"  ng-model="tipo" placeholder="tipo" id="tipo">
         <option value="" >Seleccione el tipo</option>
@@ -51,6 +54,7 @@
         <option value="retirar" selected>Retirar</option> 
       </select>
     </div>
+   
     <div>
       <input type="text"  ng-model="cantidad" placeholder="cantidad" name="cantidad" id='cantidad' />
     </div>
