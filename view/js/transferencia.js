@@ -20,7 +20,7 @@ MyApp.controller('miController', function ($scope, $http) {
     function vercuentas() {
         $http.post('/controller/c_mostrar_cuentasPersonales.php')
             .then(function (response) {
-                console.log(response.data.list);
+                //console.log(response.data.list);
                 $scope.cuentas = response.data.list;
                 
             })
@@ -37,7 +37,7 @@ MyApp.controller('miController', function ($scope, $http) {
     function vercuentasNoPersonales(){
         $http.post('/controller/c_mostrar_cuentasTransferir.php')
         .then(function (response) {
-            console.log(response.data.list);
+            //console.log(response.data.list);
             $scope.cuentasNoPersonales = response.data.list;
             
         })
@@ -65,7 +65,7 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.SeleccionT=true;
         dinero = $scope.saldoT;
 
-        console.log($scope.cuentasNoPersonales);
+        //console.log($scope.cuentasNoPersonales);
 
     }
 
@@ -75,7 +75,7 @@ MyApp.controller('miController', function ($scope, $http) {
     */
     $scope.MostrarRestos = function(){
         dni = {"dniCliente": $scope.juan.dniCliente};
-        console.log(dni);
+        //console.log(dni);
 
         $http({
             url: '../../controller/c_mostrarOtrasCuentas.php',
@@ -93,9 +93,14 @@ MyApp.controller('miController', function ($scope, $http) {
 
     }
 
-    
+
     /*
         TRANSFERENCIA
     */
+    $scope.EscogerPersonal = function($index,contenidoss){
+
+        console.log($index);
+        console.log(contenidoss);
+    }
 
 })
