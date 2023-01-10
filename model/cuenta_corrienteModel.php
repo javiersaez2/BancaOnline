@@ -158,4 +158,62 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
         return $list;
 
     }
+
+
+    public function cuentasTransferibles()
+    {
+        $dniCliente=$this->dniCliente;
+        $this->OpenConnect();
+        $sql = "select * from cuenta_corriente where dniCliente='$dniCliente'";
+
+        //var_dump($sql);
+        $list=array();
+
+        $result = $this->link->query($sql);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $newCuenta = new cuenta_corrienteModel();
+            $newCuenta->iban = $row['iban'];
+            $newCuenta->dniCliente = $row['dniCliente'];
+            $newCuenta->titular = $row['titular'];
+            $newCuenta->saldo = $row['saldo'];
+            array_push($list, get_object_vars($newCuenta));
+
+        }
+        mysqli_free_result($result);
+        $this->CloseConnect();
+        return $list;
+
+    }
+
+    public function ingresar(){
+        
+        $this->OpenConnect();
+        $iban=$this->iban;
+        $cantidad=$this->saldo;
+        $sql = "UPDATE cuenta_corriente SET saldo = (saldo + $cantidad) WHERE iban = '$iban';";
+        
+        $this->link->query($sql);
+        if ($this->link->affected_rows==1) {
+            return "el saldo ha ingresado = ".$cantidad;
+        } else {
+            return 0;
+        }
+        $this->CloseConnect();
+    }
+
+    public function retirar(){
+        
+        $this->OpenConnect();
+        $iban=$this->iban;
+        $cantidad=$this->saldo;
+        $sql = "UPDATE cuenta_corriente SET saldo = (saldo - $cantidad) WHERE iban = '$iban';";
+        
+        $this->link->query($sql);
+        if ($this->link->affected_rows==1) {
+            return "el saldo ha retirado = ".$cantidad;
+        } else {
+            return 0;
+        }
+        $this->CloseConnect();
+    }
 }
