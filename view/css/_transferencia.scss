@@ -1,0 +1,45 @@
+.tablasDeCuentas {
+    margin: auto;
+
+    @media screen and (max-width: 576px) {
+        padding: 0;
+    }
+
+    h2{
+        color: purple;
+    }
+
+    .contenidoTabla {
+        width: 100%;
+        overflow-x: auto;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        flex-wrap: wrap;
+
+        .tarjetitas {
+            position: relative;
+            margin: 5px;
+            backdrop-filter: blur(5px);
+            
+
+            .colum2 {
+                width: 211px;
+                height: 25px;
+                padding: 5px;
+                background-color: rgba(39, 39, 39, 0.2);
+
+            }
+
+            .colum1 {
+                width: 170px;
+                height: 25px;
+                padding: 5px;
+
+                background-color: rgba(39, 39, 39, 0.2);
+            }
+
+
+        }
+
+    }
+}
