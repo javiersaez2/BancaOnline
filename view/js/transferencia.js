@@ -3,8 +3,6 @@ var MyApp = angular.module('MyApp', []);
 
 MyApp.controller('miController', function ($scope, $http) {
 
-    dinero = 0;
-
     $scope.saldoT=0;
 
     $scope.TablaPersonales=true;
@@ -14,9 +12,8 @@ MyApp.controller('miController', function ($scope, $http) {
 
 
     vercuentas();
-    
 
-    //cuentasNoPersonales
+    //cuentasPersonales
     function vercuentas() {
         $http.post('/controller/c_mostrar_cuentasPersonales.php')
             .then(function (response) {
@@ -63,8 +60,6 @@ MyApp.controller('miController', function ($scope, $http) {
     */
     $scope.AsignarSaldo = function(){
         $scope.SeleccionT=true;
-        dinero = $scope.saldoT;
-
         //console.log($scope.cuentasNoPersonales);
 
     }
@@ -82,7 +77,7 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify(dni)
         }).then(function (response) {
-            console.log(response.data.list);
+            //console.log(response.data.list);
             $scope.OtrasCuentas = response.data.list;
 
         }).catch(function (response) {
@@ -97,10 +92,13 @@ MyApp.controller('miController', function ($scope, $http) {
     /*
         TRANSFERENCIA
     */
-    $scope.EscogerPersonal = function($index,contenidoss){
+    $scope.transferir = function($index,contenidoss){
 
-        console.log($index);
-        console.log(contenidoss);
+        iban = contenidoss.iban;
+        saldo = $scope.saldoT;
+
+        console.log(iban+" \ "+saldo);
+
     }
 
 })
