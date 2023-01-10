@@ -116,4 +116,53 @@ MyApp.controller('miController', function ($scope, $http) {
         */   
     }
 
+
+
+
+
+    /////LOGGED VERIFY
+    $scope.passMostrar = true;
+    $scope.iniciarSesionSection = true; 
+
+    $scope.loggedVerify=function() {
+        $http({
+            url: "/controller/cLoggedVerify.php",
+            method: "POST"
+        }).then(function (response) {
+         
+            if (response.data.error != "logged"){
+                $scope.cuentaUsuario = false;
+                $scope.botonAdmin = false;
+                $scope.butonLogin = true;
+                window.location.href = "/index.html";
+
+            } else {             
+                $scope.butonLogOut = true;
+                $scope.butonLogin = false;
+                if (response.data.tipo == 1){
+                    $scope.botonAdmin = true;
+                    $scope.cuentaUsuario = false;
+                } else {
+                    $scope.cuentaUsuario = true;
+                    $scope.botonAdmin = false;
+                    console.log(response);
+                }
+            }
+        }).catch(function (response) {
+            console.error("Ocurrio un error", response.status, response.data);
+        })	   
+    }	
+
+    $scope.logout=function(){
+        $http({
+            url: "/controller/cLogout.php",
+            method: "POST"
+        }).then(function () {
+            window.location.href = "/index.html";
+            $scope.butonLogOut = false;
+        }).catch(function () {
+            console.error("Ocurrio un error", response.status, response.data);
+        })	
+    }
+
 })
