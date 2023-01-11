@@ -19,10 +19,22 @@ MyApp.controller('miControl', function ($scope, $http) {
     };
     
     $scope.mover = function () {
+    
         var iban= ibanElegido;
         var cantidad =$scope.cantidad;
         var concepto = $scope.concepto;
         var tipo = $scope.tipo;
+
+        if (tipo ==null) {
+            alert("tipo vacio")
+        }
+        else if (cantidad ==null) {
+            alert("cantidad vacio")
+        }
+        else if (concepto ==null) {
+            alert("concepto vacio")
+        }
+        else{
         if (tipo == "ingresar") {
             $http({
                 url: '../../controller/c_ingresar.php',
@@ -46,5 +58,6 @@ MyApp.controller('miControl', function ($scope, $http) {
                 console.error('Error occurred:', response.status, response.data)
             }) 
         }
+    }
     }
 })

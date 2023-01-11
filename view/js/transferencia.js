@@ -10,6 +10,7 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.SeleccionT=false;
     $scope.OtrasT=false;
 
+    $scope.ibanPropio;
 
     vercuentas();
 
@@ -34,7 +35,6 @@ MyApp.controller('miController', function ($scope, $http) {
     function vercuentasNoPersonales(){
         $http.post('/controller/c_mostrar_cuentasTransferir.php')
         .then(function (response) {
-            //console.log(response.data.list);
             $scope.cuentasNoPersonales = response.data.list;
             
         })
@@ -52,6 +52,9 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.DineroT=true;
         $scope.saldoT = 0;
 
+        $scope.ibanPropio = contenido.iban;
+        console.log($scope.ibanPropio);
+
     }
 
 
@@ -60,7 +63,6 @@ MyApp.controller('miController', function ($scope, $http) {
     */
     $scope.AsignarSaldo = function(){
         $scope.SeleccionT=true;
-        //console.log($scope.cuentasNoPersonales);
 
     }
 
@@ -71,14 +73,12 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.MostrarRestos = function(){
         //$scope.juan -> Lo que se esconde dentro
         dni = {"dniCliente": $scope.juan.dniCliente};
-        //console.log(dni);
 
         $http({
             url: '../../controller/c_mostrarOtrasCuentas.php',
             method: "POST",
             data: JSON.stringify(dni)
         }).then(function (response) {
-            //console.log(response.data.list);
             $scope.OtrasCuentas = response.data.list;
             $scope.OtrasT=true;
 
@@ -100,22 +100,22 @@ MyApp.controller('miController', function ($scope, $http) {
 
         console.log(iban+" \ "+saldo);
 
-        lista = {"iban": iban, "saldo": saldo};
+        lista = {"ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo};
+
 
         
-        /*
         $http({
             url: '../../controller/c_trasferencia.php',
             method: "POST",
             data: JSON.stringify(lista)
         }).then(function (response) {
             console.log(response.data.error);
-
+            console.log("Creo que lo he conseguido");
 
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
         })  
-        */   
+           
     }
 
 
