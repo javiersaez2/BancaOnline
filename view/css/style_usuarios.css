@@ -312,44 +312,6 @@ header {
     font-weight: 600;
   }
 }
-section {
-  padding: 40px 140px 40px 140px;
-  margin: auto;
-}
-section .tbl-content {
-  height: 38em;
-  width: 100%;
-  overflow-y: scroll;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: rgba(245, 245, 245, 0.4862745098);
-  box-shadow: 10px 10px 10px #a6a6a6, -10px -10px 10px #ffffff;
-}
-section .tbl-content .tarjetas {
-  background-color: rgba(76, 63, 255, 0.5568627451);
-  height: 320px;
-  width: 346px;
-  position: relative;
-  margin: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.459);
-}
-section .tbl-content .tarjetas table {
-  width: 100%;
-  height: 100%;
-}
-section .tbl-content .tarjetas .columna2 {
-  color: #fbfbfb;
-  padding: 5px;
-  font-weight: 500;
-  background-color: rgba(39, 39, 39, 0.2);
-}
-section .tbl-content .tarjetas .columna1 {
-  color: #fbfbfb;
-  padding: 5px;
-  font-weight: 700;
-  background-color: rgba(39, 39, 39, 0.2);
-}
-
 .modal {
   visibility: hidden;
   opacity: 0;
@@ -404,35 +366,11 @@ section .tbl-content .tarjetas .columna1 {
   text-decoration: none;
 }
 
-.cuenta {
-  color: white;
-  font-weight: 400;
-}
-
-/* demo styles */
-body {
-  background: #fbfbfb;
-  font-family: "Roboto", sans-serif;
-}
-
-/* for custom scrollbar for webkit browser*/
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
 .form__group {
   position: relative;
   padding: 15px 0 0;
   margin-top: 10px;
-  width: 50%;
+  width: 75%;
 }
 
 .form__field {
@@ -497,6 +435,68 @@ body {
   font-size: 1rem;
   color: #7ED4DC;
   font-weight: 700;
+}
+
+section {
+  padding: 40px 140px 40px 140px;
+  margin: auto;
+}
+section .tbl-content {
+  height: 38em;
+  width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(245, 245, 245, 0.4862745098);
+  box-shadow: 10px 10px 10px #a6a6a6, -10px -10px 10px #ffffff;
+}
+section .tbl-content .tarjetas {
+  background-color: rgba(76, 63, 255, 0.5568627451);
+  height: 320px;
+  width: 346px;
+  position: relative;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.459);
+}
+section .tbl-content .tarjetas table {
+  width: 100%;
+  height: 100%;
+}
+section .tbl-content .tarjetas .columna2 {
+  color: #fbfbfb;
+  padding: 5px;
+  font-weight: 500;
+  background-color: rgba(39, 39, 39, 0.2);
+}
+section .tbl-content .tarjetas .columna1 {
+  color: #fbfbfb;
+  padding: 5px;
+  font-weight: 700;
+  background-color: rgba(39, 39, 39, 0.2);
+}
+
+.cuenta {
+  color: white;
+  font-weight: 400;
+}
+
+/* demo styles */
+body {
+  background: #fbfbfb;
+  font-family: "Roboto", sans-serif;
+}
+
+/* for custom scrollbar for webkit browser*/
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 /* Botones */
