@@ -40,21 +40,21 @@
 <br>
 <form>
   <div>
-    <select name="select"  ng-model="cuentas" placeholder="cuentas" id="cuentas" >
+    <select  ng-model="cuentas" ng-options="item.iban for item in ibans" ng-change="cambiar()">
       <option value="" >Seleccione la cuenta</option>
+      <options ng-repeat="item for item in ibans"></options>
     </select>
   </div>
   <div ng-show="saldoVer =='true'">
-    <h2>saldo = <h3 id="saldo"></h3></h2>    
+    <h2>saldo = <span id="saldo"></span></h2>    
 </div>
   <div>
-      <select name="select"  ng-model="tipo" placeholder="tipo" id="tipo">
+      <select  ng-model="tipo" >
         <option value="" >Seleccione el tipo</option>
         <option value="ingresar">Ingresar</option>
-        <option value="retirar" selected>Retirar</option> 
+        <option value="retirar">Retirar</option> 
       </select>
     </div>
-   
     <div>
       <input type="text"  ng-model="cantidad" placeholder="cantidad" name="cantidad" id='cantidad' />
     </div>

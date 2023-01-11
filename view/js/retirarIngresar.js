@@ -1,30 +1,25 @@
 var MyApp = angular.module('MyApp', []);
-
 MyApp.controller('miControl', function ($scope, $http) {
     mostrarCuenta();
     function mostrarCuenta(){
         $http.post('/controller/c_mostrar_cuentasPersonales.php')
             .then(function (response) {
-                for (let index = 0; index < response.data.list.length; index++) {
-                   $('#cuentas').append( "<option value='"+response.data.list[index].iban+"' >"+response.data.list[index].iban+"</option>") ;
-                }
+                $scope.ibans = response.data.list
             })
             .catch(function (response) {
                 console.error('Error occurred:', response.status, response.data)
             })
     }
-    // $scope.change = function() {
-    //     console.log($scope.cuentas)
-    //     $scope.saldoVer = 'true';
-    //     $('#saldo').append(25);
-    // };
+    $scope.cambiar = function() {
+         $scope.saldoVer = 'true';
+         $('#saldo').html($scope.cuentas.saldo);
+     };
     $scope.mover = function () {
-
-        var iban= $('#cuentas').val();
+        var iban= $scope.cuentas.iban;
         var cantidad =$scope.cantidad;
         var concepto = $scope.concepto;
         var tipo = $scope.tipo;
-
+        console.log(iban + cantidad + concepto + tipo)
         if (tipo == "ingresar") {
             $http({
                 url: '../../controller/c_ingresar.php',
@@ -46,7 +41,5 @@ MyApp.controller('miControl', function ($scope, $http) {
                 console.error('Error occurred:', response.status, response.data)
             }) 
         }
-       
-        
     }
 })
