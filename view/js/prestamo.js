@@ -157,6 +157,14 @@ MyApp.controller('miController', function ($scope, $http) {
                         Kapitala: new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Number(kapitala).toFixed(2))
                     });
                 }
+
+
+            }
+            if ($scope.sistema == "Simple") {
+            
+            }
+            if ($scope.sistema == "Americano") {
+            
             }
         }
         $scope.periodo = $scope.lista;
@@ -164,6 +172,10 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.volver = function () {
         location.reload();
     }
+
+
+
+
 
 
     $scope.loggedVerify = function () {
