@@ -1,24 +1,24 @@
 
 var miApp = angular.module('miApp', []);
 //Nav
-miApp.controller('miControlador', function($scope, $http){
+miApp.controller('miControlador', function ($scope, $http) {
     $scope.passMostrar = true;
-    $scope.iniciarSesionSection = true; 
+    $scope.iniciarSesionSection = true;
 
-    $scope.loggedVerify=function() {
+    $scope.loggedVerify = function () {
         $http({
             url: "/controller/cLoggedVerify.php",
             method: "POST"
         }).then(function (response) {
-         
-            if (response.data.error != "logged"){
+
+            if (response.data.error != "logged") {
                 $scope.cuentaUsuario = false;
                 $scope.botonAdmin = false;
                 $scope.butonLogin = true;
-            } else {             
+            } else {
                 $scope.butonLogOut = true;
                 $scope.butonLogin = false;
-                if (response.data.tipo == 1){
+                if (response.data.tipo == 1) {
                     $scope.botonAdmin = true;
                     $scope.cuentaUsuario = false;
                 } else {
@@ -29,10 +29,10 @@ miApp.controller('miControlador', function($scope, $http){
             }
         }).catch(function (response) {
             console.error("Ocurrio un error", response.status, response.data);
-        })	   
-    }	
+        })
+    }
 
-    $scope.logout=function(){
+    $scope.logout = function () {
         $http({
             url: "/controller/cLogout.php",
             method: "POST"
@@ -41,7 +41,7 @@ miApp.controller('miControlador', function($scope, $http){
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
-        })	
+        })
     }
 });
 
@@ -52,14 +52,14 @@ miApp.controller('datoscliente', function ($scope, $http) {
     $scope.passMostrar = true;
     $scope.iniciarSesionSection = true;
 
-    $scope. datoscliente= function () {
+    $scope.datoscliente = function () {
 
         $http({
             url: "/controller/c_infocuenta.php",
             method: "POST"
         }).then(function (response) {
-            $scope.infocuenta=response.data.list
-            $scope.infocorriente=response.data.list.objCuenta
+            $scope.infocuenta = response.data.list
+            $scope.infocorriente = response.data.list.objCuenta
             console.log($scope.infocorriente)
             console.log($scope.infocuenta);
         })
@@ -76,17 +76,31 @@ miApp.controller('datoscliente', function ($scope, $http) {
     }
 
     $scope.guardarPassword = function () {
-        pasahitza="34561"
-        pruebas=JSON.stringify({'pasahitza': pasahitza})
-console.log(pruebas)
-        $http({
-            url: '/controller/c_comprobarpassword.php',
-            method: "POST",
-            data: JSON.stringify({'pasahitza': pasahitza})
-        }).then(function (response) {
-            console.log(response);
 
-    })
+        if ($scope.passanti == null) {
+            $scope.errores = "La contraseña esta vacia"
+        }
+        else {
+        
+            $http({
+                url: '/controller/c_comprobarpassword.php',
+                method: "POST",
+                data: JSON.stringify({ 'pasahitza': $scope.passanti })
+            }).then(function (response) {
+                console.log(response);
+                passverificada = response.data
+                console.log(passverificada)
+                if (passverificada == 2) { $scope.errores = "Contaseña incorrecta" }
+                else {
+                    $scope.errores = "Contaseña correcta"
+                }
+
+            })
+        }
+
+
+
+
         /*if ($scope.passanti!=$scope.infocuenta.pasahitza){
             console.log($scope.errores)
             $scope.errores="Contaseña incorrecta"
@@ -111,7 +125,7 @@ console.log(pruebas)
       
         }*/
     }
-    
+
     $scope.cerrarCuentas = function (numero) {
         $scope.dniIns = "";
         $scope.nombreIns = "";
@@ -121,18 +135,17 @@ console.log(pruebas)
         modalnovisible(numero);
     }
     function modalvisible(x) {
-        document.getElementById("demo-modal"+x+"").style.visibility = "visible";
-        document.getElementById("demo-modal"+x+"").style.opacity = 1;
+        document.getElementById("demo-modal" + x + "").style.visibility = "visible";
+        document.getElementById("demo-modal" + x + "").style.opacity = 1;
         disable_scroll();
         disable_scroll_mobile();
     }
     function modalnovisible(x) {
-        document.getElementById("demo-modal"+x+"").style.visibility = "hidden";
-        document.getElementById("demo-modal"+x+"").style.opacity = 0;
+        document.getElementById("demo-modal" + x + "").style.visibility = "hidden";
+        document.getElementById("demo-modal" + x + "").style.opacity = 0;
         enable_scroll();
         enable_scroll_mobile();
     }
-     
 
 
 
@@ -140,73 +153,74 @@ console.log(pruebas)
 
 
 
-//////////// - Modaeles no scroll - ////////////
-  // PREVENT DEFAULT HANDLER
-  function preventDefault(e) {
-    e = e || window.event;
-    if (e.preventDefault) {
-      e.preventDefault();
+
+    //////////// - Modaeles no scroll - ////////////
+    // PREVENT DEFAULT HANDLER
+    function preventDefault(e) {
+        e = e || window.event;
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
+        e.returnValue = false;
     }
-    e.returnValue = false;
-  }
-  // PREVENT SCROLL KEYS
-  // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-  // left: 37, up: 38, right: 39, down: 40,
-  // (Source: http://stackoverflow.com/a/4770179)
-  function keydown(e) {
-    var keys = [32,33,34,35,36,37,38,39,40];
-    for (var i = keys.length; i--;) {
-      if (e.keyCode === keys[i]) {
-        preventDefault(e);
-        return;
-      }
+    // PREVENT SCROLL KEYS
+    // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+    // left: 37, up: 38, right: 39, down: 40,
+    // (Source: http://stackoverflow.com/a/4770179)
+    function keydown(e) {
+        var keys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
+        for (var i = keys.length; i--;) {
+            if (e.keyCode === keys[i]) {
+                preventDefault(e);
+                return;
+            }
+        }
     }
-  }
-  // PREVENT MOUSE WHEEL
-  function wheel(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    return false;
-  }
-  // DISABLE SCROLL
-  function disable_scroll() {
-    if (document.addEventListener) {
-      document.addEventListener('wheel', wheel, false);
-      document.addEventListener('mousewheel', wheel, false);
-      document.addEventListener('DOMMouseScroll', wheel, false);
+    // PREVENT MOUSE WHEEL
+    function wheel(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        return false;
     }
-    else {
-      document.attachEvent('onmousewheel', wheel);
+    // DISABLE SCROLL
+    function disable_scroll() {
+        if (document.addEventListener) {
+            document.addEventListener('wheel', wheel, false);
+            document.addEventListener('mousewheel', wheel, false);
+            document.addEventListener('DOMMouseScroll', wheel, false);
+        }
+        else {
+            document.attachEvent('onmousewheel', wheel);
+        }
+        document.onmousewheel = document.onmousewheel = wheel;
+        document.onkeydown = keydown;
+
+        x = window.pageXOffset || document.documentElement.scrollLeft,
+            y = window.pageYOffset || document.documentElement.scrollTop,
+            window.onscroll = function () {
+                window.scrollTo(x, y);
+            };
+        // document.body.style.overflow = 'hidden'; // CSS
+        disable_scroll_mobile();
     }
-    document.onmousewheel = document.onmousewheel = wheel;
-    document.onkeydown = keydown;
-    
-    x = window.pageXOffset || document.documentElement.scrollLeft,
-    y = window.pageYOffset || document.documentElement.scrollTop,
-    window.onscroll = function() {
-      window.scrollTo(x, y);
-    };
-    // document.body.style.overflow = 'hidden'; // CSS
-    disable_scroll_mobile();
-  }
-  // ENABLE SCROLL
-  function enable_scroll() {
-    if (document.removeEventListener) {
-      document.removeEventListener('wheel', wheel, false);
-      document.removeEventListener('mousewheel', wheel, false);
-      document.removeEventListener('DOMMouseScroll', wheel, false);
+    // ENABLE SCROLL
+    function enable_scroll() {
+        if (document.removeEventListener) {
+            document.removeEventListener('wheel', wheel, false);
+            document.removeEventListener('mousewheel', wheel, false);
+            document.removeEventListener('DOMMouseScroll', wheel, false);
+        }
+        document.onmousewheel = document.onmousewheel = document.onkeydown = null;
+        window.onscroll = function () { };
+        // document.body.style.overflow = 'auto'; // CSS
+        enable_scroll_mobile();
     }
-    document.onmousewheel = document.onmousewheel = document.onkeydown = null;
-    window.onscroll = function() {};
-    // document.body.style.overflow = 'auto'; // CSS
-    enable_scroll_mobile();
-  }
-  
-  // MOBILE
-  function disable_scroll_mobile(){
-    document.addEventListener('touchmove', preventDefault, false);
-  }
-  function enable_scroll_mobile(){
-    document.removeEventListener('touchmove', preventDefault, false);
-  }
+
+    // MOBILE
+    function disable_scroll_mobile() {
+        document.addEventListener('touchmove', preventDefault, false);
+    }
+    function enable_scroll_mobile() {
+        document.removeEventListener('touchmove', preventDefault, false);
+    }
 })

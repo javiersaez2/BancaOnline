@@ -11,12 +11,6 @@ $cuenta->setPasahitza($data["pasahitza"]);
 $list = $cuenta->comprobarpassword();
 $response = array();
 
-if ($list["check"] == 0) {
+    $response =$list["check"];
 
-    $response["error"] = "WRONG";
-    
-}
-else{
-    $response["error"] = "NO WRONG";
-}
  echo json_encode($response);
