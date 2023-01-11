@@ -1,7 +1,12 @@
+@mixin flexJustify {
+    display: flex;
+    justify-content: center;
+}
+
 @mixin flexcenter {
     display: flex;
     justify-content: center;
-    
+	align-items: center;
 }
 
 @mixin bx{

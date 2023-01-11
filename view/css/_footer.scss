@@ -8,12 +8,12 @@
 
     .container {
         .row {
-            @include flexcenter();
+            @include flexJustify();
             flex-direction: row;
         }
 
         .row2 {
-            @include flexcenter();
+            @include flexJustify();
             flex-direction: column-reverse;
             text-align: $centrar;
             margin: 40px 50px 0px 50px;
