@@ -1,16 +1,16 @@
+
+/* Seccion cuentas de los usuarios */
 section {
   padding: 40px 140px 40px 140px;
-  margin: auto;
+  @include flexcenter();
+  flex-direction: column;
   .tbl-content {
     height: 38em;
     width: 100%;
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
-    background-color: #f5f5f57c;
-    box-shadow:  10px 10px 10px #a6a6a6,
-    -10px -10px 10px #ffffff;
-    
+
     .tarjetas {
       background-color: #4c3fff8e;
       height: 320px;
@@ -118,7 +118,7 @@ body {
   opacity: 1;
 }
 
-/*Icono*/
+/*Iconos*/
 .icono:hover{
   cursor: pointer;
 }
@@ -127,7 +127,7 @@ body {
   text-decoration: underline;
 }
 
-/* reset input */
+/* Reset input */
 .form__field{
   &:required,&:invalid { box-shadow:none; }
 
@@ -135,4 +135,3 @@ body {
 .for_option *{
   color: $color-negro;
 }
-/* demo */

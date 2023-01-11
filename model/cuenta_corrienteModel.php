@@ -195,9 +195,7 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
         $this->link->query($sql);
         if ($this->link->affected_rows==1) {
             return "el saldo ha ingresado = ".$cantidad;
-        } else {
-            return 0;
-        }
+        } 
         $this->CloseConnect();
     }
 
@@ -206,14 +204,25 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
         $this->OpenConnect();
         $iban=$this->iban;
         $cantidad=$this->saldo;
-        $sql = "UPDATE cuenta_corriente SET saldo = (saldo - $cantidad) WHERE iban = '$iban';";
-        
-        $this->link->query($sql);
-        if ($this->link->affected_rows==1) {
-            return "el saldo ha retirado = ".$cantidad;
-        } else {
-            return 0;
+        $sql = "select * from cuenta_corriente where iban='$iban'";
+
+        $result = $this->link->query($sql);
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            if($row['saldo'] >= $cantidad){
+                $sql = "UPDATE cuenta_corriente SET saldo = (saldo - $cantidad) WHERE iban = '$iban';";
+                $this->link->query($sql);
+                if ($this->link->affected_rows==1) {
+                    $msg =  "el saldo ha retirado = ".$cantidad;
+                } 
+            }
+            else {
+                $msg= "la cantidad mayor que el saldo ";
+            }
         }
+
+        return $msg;
         $this->CloseConnect();
+
+       
     }
 }

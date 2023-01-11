@@ -1,5 +1,7 @@
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 body {
@@ -7,7 +9,7 @@ body {
 
 }
 
-/////////CARRUSEL Y CARA DE LA PAGINA///////////
+/*CARRUSEL Y CARA DE LA PAGINA*/
 #portada {
   position: relative;
   margin: 0;
@@ -115,14 +117,15 @@ body {
 }
 
 
-////////////////// - QUIENES SOMOS - //////////////////
+/* Cartas de informacion: Quienes somos, historia... */
 .quienesSomos {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   width: 100%;
-
-  @media screen and (max-width: 768px) {
+  margin-bottom: 5em;
+  @media screen and (max-width: 1230px) {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -131,20 +134,23 @@ body {
 
   .imagenSomos {
     width: 40%;
-    @include flexcenter();
+    @include flexJustify();
+    align-self: flex-start;
     margin: 0.5%;
     margin-top: 3%;
 
-    @media screen and (max-width: 768px) {
-      width: 80%;
+    @media screen and (max-width: 1230px) {
+      width: 84%;
       margin: $auto;
-      margin-top: 5%;
-
+      
+      iframe{
+        margin-top: 2%;
+      }
     }
 
     img {
       width: 100%;
-      height: 400px;
+      height: 90%;
     }
 
     iframe {
@@ -155,15 +161,16 @@ body {
 
   .contenidoSomos {
     position: relative;
-    width: 40%;
-    @include flexcenter();
+    width: 45%;
+    @include flexJustify();
     flex-direction: column;
     margin: 0.5%;
     margin-top: 5%;
     color: $color-negro;
+    background-color: white;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1230px) {
       width: 80%;
       margin: $auto;
       margin-top: 5%;
@@ -171,8 +178,8 @@ body {
 
     h2 {
       text-align: $centrar;
-      margin-bottom: 10%;
-      margin: 3%;
+      margin: 0;
+      margin-top: 3%;
       height: 4%;
     }
 
@@ -192,7 +199,7 @@ body {
 
 
 
-////////////////// - SLIDES - //////////////////
+/* SLIDES */
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 
 .slider {
@@ -451,6 +458,7 @@ body {
   }
 }
 
+/* Bordes cartas */
 .blog-slider:before{
   content: "";
   @include glass2();  

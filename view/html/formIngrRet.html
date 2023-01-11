@@ -38,28 +38,57 @@
 <br>
 <h1 style="text-align: center;">Ingresar/Retirar</h1>
 <br>
-<form>
-  <div>
-    <select name="select"  ng-model="cuentas" placeholder="cuentas" id="cuentas" >
-      <option value="" >Seleccione la cuenta</option>
-    </select>
+
+<section class="tablasDeCuentas">
+
+  <h2>SELECCIONE SU CUENTA CORRIENTE</h2>
+
+  <div class="contenidoTabla" >
+
+    <div class="tarjetitas" ng-repeat='contenido in cuentas'>
+      <table>
+        <tr>
+          <td class="colum1">
+            IBAN:
+          </td>
+          <td class="colum2">
+            {{contenido.iban}}
+          </td>
+        </tr>
+        <tr>
+          <td class="colum1">
+            Saldo:
+          </td>
+          <td class="colum2">
+            {{contenido.saldo}} €
+          </td>
+        </tr>
+      </table>
+      <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="elegir($index,contenido)"></i>
+    </div>
   </div>
-  <div ng-show="saldoVer =='true'">
-    <h2>saldo = <h3 id="saldo"></h3></h2>    
+</section>
+
+
+<div ng-show="textoVer =='true'">
+    <h2>Has elegido la cuenta con IBAN : <span id="ibanClick"></span></h2>
+
 </div>
+
+<form ng-show="formVer =='true'">
+
   <div>
-      <select name="select"  ng-model="tipo" placeholder="tipo" id="tipo">
+      <select  ng-model="tipo" >
         <option value="" >Seleccione el tipo</option>
         <option value="ingresar">Ingresar</option>
-        <option value="retirar" selected>Retirar</option> 
+        <option value="retirar">Retirar</option> 
       </select>
     </div>
-   
     <div>
       <input type="text"  ng-model="cantidad" placeholder="cantidad" name="cantidad" id='cantidad' />
     </div>
     <div>
-      <input type="text"  ng-model="concepto" placeholder="concepto" name="concepto" id='concepto'/>
+      <textarea  ng-model="concepto" placeholder="concepto" name="concepto" id='concepto'/></textarea>
     </div>
     <br>
     <input id="boton" type="button" value="Aceptar" ng-click="mover()">

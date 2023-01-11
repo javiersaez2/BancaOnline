@@ -1,3 +1,10 @@
+/*COLORES*/
+/*MEDIDAS POR PIXELES*/
+/*MEDIDAS POR PORCENTAJES*/
+/*MEDIDAS REM-EM*/
+/* Funcion Flex solo justify content center */
+/* Funcion Flex para centrar*/
+/* Funciones para dar estilos a las cajas*/
 * {
   padding: 0;
   margin: 0;
@@ -38,7 +45,7 @@ header {
   -webkit-text-fill-color: transparent;
 }
 .company-logo img {
-  width: 8vh;
+  width: 7vh;
 }
 
 .nav-items {
@@ -51,7 +58,7 @@ header {
 }
 
 .nav-link {
-  font-size: 1.1rem;
+  font-size: 1rem;
   letter-spacing: 0.05rem;
   position: relative;
   background: black;
@@ -101,14 +108,6 @@ header {
 
 /* =============== MEDIA QUERIES ======= */
 @media screen and (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
-  }
-  header {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0; /* required */
-  }
   .navbar {
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.342);
@@ -116,12 +115,13 @@ header {
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     position: absolute;
-    top: 5.4rem;
+    top: 3.4rem;
     right: 0;
-    width: 50%;
+    width: 150px;
     height: auto;
     display: flex;
     justify-content: center;
+    align-items: center;
     transform: scaleY(0);
     transform-origin: bottom;
     transition: transform 500ms;
@@ -155,9 +155,10 @@ header {
 }
 @media (min-width: 769px) {
   header {
-    padding: 0rem 3rem;
+    padding: 0rem 2rem;
   }
 }
+/* Estructura y estilo footer */
 .site-footer {
   margin-top: 3em;
   background-color: #26272b;
@@ -199,18 +200,7 @@ header {
   margin-top: 10px;
 }
 
-@media (max-width: 700px) {
-  .site-footer {
-    margin-top: 100px;
-  }
-  .site-footer .container .row {
-    flex-direction: column;
-  }
-  .site-footer .columnas {
-    width: 70%;
-    text-align: center;
-  }
-}
+/* Links footer */
 .footer-links {
   padding-left: 0;
   list-style: none;
@@ -235,20 +225,7 @@ header {
   margin: 0;
 }
 
-@media (max-width: 991px) {
-  .site-footer [class^=col-] {
-    margin-bottom: 30px;
-  }
-}
-@media (max-width: 767px) {
-  .site-footer {
-    padding-bottom: 0;
-  }
-  .site-footer .copyright-text,
-.site-footer .social-icons {
-    text-align: center;
-  }
-}
+/* Iconos redes sociales */
 .social-icons {
   padding-left: 0;
   margin-bottom: 0;
@@ -303,7 +280,20 @@ header {
   padding: 4px;
 }
 
+/* Media Query */
+@media (max-width: 991px) {
+  .site-footer [class^=col-] {
+    margin-bottom: 30px;
+  }
+}
 @media (max-width: 767px) {
+  .site-footer {
+    padding-bottom: 0;
+  }
+  .site-footer .copyright-text,
+.site-footer .social-icons {
+    text-align: center;
+  }
   .social-icons li.title {
     display: block;
     margin-right: 0;
