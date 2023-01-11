@@ -1,7 +1,7 @@
 .tablasDeCuentas {
     width: 90%;
     padding-top: 10px;
-    @include flexcenter();
+    @include flexJustify();
     flex-direction: column;
     text-align: $centrar;
     margin: auto;
@@ -21,7 +21,7 @@
 
         overflow-x: auto;
         border: 1px solid rgba(255, 255, 255, 0.3);
-        @include flexcenter();
+        @include flexJustify();
         flex-wrap: wrap;
 
         .tarjetitas {

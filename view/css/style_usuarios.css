@@ -314,7 +314,10 @@ header {
 }
 section {
   padding: 40px 140px 40px 140px;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 section .tbl-content {
   height: 38em;
@@ -322,8 +325,6 @@ section .tbl-content {
   overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
-  background-color: rgba(245, 245, 245, 0.4862745098);
-  box-shadow: 10px 10px 10px #a6a6a6, -10px -10px 10px #ffffff;
 }
 section .tbl-content .tarjetas {
   background-color: rgba(76, 63, 255, 0.5568627451);
