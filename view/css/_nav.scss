@@ -1,22 +1,15 @@
 
-
 * {
 	padding: 0;
-	margin: 0;
-	
-	
+	margin: 0;	
 }
 /* ================= HEADER ================ */
 
 .bx {
 	font-size: 2.5rem;
-	
-
 }
 .container {
-	padding: 0 2rem;
-	
-	
+	padding: 0 2rem;		
 }
 body {
 	font-family: "Raleway", sans-serif;
@@ -35,13 +28,11 @@ header {
 	
 }
 .company-logo {/////IMAGEN DEL LOGO
-
 	background-color: $color-negro;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	img{
-		width: 8vh;
-
+		width: 7vh;
 	}
 
 }
@@ -94,25 +85,14 @@ header {
 
 /* =============== MEDIA QUERIES ======= */
 @media screen and (max-width: 768px) {
-	.container {
-		padding: 0 1rem;
-	}
-	header {
-
-			position: sticky;
-	position: -webkit-sticky;
-	top: 0; /* required */
-	}
 	.navbar {
 		@include glassnav();
-
 		position: absolute;
-		top: 5.4rem;
+		top: 3.4rem;
 		right: 0;
-		width: 50%;
+		width: 150px;
 		height: auto;
-		display: flex;
-		justify-content: center;
+		@include flexcenter;
 		transform: scaleY(0);
 		transform-origin: bottom;
 		transition: transform 500ms;
@@ -146,6 +126,6 @@ header {
 }
 @media (min-width: 769px) {
 	header {
-		padding: 0rem 3rem;
+		padding: $header-padding;
 	}
 }

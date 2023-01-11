@@ -9,7 +9,7 @@ body {
 
 }
 
-/////////CARRUSEL Y CARA DE LA PAGINA///////////
+/*CARRUSEL Y CARA DE LA PAGINA*/
 #portada {
   position: relative;
   margin: 0;
@@ -117,15 +117,7 @@ body {
 }
 
 
-////////////////// - QUIENES SOMOS - //////////////////
-.purple {
-  background-color: rgba(80, 0, 80, 0.185);
-}
-
-.blue {
-  background-color: rgba(0, 0, 179, 0.301);
-}
-
+/* Cartas de informacion: Quienes somos, historia... */
 .quienesSomos {
   display: flex;
   flex-direction: row;
@@ -207,7 +199,7 @@ body {
 
 
 
-////////////////// - SLIDES - //////////////////
+/* SLIDES */
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 
 .slider {
@@ -466,6 +458,7 @@ body {
   }
 }
 
+/* Bordes cartas */
 .blog-slider:before{
   content: "";
   @include glass2();  
