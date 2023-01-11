@@ -6,8 +6,8 @@ $response=array();
     
 $cuenta=new clienteModel();
 $cuenta->setDniCliente($_SESSION["dni"]);
-    
-$response['list']= $cuenta->selectClienteById();
+$cuenta->selectClienteById() ;
+$response['list']=$cuenta->ObjVars() ;
 $response['error']='no error';
     
 echo json_encode($response);

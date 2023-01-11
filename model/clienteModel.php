@@ -202,6 +202,8 @@ class clienteModel extends clienteclass
         $this->CloseConnect();
     }
 
+
+    
     public function selectClienteById(){
         $this->OpenConnect();
 
@@ -211,20 +213,24 @@ class clienteModel extends clienteclass
         $result = $this->link->query($sql);
 
         if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $newCliente = new ClienteModel();
-            $newCliente->dniCliente = $row['dniCliente'];
-            $newCliente->nombre = $row['nombre'];
-            $newCliente->pasahitza = $row['pasahitza'];
-            $newCliente->secreto = $row['secreto'];
+        
+            $this->dniCliente = $row['dniCliente'];
+            $this->nombre = $row['nombre'];
+            $this->pasahitza = $row['pasahitza'];
+            $this->secreto = $row['secreto'];
 
             $newCuenta=new cuenta_corrienteModel();
             $newCuenta->setdniCliente(($row['dniCliente']));    
-            $newCliente->objCuenta=$newCuenta->setListCuenta();;
+            $this->objCuenta=$newCuenta->setListCuenta();;
 
-            array_push($list, get_object_vars($newCliente));
+            array_push($list, get_object_vars($this));
         }
         mysqli_free_result($result);
         $this->CloseConnect();
-        return $list;
+    
+    }
+    
+    public function ObjVars(){
+        return get_object_vars($this);
     }
 }
