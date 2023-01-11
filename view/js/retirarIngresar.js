@@ -19,14 +19,14 @@ MyApp.controller('miControl', function ($scope, $http) {
         var cantidad =$scope.cantidad;
         var concepto = $scope.concepto;
         var tipo = $scope.tipo;
-        console.log(iban + cantidad + concepto + tipo)
         if (tipo == "ingresar") {
             $http({
                 url: '../../controller/c_ingresar.php',
                 method: "POST",
                 data: JSON.stringify({'iban': iban, 'cantidad': cantidad, 'concepto': concepto, 'tipo': tipo})
             }).then(function (response) {
-                alert("Biennnnnnnnnnn")
+                alert(response.data.ingresar);
+                location.reload();
             }).catch(function (response) {
                 console.error('Error occurred:', response.status, response.data)
             }) 
@@ -36,7 +36,8 @@ MyApp.controller('miControl', function ($scope, $http) {
                 method: "POST",
                 data: JSON.stringify({'iban': iban, 'cantidad': cantidad, 'concepto': concepto, 'tipo': tipo})
             }).then(function (response) {
-                alert("Biennnnnnnnnnn")
+                alert(response.data.retirar);
+                location.reload();
             }).catch(function (response) {
                 console.error('Error occurred:', response.status, response.data)
             }) 
