@@ -72,7 +72,11 @@ header {
   transform-origin: bottom right;
   transition: transform 150ms;
 }
+.nav-link:hover {
+  background-color: #B57EDC;
+}
 .nav-link:hover::before {
+  background-color: #B57EDC;
   transform: scaleX(1);
   transform-origin: bottom left;
 }
@@ -318,6 +322,8 @@ section .tbl-content {
   overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
+  background-color: rgba(245, 245, 245, 0.4862745098);
+  box-shadow: 10px 10px 10px #a6a6a6, -10px -10px 10px #ffffff;
 }
 section .tbl-content .tarjetas {
   background-color: rgba(76, 63, 255, 0.5568627451);
@@ -378,7 +384,6 @@ section .tbl-content .tarjetas .columna1 {
   box-shadow: 0 4px 30px rgba(43, 18, 60, 0.3529411765);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 2px solid rgba(0, 0, 0, 0.4784313725);
 }
 
 .modal__footer {

@@ -72,7 +72,11 @@ header {
   transform-origin: bottom right;
   transition: transform 150ms;
 }
+.nav-link:hover {
+  background-color: #B57EDC;
+}
 .nav-link:hover::before {
+  background-color: #B57EDC;
   transform: scaleX(1);
   transform-origin: bottom left;
 }

@@ -73,7 +73,9 @@ header {
 		transition: transform 150ms;
 	}
 	&:hover {
+		background-color:$color-principal;
 		&::before {
+			background-color:$color-principal;
 			transform: scaleX(1);
 			transform-origin: bottom left;
 		}
