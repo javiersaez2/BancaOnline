@@ -301,8 +301,6 @@ header {
     font-weight: 600;
   }
 }
-<<<<<<< HEAD
-=======
 @media (max-width: 700px) {
   .site-footer {
     margin-top: 100px;
@@ -315,48 +313,6 @@ header {
     text-align: center;
   }
 }
-/* Seccion cuentas de los usuarios */
-section {
-  padding: 40px 140px 40px 140px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-section .tbl-content {
-  height: 38em;
-  width: 100%;
-  overflow-y: scroll;
-  display: flex;
-  flex-wrap: wrap;
-}
-section .tbl-content .tarjetas {
-  background-color: rgba(76, 63, 255, 0.5568627451);
-  height: 320px;
-  width: 346px;
-  position: relative;
-  margin: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.459);
-}
-section .tbl-content .tarjetas table {
-  width: 100%;
-  height: 100%;
-}
-section .tbl-content .tarjetas .columna2 {
-  color: #fbfbfb;
-  padding: 5px;
-  font-weight: 500;
-  background-color: rgba(39, 39, 39, 0.2);
-}
-section .tbl-content .tarjetas .columna1 {
-  color: #fbfbfb;
-  padding: 5px;
-  font-weight: 700;
-  background-color: rgba(39, 39, 39, 0.2);
-}
-
-/* Modal para crear usuario, modificar... */
->>>>>>> 7d9196396d51f247e7035c1234918f1b17aaa38a
 .modal {
   visibility: hidden;
   opacity: 0;
@@ -411,34 +367,6 @@ section .tbl-content .tarjetas .columna1 {
   text-decoration: none;
 }
 
-<<<<<<< HEAD
-=======
-.cuenta {
-  color: white;
-  font-weight: 400;
-}
-
-/* demo styles */
-body {
-  background: #fbfbfb;
-  font-family: "Roboto", sans-serif;
-}
-
-/* for custom scrollbar for webkit browser*/
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-/* formulario modal para rellenar datos */
->>>>>>> 7d9196396d51f247e7035c1234918f1b17aaa38a
 .form__group {
   position: relative;
   padding: 15px 0 0;
@@ -510,10 +438,13 @@ body {
   font-weight: 700;
 }
 
-<<<<<<< HEAD
+/* Seccion cuentas de los usuarios */
 section {
   padding: 40px 140px 40px 140px;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 section .tbl-content {
   height: 38em;
@@ -521,8 +452,6 @@ section .tbl-content {
   overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
-  background-color: rgba(245, 245, 245, 0.4862745098);
-  box-shadow: 10px 10px 10px #a6a6a6, -10px -10px 10px #ffffff;
 }
 section .tbl-content .tarjetas {
   background-color: rgba(76, 63, 255, 0.5568627451);
@@ -574,9 +503,6 @@ body {
 }
 
 /* Botones */
-=======
-/* Diferentes botones */
->>>>>>> 7d9196396d51f247e7035c1234918f1b17aaa38a
 .button-23 {
   background-color: #B57EDC;
   border: 1px solid rgba(34, 34, 34, 0.7333333333);
