@@ -17,20 +17,7 @@ MyApp.controller('miControl', function ($scope, $http) {
         $scope.textoVer = 'true';
         $('#ibanClick').html(contenido.iban);
     };
-    /*mostrarCuenta();
-    function mostrarCuenta(){
-        $http.post('/controller/c_mostrar_cuentasPersonales.php')
-            .then(function (response) {
-                $scope.ibans = response.data.list
-            })
-            .catch(function (response) {
-                console.error('Error occurred:', response.status, response.data)
-            })
-    }
-    $scope.cambiar = function() {
-         $scope.saldoVer = 'true';
-         $('#saldo').html($scope.cuentas.saldo);
-     };*/
+    
     $scope.mover = function () {
         var iban= ibanElegido;
         var cantidad =$scope.cantidad;
