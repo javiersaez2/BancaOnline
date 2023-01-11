@@ -3,14 +3,18 @@ var MyApp = angular.module('MyApp', []);
 
 MyApp.controller('miController', function ($scope, $http) {
 
+    //saldo
     $scope.saldoT=0;
 
+    ///Visualizacion
     $scope.TablaPersonales=true;
     $scope.DineroT=false;
     $scope.SeleccionT=false;
     $scope.OtrasT=false;
 
+    //Parametros propios
     $scope.ibanPropio;
+
 
     vercuentas();
 
@@ -53,6 +57,7 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.saldoT = 0;
 
         $scope.ibanPropio = contenido.iban;
+
         console.log($scope.ibanPropio);
 
     }
