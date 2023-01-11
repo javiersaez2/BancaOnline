@@ -274,8 +274,6 @@ MyApp.controller('miController', function ($scope, $http) {
 
 
 
-
-
     //verificar usuario
     $scope.loggedVerify = function () {
         $http({
