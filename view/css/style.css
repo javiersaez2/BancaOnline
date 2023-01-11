@@ -72,7 +72,11 @@ header {
   transform-origin: bottom right;
   transition: transform 150ms;
 }
+.nav-link:hover {
+  background-color: #B57EDC;
+}
 .nav-link:hover::before {
+  background-color: #B57EDC;
   transform: scaleX(1);
   transform-origin: bottom left;
 }
@@ -787,6 +791,17 @@ body {
 }
 #title h4 {
   font-family: "Arial", sans-serif;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(134, 134, 134);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 15px;
 }
 
 select, input[type=text] {

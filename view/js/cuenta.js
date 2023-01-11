@@ -56,8 +56,9 @@ miApp.controller('datoscliente', function ($scope, $http) {
             url: "/controller/c_infocuenta.php",
             method: "POST"
         }).then(function (response) {
-            
-            console.log(response.data.list)
+            $scope.infocuenta=response.data.list
+            $scope.infocorriente=response.data.list.objCuenta
+            console.log($scope.infocorriente)
         })
     }
 })
