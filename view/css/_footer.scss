@@ -1,3 +1,6 @@
+////////////////////////////////
+/* Estructura y estilo footer */
+////////////////////////////////
 .site-footer {
     margin-top: 3em;
     background-color: $color-fondo-footernav;
@@ -47,26 +50,10 @@
     margin-top: 10px;
 }
 
-@media (max-width:700px) {
 
-    .site-footer {
-        margin-top: 100px;
-
-        .container {
-            .row {
-                flex-direction: column;
-            }
-        }
-
-        .columnas {
-            width: 70%;
-            text-align: $centrar;
-        }
-    }
-}
-
-////FOOTER LINKS///////
-/// 
+//////////////////
+/* Links footer */
+//////////////////
 .footer-links {
     padding-left: 0;
     list-style: $vaciar;
@@ -90,8 +77,6 @@
 
 }
 
-
-
 .footer-links.inline li {
     display: inline-block
 }
@@ -100,23 +85,9 @@
     margin: 0
 }
 
-@media (max-width:991px) {
-    .site-footer [class^=col-] {
-        margin-bottom: 30px
-    }
-}
-
-@media (max-width:767px) {
-    .site-footer {
-        padding-bottom: 0
-    }
-
-    .site-footer .copyright-text,
-    .site-footer .social-icons {
-        text-align: $centrar;
-    }
-}
-
+///////////////////////////
+/* Iconos redes sociales */
+///////////////////////////
 .social-icons {
     padding-left: 0;
     margin-bottom: 0;
@@ -179,10 +150,47 @@
     padding: 4px;
 }
 
+/////////////////
+/* Media Query */
+////////////////
+@media (max-width:991px) {
+    .site-footer [class^=col-] {
+        margin-bottom: 30px
+    }
+}
+
 @media (max-width:767px) {
+    .site-footer {
+        padding-bottom: 0
+    }
+
+    .site-footer .copyright-text,
+    .site-footer .social-icons {
+        text-align: $centrar;
+    }
+
     .social-icons li.title {
         display: block;
         margin-right: 0;
         font-weight: 600
+    }
+}
+
+
+@media (max-width:700px) {
+
+    .site-footer {
+        margin-top: 100px;
+
+        .container {
+            .row {
+                flex-direction: column;
+            }
+        }
+
+        .columnas {
+            width: 70%;
+            text-align: $centrar;
+        }
     }
 }

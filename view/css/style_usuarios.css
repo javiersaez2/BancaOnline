@@ -1,4 +1,10 @@
-@import "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400";
+@import "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400"; /*COLORES*/
+/*MEDIDAS POR PIXELES*/
+/*MEDIDAS POR PORCENTAJES*/
+/*MEDIDAS REM-EM*/
+/* Funcion Flex solo justify content center */
+/* Funcion Flex para centrar*/
+/* Funciones para dar estilos a las cajas*/
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 * {
   padding: 0;
@@ -40,7 +46,7 @@ header {
   -webkit-text-fill-color: transparent;
 }
 .company-logo img {
-  width: 8vh;
+  width: 7vh;
 }
 
 .nav-items {
@@ -53,7 +59,7 @@ header {
 }
 
 .nav-link {
-  font-size: 1.1rem;
+  font-size: 1rem;
   letter-spacing: 0.05rem;
   position: relative;
   background: black;
@@ -103,14 +109,6 @@ header {
 
 /* =============== MEDIA QUERIES ======= */
 @media screen and (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
-  }
-  header {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0; /* required */
-  }
   .navbar {
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.342);
@@ -118,12 +116,13 @@ header {
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     position: absolute;
-    top: 5.4rem;
+    top: 3.4rem;
     right: 0;
-    width: 50%;
+    width: 150px;
     height: auto;
     display: flex;
     justify-content: center;
+    align-items: center;
     transform: scaleY(0);
     transform-origin: bottom;
     transition: transform 500ms;
@@ -157,9 +156,10 @@ header {
 }
 @media (min-width: 769px) {
   header {
-    padding: 0rem 3rem;
+    padding: 0rem 2rem;
   }
 }
+/* Estructura y estilo footer */
 .site-footer {
   margin-top: 3em;
   background-color: #26272b;
@@ -201,18 +201,7 @@ header {
   margin-top: 10px;
 }
 
-@media (max-width: 700px) {
-  .site-footer {
-    margin-top: 100px;
-  }
-  .site-footer .container .row {
-    flex-direction: column;
-  }
-  .site-footer .columnas {
-    width: 70%;
-    text-align: center;
-  }
-}
+/* Links footer */
 .footer-links {
   padding-left: 0;
   list-style: none;
@@ -237,20 +226,7 @@ header {
   margin: 0;
 }
 
-@media (max-width: 991px) {
-  .site-footer [class^=col-] {
-    margin-bottom: 30px;
-  }
-}
-@media (max-width: 767px) {
-  .site-footer {
-    padding-bottom: 0;
-  }
-  .site-footer .copyright-text,
-.site-footer .social-icons {
-    text-align: center;
-  }
-}
+/* Iconos redes sociales */
 .social-icons {
   padding-left: 0;
   margin-bottom: 0;
@@ -305,52 +281,38 @@ header {
   padding: 4px;
 }
 
+/* Media Query */
+@media (max-width: 991px) {
+  .site-footer [class^=col-] {
+    margin-bottom: 30px;
+  }
+}
 @media (max-width: 767px) {
+  .site-footer {
+    padding-bottom: 0;
+  }
+  .site-footer .copyright-text,
+.site-footer .social-icons {
+    text-align: center;
+  }
   .social-icons li.title {
     display: block;
     margin-right: 0;
     font-weight: 600;
   }
 }
-section {
-  padding: 40px 140px 40px 140px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+@media (max-width: 700px) {
+  .site-footer {
+    margin-top: 100px;
+  }
+  .site-footer .container .row {
+    flex-direction: column;
+  }
+  .site-footer .columnas {
+    width: 70%;
+    text-align: center;
+  }
 }
-section .tbl-content {
-  height: 38em;
-  width: 100%;
-  overflow-y: scroll;
-  display: flex;
-  flex-wrap: wrap;
-}
-section .tbl-content .tarjetas {
-  background-color: rgba(76, 63, 255, 0.5568627451);
-  height: 320px;
-  width: 346px;
-  position: relative;
-  margin: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.459);
-}
-section .tbl-content .tarjetas table {
-  width: 100%;
-  height: 100%;
-}
-section .tbl-content .tarjetas .columna2 {
-  color: #fbfbfb;
-  padding: 5px;
-  font-weight: 500;
-  background-color: rgba(39, 39, 39, 0.2);
-}
-section .tbl-content .tarjetas .columna1 {
-  color: #fbfbfb;
-  padding: 5px;
-  font-weight: 700;
-  background-color: rgba(39, 39, 39, 0.2);
-}
-
 .modal {
   visibility: hidden;
   opacity: 0;
@@ -405,35 +367,11 @@ section .tbl-content .tarjetas .columna1 {
   text-decoration: none;
 }
 
-.cuenta {
-  color: white;
-  font-weight: 400;
-}
-
-/* demo styles */
-body {
-  background: #fbfbfb;
-  font-family: "Roboto", sans-serif;
-}
-
-/* for custom scrollbar for webkit browser*/
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
 .form__group {
   position: relative;
   padding: 15px 0 0;
   margin-top: 10px;
-  width: 50%;
+  width: 75%;
 }
 
 .form__field {
@@ -500,6 +438,70 @@ body {
   font-weight: 700;
 }
 
+/* Seccion cuentas de los usuarios */
+section {
+  padding: 40px 140px 40px 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+section .tbl-content {
+  height: 38em;
+  width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+}
+section .tbl-content .tarjetas {
+  background-color: rgba(76, 63, 255, 0.5568627451);
+  height: 320px;
+  width: 346px;
+  position: relative;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.459);
+}
+section .tbl-content .tarjetas table {
+  width: 100%;
+  height: 100%;
+}
+section .tbl-content .tarjetas .columna2 {
+  color: #fbfbfb;
+  padding: 5px;
+  font-weight: 500;
+  background-color: rgba(39, 39, 39, 0.2);
+}
+section .tbl-content .tarjetas .columna1 {
+  color: #fbfbfb;
+  padding: 5px;
+  font-weight: 700;
+  background-color: rgba(39, 39, 39, 0.2);
+}
+
+.cuenta {
+  color: white;
+  font-weight: 400;
+}
+
+/* demo styles */
+body {
+  background: #fbfbfb;
+  font-family: "Roboto", sans-serif;
+}
+
+/* for custom scrollbar for webkit browser*/
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
 /* Botones */
 .button-23 {
   background-color: #B57EDC;
@@ -540,7 +542,7 @@ body {
   opacity: 1;
 }
 
-/*Icono*/
+/*Iconos*/
 .icono:hover {
   cursor: pointer;
 }
@@ -549,13 +551,11 @@ body {
   text-decoration: underline;
 }
 
-/* reset input */
+/* Reset input */
 .form__field:required, .form__field:invalid {
   box-shadow: none;
 }
 
 .for_option * {
   color: black;
-}
-
-/* demo *//*# sourceMappingURL=style_usuarios.css.map */
+}/*# sourceMappingURL=style_usuarios.css.map */

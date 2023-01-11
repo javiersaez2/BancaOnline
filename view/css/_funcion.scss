@@ -1,8 +1,10 @@
+/* Funcion Flex solo justify content center */
 @mixin flexJustify {
     display: flex;
     justify-content: center;
 }
 
+/* Funcion Flex para centrar*/
 @mixin flexcenter {
     display: flex;
     justify-content: center;
@@ -18,6 +20,7 @@
     
 }
 
+/* Funciones para dar estilos a las cajas*/
 @mixin glass {
 	backdrop-filter: blur(5px);
 	position: absolute;
