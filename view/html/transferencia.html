@@ -11,6 +11,8 @@
   <link href="/view/css/style.css" rel="stylesheet" type="text/css" />
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
+
+  <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
 </head>
 
 <body ng-controller="miController" ng-init="loggedVerify()">
@@ -41,7 +43,7 @@
   <br>
 
 
-    <!--/////////////////////////////////////////////////////////
+  <!--/////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
     ////////////////////  CUENTAS PERSONALES  ///////////////////
     /////////////////////////////////////////////////////////////
@@ -111,7 +113,8 @@
     -->
 
     <div class="seleccion" ng-show="SeleccionT">
-      <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" ng-model="juan" ng-options="item as item.dniCliente for item in cuentasNoPersonales" ng-click="MostrarRestos()">
+      <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" ng-model="juan"
+        ng-options="item as item.dniCliente for item in cuentasNoPersonales" ng-click="MostrarRestos()">
         <option value=""></option>
       </select>
     </div>
@@ -120,7 +123,7 @@
 
 
 
-  <section  class="tablasDeCuentas" ng-show="OtrasT">
+  <section class="tablasDeCuentas" ng-show="OtrasT">
     <h2>CUENTAS CORRIENTES A LAS QUE DESEA TRANSFERIR SALDO</h2>
 
     <div class="contenidoTabla">
@@ -168,6 +171,8 @@
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
   -->
+  <!--FOOTER-->
+  <!-- Site footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="row">
@@ -222,16 +227,18 @@
 
         <div class="columnas">
           <ul class="social-icons">
-            <li><a class="facebook" href="#"><img src="https://www.facebook.com/images/fb_icon_325x325.png" alt=""></a>
-            </li>
-            <li><a class="twitter" href="#"><img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/800px-Twitter-logo.svg.png"
-                  alt=""></a></li>
+            <li><a class="facebook" href="#"><i class="fa-brands fa-facebook fa-2xl"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa-brands fa-twitter fa-2xl"></i></a></li>
+            <li><a class="instagram" href="#"><i class="fa-brands fa-instagram fa-2xl"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa-brands fa-linkedin fa-2xl"></i></a></li>
           </ul>
         </div>
       </div>
     </div>
   </footer>
+
+
+
 
   <script src="/view/js/angular.min.js"></script>
   <script src="/view/js/transferencia.js" type="text/javascript"></script>
