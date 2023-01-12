@@ -10,9 +10,6 @@ section {
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
-    @media screen and (max-width: 1007px) {
-      width: 356px;
-    }
 
     .tarjetas {
       background-color: #4c3fff8e;
@@ -136,4 +133,13 @@ body {
 }
 .for_option *{
   color: $color-negro;
+}
+
+/* Media Query */
+@media screen and (max-width: 1007px) {
+  section{
+    .tbl-content {
+      width: 356px;  
+    }
+  }
 }
