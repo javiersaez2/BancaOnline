@@ -558,4 +558,11 @@ body {
 
 .for_option * {
   color: black;
+}
+
+/* Media Query */
+@media screen and (max-width: 1007px) {
+  section .tbl-content {
+    width: 356px;
+  }
 }/*# sourceMappingURL=style_usuarios.css.map */
