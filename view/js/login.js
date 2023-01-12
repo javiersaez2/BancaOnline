@@ -1,13 +1,44 @@
 var miApp=angular.module('miApp',[]);
 miApp.controller('miControlador', function($scope, $http){
+
+    ////////////
+    /* JQuery */
+    ////////////
+
+    /* Validar cantidad de caracteres en dni*/    
+    $("#dniInput").keypress(function(event){
+        if ($(this).val().length >= 8){
+            event.preventDefault();
+        };
+    });
+
+    /* Valida la cantidad de caracteres del codigo secreto y que todos sean numero */ 
+    $("#codSecretoInput").keypress(function(event){
+        if (event.keyCode > 31 && (event.keyCode < 48 || event.keyCode > 57)) {
+            event.preventDefault();
+        } else {
+            if ($(this).val().length >= 4){
+                event.preventDefault();
+            };
+        }
+    });
+
+    /////////////
+    /* Angular */
+    /////////////
+
+    /* Variables */
     var codSecretoKont = 0;
     $scope.passMostrar = true;
     $scope.iniciarSesionSection = true; 
+    $scope.showError = false;
 
+    /* Funciones */
     $scope.comprobarDatosSesion=function() {
         var pasahitza = "";
         var dni = "";
         var codSecreto = "";
+
         if ($scope.dniData == undefined || $scope.dniData == ""){
             dni = " ";
         } else {
@@ -33,12 +64,13 @@ miApp.controller('miControlador', function($scope, $http){
         }).then(function (response) {
             console.log(response);
             if (response.data.error == "no error"){
-                console.log("bien")
                 codSecretoKont = 0;
                 $scope.butonLogin = false;
+                $scope.showError = false;
                 window.location.href = "/index.html";     
             }else {
-                alert(response.data.error);
+                $scope.showError = true;
+                $("#textError").text(response.data.error);
                 codSecretoKont++;
                 $scope.CodSecretoData = "";
                 $scope.pasahitzaData = "";

@@ -19,7 +19,6 @@ section {
       margin: 5px;
       border: 1px solid rgba(0, 0, 0, 0.459);
 
-
       table {
         width: 100%;
         height: 100%;
@@ -134,4 +133,13 @@ body {
 }
 .for_option *{
   color: $color-negro;
+}
+
+/* Media Query */
+@media screen and (max-width: 1007px) {
+  section{
+    .tbl-content {
+      width: 356px;  
+    }
+  }
 }

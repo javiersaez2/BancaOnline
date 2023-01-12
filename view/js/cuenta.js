@@ -69,16 +69,12 @@ miApp.controller('datoscliente', function ($scope, $http) {
         modalvisible(numero);
         $scope.modificarVista = 'true';
         $scope.insertarVista = 'false';
-        // $scope.dniModificar = item.dniCliente;
-        // $scope.nombreModificar = item.nombre;
-        // $scope.contrasenaModificar = item.pasahitza;
-        // $scope.vefModificar = item.pasahitza;
     }
 
     $scope.guardarPassword = function () {
 
-        if ($scope.passanti == null) {
-            $scope.errores = "La contraseña esta vacia"
+        if ($scope.passanti == null || $scope.passModificar == null || $scope.veriModificar == null) {
+            $scope.errores = "Alguno de los camppos estan vacios"
         }
         else {
         
@@ -91,39 +87,29 @@ miApp.controller('datoscliente', function ($scope, $http) {
                 passverificada = response.data
                 console.log(passverificada)
                 if (passverificada == 2) { $scope.errores = "Contaseña incorrecta" }
-                else {
-                    $scope.errores = "Contaseña correcta"
+                else if (passverificada==1) {
+                    if ( $scope.passModificar == $scope.veriModificar) {
+                        $http({
+                            url: '/controller/c_modificarpassword.php',
+                            method: "POST",
+                            data: JSON.stringify({ 'pasahitza': $scope.passModificar })
+                        }).then(function (response) {
+                        
+                        $scope.errores = "Contaseña modificada"
+                        $scope.passanti=""
+                        $scope.passModificar=""
+                        $scope.veriModificar=""
+                        $scope.errores="";
+                        modalnovisible(1)
+                    })
+                    }
+                    else{
+                        $scope.errores = "Los campos de la nueva contraseña no coinciden  "
+                    }
                 }
 
             })
         }
-
-
-
-
-        /*if ($scope.passanti!=$scope.infocuenta.pasahitza){
-            console.log($scope.errores)
-            $scope.errores="Contaseña incorrecta"
-        }
-        
-        else if ($scope.passModificar!=$scope.veriModificar){
-            $scope.errores="Los campos de contraseña no coinciden "
-         }
-         else{
- /* $http({
-            url: '../../controller/c_insertarCuenta.php',
-            method: "POST",
-            data: JSON.stringify({'dniCliente': dni, 'nombre': nombreCliente})
-        }).then(function (response) {
-            alert(response.data.error)
-            verusuarios();
-        }).catch(function (response) {
-            console.error('Error occurred:', response.status, response.data)
-        }) 
-         }
-
-      
-        }*/
     }
 
     $scope.cerrarCuentas = function (numero) {

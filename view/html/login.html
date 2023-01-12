@@ -31,12 +31,12 @@
     </div>
   </header>
 
-     <section  ng-controller="miControlador" class="sectionlogin"  >    
+     <section class="sectionlogin"  >    
         <div class="box" ng-show="iniciarSesionSection">
             <h2>LOGIN</h2>
             <form>
             <div class="inputBox">
-                <input type="text" ng-model="dniData">
+                <input id="dniInput" type="text" ng-model="dniData">
                 <label>DNI</label>
             </div>
             <div class="inputBox" ng-show="passMostrar">
@@ -44,12 +44,14 @@
                 <label>Contraseña</label>
             </div>
             <div class="inputBox" ng-show="codSecretoMostrar">
-                <input type="password" ng-model="CodSecretoData">
+                <input id="codSecretoInput" type="password" ng-model="CodSecretoData">
                 <label>Codigo Secreto</label>
             </div>
-            <input type="submit" value="Submit" ng-click="comprobarDatosSesion()">
+            <div class="error" ng-show="showError">
+              <p id="textError"></p>
+            </div>
+            <input id="loginSubmit" type="submit" value="Submit" ng-click="comprobarDatosSesion()">
             </form>
-            <button ng-show="butonLogOut" ng-click="logout()">LOG OUT</button>
         </div>
     </section> 
 
