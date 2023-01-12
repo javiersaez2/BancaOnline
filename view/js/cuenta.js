@@ -89,12 +89,19 @@ miApp.controller('datoscliente', function ($scope, $http) {
                 if (passverificada == 2) { $scope.errores = "Contaseña incorrecta" }
                 else if (passverificada==1) {
                     if ( $scope.passModificar == $scope.veriModificar) {
+                        $http({
+                            url: '/controller/c_modificarpassword.php',
+                            method: "POST",
+                            data: JSON.stringify({ 'pasahitza': $scope.passModificar })
+                        }).then(function (response) {
+                        
                         $scope.errores = "Contaseña modificada"
                         $scope.passanti=""
                         $scope.passModificar=""
                         $scope.veriModificar=""
                         $scope.errores="";
                         modalnovisible(1)
+                    })
                     }
                     else{
                         $scope.errores = "Los campos de la nueva contraseña no coinciden  "

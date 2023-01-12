@@ -56,11 +56,25 @@
                 <div>
                  
                 </div>
-                <div *ngFor="#infocuenta of infocuenta">
+                <div class="texto"*ngFor="#infocuenta of infocuenta">
                   <p>{{infocuenta["nombre"]}}</p>
                   {{infocuenta["dniCliente"]}} -
                   {{infocuenta["secreto"]}}
                 </div>
+                <div class="botones">
+                  <button>
+                    Ingresar / Retirar
+                  </button>
+                  <button>
+                    Transferencia
+                  </button>
+  
+                </div>
+
+              </div>
+
+
+            </div>
 
 
                 <div class="cuentacorriente">
@@ -69,21 +83,7 @@
                     {{infocuenta.saldo}}€ _____
                       <button ng-click="modificarUsuario('2')">Movimiento</button>
                   </div>
-                </div>
-              </div>
 
-
-            </div>
-            <div class="btntarjeta">
-              <div class="botones">
-                <button>
-                  Ingresar / Retirar
-                </button>
-                <button>
-                  Transferencia
-                </button>
-
-              </div>
             </div>
           </div>
 

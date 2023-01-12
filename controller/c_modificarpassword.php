@@ -9,7 +9,8 @@ $cuenta->setDniCliente($_SESSION["dni"]);
 $cuenta->setPasahitza($data["pasahitza"]);
 
 
-$list = $cuenta->comprobarpassword();
+$list = $cuenta->cambiarpassword();
 $response = array();
 $response =$list["check"];
 echo json_encode($response);
+
