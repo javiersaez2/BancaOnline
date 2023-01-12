@@ -212,15 +212,15 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
                 $sql = "UPDATE cuenta_corriente SET saldo = (saldo - $cantidad) WHERE iban = '$iban';";
                 $this->link->query($sql);
                 if ($this->link->affected_rows==1) {
-                    $msg =  "el saldo ha retirado = ".$cantidad;
+                    $valor = 1;
                 } 
             }
             else {
-                $msg= "la cantidad mayor que el saldo ";
+                $valor = 0;
             }
         }
 
-        return $msg;
+        return $valor;
         $this->CloseConnect();
 
        

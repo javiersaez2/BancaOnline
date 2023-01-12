@@ -229,7 +229,29 @@ class clienteModel extends clienteclass
         $this->CloseConnect();
     
     }
-    
+    public function comprobarpassword(){
+        $dniCli = $this->dniCliente;
+        $pasahitza = $this->pasahitza;
+        $this->OpenConnect();
+
+        $dniCli = $this->dniCliente;
+        $list= array();
+        $sql = "SELECT * FROM cliente WHERE dniCliente='$dniCli' ";
+        $result = $this->link->query($sql);
+   
+        $check = 0;
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            if ($this->link->affected_rows == 1) {
+                    if ($pasahitza == $row["pasahitza"]) {
+                        $check = 1;
+                    }
+                    else{
+                    $check = 2;
+                    }
+            }
+        }
+        return array("check" => $check);
+    }
     public function ObjVars(){
         return get_object_vars($this);
     }
