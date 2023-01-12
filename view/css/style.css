@@ -1165,6 +1165,28 @@ input[type=button]:hover {
   background-color: rgba(39, 39, 39, 0.2);
 }
 
+.contenderDNI {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 90%;
+}
+.contenderDNI h2 {
+  color: purple;
+}
+.contenderDNI #FiltrarPorDNINoPersonales {
+  width: 15%;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  .contenderDNI #FiltrarPorDNINoPersonales {
+    width: 90%;
+  }
+}
 #infomarcionNecesaria {
   width: 81%;
   padding-top: 10px;

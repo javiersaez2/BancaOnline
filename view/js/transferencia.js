@@ -55,6 +55,8 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.EscogerPersonal = function ($index, contenido) {
 
         $scope.SeleccionT = true;
+        $scope.OtrasT = false;
+
         $scope.saldoT = 0;
 
         $scope.ibanPropio = contenido.iban;
@@ -125,14 +127,12 @@ MyApp.controller('miController', function ($scope, $http) {
     function modalvisible(x) {
         document.getElementById("demo-modal" + x + "").style.visibility = "visible";
         document.getElementById("demo-modal" + x + "").style.opacity = 1;
-        disable_scroll();
-        disable_scroll_mobile();
+
     }
     function modalnovisible(x) {
         document.getElementById("demo-modal" + x + "").style.visibility = "hidden";
         document.getElementById("demo-modal" + x + "").style.opacity = 0;
-        enable_scroll();
-        enable_scroll_mobile();
+
     }
 
 
@@ -224,6 +224,12 @@ MyApp.controller('miController', function ($scope, $http) {
         saldo = $scope.saldoT;
         concepto = $scope.conceptoT;
 
+        /*
+        if (concepto == ""){
+            alert("Introduce concepto")
+            return false;
+        }
+        */
         console.log(iban + "     " + saldo);
 
         lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo, "concepto": concepto};
@@ -234,7 +240,15 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify(lista)
         }).then(function (response) {
-            alert(response.data.error);
+
+            if (response.data.error == "Completado"){
+                $scope.SeleccionT = false;
+                $scope.OtrasT = false;
+                modalnovisible(1);
+            }
+
+            vercuentas();
+            vercuentasNoPersonales();
 
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
