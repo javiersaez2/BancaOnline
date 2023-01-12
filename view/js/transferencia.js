@@ -75,6 +75,7 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify(dni)
         }).then(function (response) {
+
             $scope.OtrasCuentas = response.data.list;
             $scope.OtrasT = true;
 
@@ -233,7 +234,7 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify(lista)
         }).then(function (response) {
-            alert("Movimiento realizado");
+            alert(response.data.error);
 
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)

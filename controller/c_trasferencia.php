@@ -20,7 +20,7 @@ if (isset($saldo)) {
 
 
     ///MOVIMIENTO DE RETIRAR
-    if ($cuenta->retirar()){
+    if ($cuenta->retirar()==1){
 
         $movimiento = new movimientoModel();
         $movimiento->setTipoMovimiento("Transferencia");
@@ -48,10 +48,14 @@ if (isset($saldo)) {
             $cuentaMovimiento->setIdMovimiento($id);
             $cuentaMovimiento->setCantidad($saldo);
             $response["cuentaMov"] = $cuentaMovimiento->insert();
+            $response["error"] = "Completado";
+
         }
 
-    } 
-} else{
+    } else {
+        $response["error"] = 'Insuficiente';
+    }
+} else {
     $response["error"] = 'Sin saldo';
 }
 
