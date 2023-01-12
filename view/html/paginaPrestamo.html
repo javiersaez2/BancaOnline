@@ -71,10 +71,10 @@
       <div>
         <label>Periodo de pago de intereses</label>
         <select name="" id="periodoIntereses" ng-model="periodoPago">
-          <option value="Anual">Anual</option>
-          <option value="Semestral">Semestral </option>
-          <option value="Cuatrimestral">Cuatrimestral </option>
-          <option value="Mensual">Mensual</option>
+          <option value="12">Anual</option>
+          <option value="6">Semestral </option>
+          <option value="4">Cuatrimestral </option>
+          <option value="1">Mensual</option>
         </select>
       </div>
     </div>
@@ -83,10 +83,10 @@
       <div>
         <label>Tipo de Base Temporal</label>
         <select name="" id="tipoBase" ng-model="tipo">
-          <!-- <option value="Anual">Anual</option>
-                    <option value="Semestral">Semestral </option>
-                    <option value="Cuatrimestral">Cuatrimestral </option>
-                    <option value="Mensual">Mensual</option> -->
+           <option value="12" >Anual</option>
+                    <option ng-show="periodoPago ==6">Semestral </option>
+                    <option ng-show="periodoPago ==4">Cuatrimestral </option>
+                    <option ng-show="periodoPago ==1">Mensual</option>
         </select>
       </div>
       <div>
