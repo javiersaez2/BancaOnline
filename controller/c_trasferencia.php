@@ -31,7 +31,10 @@ if (isset($saldo)) {
         $cuentaMovimiento = new cuenta_movimientosModel();
         $cuentaMovimiento->setIban($ibanEmisor);
         $cuentaMovimiento->setIdMovimiento($id);
-        $saldoNegativo = abs($saldo)
+        //$saldoNegativo = abs($saldo);
+        //$saldoNegativo = gmp_neg("$saldo");
+        //var_dump($saldoNegativo);
+        $saldoNegativo = -$saldo;
         $cuentaMovimiento->setCantidad($saldoNegativo);
         $response["cuentaMov"] = $cuentaMovimiento->insert();
 
@@ -39,11 +42,6 @@ if (isset($saldo)) {
         ///MOVIMIENTO DE INGRESAR
         $cuenta->setIban($ibanReceptor);
         if ($cuenta->ingresar()){
-            //$movimiento->setTipoMovimiento("Transferencia");
-            //$movimiento->setConcepto("Algo");
-            //$response["movimiento"] = $movimiento->insert();
-
-
             $cuentaMovimiento->setIban($ibanReceptor);
             $cuentaMovimiento->setIdMovimiento($id);
             $cuentaMovimiento->setCantidad($saldo);

@@ -115,7 +115,7 @@ MyApp.controller('miController', function ($scope, $http) {
             data: JSON.stringify(lista)
         }).then(function (response) {
             console.log(response.data.error);
-            console.log("Creo que lo he conseguido");
+            alert("Movimiento realizado");
 
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
