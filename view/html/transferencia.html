@@ -93,32 +93,19 @@
     </div>
   </section>
 
+
+
   <!--///////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////
-    ///////////  CANTIDAD DE SALDO PARA TRANSFERIR  /////////////
-    /////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////
-  -->
-  <div id="infomarcionNecesaria">
-    <div class="seleccion">
-      <input type="text" ng-model="saldoT" ng-show="DineroT" ng-keypress="AsignarSaldo()">
-    </div>
-
-
-    <!--///////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////
       ///////////  CUENTA A LA QUE TRANSFERIR SALDO  //////////////
       /////////////////////////////////////////////////////////////
       /////////////////////////////////////////////////////////////
     -->
-
-    
-    <div class="seleccion" ng-show="SeleccionT">
-      <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" ng-model="juan"
-        ng-options="item as item.dniCliente for item in cuentasNoPersonales" ng-click="MostrarRestos()">
-        <option value=""></option>
-      </select>
-    </div>
+  <div class="seleccion" ng-show="SeleccionT">
+    <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" ng-model="juan"
+      ng-options="item as item.dniCliente for item in cuentasNoPersonales" ng-click="MostrarRestos()">
+      <option value=""></option>
+    </select>
   </div>
 
 
@@ -157,12 +144,69 @@
             </td>
           </tr>
         </table>
-        <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="transferir($index,contenidoss)"></i>
+        <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="modalIban($index,contenidoss)">
 
       </div>
     </div>
 
   </section>
+
+
+
+
+
+
+
+
+
+
+
+  <!--///////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    ///////////  CANTIDAD DE SALDO PARA TRANSFERIR  /////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+  -->
+
+  <!--Modal modificar usuario-->
+  <!--Moodal de registrarse con nueva cuenta-->
+  <div class="modal fade" id="registroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" ng-show="modala">
+    <div class="modal-dialog" role="document">
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>¡Zatoz gurekin!</h1>
+        </div>
+
+        <section id="registro2" class="container">
+          <div class="formulario1">
+            <h1>A</h1>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!--///////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////  INFORMACION NECESARIA   //////////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+  -->
+  <div id="infomarcionNecesaria">
+    <div class="seleccion">
+      <input type="text" ng-model="saldoT" ng-show="DineroT" ng-keypress="AsignarSaldo()">
+    </div>
+
+    <!--
+    <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="transferir($index,contenidoss)"></i>
+     -->
+  </div>
+
+
 
 
 
@@ -172,8 +216,6 @@
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
   -->
-  <!--FOOTER-->
-  <!-- Site footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="row">

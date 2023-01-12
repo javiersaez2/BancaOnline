@@ -4,13 +4,13 @@ var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
 
     //saldo
-    $scope.saldoT=0;
+    $scope.saldoT = 0;
 
     ///Visualizacion
-    $scope.TablaPersonales=true;
-    $scope.DineroT=false;
-    $scope.SeleccionT=false;
-    $scope.OtrasT=false;
+    $scope.TablaPersonales = true;
+    $scope.DineroT = false;
+    $scope.SeleccionT = false;
+    $scope.OtrasT = false;
 
     //Parametros propios
     $scope.ibanPropio;
@@ -24,7 +24,7 @@ MyApp.controller('miController', function ($scope, $http) {
             .then(function (response) {
                 //console.log(response.data.list);
                 $scope.cuentas = response.data.list;
-                
+
             })
             .catch(function (response) {
                 console.error('Error occurred:', response.status, response.data)
@@ -36,15 +36,15 @@ MyApp.controller('miController', function ($scope, $http) {
         MOSTRAR CUENTAS DE OTROS POR DNI
     */
     vercuentasNoPersonales();
-    function vercuentasNoPersonales(){
+    function vercuentasNoPersonales() {
         $http.post('/controller/c_mostrar_cuentasTransferir.php')
-        .then(function (response) {
-            $scope.cuentasNoPersonales = response.data.list;
-            
-        })
-        .catch(function (response) {
-            console.error('Error occurred:', response.status, response.data)
-        })
+            .then(function (response) {
+                $scope.cuentasNoPersonales = response.data.list;
+
+            })
+            .catch(function (response) {
+                console.error('Error occurred:', response.status, response.data)
+            })
     }
 
 
@@ -52,32 +52,23 @@ MyApp.controller('miController', function ($scope, $http) {
     /*
         ESCOGER TU CUENTA
     */
-    $scope.EscogerPersonal = function($index, contenido){
-        $scope.DineroT=true;
+    $scope.EscogerPersonal = function ($index, contenido) {
+
+        $scope.SeleccionT = true;
         $scope.saldoT = 0;
 
         $scope.ibanPropio = contenido.iban;
-
         console.log($scope.ibanPropio);
 
     }
 
 
     /*
-        ASIGNAR EL SALDO
+    MOSTRAR LAS DEMAS
     */
-    $scope.AsignarSaldo = function(){
-        $scope.SeleccionT=true;
-
-    }
-
-
-    /*
-        MOSTRAR LAS DEMAS
-    */
-    $scope.MostrarRestos = function(){
+    $scope.MostrarRestos = function () {
         //$scope.juan -> Lo que se esconde dentro
-        dni = {"dniCliente": $scope.juan.dniCliente};
+        dni = { "dniCliente": $scope.juan.dniCliente };
 
         $http({
             url: '../../controller/c_mostrarOtrasCuentas.php',
@@ -85,30 +76,62 @@ MyApp.controller('miController', function ($scope, $http) {
             data: JSON.stringify(dni)
         }).then(function (response) {
             $scope.OtrasCuentas = response.data.list;
-            $scope.OtrasT=true;
+            $scope.OtrasT = true;
 
 
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
-        })         
+        })
 
     }
+
+    $scope.modalIban = function ($index, contenidoss) {
+        iban = contenidoss.iban;
+
+    }
+
+    
+
+    /*
+    MODAL
+    */
+
+
+
+
+
+
+
+
+
+    /*
+        ASIGNAR EL SALDO
+    */
+    /*
+     $scope.AsignarSaldo = function(){
+         $scope.SeleccionT=true;
+ 
+     }
+     */
+
+
+
 
 
     /*
         TRANSFERENCIA
     */
-    $scope.transferir = function($index,contenidoss){
+    $scope.transferir = function ($index, contenidoss) {
 
-        iban = contenidoss.iban;
+        //iban = contenidoss.iban;
         saldo = $scope.saldoT;
 
-        console.log(iban+" \ "+saldo);
+        console.log(iban + "     " + saldo);
 
-        lista = {"ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo};
+        lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo };
 
 
-        
+
         $http({
             url: '../../controller/c_trasferencia.php',
             method: "POST",
@@ -119,8 +142,8 @@ MyApp.controller('miController', function ($scope, $http) {
 
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
-        })  
-           
+        })
+
     }
 
 
@@ -129,24 +152,24 @@ MyApp.controller('miController', function ($scope, $http) {
 
     /////LOGGED VERIFY
     $scope.passMostrar = true;
-    $scope.iniciarSesionSection = true; 
+    $scope.iniciarSesionSection = true;
 
-    $scope.loggedVerify=function() {
+    $scope.loggedVerify = function () {
         $http({
             url: "/controller/cLoggedVerify.php",
             method: "POST"
         }).then(function (response) {
-         
-            if (response.data.error != "logged"){
+
+            if (response.data.error != "logged") {
                 $scope.cuentaUsuario = false;
                 $scope.botonAdmin = false;
                 $scope.butonLogin = true;
                 window.location.href = "/index.html";
 
-            } else {             
+            } else {
                 $scope.butonLogOut = true;
                 $scope.butonLogin = false;
-                if (response.data.tipo == 1){
+                if (response.data.tipo == 1) {
                     $scope.botonAdmin = true;
                     $scope.cuentaUsuario = false;
                 } else {
@@ -157,10 +180,10 @@ MyApp.controller('miController', function ($scope, $http) {
             }
         }).catch(function (response) {
             console.error("Ocurrio un error", response.status, response.data);
-        })	   
-    }	
+        })
+    }
 
-    $scope.logout=function(){
+    $scope.logout = function () {
         $http({
             url: "/controller/cLogout.php",
             method: "POST"
@@ -169,7 +192,7 @@ MyApp.controller('miController', function ($scope, $http) {
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
-        })	
+        })
     }
 
 })
