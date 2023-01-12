@@ -213,7 +213,7 @@ MyApp.controller('miController', function ($scope, $http) {
 
 
 
-    
+
 
 
     /*
@@ -233,15 +233,12 @@ MyApp.controller('miController', function ($scope, $http) {
     /*
         TRANSFERENCIA
     */
-    $scope.transferir = function ($index, contenidoss) {
+    $scope.transferir = function () {
 
-        //iban = contenidoss.iban;
         saldo = $scope.saldoT;
-
         console.log(iban + "     " + saldo);
 
         lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo };
-
 
 
         $http({

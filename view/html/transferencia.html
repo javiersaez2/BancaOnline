@@ -167,13 +167,22 @@
       <form>
         <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
 
+        <div id="infomarcionNecesaria">
+          <div class="seleccion">
+            <label for="saldo">Saldo que desea trasnferir</label>
+            <input name="saldo" type="text" ng-model="saldoT">
+          </div>
+      
+          <div class="seleccion">
+            <label for="concepto">Concepto</label>
+            <input name="concepto" type="text" ng-model="conceptoT">
+          </div>
+           
+        </div>
 
-        <div class="form__group field">
-
-          dATOS DEL MODAL
+        <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="transferir()"></i>
 
 
-        <button ng-click="guardarPassword(item)" class="button-23">Guardar Modificaciones</button>
       </form>
     </div>
   </div>
@@ -199,15 +208,7 @@
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
   -->
-  <div id="infomarcionNecesaria">
-    <div class="seleccion">
-      <input type="text" ng-model="saldoT" ng-show="DineroT" ng-keypress="AsignarSaldo()">
-    </div>
 
-    <!--
-    <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="transferir($index,contenidoss)"></i>
-     -->
-  </div>
 
 
 
