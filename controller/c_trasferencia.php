@@ -14,7 +14,7 @@ $concepto = $data["concepto"];
 
 $cuenta = new cuenta_corrienteModel();
 
-if (($saldo!=0) && ($concepto!=null)) {
+if (isset($saldo)) {
     $cuenta->setSaldo($saldo);
     $cuenta->setIban($ibanEmisor);
 
@@ -56,7 +56,7 @@ if (($saldo!=0) && ($concepto!=null)) {
         $response["error"] = 'Insuficiente';
     }
 } else {
-    $response["error"] = 'Por favor; introduce Saldo o Concepto';
+    $response["error"] = 'Por favor; introduce Saldo';
 }
 
 echo json_encode($response);

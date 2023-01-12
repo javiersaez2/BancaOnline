@@ -145,9 +145,20 @@ MyApp.controller('miController', function ($scope, $http) {
     */
     $scope.transferir = function () {
 
+        if ($scope.conceptoT == null){
+            alert("Por favor; introduce Concepto");
+            return false;
+        }
+
+        if ($scope.conceptoT != null && $scope.saldoT==0){
+            alert("Por favor; introduce Saldo");
+            return false;
+
+        }
+
+
         saldo = $scope.saldoT;
         concepto = $scope.conceptoT;
-
 
         console.log(iban + "     " + saldo);
         lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo, "concepto": concepto};
