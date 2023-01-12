@@ -92,6 +92,18 @@ MyApp.controller('miController', function ($scope, $http) {
 
     
 
+
+
+
+
+
+
+
+
+
+
+
+
     /*
     MODAL
     */
@@ -121,12 +133,6 @@ MyApp.controller('miController', function ($scope, $http) {
         enable_scroll();
         enable_scroll_mobile();
     }
-
-
-
-
-
-
 
 
     //////////// - Modaeles no scroll - ////////////
@@ -209,36 +215,17 @@ MyApp.controller('miController', function ($scope, $http) {
 
 
 
-
-
-
-
-
-
-
-    /*
-        ASIGNAR EL SALDO
-    */
-    /*
-     $scope.AsignarSaldo = function(){
-         $scope.SeleccionT=true;
- 
-     }
-     */
-
-
-
-
-
     /*
         TRANSFERENCIA
     */
     $scope.transferir = function () {
 
         saldo = $scope.saldoT;
+        concepto = $scope.conceptoT;
+
         console.log(iban + "     " + saldo);
 
-        lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo };
+        lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo, "concepto": concepto};
 
 
         $http({
@@ -246,7 +233,6 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify(lista)
         }).then(function (response) {
-            console.log(response.data.error);
             alert("Movimiento realizado");
 
         }).catch(function (response) {
