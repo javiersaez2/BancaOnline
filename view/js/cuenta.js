@@ -77,8 +77,8 @@ miApp.controller('datoscliente', function ($scope, $http) {
 
     $scope.guardarPassword = function () {
 
-        if ($scope.passanti == null) {
-            $scope.errores = "La contraseña esta vacia"
+        if ($scope.passanti == null || $scope.passModificar == null || $scope.veriModificar == null) {
+            $scope.errores = "Alguno de los camppos estan vacios"
         }
         else {
         
@@ -91,8 +91,18 @@ miApp.controller('datoscliente', function ($scope, $http) {
                 passverificada = response.data
                 console.log(passverificada)
                 if (passverificada == 2) { $scope.errores = "Contaseña incorrecta" }
-                else {
-                    $scope.errores = "Contaseña correcta"
+                else if (passverificada==1) {
+                    if ( $scope.passModificar == $scope.veriModificar) {
+                        $scope.errores = "Contaseña modificada"
+                        $scope.passanti=""
+                        $scope.passModificar=""
+                        $scope.veriModificar=""
+                        $scope.errores="";
+                        modalnovisible(1)
+                    }
+                    else{
+                        $scope.errores = "Los campos de la nueva contraseña no coinciden  "
+                    }
                 }
 
             })
