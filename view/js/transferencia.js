@@ -224,14 +224,8 @@ MyApp.controller('miController', function ($scope, $http) {
         saldo = $scope.saldoT;
         concepto = $scope.conceptoT;
 
-        /*
-        if (concepto == ""){
-            alert("Introduce concepto")
-            return false;
-        }
-        */
-        console.log(iban + "     " + saldo);
 
+        console.log(iban + "     " + saldo);
         lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo, "concepto": concepto};
 
 
@@ -241,14 +235,17 @@ MyApp.controller('miController', function ($scope, $http) {
             data: JSON.stringify(lista)
         }).then(function (response) {
 
+            alert(response.data.error);
+
+            vercuentas();
+
             if (response.data.error == "Completado"){
                 $scope.SeleccionT = false;
                 $scope.OtrasT = false;
                 modalnovisible(1);
             }
 
-            vercuentas();
-            vercuentasNoPersonales();
+
 
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
