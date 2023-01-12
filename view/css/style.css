@@ -942,6 +942,15 @@ input[type=button]:hover {
     width: 400px;
   }
 }
+.sectionlogin .box .error {
+  width: 50%;
+  color: red;
+  margin: auto;
+  text-align: center;
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
 .sectionlogin .box h2 {
   margin: 0 0 30px;
   padding: 0;
@@ -984,10 +993,12 @@ input[type=button]:hover {
 }
 
 .box input[type=submit] {
+  width: 100%;
   background: transparent;
   border: none;
   outline: none;
-  color: black;
+  color: #fbfbfb;
+  font-weight: 500;
   background: #B57EDC;
   padding: 10px 20px;
   cursor: pointer;
