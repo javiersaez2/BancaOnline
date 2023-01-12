@@ -328,6 +328,11 @@ section .tbl-content {
   display: flex;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 1007px) {
+  section .tbl-content {
+    width: 356px;
+  }
+}
 section .tbl-content .tarjetas {
   background-color: rgba(76, 63, 255, 0.5568627451);
   height: 320px;

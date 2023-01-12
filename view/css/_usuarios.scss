@@ -10,6 +10,9 @@ section {
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
+    @media screen and (max-width: 1007px) {
+      width: 356px;
+    }
 
     .tarjetas {
       background-color: #4c3fff8e;
@@ -18,7 +21,6 @@ section {
       position: relative;
       margin: 5px;
       border: 1px solid rgba(0, 0, 0, 0.459);
-
 
       table {
         width: 100%;
