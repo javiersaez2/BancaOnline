@@ -49,7 +49,7 @@
           <div class="tarjeta">
             <div class="infocliete">
               <div class="profile-card js-profile-card">
-                <i class="fa-solid fa-user-pen icono" ng-click="modificarUsuario('2')"></i>
+                <i class="fa-solid fa-user-pen icono" ng-click="modificarUsuario('1')"></i>
                 <div class="profile-card__img">
                   <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="profile card">
                 </div>
@@ -67,7 +67,7 @@
                   <div class="datoscorriente" ng-repeat="infocuenta in infocuenta.objCuenta">
                     {{infocuenta.iban}} - 
                     {{infocuenta.saldo}}€ _____
-                      <button>Movimiento</button>
+                      <button ng-click="modificarUsuario('2')">Movimiento</button>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@
 
 
   <!--Modal modificar usuario-->
-  <div id="demo-modal2" class="modal">
+  <div id="demo-modal1" class="modal">
     
     <div class="modal__content">
       <form>
@@ -125,80 +125,104 @@
 
 
         <button ng-click="guardarPassword(item)" class="button-23">Guardar Modificaciones</button>
-        <a ng-click="cerrarCuentas('2')" class="modal__close">&times;</a>
+        <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
       </form>
     </div>
   </div>
   </div>
 
 
-        <!--FOOTER-->
-        <!-- Site footer -->
-        <footer class="site-footer">
-          <div class="container">
-            <div class="row">
-              <div class="columnas">
-                <h6>DESTACADOS</h6>
-                <ul class="footer-links">
-                  <li><a href="#">Calcular Prestamo Simple</a></li>
-                  <li><a href="#">Calcular Prestamo Francés</a></li>
-                  <li><a href="#">Calcular Prestamo Lineal</a></li>
-                  <li><a href="#">Calcular Prestamo Americano</a></li>
-                  <li><a href="#">Cuenta Online</a></li>
-                  <li><a href="#">Horarios</a></li>
-                  <li><a href="#">Trabaja con nosotros</a></li>
-                  <li><a href="#">Zornotza Agentes</a></li>
-                </ul>
-              </div>
+  <!--Modal ver movimientos-->
+  <div id="demo-modal2" class="modal">
+    
+    <div class="modal__content">
+      <form>
+        <!-- <div class="form__group field">
+          <input type="input" class="form__field" ng-model="dniModificar" placeholder="DNI" name="dni" id='dniModificar'
+            required />
+          <label for="name" class="form__label">DNI</label>
+        </div> -->
+      Informacion de los movimientos
+      <a ng-click="cerrarCuentas('2')" class="modal__close">&times;</a>
+        <div class="form__group field">
+          Cuenats con sus movimientos
+        <br>
+       <div ng-model="errores">{{errores}}</div>
 
-              <div class="columnas">
-                <h6>INFORMACIÓN LEGAL Y SEGURIDAD</h6>
-                <ul class="footer-links">
-                  <li><a href="#">Aviso Legal</a></li>
-                  <li><a href="#">Politica de cookies</a></li>
-                  <li><a href="#">Anuncios</a></li>
-                  <li><a href="#">Ley de servicios de pago</a></li>
-                  <li><a href="#">Acessibilidad</a></li>
-                  <li><a href="#">Seguridad online</a></li>
-                  <li><a href="#">Reclamaciones</a></li>
-                  <li><a href="#">Pormociones</a></li>
-                </ul>
-              </div>
 
-              <div class="columnas">
-                <h6>WWBS FP ZORNOTZA</h6>
-                <ul class="footer-links">
-                  <li><a href="#">Sobre Grupo 4</a></li>
-                  <li><a href="#">Contacto</a></li>
-                  <li><a href="#">Asistente</a></li>
-                  <li><a href="#">Consumidor</a></li>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">Politicas de Privacidad</a></li>
-                  <li><a href="#">Finanzas Personales</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row2">
-              <div class="columnas">
-                <p class="copyright-text">Copyright &copy;Grupo4 Zonortza 2022.</p>
-                <a href="#">Todos los derechos reservados</a>.
-              </div>
+        <button ng-click="guardarPassword(item)" class="button-23">Guardar Modificaciones</button>
+      </form>
+    </div>
+  </div>
+  </div>
 
-              <div class="columnas">
-                <ul class="social-icons">
-                  <li><a class="facebook" href="#"><img src="https://www.facebook.com/images/fb_icon_325x325.png"
-                        alt=""></a></li>
-                  <li><a class="twitter" href="#"><img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/800px-Twitter-logo.svg.png"
-                        alt=""></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
+  <!--FOOTER-->
+   <!-- Site footer -->
+   <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="columnas">
+          <h6>DESTACADOS</h6>
+          <ul class="footer-links">
+            <li><a href="#">Calcular Prestamo Simple</a></li>
+            <li><a href="#">Calcular Prestamo Francés</a></li>
+            <li><a href="#">Calcular Prestamo Lineal</a></li>
+            <li><a href="#">Calcular Prestamo Americano</a></li>
+            <li><a href="#">Cuenta Online</a></li>
+            <li><a href="#">Horarios</a></li>
+            <li><a href="#">Trabaja con nosotros</a></li>
+            <li><a href="#">Zornotza Agentes</a></li>
+          </ul>
+        </div>
+
+        <div class="columnas">
+          <h6>INFORMACIÓN LEGAL Y SEGURIDAD</h6>
+          <ul class="footer-links">
+            <li><a href="#">Aviso Legal</a></li>
+            <li><a href="#">Politica de cookies</a></li>
+            <li><a href="#">Anuncios</a></li>
+            <li><a href="#">Ley de servicios de pago</a></li>
+            <li><a href="#">Acessibilidad</a></li>
+            <li><a href="#">Seguridad online</a></li>
+            <li><a href="#">Reclamaciones</a></li>
+            <li><a href="#">Pormociones</a></li>
+          </ul>
+        </div>
+
+        <div class="columnas">
+          <h6>WWBS FP ZORNOTZA</h6>
+          <ul class="footer-links">
+            <li><a href="#">Sobre Grupo 4</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Asistente</a></li>
+            <li><a href="#">Consumidor</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Politicas de Privacidad</a></li>
+            <li><a href="#">Finanzas Personales</a></li>
+          </ul>
+        </div>
       </div>
+    </div>
+    <div class="container">
+      <div class="row2">
+        <div class="columnas">
+          <p class="copyright-text">Copyright &copy;Grupo4 Zonortza 2022.</p>
+          <a href="#">Todos los derechos reservados</a>.
+        </div>
+
+        <div class="columnas">
+          <ul class="social-icons">
+            <li><a class="facebook" href="#"><i class="fa-brands fa-facebook fa-2xl"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa-brands fa-twitter fa-2xl"></i></a></li>
+            <li><a class="instagram" href="#"><i class="fa-brands fa-instagram fa-2xl"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa-brands fa-linkedin fa-2xl"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</footer>
+
+
 
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><!-- Slider -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
