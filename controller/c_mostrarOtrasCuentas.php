@@ -5,12 +5,14 @@ $data = json_decode(file_get_contents("php://input"),true);
 
 $response = array();
 $dniCliente=$data["dniCliente"];
+$iban=$data["iban"];
 
-if (isset($dniCliente)){
+if (isset($dniCliente) || isset($iban)){
 
     $cuenta = new cuenta_corrienteModel();
 
     $cuenta->setDniCliente($dniCliente);
+    $cuenta->setIban($iban);
 
     $response["list"] = $cuenta->cuentasTransferibles();
     $response["error"] = "no error";

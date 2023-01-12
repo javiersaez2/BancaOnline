@@ -61,11 +61,8 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.SeleccionT = true;
         $scope.OtrasT = false;
 
-        $scope.saldoT = 0;
-
         $scope.ibanPropio = contenido.iban;
         console.log($scope.ibanPropio);
-
     }
 
 
@@ -77,7 +74,8 @@ MyApp.controller('miController', function ($scope, $http) {
     */
     $scope.MostrarRestos = function () {
         //$scope.juan -> Lo que se esconde dentro
-        dni = { "dniCliente": $scope.juan.dniCliente };
+
+        dni = { "dniCliente": $scope.juan.dniCliente, "iban": $scope.ibanPropio};
 
         $http({
             url: '../../controller/c_mostrarOtrasCuentas.php',

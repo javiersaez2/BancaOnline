@@ -137,9 +137,10 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
 
     public function setListCuentaNoPersonal()
     {
-        $dniCliente=$this->dniCliente;
+        //$dniCliente=$this->dniCliente;
         $this->OpenConnect();
-        $sql = "select * from cuenta_corriente where dniCliente!='$dniCliente' GROUP BY dniCliente ";
+        //$sql = "select * from cuenta_corriente where dniCliente!='$dniCliente' GROUP BY dniCliente ";
+        $sql = "select * from cuenta_corriente GROUP BY dniCliente ";
 
         $list=array();
 
@@ -163,8 +164,10 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
     public function cuentasTransferibles()
     {
         $dniCliente=$this->dniCliente;
+        $iban=$this->iban;
+
         $this->OpenConnect();
-        $sql = "select * from cuenta_corriente where dniCliente='$dniCliente'";
+        $sql = "select * from cuenta_corriente where dniCliente='$dniCliente' AND iban!='$iban'";
 
         //var_dump($sql);
         $list=array();
