@@ -9,6 +9,8 @@ $response = array();
 $ibanEmisor = $data["ibanEmisor"];
 $ibanReceptor = $data["ibanReceptor"];
 $saldo = $data["saldo"];
+$concepto = $data["concepto"];
+
 
 $cuenta = new cuenta_corrienteModel();
 
@@ -18,11 +20,11 @@ if (isset($saldo)) {
 
 
     ///MOVIMIENTO DE RETIRAR
-    if ($cuenta->retirar()){
+    if ($cuenta->retirar()==1){
 
         $movimiento = new movimientoModel();
         $movimiento->setTipoMovimiento("Transferencia");
-        $movimiento->setConcepto("Algo");
+        $movimiento->setConcepto($concepto);
         $response["movimiento"] = $movimiento->insert();
 
         $id = $movimiento->selectIid();
@@ -46,10 +48,14 @@ if (isset($saldo)) {
             $cuentaMovimiento->setIdMovimiento($id);
             $cuentaMovimiento->setCantidad($saldo);
             $response["cuentaMov"] = $cuentaMovimiento->insert();
+            $response["error"] = "Completado";
+
         }
 
-    } 
-} else{
+    } else {
+        $response["error"] = 'Insuficiente';
+    }
+} else {
     $response["error"] = 'Sin saldo';
 }
 
