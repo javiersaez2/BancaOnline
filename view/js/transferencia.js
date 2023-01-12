@@ -49,6 +49,10 @@ MyApp.controller('miController', function ($scope, $http) {
 
 
 
+
+
+
+
     /*
         ESCOGER TU CUENTA
     */
@@ -63,6 +67,9 @@ MyApp.controller('miController', function ($scope, $http) {
         console.log($scope.ibanPropio);
 
     }
+
+
+
 
 
     /*
@@ -91,11 +98,9 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.modalIban = function ($index, contenidoss) {
         iban = contenidoss.iban;
 
+        $scope.saldoT = 0;
+        $scope.conceptoT = "";
     }
-
-    
-
-
 
 
 
@@ -145,23 +150,26 @@ MyApp.controller('miController', function ($scope, $http) {
     */
     $scope.transferir = function () {
 
-        if ($scope.conceptoT == null){
+
+
+        if ($scope.conceptoT == null) {
             alert("Por favor; introduce Concepto");
             return false;
         }
 
-        if ($scope.conceptoT != null && $scope.saldoT==0){
+        if ($scope.conceptoT != null && $scope.saldoT == 0) {
             alert("Por favor; introduce Saldo");
             return false;
 
         }
 
-
         saldo = $scope.saldoT;
         concepto = $scope.conceptoT;
 
+
+
         console.log(iban + "     " + saldo);
-        lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo, "concepto": concepto};
+        lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo, "concepto": concepto };
 
 
         $http({
@@ -175,7 +183,7 @@ MyApp.controller('miController', function ($scope, $http) {
             vercuentas();
             //vercuentasNoPersonales();
 
-            if (response.data.error == "Completado"){
+            if (response.data.error == "Completado") {
                 $scope.SeleccionT = false;
                 $scope.OtrasT = false;
                 modalnovisible(1);
