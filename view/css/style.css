@@ -1053,7 +1053,8 @@ input[type=button]:hover {
 
 .modal__close {
   position: absolute;
-  top: 10px;
+  font-size: 30px;
+  top: 0px;
   right: 10px;
   color: #585858;
   text-decoration: none;

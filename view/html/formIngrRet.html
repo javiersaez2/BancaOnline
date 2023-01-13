@@ -36,7 +36,7 @@
   
 
 <br>
-<h1 style="text-align: center;">Ingresar/Retirar</h1>
+<h1 style="text-align: center;">{{titulo}}</h1>
 <br>
 
 <section class="tablasDeCuentas">
@@ -64,37 +64,44 @@
           </td>
         </tr>
       </table>
-      <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="elegir($index,contenido)"></i>
+      <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="elegir($index,contenido); modal('1')"></i>
     </div>
   </div>
 </section>
 
+ <!--Modal -->
+ <div id="demo-modal1" class="modal">
+    
+  <div class="modal__content">
 
-<div ng-show="textoVer =='true'">
-    <h2>Has elegido la cuenta con IBAN : <span id="ibanClick"></span></h2>
 
+      <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
+      <div class="form__group field">
+
+        <div ng-show="textoVer =='true'">
+          <h2>Has elegido la cuenta con IBAN : <span id="ibanClick"></span></h2>
+      
+      </div>
+      
+      <form ng-show="formVer =='true'">
+      
+        <div>
+          </div>
+          <div>
+            <input type="text"  ng-model="cantidad" placeholder="cantidad" name="cantidad" id='cantidad' />
+          </div>
+          <div>
+            <textarea  ng-model="concepto" placeholder="concepto" name="concepto" id='concepto'></textarea>
+          </div>
+          <br>
+          <input id="boton" type="button" value="Aceptar" ng-click="mover()">
+        </form>
+  </div>
+</div>
 </div>
 
-<form ng-show="formVer =='true'">
 
-  <div>
-      <select  ng-model="tipo" >
-        <option value="" >Seleccione el tipo</option>
-        <option value="ingresar">Ingresar</option>
-        <option value="retirar">Retirar</option> 
-      </select>
-    </div>
-    <div>
-      <input type="text"  ng-model="cantidad" placeholder="cantidad" name="cantidad" id='cantidad' />
-    </div>
-    <div>
-      <textarea  ng-model="concepto" placeholder="concepto" name="concepto" id='concepto'/></textarea>
-    </div>
-    <br>
-    <input id="boton" type="button" value="Aceptar" ng-click="mover()">
-  </form>
-<br>
-<br>
+
   <!--FOOTER-->
    <!-- Site footer -->
    <footer class="site-footer">
@@ -159,5 +166,6 @@
       </div>
   </footer>
 <script src="/view/js/retirarIngresar.js"></script>
+
 </body>
 </html>

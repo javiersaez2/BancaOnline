@@ -4,8 +4,8 @@
     margin-top: 50px;
 
     .tarjeta {
-        width: auto;
-        height: 500px;
+        width: 1000px;
+        height: 700px;
         display: flex;
 
         @include glasscuenta();
@@ -14,7 +14,7 @@
         .infocliete {
             padding: 5px;
             margin-right: 20px;
-            width: 50%;
+            width: 100%;
 
             .icon {
                 display: inline-block;
@@ -31,7 +31,7 @@
                 width: 100%;
                 height: 100%;
                 margin: auto;
-                background-color: white;
+                background-color: $color-blanco-cuenta;
                 box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
                 border-top-left-radius: 0px;
                 border-bottom-left-radius: 0px;
@@ -79,27 +79,75 @@
                     }
                     .texto{
                         text-align: center;
-                        font-size: x-large;
+                        font-size: xx-large;
 
                     }
                     .botones {
-
-                        box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
-                        border-top-right-radius: 0px;
-                        border-bottom-right-radius: 0px;
-        
                         position: relative;
                         display: flex;
-                        
+                        flex-direction: column;
                         justify-content: space-around;
+                        align-items: center;
+                        margin-top: 10px;
         
-                        button {
-                            margin-left: 5px;
-                            margin-right: 5px;
-                            width: 150px;
-                            height: 75px;
+                      .custom-btn {
+                            width: 400px;
+                            height: 100px;
+                            border: 2px solid $color-terciario1;
+                            font-family: 'Lato', sans-serif;
+                            font-weight: 50px;
+                            background: transparent;
+                            color:$color-negro;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            position: relative;
+                            display: inline-block;
+                            margin: 10px;
+  
+
         
-                        }
+                          }
+                          
+                          
+                          /* 11 */
+                          .btn-11 {
+                            font-size: 25px;
+                               font-weight: 50px;
+                            overflow: hidden;
+                            transition: all 0.3s ease;
+                          }
+                          .btn-11:hover {
+                             background: #B57EDC;
+                            color: #fff;
+                          }
+                          .btn-11:before {
+                              position: absolute;
+                              content: '';
+                              display: inline-block;
+                              top: -180px;
+                              left: 0;
+                              width: 30px;
+                              height: 100%;
+                              background-color: #fff;
+                              animation: shiny-btn1 3s ease-in-out infinite;
+                          }
+                          .btn-11:active{
+                            box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+                                        -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+                              inset -4px -4px 6px 0 rgba(255,255,255,.2),
+                              inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+                          }
+                          
+                          
+                          @-webkit-keyframes shiny-btn1 {
+                              0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+                              80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+                              81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+                              100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+                          }
+                          
+                          
+
                     }
 
             }

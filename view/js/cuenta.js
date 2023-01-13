@@ -49,11 +49,15 @@ miApp.controller('miControlador', function ($scope, $http) {
 //Datos de usuario
 miApp.controller('datoscliente', function ($scope, $http) {
 
+
+    $scope.ingresarretirar = function(numero){
+        localStorage.setItem("ingresarretirarnumero", numero);
+    }
+
+
     $scope.passMostrar = true;
     $scope.iniciarSesionSection = true;
-
     $scope.datoscliente = function () {
-
         $http({
             url: "/controller/c_infocuenta.php",
             method: "POST"
