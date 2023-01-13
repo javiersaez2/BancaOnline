@@ -56,7 +56,7 @@ if (isset($saldo)) {
         $response["error"] = 'Insuficiente';
     }
 } else {
-    $response["error"] = 'Sin saldo';
+    $response["error"] = 'Por favor; introduce Saldo';
 }
 
 echo json_encode($response);

@@ -21,10 +21,10 @@
       <ul class="nav-items">
         <li class="nav-item"><a href="/index.html" class="nav-link"> INICIO</a></li>
         <li class="nav-item"><a href="/view/html/paginaPrestamo.html" class="nav-link"> SIMULADOR</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">TIENDA</a></li>
+ 
         <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
-        <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a></li>
         <li class="nav-item" ng-show="cuentaUsuario"><a class="nav-link">CUENTA</a></li>
+        <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a></li>
         <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
       </ul>
 
@@ -71,10 +71,10 @@
       <div>
         <label>Periodo de pago de intereses</label>
         <select name="" id="periodoIntereses" ng-model="periodoPago">
-          <option value="Anual">Anual</option>
-          <option value="Semestral">Semestral </option>
-          <option value="Cuatrimestral">Cuatrimestral </option>
-          <option value="Mensual">Mensual</option>
+          <option value="12">Anual</option>
+          <option value="6">Semestral </option>
+          <option value="4">Cuatrimestral </option>
+          <option value="1">Mensual</option>
         </select>
       </div>
     </div>
@@ -83,10 +83,10 @@
       <div>
         <label>Tipo de Base Temporal</label>
         <select name="" id="tipoBase" ng-model="tipo">
-          <!-- <option value="Anual">Anual</option>
-                    <option value="Semestral">Semestral </option>
-                    <option value="Cuatrimestral">Cuatrimestral </option>
-                    <option value="Mensual">Mensual</option> -->
+           <option value="12" >Anual</option>
+                    <option ng-show="periodoPago ==6">Semestral </option>
+                    <option ng-show="periodoPago ==4">Cuatrimestral </option>
+                    <option ng-show="periodoPago ==1">Mensual</option>
         </select>
       </div>
       <div>

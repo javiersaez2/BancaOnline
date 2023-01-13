@@ -234,7 +234,6 @@ class clienteModel extends clienteclass
         $pasahitza = $this->pasahitza;
         $this->OpenConnect();
 
-        $dniCli = $this->dniCliente;
         $list= array();
         $sql = "SELECT * FROM cliente WHERE dniCliente='$dniCli' ";
         $result = $this->link->query($sql);
@@ -244,6 +243,8 @@ class clienteModel extends clienteclass
             if ($this->link->affected_rows == 1) {
                     if ($pasahitza == $row["pasahitza"]) {
                         $check = 1;
+                     
+                
                     }
                     else{
                     $check = 2;
@@ -252,6 +253,26 @@ class clienteModel extends clienteclass
         }
         return array("check" => $check);
     }
+
+    public function cambiarpassword(){
+        $dniCli = $this->dniCliente;
+        $pasahitzanueva = $this->pasahitza;
+        $this->OpenConnect();
+
+      
+        $list= array();
+        $sql = "update cliente set pasahitza='$pasahitzanueva' where dniCliente='$dniCli'";
+        $result = $this->link->query($sql);
+   
+        $check = 0;
+      
+            if ($this->link->affected_rows == 1) {
+                        $check = 3;
+            }
+        
+        return array("check" => $check);
+    }
+
     public function ObjVars(){
         return get_object_vars($this);
     }

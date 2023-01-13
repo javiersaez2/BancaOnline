@@ -24,10 +24,10 @@
       <ul class="nav-items">
         <li class="nav-item"><a href="/index.html" class="nav-link"> INICIO</a></li>
         <li class="nav-item"><a href="/view/html/paginaPrestamo.html" class="nav-link"> SIMULADOR</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">TIENDA</a></li>
+ 
         <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
-        <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a></li>
         <li class="nav-item" ng-show="cuentaUsuario"><a class="nav-link">CUENTA</a></li>
+        <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a></li>
         <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
       </ul>
 
@@ -106,7 +106,7 @@
     <br>
     <h2>ELIJA DNI DEL RECEPTOR</h2>
     <br>
-    <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" ng-model="juan"
+    <select name="CuentasNoPropias" id="FiltrarPorDNINoPersonales" ng-model="variosdni"
       ng-options="item as item.dniCliente for item in cuentasNoPersonales" ng-change="MostrarRestos()">
       <option value=""></option>
     </select>
@@ -127,24 +127,6 @@
             </td>
             <td class="colum2">
               {{contenidoss.iban}}
-            </td>
-          </tr>
-
-          <tr>
-            <td class="colum1">
-              Titular:
-            </td>
-            <td class="colum2">
-              {{contenidoss.titular}}
-            </td>
-          </tr>
-
-          <tr>
-            <td class="colum1">
-              Saldo:
-            </td>
-            <td class="colum2">
-              {{contenidoss.saldo}} €
             </td>
           </tr>
         </table>
@@ -173,7 +155,7 @@
 
         <div id="infomarcionNecesaria">
           <div class="seleccion">
-            <label for="saldo">Saldo que desea trasnferir</label>
+            <label for="saldo">Saldo que desea transferir</label>
             <input name="saldo" type="text" ng-model="saldoT">
           </div>
       
@@ -192,26 +174,6 @@
   </div>
   </div>
 
-
-
-
-
-
-
-  <!--///////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////
-    ///////////  CANTIDAD DE SALDO PARA TRANSFERIR  /////////////
-    /////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////
-  -->
-
-
-  <!--///////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////
-    /////////////////  INFORMACION NECESARIA   //////////////////
-    /////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////
-  -->
 
 
 

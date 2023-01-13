@@ -23,11 +23,11 @@
         <ul class="nav-items">
           <li class="nav-item"><a href="/index.html" class="nav-link"> INICIO</a></li>
           <li class="nav-item"><a href="/view/html/paginaPrestamo.html" class="nav-link"> SIMULADOR</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">TIENDA</a></li>
+   
           <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
+          <li class="nav-item" ng-show="cuentaUsuario"><a href="/view/html/cuenta.html" class="nav-link">CUENTA</a></li>
           <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a>
           </li>
-          <li class="nav-item" ng-show="cuentaUsuario"><a href="/view/html/cuenta.html" class="nav-link">CUENTA</a></li>
           <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
         </ul>
 
@@ -56,11 +56,29 @@
                 <div>
                  
                 </div>
-                <div *ngFor="#infocuenta of infocuenta">
+                <div class="texto"*ngFor="#infocuenta of infocuenta">
                   <p>{{infocuenta["nombre"]}}</p>
                   {{infocuenta["dniCliente"]}} -
                   {{infocuenta["secreto"]}}
                 </div>
+                <div class="botones">
+                  <a href="formIngrRet.html">
+                    <button >
+                      Ingresar / Retirar
+                    </button>
+                  </a>
+                    <a href="transferencia.html">
+                      <button>
+                        Transferencia
+                      </button>
+                    </a>
+  
+                </div>
+
+              </div>
+
+
+            </div>
 
 
                 <div class="cuentacorriente">
@@ -69,21 +87,7 @@
                     {{infocuenta.saldo}}€ _____
                       <button ng-click="modificarUsuario('2')">Movimiento</button>
                   </div>
-                </div>
-              </div>
 
-
-            </div>
-            <div class="btntarjeta">
-              <div class="botones">
-                <button>
-                  Ingresar / Retirar
-                </button>
-                <button>
-                  Transferencia
-                </button>
-
-              </div>
             </div>
           </div>
 

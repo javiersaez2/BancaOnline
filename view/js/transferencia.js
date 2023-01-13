@@ -41,11 +41,22 @@ MyApp.controller('miController', function ($scope, $http) {
             .then(function (response) {
                 $scope.cuentasNoPersonales = response.data.list;
 
+                $('#FiltrarPorDNINoPersonales').append($('<option>', {
+                    value: "DNI",
+                    text: 'DNI'
+                }));
+        
+                
+
             })
             .catch(function (response) {
                 console.error('Error occurred:', response.status, response.data)
             })
     }
+
+
+
+
 
 
 
@@ -57,27 +68,30 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.SeleccionT = true;
         $scope.OtrasT = false;
 
-        $scope.saldoT = 0;
-
         $scope.ibanPropio = contenido.iban;
         console.log($scope.ibanPropio);
+        $("#FiltrarPorDNINoPersonales").val("DNI");
 
     }
+
+
+
 
 
     /*
     MOSTRAR LAS DEMAS
     */
     $scope.MostrarRestos = function () {
-        //$scope.juan -> Lo que se esconde dentro
-        dni = { "dniCliente": $scope.juan.dniCliente };
+        //$scope.variosdni -> Lo que se esconde dentro
+
+        dni = { "dniCliente": $scope.variosdni.dniCliente, "iban": $scope.ibanPropio};
 
         $http({
             url: '../../controller/c_mostrarOtrasCuentas.php',
             method: "POST",
             data: JSON.stringify(dni)
         }).then(function (response) {
-
+            console.log(response.data.list)
             $scope.OtrasCuentas = response.data.list;
             $scope.OtrasT = true;
 
@@ -91,11 +105,9 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.modalIban = function ($index, contenidoss) {
         iban = contenidoss.iban;
 
+        $scope.saldoT = 0;
+        $scope.conceptoT = "";
     }
-
-    
-
-
 
 
 
@@ -117,11 +129,6 @@ MyApp.controller('miController', function ($scope, $http) {
     }
 
     $scope.cerrarCuentas = function (numero) {
-        $scope.dniIns = "";
-        $scope.nombreIns = "";
-        $scope.contrsenaIns = "";
-        $scope.tipoIns = "";
-        $scope.vefIns = "";
         modalnovisible(numero);
     }
     function modalvisible(x) {
@@ -133,77 +140,6 @@ MyApp.controller('miController', function ($scope, $http) {
         document.getElementById("demo-modal" + x + "").style.visibility = "hidden";
         document.getElementById("demo-modal" + x + "").style.opacity = 0;
 
-    }
-
-
-    //////////// - Modaeles no scroll - ////////////
-    // PREVENT DEFAULT HANDLER
-    function preventDefault(e) {
-        e = e || window.event;
-        if (e.preventDefault) {
-            e.preventDefault();
-        }
-        e.returnValue = false;
-    }
-    // PREVENT SCROLL KEYS
-    // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-    // left: 37, up: 38, right: 39, down: 40,
-    // (Source: http://stackoverflow.com/a/4770179)
-    function keydown(e) {
-        var keys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
-        for (var i = keys.length; i--;) {
-            if (e.keyCode === keys[i]) {
-                preventDefault(e);
-                return;
-            }
-        }
-    }
-    // PREVENT MOUSE WHEEL
-    function wheel(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        return false;
-    }
-    // DISABLE SCROLL
-    function disable_scroll() {
-        if (document.addEventListener) {
-            document.addEventListener('wheel', wheel, false);
-            document.addEventListener('mousewheel', wheel, false);
-            document.addEventListener('DOMMouseScroll', wheel, false);
-        }
-        else {
-            document.attachEvent('onmousewheel', wheel);
-        }
-        document.onmousewheel = document.onmousewheel = wheel;
-        document.onkeydown = keydown;
-
-        x = window.pageXOffset || document.documentElement.scrollLeft,
-            y = window.pageYOffset || document.documentElement.scrollTop,
-            window.onscroll = function () {
-                window.scrollTo(x, y);
-            };
-        // document.body.style.overflow = 'hidden'; // CSS
-        disable_scroll_mobile();
-    }
-    // ENABLE SCROLL
-    function enable_scroll() {
-        if (document.removeEventListener) {
-            document.removeEventListener('wheel', wheel, false);
-            document.removeEventListener('mousewheel', wheel, false);
-            document.removeEventListener('DOMMouseScroll', wheel, false);
-        }
-        document.onmousewheel = document.onmousewheel = document.onkeydown = null;
-        window.onscroll = function () { };
-        // document.body.style.overflow = 'auto'; // CSS
-        enable_scroll_mobile();
-    }
-
-    // MOBILE
-    function disable_scroll_mobile() {
-        document.addEventListener('touchmove', preventDefault, false);
-    }
-    function enable_scroll_mobile() {
-        document.removeEventListener('touchmove', preventDefault, false);
     }
 
 
@@ -221,18 +157,25 @@ MyApp.controller('miController', function ($scope, $http) {
     */
     $scope.transferir = function () {
 
+
+        if ($scope.conceptoT != null && $scope.saldoT == 0) {
+            alert("Por favor; introduce Saldo");
+            return false;
+
+        }
+
+        if ($scope.conceptoT == false) {
+            alert("Por favor; introduce Concepto");
+            return false;
+        }
+
         saldo = $scope.saldoT;
         concepto = $scope.conceptoT;
 
-        /*
-        if (concepto == ""){
-            alert("Introduce concepto")
-            return false;
-        }
-        */
-        console.log(iban + "     " + saldo);
 
-        lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo, "concepto": concepto};
+
+        console.log(iban + "     " + saldo);
+        lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo, "concepto": concepto };
 
 
         $http({
@@ -241,14 +184,18 @@ MyApp.controller('miController', function ($scope, $http) {
             data: JSON.stringify(lista)
         }).then(function (response) {
 
-            if (response.data.error == "Completado"){
+            alert(response.data.error);
+
+            vercuentas();
+            //vercuentasNoPersonales();
+
+            if (response.data.error == "Completado") {
                 $scope.SeleccionT = false;
                 $scope.OtrasT = false;
                 modalnovisible(1);
             }
 
-            vercuentas();
-            vercuentasNoPersonales();
+
 
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
@@ -281,7 +228,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 $scope.butonLogin = false;
                 if (response.data.tipo == 1) {
                     $scope.botonAdmin = true;
-                    $scope.cuentaUsuario = false;
+                    $scope.cuentaUsuario = true;
                 } else {
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
