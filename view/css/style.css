@@ -1039,6 +1039,7 @@ input[type=button]:hover {
   box-shadow: 0 4px 30px rgba(43, 18, 60, 0.3529411765);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  border: 1px solid black;
 }
 
 .modal__footer {

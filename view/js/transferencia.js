@@ -158,16 +158,15 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.transferir = function () {
 
 
-
-        if ($scope.conceptoT == null) {
-            alert("Por favor; introduce Concepto");
-            return false;
-        }
-
         if ($scope.conceptoT != null && $scope.saldoT == 0) {
             alert("Por favor; introduce Saldo");
             return false;
 
+        }
+
+        if ($scope.conceptoT == false) {
+            alert("Por favor; introduce Concepto");
+            return false;
         }
 
         saldo = $scope.saldoT;
