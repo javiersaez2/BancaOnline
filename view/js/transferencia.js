@@ -82,7 +82,7 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify(dni)
         }).then(function (response) {
-
+            console.log(response.data.list)
             $scope.OtrasCuentas = response.data.list;
             $scope.OtrasT = true;
 
@@ -220,7 +220,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 $scope.butonLogin = false;
                 if (response.data.tipo == 1) {
                     $scope.botonAdmin = true;
-                    $scope.cuentaUsuario = false;
+                    $scope.cuentaUsuario = true;
                 } else {
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
