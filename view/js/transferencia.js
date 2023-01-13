@@ -73,9 +73,9 @@ MyApp.controller('miController', function ($scope, $http) {
     MOSTRAR LAS DEMAS
     */
     $scope.MostrarRestos = function () {
-        //$scope.juan -> Lo que se esconde dentro
+        //$scope.variosdni -> Lo que se esconde dentro
 
-        dni = { "dniCliente": $scope.juan.dniCliente, "iban": $scope.ibanPropio};
+        dni = { "dniCliente": $scope.variosdni.dniCliente, "iban": $scope.ibanPropio};
 
         $http({
             url: '../../controller/c_mostrarOtrasCuentas.php',
