@@ -20,7 +20,7 @@ miApp.controller('miControlador', function ($scope, $http) {
                 $scope.butonLogin = false;
                 if (response.data.tipo == 1) {
                     $scope.botonAdmin = true;
-                    $scope.cuentaUsuario = false;
+                    $scope.cuentaUsuario = true;
                 } else {
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
