@@ -71,6 +71,7 @@ miApp.controller('datoscliente', function ($scope, $http) {
 
     $scope.modificarUsuario = function (numero) {
         modalvisible(numero);
+        
         $scope.modificarVista = 'true';
         $scope.insertarVista = 'false';
     }
@@ -127,14 +128,14 @@ miApp.controller('datoscliente', function ($scope, $http) {
     function modalvisible(x) {
         document.getElementById("demo-modal" + x + "").style.visibility = "visible";
         document.getElementById("demo-modal" + x + "").style.opacity = 1;
-        disable_scroll();
-        disable_scroll_mobile();
+
+scrollena();
     }
     function modalnovisible(x) {
         document.getElementById("demo-modal" + x + "").style.visibility = "hidden";
         document.getElementById("demo-modal" + x + "").style.opacity = 0;
-        enable_scroll();
-        enable_scroll_mobile();
+;
+        scrolldis()
     }
 
 
@@ -142,8 +143,18 @@ miApp.controller('datoscliente', function ($scope, $http) {
 
 
 
-
-
+        function noscroll() {
+            window.scrollTo(0, 0);
+        }
+        
+        function scrolldis() {
+            window.removeEventListener("scroll", noscroll);
+        };
+        
+        function scrollena() {
+            window.addEventListener("scroll", noscroll);  
+        };
+/*
     //////////// - Modaeles no scroll - ////////////
     // PREVENT DEFAULT HANDLER
     function preventDefault(e) {
@@ -213,4 +224,5 @@ miApp.controller('datoscliente', function ($scope, $http) {
     function enable_scroll_mobile() {
         document.removeEventListener('touchmove', preventDefault, false);
     }
+    */
 })
