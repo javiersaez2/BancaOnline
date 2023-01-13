@@ -158,8 +158,7 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.transferir = function () {
 
 
-
-        if ($scope.conceptoT == null) {
+        if ($scope.conceptoT != null) {
             alert("Por favor; introduce Concepto");
             return false;
         }
