@@ -41,6 +41,13 @@ MyApp.controller('miController', function ($scope, $http) {
             .then(function (response) {
                 $scope.cuentasNoPersonales = response.data.list;
 
+                $('#FiltrarPorDNINoPersonales').append($('<option>', {
+                    value: "DNI",
+                    text: 'DNI'
+                }));
+        
+                
+
             })
             .catch(function (response) {
                 console.error('Error occurred:', response.status, response.data)
@@ -63,6 +70,8 @@ MyApp.controller('miController', function ($scope, $http) {
 
         $scope.ibanPropio = contenido.iban;
         console.log($scope.ibanPropio);
+        $("#FiltrarPorDNINoPersonales").val("DNI");
+
     }
 
 
