@@ -41,6 +41,13 @@ MyApp.controller('miController', function ($scope, $http) {
             .then(function (response) {
                 $scope.cuentasNoPersonales = response.data.list;
 
+                $('#FiltrarPorDNINoPersonales').append($('<option>', {
+                    value: "DNI",
+                    text: 'DNI'
+                }));
+        
+                
+
             })
             .catch(function (response) {
                 console.error('Error occurred:', response.status, response.data)
@@ -63,6 +70,8 @@ MyApp.controller('miController', function ($scope, $http) {
 
         $scope.ibanPropio = contenido.iban;
         console.log($scope.ibanPropio);
+        $("#FiltrarPorDNINoPersonales").val("DNI");
+
     }
 
 
@@ -73,16 +82,16 @@ MyApp.controller('miController', function ($scope, $http) {
     MOSTRAR LAS DEMAS
     */
     $scope.MostrarRestos = function () {
-        //$scope.juan -> Lo que se esconde dentro
+        //$scope.variosdni -> Lo que se esconde dentro
 
-        dni = { "dniCliente": $scope.juan.dniCliente, "iban": $scope.ibanPropio};
+        dni = { "dniCliente": $scope.variosdni.dniCliente, "iban": $scope.ibanPropio};
 
         $http({
             url: '../../controller/c_mostrarOtrasCuentas.php',
             method: "POST",
             data: JSON.stringify(dni)
         }).then(function (response) {
-
+            console.log(response.data.list)
             $scope.OtrasCuentas = response.data.list;
             $scope.OtrasT = true;
 
@@ -149,8 +158,7 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.transferir = function () {
 
 
-
-        if ($scope.conceptoT == null) {
+        if ($scope.conceptoT != null) {
             alert("Por favor; introduce Concepto");
             return false;
         }
@@ -220,7 +228,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 $scope.butonLogin = false;
                 if (response.data.tipo == 1) {
                     $scope.botonAdmin = true;
-                    $scope.cuentaUsuario = false;
+                    $scope.cuentaUsuario = true;
                 } else {
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;

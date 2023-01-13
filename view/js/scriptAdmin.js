@@ -214,7 +214,7 @@ MyApp.controller('miController', function ($scope, $http) {
 
                 if (response.data.tipo == 1) {
                     $scope.botonAdmin = true;
-                    $scope.cuentaUsuario = false;
+                    $scope.cuentaUsuario = true;
                     $scope.users = true;
                 } else {
                     alert("User: " + response.data.izena + " | Sin acceso, tipo: " + response.data.tipo);
