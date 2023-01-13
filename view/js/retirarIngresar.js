@@ -142,7 +142,17 @@ function modalnovisible(x) {
 
 
 
-
+function noscroll() {
+    window.scrollTo(0, 0);
+  }
+  
+  function scrolldis() {
+    window.removeEventListener("scroll", noscroll);
+  };
+   
+function scrollena() {
+    window.addEventListener("scroll", noscroll);  
+  };
 
 //////////// - Modaeles no scroll - ////////////
 // PREVENT DEFAULT HANDLER
