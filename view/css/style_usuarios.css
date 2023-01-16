@@ -585,6 +585,8 @@ body {
 .button-23 {
   background-color: #B57EDC;
   border: 1px solid rgba(34, 34, 34, 0.7333333333);
+  overflow-wrap: break-word;
+  inline-size: 150px;
   border-radius: 4px;
   box-sizing: border-box;
   color: #fbfbfb;
@@ -654,6 +656,8 @@ body {
   }
   section .utilidadesAdmin .button-23 {
     margin: 0px;
+    font-size: 13px;
+    width: 147px;
   }
   section .utilidadesAdmin .search-box {
     margin-bottom: 5px;
@@ -665,9 +669,17 @@ body {
     width: 240px;
   }
   section .tbl-content {
-    width: 450px;
+    width: 360px;
   }
   section .tbl-content .tarjetas {
-    width: 430px;
+    width: 350px;
+  }
+}
+@media screen and (max-width: 375px) {
+  section .tbl-content {
+    width: 310px;
+  }
+  section .tbl-content .tarjetas {
+    width: 300px;
   }
 }/*# sourceMappingURL=style_usuarios.css.map */
