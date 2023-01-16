@@ -69,16 +69,14 @@
       <button ng-click="nuevoUsuario()" class="button-23">Añadir nuevo usuario</button>
       <div class="search-box">
         <button class="btn-search"><i class="fas fa-search"></i></button>
-        <input type="text" class="input-search" placeholder="Type to Search...">
+        <input id="buscadorDni" type="text" class="input-search" placeholder="Buscar por DNI...">
       </div>
     </div>
 
     <div class="tbl-content">
 
-
       <div class="tarjetas" ng-repeat='fila in usuarios'>
         <table>
-
           <tr>
             <td class="columna1">
               Nombre:
