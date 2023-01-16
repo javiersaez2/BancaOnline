@@ -203,7 +203,9 @@ class clienteModel extends clienteclass
     }
 
 
-    
+      ///////////////////////
+     // Datos de 1 suario //
+    ///////////////////////
     public function selectClienteById(){
         $this->OpenConnect();
 
@@ -216,9 +218,8 @@ class clienteModel extends clienteclass
         
             $this->dniCliente = $row['dniCliente'];
             $this->nombre = $row['nombre'];
-            $this->pasahitza = $row['pasahitza'];
             $this->secreto = $row['secreto'];
-
+            $this->tipo = $row['tipo'];
             $newCuenta=new cuenta_corrienteModel();
             $newCuenta->setdniCliente(($row['dniCliente']));    
             $this->objCuenta=$newCuenta->setListCuenta();;
@@ -229,6 +230,10 @@ class clienteModel extends clienteclass
         $this->CloseConnect();
     
     }
+
+      ////////////////////////
+     // Comprobar password //
+    ////////////////////////
     public function comprobarpassword(){
         $dniCli = $this->dniCliente;
         $pasahitza = $this->pasahitza;
@@ -243,8 +248,6 @@ class clienteModel extends clienteclass
             if ($this->link->affected_rows == 1) {
                     if ($pasahitza == $row["pasahitza"]) {
                         $check = 1;
-                     
-                
                     }
                     else{
                     $check = 2;
@@ -254,13 +257,11 @@ class clienteModel extends clienteclass
         return array("check" => $check);
     }
 
+    //Cambiar la contraseña de un usurio desde su cuenta
     public function cambiarpassword(){
         $dniCli = $this->dniCliente;
         $pasahitzanueva = $this->pasahitza;
         $this->OpenConnect();
-
-      
-        $list= array();
         $sql = "update cliente set pasahitza='$pasahitzanueva' where dniCliente='$dniCli'";
         $result = $this->link->query($sql);
    

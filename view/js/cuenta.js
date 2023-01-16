@@ -58,19 +58,19 @@ miApp.controller('datoscliente', function ($scope, $http) {
             method: "POST"
         }).then(function (response) {
 
+       
             if (response.data.error != "logged") {
                 if (window.location.pathname == "/view/html/cuenta.html") {
                     window.location.href = "/index.html"
                 }
             }
-            console.log(response)
+          
         })
     }
 
     $scope.ingresarretirar = function(numero){
         localStorage.setItem("ingresarretirarnumero", numero);
     }
-
 
     $scope.passMostrar = true;
     $scope.iniciarSesionSection = true;
@@ -79,10 +79,17 @@ miApp.controller('datoscliente', function ($scope, $http) {
             url: "/controller/c_infocuenta.php",
             method: "POST"
         }).then(function (response) {
+
             $scope.infocuenta = response.data.list
             $scope.infocorriente = response.data.list.objCuenta
             console.log($scope.infocorriente)
             console.log($scope.infocuenta);
+            if (response.data.list.tipo==1){
+                $scope.tipo="ADMIN"
+            }
+            else if( response.data.list.tipo==0){
+                 $scope.tipo=""
+                }
         })
     }
 

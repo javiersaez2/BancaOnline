@@ -2,14 +2,22 @@
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    width: auto ;
 
     .tarjeta {
-        width: 1000px;
+        border: 5px solid red ;
+        width: 70%;
         height: 700px;
         display: flex;
-
+        margin: 50px;
         @include glasscuenta();
         background-color: $color-principal;
+
+        @media screen and (max-width: 730px) {
+            flex-direction: column;
+            width: 600px;
+        }
+        
 
         .infocliete {
             padding: 5px;
@@ -25,7 +33,18 @@
                 fill: currentColor;
             }
 
-
+            .tipo{
+                position: absolute;
+                background-color: $color-terciario1;
+                color: $color-blanco;
+                font-size:large;
+                text-align: center;
+                margin-left: 10px;
+                margin-top:10px;
+                display: table-cell;
+                vertical-align: middle;
+                padding:10px ;
+            }
 
             .profile-card {
                 width: 100%;
@@ -77,6 +96,7 @@
                         color: $color-principal;
                         font-size: 250%;
                     }
+                   
                     .texto{
                         text-align: center;
                         font-size: xx-large;
@@ -91,7 +111,7 @@
                         margin-top: 10px;
         
                       .custom-btn {
-                            width: 400px;
+                            width: 50vh;
                             height: 100px;
                             border: 2px solid $color-terciario1;
                             font-family: 'Lato', sans-serif;
@@ -103,24 +123,20 @@
                             position: relative;
                             display: inline-block;
                             margin: 10px;
-  
-
-        
                           }
                           
                           
-                          /* 11 */
-                          .btn-11 {
+                          .btn-cuenta {
                             font-size: 25px;
                                font-weight: 50px;
                             overflow: hidden;
                             transition: all 0.3s ease;
                           }
-                          .btn-11:hover {
-                             background: #B57EDC;
+                          .btn-cuenta:hover {
+                             background: $color-principal   ;
                             color: #fff;
                           }
-                          .btn-11:before {
+                          .btn-cuenta:before {
                               position: absolute;
                               content: '';
                               display: inline-block;
@@ -131,7 +147,7 @@
                               background-color: #fff;
                               animation: shiny-btn1 3s ease-in-out infinite;
                           }
-                          .btn-11:active{
+                          .btn-cuenta:active{
                             box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
                                         -4px -4px 6px 0 rgba(116, 125, 136, .2), 
                               inset -4px -4px 6px 0 rgba(255,255,255,.2),
@@ -181,3 +197,4 @@
         }
 
 }
+

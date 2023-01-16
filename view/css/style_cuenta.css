@@ -443,19 +443,25 @@ header {
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  width: auto;
 }
 .secciontarjeta .tarjeta {
-  width: 1000px;
+  border: 5px solid red;
+  width: 70%;
   height: 700px;
   display: flex;
+  margin: 50px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  inset: 0;
   border-radius: 0px;
   padding: 5px;
   background: #B57EDC;
   background-color: #B57EDC;
+}
+@media screen and (max-width: 730px) {
+  .secciontarjeta .tarjeta {
+    flex-direction: column;
+    width: 600px;
+  }
 }
 .secciontarjeta .tarjeta .infocliete {
   padding: 5px;
@@ -469,6 +475,18 @@ header {
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor;
+}
+.secciontarjeta .tarjeta .infocliete .tipo {
+  position: absolute;
+  background-color: #a34ae3;
+  color: #fbfbfb;
+  font-size: large;
+  text-align: center;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 10px;
 }
 .secciontarjeta .tarjeta .infocliete .profile-card {
   width: 100%;
@@ -528,10 +546,9 @@ header {
   justify-content: space-around;
   align-items: center;
   margin-top: 10px;
-  /* 11 */
 }
 .secciontarjeta .tarjeta .infocliete .profile-card .botones .custom-btn {
-  width: 400px;
+  width: 50vh;
   height: 100px;
   border: 2px solid #a34ae3;
   font-family: "Lato", sans-serif;
@@ -544,17 +561,17 @@ header {
   display: inline-block;
   margin: 10px;
 }
-.secciontarjeta .tarjeta .infocliete .profile-card .botones .btn-11 {
+.secciontarjeta .tarjeta .infocliete .profile-card .botones .btn-cuenta {
   font-size: 25px;
   font-weight: 50px;
   overflow: hidden;
   transition: all 0.3s ease;
 }
-.secciontarjeta .tarjeta .infocliete .profile-card .botones .btn-11:hover {
+.secciontarjeta .tarjeta .infocliete .profile-card .botones .btn-cuenta:hover {
   background: #B57EDC;
   color: #fff;
 }
-.secciontarjeta .tarjeta .infocliete .profile-card .botones .btn-11:before {
+.secciontarjeta .tarjeta .infocliete .profile-card .botones .btn-cuenta:before {
   position: absolute;
   content: "";
   display: inline-block;
@@ -566,7 +583,7 @@ header {
   -webkit-animation: shiny-btn1 3s ease-in-out infinite;
           animation: shiny-btn1 3s ease-in-out infinite;
 }
-.secciontarjeta .tarjeta .infocliete .profile-card .botones .btn-11:active {
+.secciontarjeta .tarjeta .infocliete .profile-card .botones .btn-cuenta:active {
   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3), -4px -4px 6px 0 rgba(116, 125, 136, 0.2), inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2), inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
 }
 @-webkit-keyframes shiny-btn1 {

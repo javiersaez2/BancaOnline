@@ -43,18 +43,15 @@
     <!-- Datos -->
     <br>
     <section ng-controller="datoscliente">
-      DATOS DEL CLIENTE
       <div ng-init="datoscliente()">
         <section class="secciontarjeta">
           <div class="tarjeta">
             <div class="infocliete">
               <div class="profile-card js-profile-card">
+                <div class="tipo">{{tipo}}</div>
                 <i class="fa-solid fa-user-pen icono" ng-click="modificarUsuario('1')"></i>
                 <div class="profile-card__img">
                   <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="profile card">
-                </div>
-                <div>
-                 
                 </div>
                 <div class="texto"*ngFor="#infocuenta of infocuenta">
                   <p>{{infocuenta["nombre"]}}</p>
@@ -66,17 +63,17 @@
                
                 <div class="botones">
                   <a href="formIngrRet.html">
-                    <button  class="custom-btn btn-11" ng-click="ingresarretirar(0)">
+                    <button  class="custom-btn btn-cuenta" ng-click="ingresarretirar(0)">
                       INGRESAR
                     </button>
                   </a>
                     <a href="formIngrRet.html">
-                      <button class="custom-btn btn-11" ng-click="ingresarretirar(1)">
+                      <button class="custom-btn btn-cuenta" ng-click="ingresarretirar(1)">
                         RETIRAR
                       </button>
                   </a>
                     <a href="transferencia.html">
-                      <button class="custom-btn btn-11">
+                      <button class="custom-btn btn-cuenta">
                         TRANSFERENCIA
                       </button>
                     </a>
