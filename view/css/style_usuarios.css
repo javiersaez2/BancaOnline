@@ -639,7 +639,16 @@ body {
 }
 
 /* Media Query */
+@media screen and (max-width: 1360px) {
+  section {
+    width: 727px;
+    margin: auto;
+  }
+}
 @media screen and (max-width: 1007px) {
+  section {
+    width: auto;
+  }
   section .utilidadesAdmin {
     flex-direction: column-reverse;
   }
@@ -656,6 +665,9 @@ body {
     width: 240px;
   }
   section .tbl-content {
-    width: 356px;
+    width: 450px;
+  }
+  section .tbl-content .tarjetas {
+    width: 430px;
   }
 }/*# sourceMappingURL=style_usuarios.css.map */

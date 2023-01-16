@@ -4,7 +4,7 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.butonLogOut = true;
     $scope.cuenta = []
     /////cargar los datos de la tabla usuario de la base de datos 
-    verusuarios()
+    verusuarios();
 
     ///////////////////////////////
     // Mostrar lista de usuarios //
@@ -186,6 +186,33 @@ MyApp.controller('miController', function ($scope, $http) {
             alert("Contraseñas no son iguales")
         }
     }
+
+    //////////////////////////
+    //////////////////////////
+    // Buscador de usuarios //
+    //////////////////////////
+    //////////////////////////
+
+    $("#buscadorDni").keypress(function(event){
+        if(event.keyCode == 13) {
+            if ($(this).val().length > 0){
+                $http({
+                    url: "/controller/c_buscadorDniAdmin.php",
+                    method: "POST",
+                    data: JSON.stringify({'dniCliente': $(this).val()})
+                }).then(function (response) {
+                    console.log(response.data);
+                    $scope.usuarios = response.data.list;
+                }).catch(function (response) {
+                    console.error("Ocurrio un error", response.status, response.data);
+                })
+                event.preventDefault();
+            } else {
+                verusuarios();
+            }
+            
+        }
+    });
 
 
     ///////////////////////////////

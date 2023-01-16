@@ -201,8 +201,16 @@ body {
 }
 
 /* Media Query */
+@media screen and (max-width: 1360px) {
+  section{
+    width: 727px;
+    margin: auto;
+  }
+}
+
 @media screen and (max-width: 1007px) {
   section{
+    width: auto;
     .utilidadesAdmin{
       flex-direction: column-reverse;
 
@@ -223,7 +231,11 @@ body {
     }
 
     .tbl-content {
-      width: 356px;  
+      width: 450px;
+      
+      .tarjetas {
+        width: 430px;
+      }
     }
   }
 }
