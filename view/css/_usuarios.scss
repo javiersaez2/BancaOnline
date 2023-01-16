@@ -146,7 +146,8 @@ body {
 .button-23 {
   background-color: $color-principal;
   border: 1px solid #222222bb;
-  
+  overflow-wrap: break-word;
+  inline-size: 150px;
   border-radius: 4px;
   box-sizing: border-box;
   color: $color-blanco;
@@ -201,13 +202,24 @@ body {
 }
 
 /* Media Query */
+@media screen and (max-width: 1360px) {
+  
+  section{
+    width: 727px;
+    margin: auto;
+  }
+}
+
 @media screen and (max-width: 1007px) {
   section{
+    width: auto;
     .utilidadesAdmin{
       flex-direction: column-reverse;
 
       .button-23{
         margin: 0px;
+        font-size: 13px;
+        width: 147px;
       }
 
       .search-box{
@@ -223,7 +235,21 @@ body {
     }
 
     .tbl-content {
-      width: 356px;  
+      width: 360px;
+      .tarjetas {
+        width: 350px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  section{
+    .tbl-content {
+      width: 310px;
+      .tarjetas {
+        width: 300px;
+      }
     }
   }
 }

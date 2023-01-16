@@ -3,7 +3,7 @@ include_once '../model/clienteModel.php';
 
 $response=array();
     
-$cliente=new ClienteModel();
+$cliente=new clienteModel();
     
 $response['list']= $cliente->setList();
 $response['error']='no error';

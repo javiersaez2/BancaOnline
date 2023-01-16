@@ -4,10 +4,10 @@ include_once '../model/clienteModel.php';
 $data = json_decode(file_get_contents("php://input"),true);
 
 $user = new clienteModel();
-$user->dni=$data["dni"];
-$user->pass=$data["pasahitza"];
+$user->setdniCliente($data["dni"]);
+$user->setPasahitza($data["pasahitza"]);
 if (!empty($data["codSecreto"])){
-    $user->codSecreto=$data["codSecreto"];    
+    $user->setSecreto($data["codSecreto"]);    
 }
 $user->cont=$data["contador"];
 

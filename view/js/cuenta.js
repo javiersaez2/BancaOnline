@@ -12,6 +12,10 @@ miApp.controller('miControlador', function ($scope, $http) {
         }).then(function (response) {
 
             if (response.data.error != "logged") {
+                if (window.location.pathname == "/view/html/cuenta.html") {
+                   
+                    window.location.href = "/index.html"
+                }
                 $scope.cuentaUsuario = false;
                 $scope.botonAdmin = false;
                 $scope.butonLogin = true;
@@ -48,12 +52,25 @@ miApp.controller('miControlador', function ($scope, $http) {
 
 //Datos de usuario
 miApp.controller('datoscliente', function ($scope, $http) {
+    $scope.loggedVerify = function () {
+        $http({
+            url: "/controller/cLoggedVerify.php",
+            method: "POST"
+        }).then(function (response) {
 
+       
+            if (response.data.error != "logged") {
+                if (window.location.pathname == "/view/html/cuenta.html") {
+                    window.location.href = "/index.html"
+                }
+            }
+          
+        })
+    }
 
     $scope.ingresarretirar = function(numero){
         localStorage.setItem("ingresarretirarnumero", numero);
     }
-
 
     $scope.passMostrar = true;
     $scope.iniciarSesionSection = true;
@@ -62,10 +79,17 @@ miApp.controller('datoscliente', function ($scope, $http) {
             url: "/controller/c_infocuenta.php",
             method: "POST"
         }).then(function (response) {
+
             $scope.infocuenta = response.data.list
             $scope.infocorriente = response.data.list.objCuenta
             console.log($scope.infocorriente)
             console.log($scope.infocuenta);
+            if (response.data.list.tipo==1){
+                $scope.tipo="ADMIN"
+            }
+            else if( response.data.list.tipo==0){
+                 $scope.tipo=""
+                }
         })
     }
 

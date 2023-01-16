@@ -30,9 +30,9 @@ class clienteModel extends clienteclass
     {
         $this->OpenConnect();
 
-        $dni = $this->dni;
-        $pasahitza = $this->pass;
-        $codSecreto = $this->codSecreto;
+        $dni = $this->dniCliente;
+        $pasahitza = $this->pasahitza;
+        $codSecreto = $this->secreto;
         $konta = $this->cont;
 
         $sql = "SELECT * FROM cliente WHERE dniCliente='$dni' ";
@@ -78,13 +78,13 @@ class clienteModel extends clienteclass
     public function setList()
     {
         $this->OpenConnect();
-        $sql = "select * from cliente";
+        $sql = "SELECT * FROM cliente";
 
         $list = array();
 
         $result = $this->link->query($sql);
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $newCliente = new ClienteModel();
+            $newCliente = new clienteModel();
             $newCliente->dniCliente = $row['dniCliente'];
             $newCliente->nombre = $row['nombre'];
             $newCliente->pasahitza = $row['pasahitza'];
@@ -203,7 +203,9 @@ class clienteModel extends clienteclass
     }
 
 
-    
+      ///////////////////////
+     // Datos de 1 suario //
+    ///////////////////////
     public function selectClienteById(){
         $this->OpenConnect();
 
@@ -216,9 +218,8 @@ class clienteModel extends clienteclass
         
             $this->dniCliente = $row['dniCliente'];
             $this->nombre = $row['nombre'];
-            $this->pasahitza = $row['pasahitza'];
             $this->secreto = $row['secreto'];
-
+            $this->tipo = $row['tipo'];
             $newCuenta=new cuenta_corrienteModel();
             $newCuenta->setdniCliente(($row['dniCliente']));    
             $this->objCuenta=$newCuenta->setListCuenta();;
@@ -229,6 +230,10 @@ class clienteModel extends clienteclass
         $this->CloseConnect();
     
     }
+
+      ////////////////////////
+     // Comprobar password //
+    ////////////////////////
     public function comprobarpassword(){
         $dniCli = $this->dniCliente;
         $pasahitza = $this->pasahitza;
@@ -243,8 +248,6 @@ class clienteModel extends clienteclass
             if ($this->link->affected_rows == 1) {
                     if ($pasahitza == $row["pasahitza"]) {
                         $check = 1;
-                     
-                
                     }
                     else{
                     $check = 2;
@@ -254,13 +257,11 @@ class clienteModel extends clienteclass
         return array("check" => $check);
     }
 
+    //Cambiar la contraseña de un usurio desde su cuenta
     public function cambiarpassword(){
         $dniCli = $this->dniCliente;
         $pasahitzanueva = $this->pasahitza;
         $this->OpenConnect();
-
-      
-        $list= array();
         $sql = "update cliente set pasahitza='$pasahitzanueva' where dniCliente='$dniCli'";
         $result = $this->link->query($sql);
    
@@ -275,5 +276,44 @@ class clienteModel extends clienteclass
 
     public function ObjVars(){
         return get_object_vars($this);
+    }
+
+
+    ////////////////////////////////
+    // Busca los usuarios por dni //
+    ////////////////////////////////
+    public function setListByDni(){
+        $dniCli = $this->dniCliente;
+        $this->OpenConnect();
+
+      
+        $list= array();
+        $sql = "SELECT * FROM cliente WHERE dnicliente LIKE '%$dniCli%' ";
+        $result = $this->link->query($sql);
+
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            if ($this->link->affected_rows == 1) {
+                $newCliente = new clienteModel();
+                $newCliente->dniCliente = $row['dniCliente'];
+                $newCliente->nombre = $row['nombre'];
+                $newCliente->pasahitza = $row['pasahitza'];
+                $newCliente->secreto = $row['secreto'];
+                if ($row['tipo'] == 1){
+                    $newCliente->tipo = "Admin";
+                } else {
+                    $newCliente->tipo = "Usuario normal";
+                }
+
+                $newCuenta=new cuenta_corrienteModel();
+                $newCuenta->setdniCliente($row['dniCliente']);    
+                $newCliente->objCuenta=$newCuenta->setListCuenta();;
+
+                array_push($list, get_object_vars($newCliente));
+            }
+        }
+
+        mysqli_free_result($result);
+        $this->CloseConnect();
+        return $list;
     }
 }
