@@ -12,7 +12,7 @@ const navBar = document.querySelector('.navbar');
 
 // --- open menu ---
 $('.bx-menu').click(function (e) {
-        $('.navBar').addClass('show-navbar');
+        $('.navbar').addClass('show-navbar');
         $('.bx-menu').addClass('hide-bx');
         $('.bx-x').addClass('show-bx');
 
