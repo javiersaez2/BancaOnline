@@ -30,19 +30,26 @@
             backdrop-filter: blur(5px);
 
 
-            .colum2 {
-                width: 211px;
-                height: 25px;
-                padding: 5px;
-                background-color: rgba(39, 39, 39, 0.2);
-
+            table{
+                .colum2 {
+                    width: 211px;
+                    height: 25px;
+                    padding: 5px;
+                    background-color: rgba(39, 39, 39, 0.2);
+    
+                }
+    
+                .colum1 {
+                    width: 170px;
+                    height: 25px;
+                    padding: 5px;
+                    background-color: rgba(39, 39, 39, 0.2);
+                }
             }
 
-            .colum1 {
-                width: 170px;
-                height: 25px;
-                padding: 5px;
-                background-color: rgba(39, 39, 39, 0.2);
+
+            a{
+                text-decoration: none;
             }
         }
 
