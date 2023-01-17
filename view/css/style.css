@@ -1165,17 +1165,20 @@ input[type=button]:hover {
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
 }
-.tablasDeCuentas .contenidoTabla .tarjetitas .colum2 {
+.tablasDeCuentas .contenidoTabla .tarjetitas table .colum2 {
   width: 211px;
   height: 25px;
   padding: 5px;
   background-color: rgba(39, 39, 39, 0.2);
 }
-.tablasDeCuentas .contenidoTabla .tarjetitas .colum1 {
+.tablasDeCuentas .contenidoTabla .tarjetitas table .colum1 {
   width: 170px;
   height: 25px;
   padding: 5px;
   background-color: rgba(39, 39, 39, 0.2);
+}
+.tablasDeCuentas .contenidoTabla .tarjetitas a {
+  text-decoration: none;
 }
 
 .contenderDNI {

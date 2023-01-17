@@ -5,15 +5,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TRANSFERENCIA - FP ZORNOTZA GRUPO 4</title>
 
-  <link rel="shortcut icon" href="/view/img/logo.PNG" />
+  <script src="/view/js/angular.min.js"></script>
+
   <link href="/view/css/style.css" rel="stylesheet" type="text/css" />
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
 
   <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
+
+  <title>TRANSFERENCIA - FP ZORNOTZA GRUPO 4</title>
+
 </head>
+
 
 <body ng-controller="miController" ng-init="loggedVerify()">
 
@@ -24,7 +28,7 @@
       <ul class="nav-items">
         <li class="nav-item"><a href="/index.html" class="nav-link"> INICIO</a></li>
         <li class="nav-item"><a href="/view/html/paginaPrestamo.html" class="nav-link"> SIMULADOR</a></li>
- 
+
         <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
         <li class="nav-item" ng-show="cuentaUsuario"><a class="nav-link">CUENTA</a></li>
         <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a></li>
@@ -87,7 +91,9 @@
 
 
         </table>
-        <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="EscogerPersonal($index,contenido)"></i>
+        <a href="#FiltrarPorDNINoPersonales">
+          <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="EscogerPersonal($index,contenido)"></i>
+        </a>
 
       </div>
     </div>
@@ -130,7 +136,8 @@
             </td>
           </tr>
         </table>
-        <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="modalIban($index,contenidoss); modal('1')">
+        <input type="button" value="ELEGIR" class="botonesDeAceptar"
+          ng-click="modalIban($index,contenidoss); modal('1')">
 
       </div>
     </div>
@@ -148,7 +155,7 @@
   -->
 
   <div id="demo-modal1" class="modal">
-    
+
     <div class="modal__content">
       <form>
         <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
@@ -158,12 +165,12 @@
             <label for="saldo">Saldo que desea transferir</label>
             <input name="saldo" type="text" ng-model="saldoT">
           </div>
-      
+
           <div class="seleccion">
             <label for="concepto">Concepto</label>
             <input name="concepto" type="text" ng-model="conceptoT">
           </div>
-           
+
         </div>
 
         <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="transferir()"></i>
@@ -253,11 +260,11 @@
 
 
 
-  <script src="/view/js/angular.min.js"></script>
   <script src="/view/js/transferencia.js" type="text/javascript"></script>
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><!-- Slider -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src="/view/js/nav.js" type="text/javascript"></script>
+
 </body>
 
 </html>

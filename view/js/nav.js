@@ -12,7 +12,7 @@ const navBar = document.querySelector('.navbar');
 
 // --- open menu ---
 $('.bx-menu').click(function (e) {
-        $('.navBar').addClass('show-navbar');
+        $('.navbar').addClass('show-navbar');
         $('.bx-menu').addClass('hide-bx');
         $('.bx-x').addClass('show-bx');
 
@@ -30,7 +30,7 @@ bxMenu.addEventListener('click', (e)=> {
 
 // --- close menu ---
 $('.bx-x').click(function (e) {
-        $('.navBar').removeClass('show-navbar');
+        $('.navbar').removeClass('show-navbar');
         $('.bx-menu').removeClass('hide-bx');
         $('.bx-x').removeClass('show-bx');
 

@@ -1,71 +1,79 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, "> <!-------- | NO DE PROBLEMA RESCALADO MOVIL | -------->
-    <title>FP ZORNOTZA GRUPO 4</title>
-    <link rel="shortcut icon" href="/view/img/logo.PNG"/>
-      <link href="/view/css/style.css" rel="stylesheet" type="text/css" />
-      <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
-      <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
-      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, ">
+  <!-------- | NO DE PROBLEMA RESCALADO MOVIL | -------->
+  <title>FP ZORNOTZA GRUPO 4</title>
+  <link rel="shortcut icon" href="/view/img/logo.PNG" />
+  <link href="/view/css/style.css" rel="stylesheet" type="text/css" />
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
+  <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
 
 <body ng-app="miApp">
 
-<!--HEADER-->
+  <!--HEADER-->
   <header ng-controller="miControlador" ng-init="loggedVerify()">
     <div class="company-logo"><img src="/view/img/LogoZornotza.png" alt=""></div>
     <nav class="navbar">
       <ul class="nav-items">
         <li class="nav-item"><a href="/index.html" class="nav-link"> INICIO</a></li>
         <li class="nav-item"><a href="/view/html/paginaPrestamo.html" class="nav-link"> SIMULADOR</a></li>
- 
+
         <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
         <li class="nav-item" ng-show="cuentaUsuario"><a href="/view/html/cuenta.html" class="nav-link">CUENTA</a></li>
         <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a></li>
         <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
       </ul>
-      
+
     </nav>
     <div class="menu-toggle">
       <i class="bx bx-menu"></i>
       <i class="bx bx-x"></i>
     </div>
   </header>
-  
+
 
 
   <section id="portada">
-    <div id="imagenPortada"> 
+    <div id="imagenPortada">
       <img src="/view/img/banco.jpg" alt="">
 
 
-        
-    <div class="financias" id="financia"> 
-      <a>ZORNOTZA </a>
-      <div class="svg-padding" >
-          <div class="svg-wrapper" >
+
+      <div class="financias" id="financia">
+        <a>ZORNOTZA </a>
+        <div class="svg-padding">
+          <div class="svg-wrapper">
             <svg xmlns="http://www.w3.org/2000/svg">
-              <rect class="shape"/>
+              <rect class="shape" />
               <div class="text"><a href="#slider">SIMULADORES</a></div>
             </svg>
-          </div> 
-        </div> 
+          </div>
+        </div>
+      </div>
     </div>
-  </div>      
   </section>
-  
+
   <div class="quienesSomos" data-aos="fade-up">
     <div class="imagenSomos"><img src="/view/img/somos.PNG" alt="A"></div>
     <div class="contenidoSomos">
       <h2>¿QUIENES SOMOS?</h2>
       <div class="infoSomos">
-        <p>Bienvenidos a todos, somos Ander Caballero, Javier Saez, Fatima Azza, y Markel Rajado. En conjunto, formamos el Grupo 4 de alumnos de grado superior en Aplicaciones Web.</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam recusandae modi hic veritatis placeat optio magni assumenda velit a ipsa molestias enim error nesciunt alias, vero accusantium corrupti repellendus perferendis?
+        <p>Bienvenidos a todos, somos Ander Caballero, Javier Saez, Fatima Azza, y Markel Rajado. En conjunto, formamos
+          el Grupo 4 de alumnos de grado superior en Aplicaciones Web.</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam recusandae modi hic veritatis placeat optio
+          magni assumenda velit a ipsa molestias enim error nesciunt alias, vero accusantium corrupti repellendus
+          perferendis?
         </p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi molestiae nobis voluptate deserunt deleniti exercitationem libero non accusantium eius obcaecati ex corporis, provident commodi consequuntur sed asperiores cum voluptas necessitatibus harum hic error ipsam totam. Corporis minus recusandae, dolor ut voluptatibus at debitis quam exercitationem illo veritatis! Magnam, voluptates. Autem ea distinctio sed voluptate magni! Ut sunt consectetur itaque! Sapiente!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi molestiae nobis voluptate deserunt
+          deleniti exercitationem libero non accusantium eius obcaecati ex corporis, provident commodi consequuntur sed
+          asperiores cum voluptas necessitatibus harum hic error ipsam totam. Corporis minus recusandae, dolor ut
+          voluptatibus at debitis quam exercitationem illo veritatis! Magnam, voluptates. Autem ea distinctio sed
+          voluptate magni! Ut sunt consectetur itaque! Sapiente!</p>
       </div>
     </div>
   </div>
@@ -85,10 +93,13 @@
         <p>- Clases: De lunes a viernes de 08:30 a 15:00</p>
       </div>
     </div>
-    
 
-    <div class="imagenSomos" >
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2733.2329687441884!2d-2.7266966670894135!3d43.22264988882303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e369c4e0d1637%3A0x78ccbf7525105ab1!2sCIFP%20ZORNOTZA%20LHII!5e1!3m2!1ses!2ses!4v1671090379026!5m2!1ses!2ses" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <div class="imagenSomos">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2733.2329687441884!2d-2.7266966670894135!3d43.22264988882303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e369c4e0d1637%3A0x78ccbf7525105ab1!2sCIFP%20ZORNOTZA%20LHII!5e1!3m2!1ses!2ses!4v1671090379026!5m2!1ses!2ses"
+        height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 
@@ -97,57 +108,75 @@
     <div class="contenidoSomos">
       <h2>Historia</h2>
       <div class="infoSomos">
-        <p>El CIFP Zornotza LHII, que data de 1945, se denominó en sus orígenes “Centro Buen Pastor”. Se encontraba en los bajos del Salón Parroquial y fue el resultado de la iniciativa de un párroco de la localidad preocupado por temas relacionados con la educación y la juventud al que se unieron el Ayuntamiento y las empresas de la localidad IZAR y FORJAS DE AMOREBIETA. Entre los tres formaron el Patronato rector del Centro cuyo objetivo era preparar a los jóvenes para que respondieran a las necesidades industriales de la época.</p>
-        <p>Al cambiar de nuevo la ley, en el curso 2008-09, volvimos a la situación original. Adquirimos la  denominación de IEFPS Zornotza GLHBI pasando a impartir exclusivamente Formación Profesional en sus diferentes facetas ( Reglada, Continua y Ocupacional ). A 1 de Septiembre del 2015 adquirimos la condición de centro integrado, dando uno servicios completos tanto de formación, empleabilidad y emprendizaje.</p>
+        <p>El CIFP Zornotza LHII, que data de 1945, se denominó en sus orígenes “Centro Buen Pastor”. Se encontraba en
+          los bajos del Salón Parroquial y fue el resultado de la iniciativa de un párroco de la localidad preocupado
+          por temas relacionados con la educación y la juventud al que se unieron el Ayuntamiento y las empresas de la
+          localidad IZAR y FORJAS DE AMOREBIETA. Entre los tres formaron el Patronato rector del Centro cuyo objetivo
+          era preparar a los jóvenes para que respondieran a las necesidades industriales de la época.</p>
+        <p>Al cambiar de nuevo la ley, en el curso 2008-09, volvimos a la situación original. Adquirimos la denominación
+          de IEFPS Zornotza GLHBI pasando a impartir exclusivamente Formación Profesional en sus diferentes facetas (
+          Reglada, Continua y Ocupacional ). A 1 de Septiembre del 2015 adquirimos la condición de centro integrado,
+          dando uno servicios completos tanto de formación, empleabilidad y emprendizaje.</p>
       </div>
     </div>
   </div>
-<a id="slider"></a>
+  <a id="slider"></a>
   <div class="slider" data-aos="fade-left">
     <div class="blog-slider">
       <div class="blog-slider__wrp swiper-wrapper">
         <div class="blog-slider__item swiper-slide">
           <div class="blog-slider__img">
-            
-            <img src="https://www.tododisca.com/wp-content/uploads/2022/08/simulador-hipoteca-casas-vivienda-precio-dinero-bancos-entidades-financieras.jpg" alt="">
+
+            <img
+              src="https://www.tododisca.com/wp-content/uploads/2022/08/simulador-hipoteca-casas-vivienda-precio-dinero-bancos-entidades-financieras.jpg"
+              alt="">
           </div>
           <div class="blog-slider__content">
             <span class="blog-slider__code">SIMPLE</span>
             <div class="blog-slider__title">Simulador Simple</div>
-            <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
+            <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
+              voluptate repellendus magni illo ea animi? </div>
             <a href="/view/html/paginaPrestamo.html" class="blog-slider__button">Probar simulador</a>
           </div>
         </div>
         <div class="blog-slider__item swiper-slide">
           <div class="blog-slider__img">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_pK8tRa1Sx609hXVjVn7dYbjbzEtg0JkisA&usqp=CAU" alt="">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_pK8tRa1Sx609hXVjVn7dYbjbzEtg0JkisA&usqp=CAU"
+              alt="">
           </div>
           <div class="blog-slider__content">
             <span class="blog-slider__code">AMERICANO</span>
             <div class="blog-slider__title">Simulador Americano</div>
-            <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
+            <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
+              voluptate repellendus magni illo ea animi? </div>
             <a href="/view/html/paginaPrestamo.html" class="blog-slider__button">Probar simulador</a>
           </div>
         </div>
         <div class="blog-slider__item swiper-slide">
           <div class="blog-slider__img">
-            <img src="https://www.hipotecalowcost.com/wp-content/uploads/2022/08/simulador-hipoteca-santander.png" alt="">
+            <img src="https://www.hipotecalowcost.com/wp-content/uploads/2022/08/simulador-hipoteca-santander.png"
+              alt="">
           </div>
           <div class="blog-slider__content">
             <span class="blog-slider__code">LINEAL</span>
             <div class="blog-slider__title">Simulador Lineal</div>
-            <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
+            <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
+              voluptate repellendus magni illo ea animi? </div>
             <a href="/view/html/paginaPrestamo.html" class="blog-slider__button">Probar simulador</a>
           </div>
         </div>
         <div class="blog-slider__item swiper-slide">
           <div class="blog-slider__img">
-            <img src="https://imagenes.20minutos.es/files/image_990_v3/files/fp/uploads/imagenes/2022/04/20/el-euribor-encarece-las-hipotecas-variables.r_d.182-111.jpeg" alt="">
+            <img
+              src="https://imagenes.20minutos.es/files/image_990_v3/files/fp/uploads/imagenes/2022/04/20/el-euribor-encarece-las-hipotecas-variables.r_d.182-111.jpeg"
+              alt="">
           </div>
           <div class="blog-slider__content">
             <span class="blog-slider__code">LINEAL</span>
             <div class="blog-slider__title">Simulador Lineal - i(k)</div>
-            <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
+            <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
+              voluptate repellendus magni illo ea animi? </div>
             <a href="/view/html/paginaPrestamo.html" class="blog-slider__button">Probar simulador</a>
           </div>
         </div>
@@ -158,103 +187,109 @@
           <div class="blog-slider__content">
             <span class="blog-slider__code">LINEAL</span>
             <div class="blog-slider__title">Simulador Lineal retardado</div>
-            <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
+            <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
+              voluptate repellendus magni illo ea animi?</div>
             <a href="/view/html/paginaPrestamo.html" class="blog-slider__button">Probar simulador</a>
           </div>
         </div>
-     
-        
+
+
         <div class="blog-slider__item swiper-slide">
           <div class="blog-slider__img">
-            <img src="https://gestion.pe/resizer/Q7Rq6RLFmJVvcffTBT9qEr8C74g=/1200x1200/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/JAQOXQNC4ZGABN2EHARV5CEN24.jpg" alt="">
+            <img
+              src="https://gestion.pe/resizer/Q7Rq6RLFmJVvcffTBT9qEr8C74g=/1200x1200/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/JAQOXQNC4ZGABN2EHARV5CEN24.jpg"
+              alt="">
           </div>
           <div class="blog-slider__content">
             <span class="blog-slider__code">LINEAL</span>
             <div class="blog-slider__title">Simulador Lineal retardado - i(k)</div>
-            <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
+            <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
+              voluptate repellendus magni illo ea animi?</div>
             <a href="/view/html/paginaPrestamo.html" class="blog-slider__button">Probar simulador</a>
           </div>
         </div>
-        
+
       </div>
       <div class="blog-slider__pagination"></div>
     </div>
-  </div>  
+  </div>
 
   <!--FOOTER-->
-   <!-- Site footer -->
-   <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="columnas">
-            <h6>DESTACADOS</h6>
-            <ul class="footer-links">
-              <li><a href="#">Calcular Prestamo Simple</a></li>
-              <li><a href="#">Calcular Prestamo Francés</a></li>
-              <li><a href="#">Calcular Prestamo Lineal</a></li>
-              <li><a href="#">Calcular Prestamo Americano</a></li>
-              <li><a href="#">Cuenta Online</a></li>
-              <li><a href="#">Horarios</a></li>
-              <li><a href="#">Trabaja con nosotros</a></li>
-              <li><a href="#">Zornotza Agentes</a></li>
-            </ul>
-          </div>
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="columnas">
+          <h6>DESTACADOS</h6>
+          <ul class="footer-links">
+            <li><a href="#">Calcular Prestamo Simple</a></li>
+            <li><a href="#">Calcular Prestamo Francés</a></li>
+            <li><a href="#">Calcular Prestamo Lineal</a></li>
+            <li><a href="#">Calcular Prestamo Americano</a></li>
+            <li><a href="#">Cuenta Online</a></li>
+            <li><a href="#">Horarios</a></li>
+            <li><a href="#">Trabaja con nosotros</a></li>
+            <li><a href="#">Zornotza Agentes</a></li>
+          </ul>
+        </div>
 
-          <div class="columnas">
-            <h6>INFORMACIÓN LEGAL Y SEGURIDAD</h6>
-            <ul class="footer-links">
-              <li><a href="#">Aviso Legal</a></li>
-              <li><a href="#">Politica de cookies</a></li>
-              <li><a href="#">Anuncios</a></li>
-              <li><a href="#">Ley de servicios de pago</a></li>
-              <li><a href="#">Acessibilidad</a></li>
-              <li><a href="#">Seguridad online</a></li>
-              <li><a href="#">Reclamaciones</a></li>
-              <li><a href="#">Pormociones</a></li>
-            </ul>
-          </div>
+        <div class="columnas">
+          <h6>INFORMACIÓN LEGAL Y SEGURIDAD</h6>
+          <ul class="footer-links">
+            <li><a href="#">Aviso Legal</a></li>
+            <li><a href="#">Politica de cookies</a></li>
+            <li><a href="#">Anuncios</a></li>
+            <li><a href="#">Ley de servicios de pago</a></li>
+            <li><a href="#">Acessibilidad</a></li>
+            <li><a href="#">Seguridad online</a></li>
+            <li><a href="#">Reclamaciones</a></li>
+            <li><a href="#">Pormociones</a></li>
+          </ul>
+        </div>
 
-          <div class="columnas">
-            <h6>WWBS FP ZORNOTZA</h6>
-            <ul class="footer-links">
-              <li><a href="#">Sobre Grupo 4</a></li>
-              <li><a href="#">Contacto</a></li>
-              <li><a href="#">Asistente</a></li>
-              <li><a href="#">Consumidor</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Politicas de Privacidad</a></li>
-              <li><a href="#">Finanzas Personales</a></li>
-            </ul>
-          </div>
+        <div class="columnas">
+          <h6>WWBS FP ZORNOTZA</h6>
+          <ul class="footer-links">
+            <li><a href="#">Sobre Grupo 4</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Asistente</a></li>
+            <li><a href="#">Consumidor</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Politicas de Privacidad</a></li>
+            <li><a href="#">Finanzas Personales</a></li>
+          </ul>
         </div>
       </div>
-      <div class="container">
-        <div class="row2">
-          <div class="columnas">
-            <p class="copyright-text">Copyright &copy;Grupo4 Zonortza 2022.</p>
-            <a href="#">Todos los derechos reservados</a>.
-          </div>
+    </div>
+    <div class="container">
+      <div class="row2">
+        <div class="columnas">
+          <p class="copyright-text">Copyright &copy;Grupo4 Zonortza 2022.</p>
+          <a href="#">Todos los derechos reservados</a>.
+        </div>
 
-          <div class="columnas">
-            <ul class="social-icons">
-              <li><a class="facebook" href="#"><i class="fa-brands fa-facebook fa-2xl"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fa-brands fa-twitter fa-2xl"></i></a></li>
-              <li><a class="instagram" href="#"><i class="fa-brands fa-instagram fa-2xl"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fa-brands fa-linkedin fa-2xl"></i></a></li>
-            </ul>
-          </div>
+        <div class="columnas">
+          <ul class="social-icons">
+            <li><a class="facebook" href="#"><i class="fa-brands fa-facebook fa-2xl"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa-brands fa-twitter fa-2xl"></i></a></li>
+            <li><a class="instagram" href="#"><i class="fa-brands fa-instagram fa-2xl"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa-brands fa-linkedin fa-2xl"></i></a></li>
+          </ul>
         </div>
       </div>
+    </div>
   </footer>
 
 
-  
+
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><!-- Slider -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script><!-- Slider -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script><!-- Slider -->
 
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
+    integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/view/js/index.js" type="text/javascript"></script>
   <script src="/view/js/nav.js" type="text/javascript"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

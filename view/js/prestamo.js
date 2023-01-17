@@ -85,6 +85,7 @@ MyApp.controller('miController', function ($scope, $http) {
         var kapitala = $scope.capital;
         var intr = 0;
         var meta = 0;
+        var kap = 0;
         $scope.lista.push({
             Aldiak: 0,
             Kuota: "0,00 €",
@@ -99,12 +100,15 @@ MyApp.controller('miController', function ($scope, $http) {
         if (($scope.periodoPago ==  $scope.tipo )) {
             intr = $scope.interes / 100;
         }
+        if($scope.gabezia=="int"){
+            Amortizazioa = $scope.capital /($scope.numero-$scope.periodoCarencia );
+        }
         //////LINEAL////
         if ($scope.sistema == "Lineal") {
             for (let i = 1; i <= $scope.numero; i++) {
                 for (let j = 1; j <= 12/$scope.periodoPago; j++) {
                     Aldiak = i + "-" + j;
-                    if($scope.periodoCarencia == 0){
+                    if($scope.periodoCarencia == 0){//////////////////////////////////////////////////////// Sin periodo de carencia  
                         if (j == 12/$scope.periodoPago) {
                             Interesa = kapitala * intr;
                             Amortizazioa = $scope.capital / $scope.numero;
@@ -121,21 +125,43 @@ MyApp.controller('miController', function ($scope, $http) {
                             kapitala = kapitala;
                             Kuota = Interesa;
                         }
-                    }else{
-                        if($scope.periodoCarencia < i && j == 12/$scope.periodoPago){
-                            Interesa = kapitala * intr;
-                            Amortizazioa = $scope.capital /($scope.numero-$scope.periodoCarencia );
-                            kapitala = kapitala-Amortizazioa;
-                            Kuota = Interesa + Amortizazioa;
-                            Metatua = meta + Amortizazioa;
-                            meta = Metatua;
-                        }
-                        else {
-                            Interesa = kapitala*intr;
-                            Amortizazioa = 0;
-                            Metatua = Metatua;
-                            kapitala = kapitala;
-                            Kuota = Interesa;
+                    }
+                    else{//////////////////////////////////////////////////////// Con periodo de carencia 
+                        if ($scope.gabezia == "int") {/////////////////////////////////////////////////////////////Con periodo de carencia int
+                            if($scope.periodoCarencia < i && j == 12/$scope.periodoPago){
+                                Interesa = kapitala * intr;//
+                                Amortizazioa = $scope.capital /($scope.numero-$scope.periodoCarencia );
+                                kapitala = kapitala-Amortizazioa;//
+                                Kuota = Interesa + Amortizazioa;//
+                                Metatua = meta + Amortizazioa;//
+                                meta = Metatua;
+                            }
+                            else {
+                                Interesa = kapitala*intr;
+                                Amortizazioa = 0;
+                                Metatua = Metatua;
+                                kapitala = kapitala;
+                                Kuota = Interesa;
+                            }
+                        } if (($scope.gabezia == "totala")) {////////////////////////////////////////////////////////Con periodo de carencia totala 
+                                if($scope.periodoCarencia < i && j == 12/$scope.periodoPago ){
+                                    Interesa = kapitala * intr;
+                                    Amortizazioa = kap /($scope.numero-$scope.periodoCarencia );
+                                    kapitala = kapitala-Amortizazioa;
+                                    Kuota = Interesa + Amortizazioa;
+                                    Metatua = meta + Amortizazioa;
+                                    meta = Metatua;
+                                }
+                                else {
+                                    Interesa = 0;
+                                    Amortizazioa = 0;
+                                    Metatua = 0;
+                                    kapitala = parseInt(kapitala) * (1+intr);
+                                    Kuota = 0;
+                                    kap = kapitala;
+                                }
+                            
+                            
                         }
                     }
                     $scope.lista.push({
