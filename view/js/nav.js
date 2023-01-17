@@ -30,7 +30,7 @@ bxMenu.addEventListener('click', (e)=> {
 
 // --- close menu ---
 $('.bx-x').click(function (e) {
-        $('.navBar').removeClass('show-navbar');
+        $('.navbar').removeClass('show-navbar');
         $('.bx-menu').removeClass('hide-bx');
         $('.bx-x').removeClass('show-bx');
 
