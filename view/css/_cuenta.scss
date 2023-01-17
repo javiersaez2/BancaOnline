@@ -2,22 +2,25 @@
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    width: auto ;
+    width: auto;
 
     .tarjeta {
-        border: 5px solid red ;
+        border: 5px solid red;
         width: 70%;
-        height: 700px;
+        height: auto;
         display: flex;
         margin: 50px;
         @include glasscuenta();
         background-color: $color-principal;
-
+        @media screen and (max-width: 1200px) {
+            flex-direction: column;
+            width: 600px;
+        }
         @media screen and (max-width: 730px) {
             flex-direction: column;
             width: 600px;
         }
-        
+
 
         .infocliete {
             padding: 5px;
@@ -33,17 +36,17 @@
                 fill: currentColor;
             }
 
-            .tipo{
+            .tipo {
                 position: absolute;
                 background-color: $color-terciario1;
                 color: $color-blanco;
-                font-size:large;
+                font-size: large;
                 text-align: center;
                 margin-left: 10px;
-                margin-top:10px;
+                margin-top: 10px;
                 display: table-cell;
                 vertical-align: middle;
-                padding:10px ;
+                padding: 10px;
             }
 
             .profile-card {
@@ -79,7 +82,7 @@
                         width: 120px;
                         height: 120px;
                     }
-                   
+
                     img {
                         display: block;
                         width: 100%;
@@ -89,112 +92,128 @@
                     }
 
                 }
-                 .fa-user-pen{
+
+                .fa-user-pen {
                     position: absolute;
-                        right: 5px;
-                        top:5px;
-                        color: $color-principal;
-                        font-size: 250%;
-                    }
-                   
-                    .texto{
-                        text-align: center;
-                        font-size: xx-large;
+                    right: 5px;
+                    top: 5px;
+                    color: $color-principal;
+                    font-size: 250%;
+                }
 
-                    }
-                    .botones {
+                .texto {
+                    text-align: center;
+                    font-size: xx-large;
+
+                }
+
+                .botones {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: center;
+                    margin: 5% 0px 10% 0px;
+
+
+                    .custom-btn {
+                        width: 50vh;
+                        height: 100px;
+                        border: 2px solid $color-terciario1;
+                        font-family: 'Lato', sans-serif;
+                        font-weight: 50px;
+                        background: transparent;
+                        color: $color-negro;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
                         position: relative;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-around;
-                        align-items: center;
-                        margin-top: 10px;
-        
-                      .custom-btn {
-                            width: 50vh;
-                            height: 100px;
-                            border: 2px solid $color-terciario1;
-                            font-family: 'Lato', sans-serif;
-                            font-weight: 50px;
-                            background: transparent;
-                            color:$color-negro;
-                            cursor: pointer;
-                            transition: all 0.3s ease;
-                            position: relative;
-                            display: inline-block;
-                            margin: 10px;
-                          }
-                          
-                          
-                          .btn-cuenta {
-                            font-size: 25px;
-                               font-weight: 50px;
-                            overflow: hidden;
-                            transition: all 0.3s ease;
-                          }
-                          .btn-cuenta:hover {
-                             background: $color-principal   ;
-                            color: #fff;
-                          }
-                          .btn-cuenta:before {
-                              position: absolute;
-                              content: '';
-                              display: inline-block;
-                              top: -180px;
-                              left: 0;
-                              width: 30px;
-                              height: 100%;
-                              background-color: #fff;
-                              animation: shiny-btn1 3s ease-in-out infinite;
-                          }
-                          .btn-cuenta:active{
-                            box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
-                                        -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-                              inset -4px -4px 6px 0 rgba(255,255,255,.2),
-                              inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
-                          }
-                          
-                          
-                          @-webkit-keyframes shiny-btn1 {
-                              0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
-                              80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
-                              81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
-                              100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
-                          }
-                          
-                          
-
+                        display: inline-block;
+                        margin: 10px;
                     }
 
-            }
 
-          
+                    .btn-cuenta {
+                        font-size: 25px;
+                        font-weight: 50px;
+                        overflow: hidden;
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            background: $color-principal ;
+                            color: #fff;
+                        }
+
+                        &:before {
+                            position: absolute;
+                            content: '';
+                            display: inline-block;
+                            top: -180px;
+                            left: 0;
+                            width: 30px;
+                            height: 100%;
+                            background-color: #fff;
+                            animation: shiny-btn1 3s ease-in-out infinite;
+                        }
+
+                        &:active {
+                            box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
+                                -4px -4px 6px 0 rgba(116, 125, 136, .2),
+                                inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+                                inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+                        }
+                    }
+
+                    @-webkit-keyframes shiny-btn1 {
+                        0% {
+                            -webkit-transform: scale(0) rotate(45deg);
+                            opacity: 0;
+                        }
+
+                        80% {
+                            -webkit-transform: scale(0) rotate(45deg);
+                            opacity: 0.5;
+                        }
+
+                        81% {
+                            -webkit-transform: scale(4) rotate(45deg);
+                            opacity: 1;
+                        }
+
+                        100% {
+                            -webkit-transform: scale(50) rotate(45deg);
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
         }
 
         .cuentacorriente {
-
             right: 0;
             height: 480px;
             width: 105%;
-            padding-top: 10px;
-            border: 1px solid rgba(123, 123, 123, 0.3);
             overflow-x: auto;
-
 
             .datoscorriente {
                 padding: 5px;
-                margin-top: 5px;
-                height: 50px;
+                margin: 15px;
+                margin-top:5px ;
+                height: 60px;
                 width: auto;
                 display: flex;
+                justify-content: space-between;
                 flex-wrap: wrap;
-                @include glasswhite();
+                align-items: center;
+                @include glasscuenta();
+
+
+                .fa-money-bill-transfer {
+                    color: $color-terciario4;
+                    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+                    font-size: x-large;
+                }
 
             }
         }
-
-         
-        }
-
+    }
 }
-
