@@ -136,11 +136,13 @@
       // Tabla movimientos //
       /////////////////////// 
       -->
-      <table ng-show="tablaMostrar">
+      <table border="1" ng-show="tablaMostrar">
         <tr ng-repeat="movimiento in ListaMovimientos">
-          <td><i class="fa-solid fa-money-bill-transfer"></i></td>
-          <td>{{movimiento.nombre}}</td>
-          <td>{{movimiento.curso}}</td>
+          <td><i class="{{movimiento.tipoMovimiento}}"></i></td>
+          <td>{{movimiento.iban}}</td>
+          <td>{{movimiento.fecha}}</td>
+          <td>{{movimiento.cantidad}}</td>
+          <td>{{movimiento.tipoMovimiento}}</td>
         </tr>
       </table>
 
