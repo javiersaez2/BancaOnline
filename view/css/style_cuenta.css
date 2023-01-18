@@ -647,4 +647,94 @@ header {
   color: #ab5fe0;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
   font-size: x-large;
+}
+
+.tablasDeCuentas {
+  width: 90%;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
+}
+@media screen and (max-width: 576px) {
+  .tablasDeCuentas {
+    padding: 0;
+  }
+}
+.tablasDeCuentas h2 {
+  color: purple;
+  padding: 10px;
+}
+.tablasDeCuentas .contenidoTabla {
+  width: 100%;
+  padding-top: 20px;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.tablasDeCuentas .contenidoTabla .tarjetitas {
+  position: relative;
+  margin: 5px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.tablasDeCuentas .contenidoTabla .tarjetitas table .colum2 {
+  width: 211px;
+  height: 25px;
+  padding: 5px;
+  background-color: rgba(39, 39, 39, 0.2);
+}
+.tablasDeCuentas .contenidoTabla .tarjetitas table .colum1 {
+  width: 170px;
+  height: 25px;
+  padding: 5px;
+  background-color: rgba(39, 39, 39, 0.2);
+}
+.tablasDeCuentas .contenidoTabla .tarjetitas a {
+  text-decoration: none;
+}
+
+.contenderDNI {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 90%;
+}
+.contenderDNI h2 {
+  color: purple;
+}
+.contenderDNI #FiltrarPorDNINoPersonales {
+  width: 15%;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  .contenderDNI #FiltrarPorDNINoPersonales {
+    width: 90%;
+  }
+}
+#infomarcionNecesaria {
+  width: 81%;
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-areas: 2;
+  grid-gap: 5px;
+  margin: auto;
+}
+
+.tiposDeErrores {
+  text-align: center;
+  color: red;
+}
+
+.tiposDeErroresIz {
+  color: red;
 }/*# sourceMappingURL=style_cuenta.css.map */
