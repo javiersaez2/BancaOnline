@@ -106,8 +106,8 @@ miApp.controller('datoscliente', function ($scope, $http) {
             $scope.errores = "Alguno de los camppos estan vacios"
         }
 
-        if ($scope.passModificar.length < 4){
-            alert("Escribe un minimo de 4 caracteres para la nueva clave");
+        if ($scope.passModificar.length < 6){
+            alert("Escribe un minimo de 6 caracteres para la nueva clave");
         }
 
 
