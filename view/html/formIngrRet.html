@@ -82,22 +82,27 @@
       <div class="form__group field">
 
         <div ng-show="textoVer =='true'">
-          <h2>Has elegido la cuenta con IBAN : <span id="ibanClick"></span></h2>
+          <h2><span id="ibanClick"></span></h2>
 
         </div>
 
         <form ng-show="formVer =='true'">
 
-          <div>
-          </div>
-          <div>
-            <input type="text" ng-model="cantidad" placeholder="cantidad" name="cantidad" id='cantidad' />
-          </div>
-          <div>
-            <input type="text" ng-model="concepto" placeholder="concepto" name="concepto" id='concepto'></input>
+          <div id="infomarcionNecesaria">
+
+            <div class="seleccion">
+              <input type="text" ng-model="cantidad" placeholder="Cantidad" name="cantidad" id='cantidad' />
+            </div>
+            <div class="seleccion">
+              <input type="text" ng-model="concepto" placeholder="Concepto" name="concepto" id='concepto'></input>
+            </div>
           </div>
           <br>
-          <input id="boton" type="button" value="Aceptar" ng-click="mover()">
+
+          
+          <div class="tiposDeErrores" ng-model="errores">{{errores}}</div>
+          
+          <input id="boton" type="button" value="ACEPTAR" ng-click="mover()">
         </form>
       </div>
     </div>
