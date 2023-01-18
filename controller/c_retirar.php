@@ -28,7 +28,10 @@ if ($probar == 0){
     $cuentaMovimiento = new cuenta_movimientoModel();
     $cuentaMovimiento->setIban($data["iban"]);
     $cuentaMovimiento->setIdMovimiento($id);
-    $cuentaMovimiento->setCantidad($data["cantidad"]);
+
+
+    $saldoNegativo = -$data["cantidad"];
+    $cuentaMovimiento->setCantidad($saldoNegativo);
     $response["cuentaMov"] = $cuentaMovimiento->insert();
 
 }
