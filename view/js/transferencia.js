@@ -159,13 +159,13 @@ MyApp.controller('miController', function ($scope, $http) {
 
 
         if ($scope.conceptoT != null && $scope.saldoT == 0) {
-            alert("Por favor; introduce Saldo");
+            $scope.fallosVisibles = "Por favor; introduce Saldo";
             return false;
 
         }
 
         if ($scope.conceptoT == false) {
-            alert("Por favor; introduce Concepto");
+            $scope.fallosVisibles = "Por favor; introduce Concepto";
             return false;
         }
 
@@ -184,8 +184,6 @@ MyApp.controller('miController', function ($scope, $http) {
             data: JSON.stringify(lista)
         }).then(function (response) {
 
-            alert(response.data.error);
-
             vercuentas();
             //vercuentasNoPersonales();
 
@@ -193,6 +191,9 @@ MyApp.controller('miController', function ($scope, $http) {
                 $scope.SeleccionT = false;
                 $scope.OtrasT = false;
                 modalnovisible(1);
+            } else{
+                $scope.fallosVisibles = response.data.error;
+
             }
 
 

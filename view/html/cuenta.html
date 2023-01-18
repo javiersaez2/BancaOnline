@@ -83,13 +83,13 @@
 
 
             <div class="cuentacorriente">
-              <div class="datoscorriente" ng-repeat="infocuenta in infocuenta.objCuenta">
+              <div class="datoscorriente"  ng-click="modificarUsuario('2')" ng-repeat="infocuenta in infocuenta.objCuenta">
                 <div>
-                  {{infocuenta.iban}} -
-                  {{infocuenta.saldo}} €
+                  {{infocuenta.iban}} 
                 </div>
                 <div>
-                  <i class="fa-solid fa-money-bill-transfer fa-fade"  style="--fa-animation-duration: 2s; --fa-fade-opacity:0.65; --fa-animation-delay:1s" ng-click="modificarUsuario('2')"></i>
+                  {{infocuenta.saldo}} €
+                  <!-- <i class="fa-solid fa-money-bill-transfer fa-fade"  style="--fa-animation-duration: 2s; --fa-fade-opacity:0.65; --fa-animation-delay:1s" ng-click="modificarUsuario('2')"></i> -->
                   <div>
                   </div>
                 </div>
@@ -125,7 +125,7 @@
                 <label for="veriModificar" class="form__label">Verificar Contraseña</label>
               </div>
               <br>
-              <div ng-model="errores">{{errores}}</div>
+              <div class="tiposDeErroresIz" ng-model="errores">{{errores}}</div>
 
 
               <button ng-click="guardarPassword(item)" class="button-23">Guardar Modificaciones</button>

@@ -16,10 +16,6 @@
             flex-direction: column;
             width: 600px;
         }
-        @media screen and (max-width: 730px) {
-            flex-direction: column;
-            width: 600px;
-        }
 
 
         .infocliete {
@@ -129,8 +125,12 @@
                         position: relative;
                         display: inline-block;
                         margin: 10px;
-                    }
-
+                        
+                    
+                    @media screen and (max-width: 390px) {
+                        border: 5px solid green;
+                        width: 40vh;
+                    }}
 
                     .btn-cuenta {
                         font-size: 25px;
@@ -190,9 +190,13 @@
 
         .cuentacorriente {
             right: 0;
-            height: 480px;
+            height: 650px;
             width: 105%;
             overflow-x: auto;
+            @media screen and (max-width: 1200px) {
+                width: 100%;
+                height: 560px;
+            }
 
             .datoscorriente {
                 padding: 5px;
@@ -205,7 +209,6 @@
                 flex-wrap: wrap;
                 align-items: center;
                 @include glasscuenta();
-
 
                 .fa-money-bill-transfer {
                     color: $color-terciario4;
