@@ -475,12 +475,6 @@ header {
     width: 600px;
   }
 }
-@media screen and (max-width: 730px) {
-  .secciontarjeta .tarjeta {
-    flex-direction: column;
-    width: 600px;
-  }
-}
 .secciontarjeta .tarjeta .infocliete {
   padding: 5px;
   margin-right: 20px;
@@ -579,6 +573,12 @@ header {
   display: inline-block;
   margin: 10px;
 }
+@media screen and (max-width: 390px) {
+  .secciontarjeta .tarjeta .infocliete .profile-card .botones .custom-btn {
+    border: 5px solid green;
+    width: 40vh;
+  }
+}
 .secciontarjeta .tarjeta .infocliete .profile-card .botones .btn-cuenta {
   font-size: 25px;
   font-weight: 50px;
@@ -624,9 +624,15 @@ header {
 }
 .secciontarjeta .tarjeta .cuentacorriente {
   right: 0;
-  height: 480px;
+  height: 650px;
   width: 105%;
   overflow-x: auto;
+}
+@media screen and (max-width: 1200px) {
+  .secciontarjeta .tarjeta .cuentacorriente {
+    width: 100%;
+    height: 560px;
+  }
 }
 .secciontarjeta .tarjeta .cuentacorriente .datoscorriente {
   padding: 5px;
