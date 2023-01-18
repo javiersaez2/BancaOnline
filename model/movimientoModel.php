@@ -65,7 +65,7 @@ class movimientoModel extends movimientoClass
     public function setListMovimiento(){
         $this->OpenConnect();
         $idMovimiento=$this->idMovimiento;
-        $sql = "SELECT * FROM movimiento WHERE idMovimiento='$idMovimiento'";
+        $sql = "SELECT * FROM movimiento WHERE idMovimiento=$idMovimiento ";
         $result = $this->link->query($sql);
 
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -80,4 +80,7 @@ class movimientoModel extends movimientoClass
         $this->CloseConnect();
     }
 
+    public function  ObjVars() {
+        return get_object_vars($this);
+    }
 }
