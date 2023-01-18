@@ -107,7 +107,7 @@ miApp.controller('datoscliente', function ($scope, $http) {
         }
 
         if ($scope.passModificar.length < 6){
-            alert("Escribe un minimo de 6 caracteres para la nueva clave");
+            $scope.errores = "Escribe un minimo de 6 caracteres para la nueva clave";
         }
 
 
