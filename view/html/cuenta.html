@@ -1,42 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/view/img/logo.PNG" />
+    <link href="/view/css/style_cuenta.css" rel="stylesheet" type="text/css" />
+    
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
+    
+    <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="/view/img/logo.PNG" />
-  <link href="/view/css/style_cuenta.css" rel="stylesheet" type="text/css" />
-
-  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
-
-  <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
 </head>
 
 <body ng-app="miApp">
+<div id="nav"></div>
 
-    <!--HEADER-->
-    <header ng-controller="miControlador" ng-init="loggedVerify()">
-      <div class="company-logo"><img src="/view/img/LogoZornotza.png" alt=""></div>
-      <nav class="navbar">
-        <ul class="nav-items">
-          <li class="nav-item"><a href="/index.html" class="nav-link"> INICIO</a></li>
-          <li class="nav-item"><a href="/view/html/paginaPrestamo.html" class="nav-link"> SIMULADOR</a></li>
-
-          <li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>
-          <li class="nav-item" ng-show="cuentaUsuario"><a href="/view/html/cuenta.html" class="nav-link">CUENTA</a></li>
-          <li class="nav-item" ng-show="botonAdmin"><a href="/view/html/paginaAdmin.html" class="nav-link">ADMIN</a>
-          </li>
-          <li class="nav-item" ng-show="butonLogOut"><a ng-click="logout()" class="nav-link">LOG OUT</a></li>
-        </ul>
-
-      </nav>
-      <div class="menu-toggle">
-        <i class="bx bx-menu"></i>
-        <i class="bx bx-x"></i>
-      </div>
-    </header>
 
 
 
@@ -85,7 +66,7 @@
             <div class="cuentacorriente">
               <div class="datoscorriente" ng-repeat="infocuenta in infocuenta.objCuenta">
                 <div>
-                  {{infocuenta.iban}} - {{infocuenta.saldo}} €
+                  {{infocuenta.iban}} - {{infocuenta.saldo | currency}}
                 </div>
                 <div>
                   <i class="fa-solid fa-money-bill-transfer fa-fade"  ng-click="movimientos(infocuenta.iban)" style="--fa-animation-duration: 2s; --fa-fade-opacity:0.65; --fa-animation-delay:1s" ng-click="modificarUsuario('2')"></i> 
@@ -239,10 +220,11 @@
 
 
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><!-- Slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
     integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/view/js/angular-locale_de-de.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src="/view/js/cuenta.js" type="text/javascript"></script>
   <script src="/view/js/nav.js" type="text/javascript"></script>
 
