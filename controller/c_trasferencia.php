@@ -30,7 +30,7 @@ if (isset($saldo)) {
         $id = $movimiento->selectIid();
 
 
-        $cuentaMovimiento = new cuenta_movimientosModel();
+        $cuentaMovimiento = new cuenta_movimientoModel();
         $cuentaMovimiento->setIban($ibanEmisor);
         $cuentaMovimiento->setIdMovimiento($id);
         //$saldoNegativo = abs($saldo);
