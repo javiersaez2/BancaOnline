@@ -564,7 +564,6 @@ header {
   height: 100px;
   border: 2px solid #a34ae3;
   font-family: "Lato", sans-serif;
-  font-weight: 50px;
   background: transparent;
   color: black;
   cursor: pointer;
@@ -576,7 +575,7 @@ header {
 @media screen and (max-width: 390px) {
   .secciontarjeta .tarjeta .infocliete .profile-card .botones .custom-btn {
     border: 5px solid green;
-    width: 30vh;
+    width: 40vh;
   }
 }
 .secciontarjeta .tarjeta .infocliete .profile-card .botones .btn-cuenta {
