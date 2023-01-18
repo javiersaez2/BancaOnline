@@ -291,8 +291,8 @@ class clienteModel extends clienteclass
         $sql = "SELECT * FROM cliente WHERE dnicliente LIKE '%$dniCli%' ";
         $result = $this->link->query($sql);
 
-        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            if ($this->link->affected_rows == 1) {
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            if ($this->link->affected_rows >= 1) {
                 $newCliente = new clienteModel();
                 $newCliente->dniCliente = $row['dniCliente'];
                 $newCliente->nombre = $row['nombre'];

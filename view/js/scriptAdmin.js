@@ -214,7 +214,6 @@ MyApp.controller('miController', function ($scope, $http) {
         }
     });
 
-
     ///////////////////////////////
     ///////////////////////////////
     // Comprobar y cerrar sesion //
@@ -273,20 +272,9 @@ MyApp.controller('miController', function ($scope, $http) {
 })
 
 
-// function switchScroll() {
-//     if (document.getElementById('scroll').checked == true){
-//       enable_scroll();
-//     } else {
-//       disable_scroll();
-//     }
-//   }
-  
-
-
-
-
-
-
+////////////////////////////////////
+// Funciones scroll para el modal //
+////////////////////////////////////
 function modalvisible(x) {
     document.getElementById("demo-modal"+x+"").style.visibility = "visible";
     document.getElementById("demo-modal"+x+"").style.opacity = 1;
@@ -301,7 +289,7 @@ function modalnovisible(x) {
     enable_scroll_mobile();
 }
   
-  // PREVENT DEFAULT HANDLER
+  // Evitar el controlador por defecto
   function preventDefault(e) {
     e = e || window.event;
     if (e.preventDefault) {
@@ -309,10 +297,8 @@ function modalnovisible(x) {
     }
     e.returnValue = false;
   }
-  // PREVENT SCROLL KEYS
-  // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-  // left: 37, up: 38, right: 39, down: 40,
-  // (Source: http://stackoverflow.com/a/4770179)
+
+  // Prevenir las teclas de SCROLL
   function keydown(e) {
     var keys = [32,33,34,35,36,37,38,39,40];
     for (var i = keys.length; i--;) {
@@ -322,13 +308,15 @@ function modalnovisible(x) {
       }
     }
   }
-  // PREVENT MOUSE WHEEL
+
+  // Prevenir rueda del ratons
   function wheel(event) {
     event.preventDefault();
     event.stopPropagation();
     return false;
   }
-  // DISABLE SCROLL
+
+  // Desactivar scroll
   function disable_scroll() {
     if (document.addEventListener) {
       document.addEventListener('wheel', wheel, false);
@@ -349,7 +337,8 @@ function modalnovisible(x) {
     // document.body.style.overflow = 'hidden'; // CSS
     disable_scroll_mobile();
   }
-  // ENABLE SCROLL
+
+  // Habilitar scoll
   function enable_scroll() {
     if (document.removeEventListener) {
       document.removeEventListener('wheel', wheel, false);
@@ -362,7 +351,7 @@ function modalnovisible(x) {
     enable_scroll_mobile();
   }
   
-  // MOBILE
+  // Mobil
   function disable_scroll_mobile(){
     document.addEventListener('touchmove', preventDefault, false);
   }
