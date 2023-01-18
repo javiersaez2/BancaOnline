@@ -52,20 +52,8 @@ miApp.controller('miControlador', function ($scope, $http) {
 
 //Datos de usuario
 miApp.controller('datoscliente', function ($scope, $http) {
-    $scope.loggedVerify = function () {
-        $http({
-            url: "/controller/cLoggedVerify.php",
-            method: "POST"
-        }).then(function (response) {
-
-       
-            if (response.data.error != "logged") {
-                if (window.location.pathname == "/view/html/cuenta.html") {
-                    window.location.href = "/index.html"
-                }
-            }
-          
-        })
+    $scope.movimientos = function(iban){
+        console.log(iban);
     }
 
     $scope.ingresarretirar = function(numero){

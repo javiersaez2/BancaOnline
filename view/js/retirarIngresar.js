@@ -53,14 +53,22 @@ MyApp.controller('miControl', function ($scope, $http) {
                 }).catch(function (response) {
                     console.error('Error occurred:', response.status, response.data)
                 })
+            
             } if ($scope.ingresarretirar == "1") {
                 $http({
                     url: '../../controller/c_retirar.php',
                     method: "POST",
                     data: JSON.stringify({ 'iban': iban, 'cantidad': cantidad, 'concepto': concepto, 'tipo': "Retirar" })
                 }).then(function (response) {
-                    alert(response.data.retirar);
+
+                    if(response.data.retirar == 0){
+                        $scope.errores = "La cantidad es mayor que el saldo";
+                        return false;
+                    }
+                        
                     location.reload();
+                    
+                
                 }).catch(function (response) {
                     console.error('Error occurred:', response.status, response.data)
                 })
