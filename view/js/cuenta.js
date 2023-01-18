@@ -62,11 +62,30 @@ miApp.controller('datoscliente', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify({'iban': iban})
         }).then(function (response) {
-            console.log(response.data.list);
+            $scope.ListaMovimientos = [];
+            var datos = response.data.list;
+            // var tipoMovimiento = datos.objMovimiento.tipoMovimiento;
+
+            for (var i = 0; i <= datos.length; i++){
+                if (datos[i].objMovimiento.tipoMovimiento == "Ingresar"){
+                    tipoMovimiento = "fa-solid fa-money-bill-transfer";   
+                } else if (datos[i].objMovimiento.tipoMovimiento == "Retirar"){
+                    tipoMovimiento = "fa-solid fa-money-check-dollar";
+                } else {
+                    tipoMovimiento = "TRANSFERECIA";
+                }
+
+                $scope.ListaMovimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimiento":tipoMovimiento});   
+            }
+            
+            $scope.ListaMovimientos.push({"iban":datos[0].iban, "fecha":datos[0].fecha, "cantidad":datos[0].cantidad, "tipoMovimiento":datos[0].objMovimiento.tipoMovimiento});
+            console.log($scope.ListaMovimientos);
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
         })
     }
+
+
 
     $scope.ingresarretirar = function(numero){
         localStorage.setItem("ingresarretirarnumero", numero);

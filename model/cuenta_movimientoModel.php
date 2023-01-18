@@ -1,6 +1,7 @@
 <?php
 include_once 'connect_data.php';
 include_once 'cuenta_movimientoClass.php';
+include_once 'movimientoModel.php';
 
 
 class cuenta_movimientoModel extends cuenta_movimientoClass
@@ -52,13 +53,13 @@ class cuenta_movimientoModel extends cuenta_movimientoClass
         $this->OpenConnect();
 
         $iban=$this->iban;
-        $sql = "SELECT * FROM cuenta_movimiento WHERE iban='$iban'";
+        $sql = "SELECT c.iban, c.fecha, c.cantidad, m.idMovimiento, m.tipoMovimiento, m.concepto FROM cuenta_movimiento c INNER JOIN movimiento m ON c.idMovimiento=m.idMovimiento WHERE iban='$iban'";
 
         $list = array();
 
         $result = $this->link->query($sql);
-        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            if($this->link->affected_rows == 1){
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            if($this->link->affected_rows > 0){
                 $newCuenta= new cuenta_movimientoModel();
                 $newCuenta->iban = $row['iban'];
                 $newCuenta->fecha = $row['fecha'];
@@ -66,13 +67,13 @@ class cuenta_movimientoModel extends cuenta_movimientoClass
 
                 $newMovimiento=new movimientoModel();
                 $newMovimiento->setIdMovimiento($row['idMovimiento']);  
-                $newMovimiento->setListMovimiento();  
-                $newMovimiento->objMovimiento=$newCuenta->ObjVars();
+                $newMovimiento->setTipoMovimiento($row["tipoMovimiento"]);
+                $newMovimiento->setConcepto($row["concepto"]);
+                $newCuenta->objMovimiento=$newMovimiento->ObjVars();
 
                 array_push($list, get_object_vars($newCuenta));
             }
         }
-
         return $list;
         $this->CloseConnect();  
     }
