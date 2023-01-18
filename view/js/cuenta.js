@@ -8,7 +8,7 @@ miApp.controller('miControlador', function ($scope, $http) {
     $scope.loggedVerify = function () {
         $http({
             url: "/controller/cLoggedVerify.php",
-            method: "POST"
+            method: "POST",
         }).then(function (response) {
 
             if (response.data.error != "logged") {
@@ -52,19 +52,19 @@ miApp.controller('miControlador', function ($scope, $http) {
 
 //Datos de usuario
 miApp.controller('datoscliente', function ($scope, $http) {
-    $scope.loggedVerify = function () {
-        $http({
-            url: "/controller/cLoggedVerify.php",
-            method: "POST"
-        }).then(function (response) {
+    $scope.tablaMostrar = false;
 
-       
-            if (response.data.error != "logged") {
-                if (window.location.pathname == "/view/html/cuenta.html") {
-                    window.location.href = "/index.html"
-                }
-            }
-          
+    $scope.movimientos = function(iban){
+        $scope.tablaMostrar = true;
+
+        $http({
+            url: "/controller/c_movimientosCuenta.php",
+            method: "POST",
+            data: JSON.stringify({'iban': iban})
+        }).then(function (response) {
+            console.log(response.data.list);
+        }).catch(function (response) {
+            console.error('Error occurred:', response.status, response.data)
         })
     }
 
@@ -103,11 +103,11 @@ miApp.controller('datoscliente', function ($scope, $http) {
     $scope.guardarPassword = function () {
 
         if ($scope.passanti == null || $scope.passModificar == null || $scope.veriModificar == null) {
-            $scope.errores = "Alguno de los camppos estan vacios"
+            $scope.errores = "Alguno de los campos estan vacios"
         }
 
         if ($scope.passModificar.length < 6){
-            alert("Escribe un minimo de 6 caracteres para la nueva clave");
+            $scope.errores = "Escribe un minimo de 6 caracteres para la nueva clave";
         }
 
 
@@ -158,32 +158,25 @@ miApp.controller('datoscliente', function ($scope, $http) {
     function modalvisible(x) {
         document.getElementById("demo-modal" + x + "").style.visibility = "visible";
         document.getElementById("demo-modal" + x + "").style.opacity = 1;
-
-scrollena();
+        scrollena();
     }
     function modalnovisible(x) {
         document.getElementById("demo-modal" + x + "").style.visibility = "hidden";
         document.getElementById("demo-modal" + x + "").style.opacity = 0;
-;
         scrolldis()
     }
 
-
-
-
-
-
-        function noscroll() {
-            window.scrollTo(0, 0);
-        }
-        
-        function scrolldis() {
-            window.removeEventListener("scroll", noscroll);
-        };
-        
-        function scrollena() {
-            window.addEventListener("scroll", noscroll);  
-        };
+    function noscroll() {
+        window.scrollTo(0, 0);
+    }
+    
+    function scrolldis() {
+        window.removeEventListener("scroll", noscroll);
+    };
+    
+    function scrollena() {
+        window.addEventListener("scroll", noscroll);  
+    };
 /*
     //////////// - Modaeles no scroll - ////////////
     // PREVENT DEFAULT HANDLER

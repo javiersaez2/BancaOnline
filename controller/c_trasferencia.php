@@ -30,7 +30,7 @@ if (isset($saldo)) {
         $id = $movimiento->selectIid();
 
 
-        $cuentaMovimiento = new cuenta_movimientosModel();
+        $cuentaMovimiento = new cuenta_movimientoModel();
         $cuentaMovimiento->setIban($ibanEmisor);
         $cuentaMovimiento->setIdMovimiento($id);
         //$saldoNegativo = abs($saldo);
@@ -53,7 +53,7 @@ if (isset($saldo)) {
         }
 
     } else {
-        $response["error"] = 'Insuficiente';
+        $response["error"] = 'Saldo Insuficiente';
     }
 } else {
     $response["error"] = 'Por favor; introduce Saldo';

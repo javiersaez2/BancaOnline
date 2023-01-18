@@ -3,10 +3,10 @@ include_once 'connect_data.php';
 include_once 'cuenta_movimientoClass.php';
 
 
-class cuenta_movimientosModel extends cuenta_movimientosClass
+class cuenta_movimientoModel extends cuenta_movimientoClass
 {
+    private $objMovimiento;
     private $link;
-    //  public $objFamilia;
 
     public function OpenConnect()
     {
@@ -44,8 +44,41 @@ class cuenta_movimientosModel extends cuenta_movimientosClass
             $msg= "Fallo al insertar un cuenta_movimiento nuevo: (" . $this->link->errno . ") " . $this->link->error;
         }
         return $msg;
-        $this->CloseConnect();
-       
+        $this->CloseConnect();      
    }
+
+
+    public function movimientosCuenta(){   
+        $this->OpenConnect();
+
+        $iban=$this->iban;
+        $sql = "SELECT * FROM cuenta_movimiento WHERE iban='$iban'";
+
+        $list = array();
+
+        $result = $this->link->query($sql);
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            if($this->link->affected_rows == 1){
+                $newCuenta= new cuenta_movimientoModel();
+                $newCuenta->iban = $row['iban'];
+                $newCuenta->fecha = $row['fecha'];
+                $newCuenta->cantidad = $row['cantidad'];
+
+                $newMovimiento=new movimientoModel();
+                $newMovimiento->setIdMovimiento($row['idMovimiento']);  
+                $newMovimiento->setListMovimiento();  
+                $newMovimiento->objMovimiento=$newCuenta->ObjVars();
+
+                array_push($list, get_object_vars($newCuenta));
+            }
+        }
+
+        return $list;
+        $this->CloseConnect();  
+    }
+
+    public function  ObjVars() {
+        return get_object_vars($this);
+    }
 
 }

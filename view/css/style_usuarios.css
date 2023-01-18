@@ -492,19 +492,19 @@ section .utilidadesAdmin .search-box .input-search {
 }
 section .utilidadesAdmin .search-box .input-search::-moz-placeholder {
   color: rgba(0, 0, 0, 0.5);
-  font-size: 18px;
+  font-size: 15px;
   letter-spacing: 2px;
   font-weight: 100;
 }
 section .utilidadesAdmin .search-box .input-search:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.5);
-  font-size: 18px;
+  font-size: 15px;
   letter-spacing: 2px;
   font-weight: 100;
 }
 section .utilidadesAdmin .search-box .input-search::placeholder {
   color: rgba(0, 0, 0, 0.5);
-  font-size: 18px;
+  font-size: 15px;
   letter-spacing: 2px;
   font-weight: 100;
 }

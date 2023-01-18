@@ -48,16 +48,36 @@ class movimientoModel extends movimientoClass
    }
 
    public function selectIid(){
-    $this->OpenConnect();
-     $sql = "SELECT max(idMovimiento) as 'idMovimiento' FROM movimiento";
-    $result = $this->link->query($sql);
+        $this->OpenConnect();
+        $sql = "SELECT max(idMovimiento) as 'idMovimiento' FROM movimiento";
+        $result = $this->link->query($sql);
 
-    if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-         
-        $valor=$row['idMovimiento'];
-    } 
-    return $valor;
-    mysqli_free_result($result);
-    $this->CloseConnect();
-}
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            
+            $valor=$row['idMovimiento'];
+        } 
+        return $valor;
+        mysqli_free_result($result);
+        $this->CloseConnect();
+    }
+
+
+    public function setListMovimiento(){
+        $this->OpenConnect();
+        $idMovimiento=$this->idMovimiento;
+        $sql = "SELECT * FROM movimiento WHERE idMovimiento='$idMovimiento'";
+        $result = $this->link->query($sql);
+
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            if ($this->link->affected_rows > 0){
+                $this->idMovimiento=$row['idMovimiento'];
+                $this->tipoMovimiento=$row['tipoMovimiento'];
+                $this->concepto=$row['concepto'];
+            }
+        } 
+
+        mysqli_free_result($result);
+        $this->CloseConnect();
+    }
+
 }

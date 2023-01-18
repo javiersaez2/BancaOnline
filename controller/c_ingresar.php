@@ -13,7 +13,7 @@ $response["movimiento"] = $movimiento->insert();
 
 $id = $movimiento->selectIid();
 
-$cuentaMovimiento = new cuenta_movimientosModel();
+$cuentaMovimiento = new cuenta_movimientoModel();
 $cuentaMovimiento->setIban($data["iban"]);
 $cuentaMovimiento->setIdMovimiento($id);
 $cuentaMovimiento->setCantidad($data["cantidad"]);

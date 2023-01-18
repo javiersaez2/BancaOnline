@@ -36,39 +36,11 @@
     </div>
   </header>
 
-
-  <!-- <div id="zonaModificar" ng-show="modificarVista == 'true'">
-
-    <h3>Modificar</h3>
-    <form action="#">
-      <p>
-        <label for="dni">DNI</label>
-        <input type="text" ng-model="dniModificar" id="dniModificar">
-      </p>
-      <p>
-        <label for="nombre">Nombre Cliente</label>
-        <input type="text" ng-model="nombreModificar">
-      </p>
-      <p>
-        <label for="contrasena">Contrasena</label>
-        <input type="text" ng-model="contrasenaModificar">
-      </p>
-      <p>
-        <label for="contrasena2">Verificar Contrasena</label>
-        <input type="text" ng-model="vefModificar">
-      </p>
-
-      <button ng-click="guardarCliente(item)">Guardar Modificaciones</button>
-
-    </form>
-  </div> -->
-
-
   <section>
     <div class="utilidadesAdmin">
       <button ng-click="nuevoUsuario()" class="button-23">Añadir nuevo usuario</button>
       <div class="search-box">
-        <button class="btn-search"><i class="fas fa-search"></i></button>
+        <button id="buscadorDniBoton" class="btn-search"><i class="fas fa-search"></i></button>
         <input id="buscadorDni" type="text" class="input-search" placeholder="Buscar por DNI...">
       </div>
     </div>

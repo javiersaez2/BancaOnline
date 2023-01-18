@@ -13,10 +13,10 @@ $cuenta -> setIban($data["iban"]);
 $probar = $cuenta->retirar();
 
 if ($probar == 0){
-    $response["retirar"] = "la cantidad es mayor que el saldo";
+    $response["retirar"] = 0;
 }else{
 
-    $response["retirar"] = "el saldo ha retirado = ".$data["cantidad"];
+    $response["retirar"] = "El saldo ha retirado = ".$data["cantidad"];
 
     $movimiento = new movimientoModel();
     $movimiento->setTipoMovimiento($data["tipo"]);
@@ -25,7 +25,7 @@ if ($probar == 0){
 
     $id = $movimiento->selectIid();
 
-    $cuentaMovimiento = new cuenta_movimientosModel();
+    $cuentaMovimiento = new cuenta_movimientoModel();
     $cuentaMovimiento->setIban($data["iban"]);
     $cuentaMovimiento->setIdMovimiento($id);
     $cuentaMovimiento->setCantidad($data["cantidad"]);

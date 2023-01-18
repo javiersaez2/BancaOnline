@@ -85,16 +85,12 @@
             <div class="cuentacorriente">
               <div class="datoscorriente" ng-repeat="infocuenta in infocuenta.objCuenta">
                 <div>
-                  {{infocuenta.iban}} -
-                  {{infocuenta.saldo}} €
+                  {{infocuenta.iban}} - {{infocuenta.saldo}} €
                 </div>
                 <div>
-                  <i class="fa-solid fa-money-bill-transfer fa-fade"  style="--fa-animation-duration: 2s; --fa-fade-opacity:0.65; --fa-animation-delay:1s" ng-click="modificarUsuario('2')"></i>
-                  <div>
-                  </div>
+                  <i class="fa-solid fa-money-bill-transfer fa-fade"  ng-click="movimientos(infocuenta.iban)" style="--fa-animation-duration: 2s; --fa-fade-opacity:0.65; --fa-animation-delay:1s" ng-click="modificarUsuario('2')"></i> 
                 </div>
               </div>
-
         </section>
 
 
@@ -125,7 +121,7 @@
                 <label for="veriModificar" class="form__label">Verificar Contraseña</label>
               </div>
               <br>
-              <div ng-model="errores">{{errores}}</div>
+              <div class="tiposDeErroresIz" ng-model="errores">{{errores}}</div>
 
 
               <button ng-click="guardarPassword(item)" class="button-23">Guardar Modificaciones</button>
@@ -135,30 +131,43 @@
         </div>
       </div>
 
+      <!-- 
+      ///////////////////////
+      // Tabla movimientos //
+      /////////////////////// 
+      -->
+      <table ng-show="tablaMostrar">
+        <tr ng-repeat="movimiento in ListaMovimientos">
+          <td><i class="fa-solid fa-money-bill-transfer"></i></td>
+          <td>{{movimiento.nombre}}</td>
+          <td>{{movimiento.curso}}</td>
+        </tr>
+      </table>
 
-      <!--Modal ver movimientos-->
+
+      <!-- Modal ver movimientos
       <div id="demo-modal2" class="modal">
 
         <div class="modal__content">
           <form>
-            <!-- <div class="form__group field">
+            <div class="form__group field">
           <input type="input" class="form__field" ng-model="dniModificar" placeholder="DNI" name="dni" id='dniModificar'
             required />
           <label for="name" class="form__label">DNI</label>
-        </div> -->
+        </div> 
             Informacion de los movimientos
             <a ng-click="cerrarCuentas('2')" class="modal__close">&times;</a>
-            <div class="form__group field">
+        <div class="form__group field">
               Cuenats con sus movimientos
               <br>
               <div ng-model="errores">{{errores}}</div>
 
 
-              <button ng-click="guardarPassword(item)" class="button-23">Guardar Modificaciones</button>
-          </form>
+                <button ng-click="guardarPassword(item)" class="button-23">Guardar Modificaciones</button>
+            </form>
+          </div>
         </div>
-      </div>
-  </div>
+      </div> -->
 
   <!--FOOTER-->
   <!-- Site footer -->

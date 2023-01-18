@@ -1,8 +1,6 @@
 <?php
 
-class cuenta_movimientosClass
-
-
+class cuenta_movimientoClass
 {
     protected $iban;
     protected $idMovimiento;

@@ -1223,4 +1223,13 @@ input[type=button]:hover {
   grid-template-areas: 2;
   grid-gap: 5px;
   margin: auto;
+}
+
+.tiposDeErrores {
+  text-align: center;
+  color: red;
+}
+
+.tiposDeErroresIz {
+  color: red;
 }/*# sourceMappingURL=style.css.map */
