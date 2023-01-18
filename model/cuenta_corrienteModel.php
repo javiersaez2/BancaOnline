@@ -24,6 +24,7 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
     {
         mysqli_close($this->link);
     }
+
     public function setListCuenta()
     {
         $dniCliente=$this->dniCliente;
@@ -227,5 +228,5 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
         $this->CloseConnect();
 
        
-    }
+    }    
 }

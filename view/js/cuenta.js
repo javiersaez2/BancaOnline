@@ -8,7 +8,7 @@ miApp.controller('miControlador', function ($scope, $http) {
     $scope.loggedVerify = function () {
         $http({
             url: "/controller/cLoggedVerify.php",
-            method: "POST"
+            method: "POST",
         }).then(function (response) {
 
             if (response.data.error != "logged") {
@@ -52,8 +52,20 @@ miApp.controller('miControlador', function ($scope, $http) {
 
 //Datos de usuario
 miApp.controller('datoscliente', function ($scope, $http) {
+    $scope.tablaMostrar = false;
+
     $scope.movimientos = function(iban){
-        console.log(iban);
+        $scope.tablaMostrar = true;
+
+        $http({
+            url: "/controller/c_movimientosCuenta.php",
+            method: "POST",
+            data: JSON.stringify({'iban': iban})
+        }).then(function (response) {
+            console.log(response.data.list);
+        }).catch(function (response) {
+            console.error('Error occurred:', response.status, response.data)
+        })
     }
 
     $scope.ingresarretirar = function(numero){
@@ -146,32 +158,25 @@ miApp.controller('datoscliente', function ($scope, $http) {
     function modalvisible(x) {
         document.getElementById("demo-modal" + x + "").style.visibility = "visible";
         document.getElementById("demo-modal" + x + "").style.opacity = 1;
-
-scrollena();
+        scrollena();
     }
     function modalnovisible(x) {
         document.getElementById("demo-modal" + x + "").style.visibility = "hidden";
         document.getElementById("demo-modal" + x + "").style.opacity = 0;
-;
         scrolldis()
     }
 
-
-
-
-
-
-        function noscroll() {
-            window.scrollTo(0, 0);
-        }
-        
-        function scrolldis() {
-            window.removeEventListener("scroll", noscroll);
-        };
-        
-        function scrollena() {
-            window.addEventListener("scroll", noscroll);  
-        };
+    function noscroll() {
+        window.scrollTo(0, 0);
+    }
+    
+    function scrolldis() {
+        window.removeEventListener("scroll", noscroll);
+    };
+    
+    function scrollena() {
+        window.addEventListener("scroll", noscroll);  
+    };
 /*
     //////////// - Modaeles no scroll - ////////////
     // PREVENT DEFAULT HANDLER
