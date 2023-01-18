@@ -1,12 +1,5 @@
 var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
-
-
-
-
-
-
-
     //verificar usuario
     $scope.loggedVerify = function () {
         $http({
@@ -101,9 +94,7 @@ MyApp.controller('miController', function ($scope, $http) {
         if (($scope.periodoPago == $scope.tipo)) {
             intr = $scope.interes / 100;
         }
-        if ($scope.gabezia == "int") {
-            Amortizazioa = $scope.capital / ($scope.numero - $scope.periodoCarencia);
-        }
+        
         //////LINEAL////
         if ($scope.sistema == "Lineal") {
             for (let i = 1; i <= $scope.numero; i++) {
