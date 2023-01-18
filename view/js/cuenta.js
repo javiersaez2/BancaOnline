@@ -71,12 +71,13 @@ miApp.controller('datoscliente', function ($scope, $http) {
                     tipoMovimiento = "fa-solid fa-money-bill-transfer";   
                 } else if (datos[i].objMovimiento.tipoMovimiento == "Retirar"){
                     tipoMovimiento = "fa-solid fa-money-check-dollar";
+                } else {
+                    tipoMovimiento = "TRANSFERECIA";
                 }
 
                 $scope.ListaMovimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimiento":tipoMovimiento});   
             }
             
-            console.log($scope.ListaMovimientos);
             $scope.ListaMovimientos.push({"iban":datos[0].iban, "fecha":datos[0].fecha, "cantidad":datos[0].cantidad, "tipoMovimiento":datos[0].objMovimiento.tipoMovimiento});
             console.log($scope.ListaMovimientos);
         }).catch(function (response) {

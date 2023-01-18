@@ -53,7 +53,7 @@ class cuenta_movimientoModel extends cuenta_movimientoClass
         $this->OpenConnect();
 
         $iban=$this->iban;
-        $sql = "SELECT c.iban, c.fecha, c.cantidad, m.* FROM cuenta_movimiento c INNER JOIN movimiento m ON iban='$iban' AND c.idMovimiento=m.idMovimiento ";
+        $sql = "SELECT c.iban, c.fecha, c.cantidad, m.idMovimiento, m.tipoMovimiento, m.concepto FROM cuenta_movimiento c INNER JOIN movimiento m ON c.idMovimiento=m.idMovimiento WHERE iban='$iban'";
 
         $list = array();
 
