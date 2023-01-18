@@ -93,6 +93,6 @@ Y por último, únicamente faltará ir a **CPANEL**, verificar los cambios cuand
 
 
 
-De esa forma, la página ya estaría subida a la web.
+De esa forma, la página ya estaría subida a la web
 
 ![image](https://user-images.githubusercontent.com/95285796/212898861-7a3f7afa-35c8-437c-ba66-0ac5d99dfcec.png)
