@@ -71,6 +71,8 @@ miApp.controller('datoscliente', function ($scope, $http) {
                     tipoMovimiento = "fa-solid fa-money-bill-transfer";   
                 } else if (datos[i].objMovimiento.tipoMovimiento == "Retirar"){
                     tipoMovimiento = "fa-solid fa-money-check-dollar";
+                } else {
+                    tipoMovimiento = "TRANSFERECIA";
                 }
 
                 $scope.ListaMovimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimiento":tipoMovimiento});   
