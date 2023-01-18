@@ -479,6 +479,7 @@ header {
   padding: 5px;
   margin-right: 20px;
   width: 100%;
+  font-size: 5vmin;
 }
 .secciontarjeta .tarjeta .infocliete .icon {
   display: inline-block;
@@ -549,7 +550,6 @@ header {
 }
 .secciontarjeta .tarjeta .infocliete .profile-card .texto {
   text-align: center;
-  font-size: xx-large;
 }
 .secciontarjeta .tarjeta .infocliete .profile-card .botones {
   position: relative;
@@ -576,11 +576,10 @@ header {
 @media screen and (max-width: 390px) {
   .secciontarjeta .tarjeta .infocliete .profile-card .botones .custom-btn {
     border: 5px solid green;
-    width: 40vh;
+    width: 30vh;
   }
 }
 .secciontarjeta .tarjeta .infocliete .profile-card .botones .btn-cuenta {
-  font-size: 25px;
   font-weight: 50px;
   overflow: hidden;
   transition: all 0.3s ease;
