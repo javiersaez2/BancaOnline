@@ -10,6 +10,7 @@
         height: auto;
         display: flex;
         margin: 50px;
+        
         @include glasscuenta();
         background-color: $color-principal;
         @media screen and (max-width: 1200px) {
@@ -22,6 +23,7 @@
             padding: 5px;
             margin-right: 20px;
             width: 100%;
+            font-size: 5vmin;
 
             .icon {
                 display: inline-block;
@@ -99,7 +101,6 @@
 
                 .texto {
                     text-align: center;
-                    font-size: xx-large;
 
                 }
 
@@ -129,15 +130,14 @@
                     
                     @media screen and (max-width: 390px) {
                         border: 5px solid green;
-                        width: 40vh;
+                        width: 30vh;
                     }}
 
                     .btn-cuenta {
-                        font-size: 25px;
                         font-weight: 50px;
                         overflow: hidden;
                         transition: all 0.3s ease;
-
+                  
                         &:hover {
                             background: $color-principal ;
                             color: #fff;
