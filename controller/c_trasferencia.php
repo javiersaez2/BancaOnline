@@ -53,7 +53,7 @@ if (isset($saldo)) {
         }
 
     } else {
-        $response["error"] = 'Insuficiente';
+        $response["error"] = 'Saldo Insuficiente';
     }
 } else {
     $response["error"] = 'Por favor; introduce Saldo';
