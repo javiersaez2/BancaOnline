@@ -105,14 +105,16 @@ De esa forma, la página ya estaría subida a la web
 # Reto 4 - Tecnologías
 
 ___
-| *N* | **LENGUAJES** |
-|---|---------------|
-|*#1*|**ANGULAR** |
-|*#2*|**JQUERY** |
-|*#3*|**SASS** |
-|*#4*|**HTML** |
-|*#5*|**JAVASCRIPT** |
-|*#6*|**PHP** |
+### LENGUAJES
+| **CLIENTE** | **SERVIDOR** |
+|---------------|---------------|
+|**ANGULAR** |**PHP** |
+|**JQUERY** |**mySQL** |
+|**HTML** |
+|**SASS** |
+|**CSS** |
+|**JAVASCRIPT** |
+
 
 
 ### - phpMyAdmin
