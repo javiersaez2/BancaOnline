@@ -130,16 +130,14 @@ ___
 
 **Angular** ha sido utilizado en casi toda la totalidad de la página para la comodidad de la edición.
 
-**Jquery** ha sido utilizado en la Barra de Navegación a fin de que funcionase con efectividad.
+**Jquery** ha sido utilizado solo en algunos apartados de la pagina.
 
 
 >***Servidor***
 
-Gracias a **Php**, se puede llamar a la base de datos desde diferentes lugares de la página.
+**Php** ha sido utilizado para llamar/consultar a la base de datos para obtener datos para los diferentes apartados de la pagina.
 
 Con las consultas mediante **mySQL**, se ha facilitado la obtención de los datos guardados en la base de datos.
-
-
 
 
 
