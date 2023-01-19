@@ -480,6 +480,12 @@ header {
   width: 100%;
   font-size: 5vmin;
 }
+@media screen and (max-width: 1200px) {
+  .secciontarjeta .tarjeta .infocliete {
+    width: auto;
+    margin-right: 0;
+  }
+}
 .secciontarjeta .tarjeta .infocliete .icon {
   display: inline-block;
   width: 1em;
@@ -506,12 +512,7 @@ header {
   margin: auto;
   background-color: rgba(251, 251, 251, 0.7098039216);
   box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
   position: relative;
-}
-.secciontarjeta .tarjeta .infocliete .profile-card.active .profile-card__cnt {
-  filter: blur(6px);
 }
 .secciontarjeta .tarjeta .infocliete .profile-card__img {
   width: 150px;
