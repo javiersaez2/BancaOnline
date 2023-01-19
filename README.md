@@ -100,20 +100,28 @@ De esa forma, la página ya estaría subida a la web
 
 
 
+---
 
 # Reto 4 - Tecnologías
 
 ___
-| Participantes  GRUPO 4|
+| *N* | **LENGUAJES** |
 |---|---------------|
-|#1|ANGULAR |
-|#2|JQUERY |
-|#3|SASS |
-|#4|HTML |
-|#5|JAVASCRIPT |
-|#6|PHP |
----
+|*#1*|**ANGULAR** |
+|*#2*|**JQUERY** |
+|*#3*|**SASS** |
+|*#4*|**HTML** |
+|*#5*|**JAVASCRIPT** |
+|*#6*|**PHP** |
 
 
-Obviamente, no nos olvidamos de crear una base de datos en phpMyAdmin.
+### - phpMyAdmin
+      - bancaOnline
+        - cliente
+        - cuenta_corriente
+        - cuenta_movimiento
+        - movimiento
+        
+![image](https://user-images.githubusercontent.com/95285796/213404780-3e59d525-7422-46d3-ad68-e09133e28adf.png)
+
 
