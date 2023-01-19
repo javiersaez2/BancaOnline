@@ -108,12 +108,12 @@ ___
 ### LENGUAJES
 | **CLIENTE** | **SERVIDOR** |
 |---------------|---------------|
-|**ANGULAR** |**PHP** |
-|**JQUERY** |**mySQL** |
-|**HTML** |
-|**SASS** |
-|**CSS** |
-|**JAVASCRIPT** |
+|ANGULAR |PHP |
+|JQUERY |mySQL |
+|HTML |
+|SASS |
+|CSS |
+|JAVASCRIPT |
 
 
 
