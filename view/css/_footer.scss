@@ -1,6 +1,18 @@
 ////////////////////////////////
 /* Estructura y estilo footer */
 ////////////////////////////////
+ html{
+height: 100%;
+
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+footer{
+    margin-top: auto;
+}
 .site-footer {
     margin-top: 3em;
     background-color: $color-fondo-footernav;

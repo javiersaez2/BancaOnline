@@ -4,6 +4,7 @@
     justify-content: center;
     margin-top: 50px;
     width: auto;
+    font-family: Helvetica, sans-serif;
 
     .tarjeta {
 
@@ -111,8 +112,9 @@
                     justify-content: space-around;
                     align-items: center;
                     margin: 5% 0px 10% 0px;
+                    
                     a{
-                        border: 5px solid green;
+                        margin: 10px;
                         
                     }
                     
@@ -128,7 +130,7 @@
                         transition: all 0.3s ease;
                         position: relative;
                         display: inline-block;
-                        margin: 10px;
+                        
                         
                     @media screen and (max-width: 390px) {
                         width: 40vh;

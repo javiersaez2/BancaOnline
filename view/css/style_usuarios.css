@@ -160,6 +160,20 @@ header {
   }
 }
 /* Estructura y estilo footer */
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+footer {
+  margin-top: auto;
+}
+
 .site-footer {
   margin-top: 3em;
   background-color: #26272b;
@@ -167,6 +181,7 @@ header {
   font-size: 15px;
   line-height: 24px;
   color: #737373;
+  bottom: 0;
 }
 .site-footer .container .row {
   display: flex;
