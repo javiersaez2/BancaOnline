@@ -170,18 +170,13 @@ body {
   min-height: 100%;
 }
 
-footer {
-  margin-top: auto;
-}
-
 .site-footer {
-  margin-top: 3em;
+  margin-top: auto;
   background-color: #26272b;
   padding: 25px 0 10px;
   font-size: 15px;
   line-height: 24px;
   color: #737373;
-  bottom: 0;
 }
 .site-footer .container .row {
   display: flex;
