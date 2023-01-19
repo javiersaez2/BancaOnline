@@ -53,9 +53,14 @@ miApp.controller('miControlador', function ($scope, $http) {
 //Datos de usuario
 miApp.controller('datoscliente', function ($scope, $http) {
     $scope.tablaMostrar = false;
+    $scope.datosClienteCarta = true;
+
+    $scope.verCartaCuenta = function(){
+        $scope.tablaMostrar = false;
+        $scope.datosClienteCarta = true;    
+    }
 
     $scope.movimientos = function(iban){
-        $scope.tablaMostrar = true;
 
         $http({
             url: "/controller/c_movimientosCuenta.php",
@@ -76,6 +81,9 @@ miApp.controller('datoscliente', function ($scope, $http) {
 
                 $scope.ListaMovimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimiento":tipoMovimiento});   
             }
+
+            $scope.tablaMostrar = true;
+            $scope.datosClienteCarta = false;
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
         })
