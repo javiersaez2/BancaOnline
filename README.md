@@ -89,7 +89,7 @@ Y por último, únicamente faltará ir a **CPANEL**, verificar los cambios cuand
 
 ![image](https://user-images.githubusercontent.com/95285796/212898800-5b924fa6-7f1b-4138-9d35-756ecee355c3.png)
 
-
+![image](https://user-images.githubusercontent.com/95285579/213389207-22175620-ce18-41f4-b3d8-484bcd0a25c6.png)
 
 
 
