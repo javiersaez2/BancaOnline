@@ -96,3 +96,24 @@ Y por último, únicamente faltará ir a **CPANEL**, verificar los cambios cuand
 De esa forma, la página ya estaría subida a la web
 
 ![image](https://user-images.githubusercontent.com/95285796/212898861-7a3f7afa-35c8-437c-ba66-0ac5d99dfcec.png)
+
+
+
+
+
+# Reto 4 - Tecnologías
+
+___
+| Participantes  GRUPO 4|
+|---|---------------|
+|#1|ANGULAR |
+|#2|JQUERY |
+|#3|SASS |
+|#4|HTML |
+|#5|JAVASCRIPT |
+|#6|PHP |
+---
+
+
+Obviamente, no nos olvidamos de crear una base de datos en phpMyAdmin.
+
