@@ -115,26 +115,29 @@ ___
 |**CSS** |
 |**JAVASCRIPT** |
 
-***Cliente***
-
-**Html** ha sido utilizado para la creación y la estructura principal de la página.
-
-**Sass** ha sido utilizado para facilitar la edición mediante css.
-
-**Css** ha sido utilizado para la decoración y el apartado visual completo en la página.
-
-**Javascript** ha sido utilizado para llamar a la *base de datos* y crear condiciones o movimientos entre las diferentes variables que ahí asignadas por la página. La mayoría de esas variables están puestas en el html mediante Angular.
-
-**Angular** ha sido utilizado en casi toda la totalidad de la página para la comodidad de la edición.
-
-**Jquery** ha sido utilizado en la Barra de Navegación a fin de que funcionase con efectividad.
 
 
-***Servidor***
 
-Gracias a **Php**, se puede llamar a la base de datos desde diferentes lugares de la página.
+>***Cliente***
 
-Con las consultas mediante **mySQL**, se ha facilitado la obtención de los datos guardados en la base de datos.
+>>**Html** ha sido utilizado para la creación y la estructura principal de la página.
+
+>>**Sass** ha sido utilizado para facilitar la edición mediante css.
+
+>>**Css** ha sido utilizado para la decoración y el apartado visual completo en la página.
+
+>>**Javascript** ha sido utilizado para llamar a la *base de datos* y crear condiciones o movimientos entre las diferentes variables que ahí asignadas por la página. La mayoría de esas variables están puestas en el html mediante Angular.
+
+>>>**Angular** ha sido utilizado en casi toda la totalidad de la página para la comodidad de la edición.
+
+>>>**Jquery** ha sido utilizado en la Barra de Navegación a fin de que funcionase con efectividad.
+
+
+>***Servidor***
+
+>>Gracias a **Php**, se puede llamar a la base de datos desde diferentes lugares de la página.
+
+>>Con las consultas mediante **mySQL**, se ha facilitado la obtención de los datos guardados en la base de datos.
 
 
 
