@@ -47,7 +47,7 @@ Más tarde iremos hacia el **CPANEL**, y haremos _clic_ en la opción de _Git Ve
 
 
 
-Nos dirigiremos a _crear_ para clonar lo que allá en el repositorio de **GitHub**; y, allí dentro, asignaremos el clon, la ruta en la que acabará, y un nombre para este proceso. 
+Nos dirigiremos a _crear_ para clonar lo que allá en el repositorio de **GitHub**; y, allí dentro, asignaremos el clon (url de clonacion para el repositorio en nuestro caso por **ssh**), la ruta en la que acabará, y un nombre para este repositorio. 
 
 _(Ten en cuenta que dependiendo de cómo se subió en un principio, ciertos segmentos de esta parte pueden ser diferentes)_
 
@@ -89,10 +89,39 @@ Y por último, únicamente faltará ir a **CPANEL**, verificar los cambios cuand
 
 ![image](https://user-images.githubusercontent.com/95285796/212898800-5b924fa6-7f1b-4138-9d35-756ecee355c3.png)
 
-
+![image](https://user-images.githubusercontent.com/95285579/213389207-22175620-ce18-41f4-b3d8-484bcd0a25c6.png)
 
 
 
 De esa forma, la página ya estaría subida a la web
 
 ![image](https://user-images.githubusercontent.com/95285796/212898861-7a3f7afa-35c8-437c-ba66-0ac5d99dfcec.png)
+
+
+
+
+---
+
+# Reto 4 - Tecnologías
+
+___
+| *N* | **LENGUAJES** |
+|---|---------------|
+|*#1*|**ANGULAR** |
+|*#2*|**JQUERY** |
+|*#3*|**SASS** |
+|*#4*|**HTML** |
+|*#5*|**JAVASCRIPT** |
+|*#6*|**PHP** |
+
+
+### - phpMyAdmin
+      - bancaOnline
+        - cliente
+        - cuenta_corriente
+        - cuenta_movimiento
+        - movimiento
+        
+![image](https://user-images.githubusercontent.com/95285796/213404780-3e59d525-7422-46d3-ad68-e09133e28adf.png)
+
+
