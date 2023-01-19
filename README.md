@@ -47,7 +47,7 @@ Más tarde iremos hacia el **CPANEL**, y haremos _clic_ en la opción de _Git Ve
 
 
 
-Nos dirigiremos a _crear_ para clonar lo que allá en el repositorio de **GitHub**; y, allí dentro, asignaremos el clon (url de clonacion para el repositorio en nuestro caso por ssh), la ruta en la que acabará, y un nombre para este repositorio. 
+Nos dirigiremos a _crear_ para clonar lo que allá en el repositorio de **GitHub**; y, allí dentro, asignaremos el clon (url de clonacion para el repositorio en nuestro caso por **ssh**), la ruta en la que acabará, y un nombre para este repositorio. 
 
 _(Ten en cuenta que dependiendo de cómo se subió en un principio, ciertos segmentos de esta parte pueden ser diferentes)_
 
