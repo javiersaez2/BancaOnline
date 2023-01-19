@@ -47,7 +47,7 @@ Más tarde iremos hacia el **CPANEL**, y haremos _clic_ en la opción de _Git Ve
 
 
 
-Nos dirigiremos a _crear_ para clonar lo que allá en el repositorio de **GitHub**; y, allí dentro, asignaremos el clon (url de clonacion para el repositorio), la ruta en la que acabará, y un nombre para este repositorio. 
+Nos dirigiremos a _crear_ para clonar lo que allá en el repositorio de **GitHub**; y, allí dentro, asignaremos el clon (url de clonacion para el repositorio en nuestro caso por **ssh**), la ruta en la que acabará, y un nombre para este repositorio. 
 
 _(Ten en cuenta que dependiendo de cómo se subió en un principio, ciertos segmentos de esta parte pueden ser diferentes)_
 
@@ -96,3 +96,60 @@ Y por último, únicamente faltará ir a **CPANEL**, verificar los cambios cuand
 De esa forma, la página ya estaría subida a la web
 
 ![image](https://user-images.githubusercontent.com/95285796/212898861-7a3f7afa-35c8-437c-ba66-0ac5d99dfcec.png)
+
+
+
+
+---
+
+# Reto 4 - Tecnologías
+
+___
+### LENGUAJES
+| **CLIENTE** | **SERVIDOR** |
+|---------------|---------------|
+|ANGULAR |PHP |
+|JQUERY |mySQL |
+|HTML |
+|SASS |
+|CSS |
+|JAVASCRIPT |
+
+
+
+
+>***Cliente***
+
+**Html** ha sido utilizado para la creación y la estructura principal de la página.
+
+**Sass** ha sido utilizado para facilitar la edición mediante css.
+
+**Css** ha sido utilizado para la decoración y el apartado visual completo en la página.
+
+**Javascript** ha sido utilizado para llamar a la *base de datos* y crear condiciones o movimientos entre las diferentes variables que ahí asignadas por la página. La mayoría de esas variables están puestas en el html mediante Angular.
+
+**Angular** ha sido utilizado en casi toda la totalidad de la página para la comodidad de la edición.
+
+**Jquery** ha sido utilizado en la Barra de Navegación a fin de que funcionase con efectividad.
+
+
+>***Servidor***
+
+Gracias a **Php**, se puede llamar a la base de datos desde diferentes lugares de la página.
+
+Con las consultas mediante **mySQL**, se ha facilitado la obtención de los datos guardados en la base de datos.
+
+
+
+
+
+### - phpMyAdmin
+      - bancaOnline
+        - cliente
+        - cuenta_corriente
+        - cuenta_movimiento
+        - movimiento
+        
+![image](https://user-images.githubusercontent.com/95285796/213404780-3e59d525-7422-46d3-ad68-e09133e28adf.png)
+
+
