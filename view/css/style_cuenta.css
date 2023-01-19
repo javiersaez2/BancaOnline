@@ -159,8 +159,18 @@ header {
   }
 }
 /* Estructura y estilo footer */
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
 .site-footer {
-  margin-top: 3em;
+  margin-top: auto;
   background-color: #26272b;
   padding: 25px 0 10px;
   font-size: 15px;
@@ -456,6 +466,7 @@ header {
   justify-content: center;
   margin-top: 50px;
   width: auto;
+  font-family: Helvetica, sans-serif;
 }
 .secciontarjeta .tarjeta {
   width: 70%;
@@ -566,7 +577,7 @@ header {
   margin: 5% 0px 10% 0px;
 }
 .secciontarjeta .tarjeta .infocliete .profile-card .botones a {
-  border: 5px solid green;
+  margin: 10px;
 }
 .secciontarjeta .tarjeta .infocliete .profile-card .botones .custom-btn {
   width: 50vh;
@@ -580,7 +591,6 @@ header {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-  margin: 10px;
 }
 @media screen and (max-width: 390px) {
   .secciontarjeta .tarjeta .infocliete .profile-card .botones .custom-btn {

@@ -4,6 +4,7 @@ var miApp = angular.module('miApp', []);
 miApp.controller('miControlador', function ($scope, $http) {
     $scope.passMostrar = true;
     $scope.iniciarSesionSection = true;
+    $scope.tipoMostrar = false;
 
     $scope.loggedVerify = function () {
         $http({
@@ -109,9 +110,11 @@ miApp.controller('datoscliente', function ($scope, $http) {
             console.log($scope.infocuenta);
             if (response.data.list.tipo==1){
                 $scope.tipo="ADMIN"
+                $scope.tipoMostrar = true;
             }
             else if( response.data.list.tipo==0){
                  $scope.tipo=""
+
                 }
         })
     }
