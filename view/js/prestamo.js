@@ -46,11 +46,11 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.lista = [];
 
     $scope.calcular = function () {
-        //$('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + "meses </h1>");
+        $('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + " "+ +"meses </h1>");
         //$('#title').append("<h3>INT = " + $scope.interes + " %</h3>");
-        // $('#title').append("<h4>i(k) = " + (intr * 100).toFixed(4) + " %</h4>");
-        /* if ($scope.sistema == null) {
-              alert("Por favor, asigne tipo de sistema");
+        //$('#title').append("<h4>i(k) = " + (intr * 100).toFixed(4) + " %</h4>");
+         if ($scope.sistema == null) {
+              alert("Por favor, asigne tipo de Sistema de Amortización");
           }
           else if ($scope.duracion == null) {
               alert("Por favor, asigne tipo de duracion");
@@ -70,10 +70,13 @@ MyApp.controller('miController', function ($scope, $http) {
           else if ($scope.tipo == null) {
               alert("Por favor, asigne Tipo de Base Temporal");
           }
+          else if ($scope.periodoCarencia == null) {
+            alert("Por favor, asigne periodo carencia");
+            }
           else {
-  
-          }*/
-        $scope.ver = 'true';
+            $scope.ver = 'true';
+          }
+          
         $scope.lista = [];
         var kapitala = $scope.capital;
         var intr = 0;
