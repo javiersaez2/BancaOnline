@@ -106,11 +106,11 @@ MyApp.controller('miController', function ($scope, $http) {
                         Amortizazioa = $scope.capital / ($scope.numero - $scope.periodoCarencia);
                     }
                     if (($scope.periodoCarencia != 0 && $scope.gabezia == "totala")) {
-                        if ((i <= $scope.periodoCarencia) || (i == (parseInt($scope.periodoCarencia) + 1) && j != 12 / $scope.periodoPago)) {
+                        if ((i <= $scope.periodoCarencia ) || (i <= (parseInt($scope.periodoCarencia) + 1) && j != 12 / $scope.periodoPago)) {
                             kapitala = parseInt(kapitala) * (1 + intr);
                             kap = kapitala;
                         }
-                        else if ((i > $scope.periodoCarencia && j == 12 / $scope.periodoPago) || (i == (parseInt($scope.periodoCarencia) + 1) && j == 12 / $scope.periodoPago) || (i > (parseInt($scope.periodoCarencia) + 1) && j == 12 / $scope.periodoPago)) {
+                        else if ((i >= (parseInt($scope.periodoCarencia) + 1) && j == 12 / $scope.periodoPago)) {
                             Amortizazioa = kap / ($scope.numero - $scope.periodoCarencia);
                         }
                     }
@@ -155,7 +155,7 @@ MyApp.controller('miController', function ($scope, $http) {
                             kapitala = parseInt(kapitala) * (1 + intr);
                             kap = kapitala;
                         }
-                        else if ((i > $scope.periodoCarencia && j == 12 / $scope.periodoPago) || (i == (parseInt($scope.periodoCarencia) + 1) && j == 12 / $scope.periodoPago) || (i > (parseInt($scope.periodoCarencia) + 1) && j == 12 / $scope.periodoPago)) {
+                        else if ((i >= (parseInt($scope.periodoCarencia) + 1) && j == 12 / $scope.periodoPago)) {
                             Kuota = (kap * (intr)) / (1 - (Math.pow((1 + (intr)), (-($scope.numero - $scope.periodoCarencia)))));
                         }
                     }
