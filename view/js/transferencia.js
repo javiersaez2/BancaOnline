@@ -208,6 +208,12 @@ MyApp.controller('miController', function ($scope, $http) {
 
 
 
+
+    $scope.regresar = function () {
+        window.location.href="cuenta.html";
+    }
+
+
     /////LOGGED VERIFY
     $scope.passMostrar = true;
     $scope.iniciarSesionSection = true;

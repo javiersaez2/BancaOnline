@@ -78,6 +78,23 @@ MyApp.controller('miControl', function ($scope, $http) {
 
 
 
+
+
+
+
+
+    $scope.regresar = function () {
+        window.location.href="cuenta.html";
+    }
+
+
+
+    
+
+
+
+
+
     //verificar usuario
     $scope.loggedVerify = function () {
         $http({

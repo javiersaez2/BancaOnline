@@ -1,3 +1,23 @@
+.botonRegresar {
+    width: 100px;
+    height: 10px;
+    position: absolute;
+    top: 100px;
+    left: 10px;
+
+
+}
+
+@media (max-width: 400px) {
+    .botonRegresar {
+        width: 70px;
+        input{
+            content: "Atrás";
+        }
+    }
+}
+
+
 .tablasDeCuentas {
     width: 90%;
     padding-top: 10px;
@@ -30,15 +50,15 @@
             backdrop-filter: blur(5px);
 
 
-            table{
+            table {
                 .colum2 {
                     width: 211px;
                     height: 25px;
                     padding: 5px;
                     background-color: rgba(39, 39, 39, 0.2);
-    
+
                 }
-    
+
                 .colum1 {
                     width: 170px;
                     height: 25px;
@@ -48,7 +68,7 @@
             }
 
 
-            a{
+            a {
                 text-decoration: $vaciar;
             }
         }
@@ -79,7 +99,7 @@
     .contenderDNI {
         #FiltrarPorDNINoPersonales {
             width: 90%;
-    
+
         }
     }
 }
@@ -97,11 +117,11 @@
 
 }
 
-.tiposDeErrores{
+.tiposDeErrores {
     text-align: center;
     color: red;
 }
 
-.tiposDeErroresIz{
+.tiposDeErroresIz {
     color: red;
 }
