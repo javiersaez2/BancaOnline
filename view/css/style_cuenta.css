@@ -673,6 +673,13 @@ body {
   font-size: x-large;
 }
 
+.botonRegresar {
+  width: 10%;
+  position: absolute;
+  top: 100px;
+  left: 10px;
+}
+
 .tablasDeCuentas {
   width: 90%;
   padding-top: 10px;
