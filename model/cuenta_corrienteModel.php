@@ -1,6 +1,7 @@
 <?php
 include_once 'connect_data.php';
 include_once 'cuenta_corrienteClass.php';
+include_once 'cuenta_movimientoModel.php';
 
 
 class cuenta_corrienteModel extends cuenta_corrienteClass
@@ -132,6 +133,27 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
         }
        
         $this->CloseConnect();
+    }
+
+    public function deletemovimientos()
+    {
+        $dniCliente=$this->dniCliente;
+        $this->OpenConnect();
+        $sql = "select * from cuenta_corriente where dniCliente='$dniCliente' ";
+
+        $list=array();
+
+        $result = $this->link->query($sql);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+     
+            $newMovimiento=new cuenta_movimientoModel();
+            $newMovimiento->setIban($row['iban']);    
+            $newMovimiento->objCuenta=$newMovimiento->deleteMovimimientosByIban();;
+
+            array_push($list, get_object_vars($newMovimiento));
+        }
+        return $list;
+
     }
 
 

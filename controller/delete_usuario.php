@@ -6,9 +6,14 @@ require_once '../model/cuenta_corrienteModel.php';
 $data = json_decode(file_get_contents("php://input"),true);
 
 $response = array();
+$movimiento = new cuenta_corrienteModel();
+$movimiento->setdniCliente($data["dniCliente"]);
+$response["error"]=$movimiento->deletemovimientos();
+
 $cuenta = new cuenta_corrienteModel();
 $cuenta->setdniCliente($data["dniCliente"]);
 $cuenta->deleteCuentaByIdCliente();
+
 
 
 $cliente = new clienteModel();
