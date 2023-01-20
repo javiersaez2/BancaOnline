@@ -193,9 +193,6 @@ MyApp.controller('miController', function ($scope, $http) {
                                     meta = Metatua;
                                 }
                             }
-
-
-
                         }
                     }
                     $scope.lista.push({
