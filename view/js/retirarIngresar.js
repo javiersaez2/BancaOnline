@@ -87,13 +87,14 @@ MyApp.controller('miControl', function ($scope, $http) {
         window.location.href="cuenta.html";
     }
 
-
-
-    
-
-
-
-
+    //Solo numeros en la cantidad
+    document.getElementById("cantidad").onkeypress = noletras;
+    function noletras(e) {
+        if (e.key < "0" || e.key > "9") {
+            e.preventDefault()
+        }
+    }
+  
 
     //verificar usuario
     $scope.loggedVerify = function () {

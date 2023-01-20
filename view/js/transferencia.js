@@ -213,6 +213,15 @@ MyApp.controller('miController', function ($scope, $http) {
         window.location.href="cuenta.html";
     }
 
+    //Solo numeros en la cantidad
+    document.getElementById("saldoT").onkeypress = noletras;
+    function noletras(e) {
+        if (e.key < "0" || e.key > "9") {
+            e.preventDefault()
+        }
+    }
+  
+
 
     /////LOGGED VERIFY
     $scope.passMostrar = true;
