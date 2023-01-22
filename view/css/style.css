@@ -1029,7 +1029,7 @@ input[type=button]:hover {
   justify-content: center;
   background: rgba(77, 77, 77, 0.7);
   transition: all 0.4s;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .modal:target {

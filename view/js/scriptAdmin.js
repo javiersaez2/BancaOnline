@@ -31,7 +31,8 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify(datosjson)
         }).then(function (response) {
-            alert(response.data.error)
+            alertify.set('notifier','position', 'top-right');
+            alertify.error(response.data.error)
             verusuarios();
         }, function (error) {
             console.error("Ocurrio un error", response.status, response.data)
@@ -163,7 +164,8 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.contrasenaModificar = item.pasahitza;
         $scope.vefModificar = item.pasahitza;
     }
-
+//Cuando pulsas al boton y no has cambiado nada da error
+//
     $scope.guardarCliente = function () {
         dniCliente = $scope.dniModificar;
         nombre = $scope.nombreModificar;
