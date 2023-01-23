@@ -1,8 +1,24 @@
+//LOCALSTORAGE//
+tipoSimulacion = localStorage.getItem("Simulacion");
+console.log(tipoSimulacion);
+
+var opcionesSimular = document.getElementsByClassName(".opcionesSimular");
+
+/*
+for (i = 0; i < opcionesSimular.lenght; i++) {
+    if (opcionesSimular[i] == tipoSimulacion) {
+        opcionesSimular = "<option value='" + tipoSimulacion + "'>" + tipoSimulacion + "</option> ";
+    }
+}
+*/
+
+
+
+
+
+
 var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
-
-    tipoSimulacion = localStorage.getItem("Simulacion");
-        console.log(tipoSimulacion);
     //verificar usuario
     $scope.loggedVerify = function () {
         $http({
@@ -72,7 +88,7 @@ MyApp.controller('miController', function ($scope, $http) {
         else if ($scope.tipo == null) {
             alert("Por favor, asigne Tipo de Base Temporal");
         }
-        
+
         else {
             $scope.ver = 'true';
         }
@@ -103,7 +119,7 @@ MyApp.controller('miController', function ($scope, $http) {
                         Amortizazioa = $scope.capital / ($scope.numero - $scope.periodoCarencia);
                     }
                     if (($scope.periodoCarencia != 0 && $scope.gabezia == "totala")) {
-                        if ((i <= $scope.periodoCarencia ) || (i == (parseInt($scope.periodoCarencia) + 1) && j != 12 / $scope.periodoPago)) {
+                        if ((i <= $scope.periodoCarencia) || (i == (parseInt($scope.periodoCarencia) + 1) && j != 12 / $scope.periodoPago)) {
                             kapitala = parseInt(kapitala) * (1 + intr);
                             kap = kapitala;
                         }
@@ -119,16 +135,17 @@ MyApp.controller('miController', function ($scope, $http) {
                         meta = Metatua;
                     }
                     else {
-                        if (( $scope.gabezia == "totala" && i <= $scope.periodoCarencia ) || ( $scope.gabezia == "totala" && i == (parseInt($scope.periodoCarencia) + 1) && j != 12 / $scope.periodoPago) ) {
+                        if (($scope.gabezia == "totala" && i <= $scope.periodoCarencia) || ($scope.gabezia == "totala" && i == (parseInt($scope.periodoCarencia) + 1) && j != 12 / $scope.periodoPago)) {
                             Interesa = 0;
                             Kuota = 0;
                         }
-                        else{
-                        Interesa = kapitala * intr;
-                        Amortizazioa = 0;
-                        Metatua = Metatua;
-                        kapitala = kapitala;
-                        Kuota = Interesa;}
+                        else {
+                            Interesa = kapitala * intr;
+                            Amortizazioa = 0;
+                            Metatua = Metatua;
+                            kapitala = kapitala;
+                            Kuota = Interesa;
+                        }
                     }
                     $scope.lista.push({
                         Aldiak: Aldiak,
@@ -166,16 +183,16 @@ MyApp.controller('miController', function ($scope, $http) {
                         meta = Metatua;
                     }
                     else {
-                        if (( $scope.gabezia == "totala" && i <= $scope.periodoCarencia ) || ( $scope.gabezia == "totala" && i == (parseInt($scope.periodoCarencia) + 1) && j != 12 / $scope.periodoPago) ) {
+                        if (($scope.gabezia == "totala" && i <= $scope.periodoCarencia) || ($scope.gabezia == "totala" && i == (parseInt($scope.periodoCarencia) + 1) && j != 12 / $scope.periodoPago)) {
                             Interesa = 0;
                             Kuota = 0;
                         }
-                        else{
-                        Interesa = kapitala * intr;
-                        Amortizazioa = 0;
-                        Metatua = Metatua;
-                        kapitala = kapitala;
-                        Kuota = Interesa + Amortizazioa;
+                        else {
+                            Interesa = kapitala * intr;
+                            Amortizazioa = 0;
+                            Metatua = Metatua;
+                            kapitala = kapitala;
+                            Kuota = Interesa + Amortizazioa;
                         }
                     }
                     $scope.lista.push({
