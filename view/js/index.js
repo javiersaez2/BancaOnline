@@ -71,11 +71,11 @@ var swiper = new Swiper('.blog-slider', {
   /////////PASAR AL SIMULADOR///////////
 $('.blog-slider__button').click(function(event){
 
-    //pasarSimulador = event.target.val();
 
-    console.log($(this).attr('value'));
-    //alert(pasarSimulador);
-
+    //console.log($(this).attr('value'));
+    pasarSimulador = $(this).attr('value');
+    console.log(pasarSimulador);
+    window.location.href = "/view/html/paginaPrestamo.html";
 
 });
 
