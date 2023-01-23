@@ -1,10 +1,13 @@
 var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
+
+    buscarDatosSimulacion();
+
+    function buscarDatosSimulacion(){
+        
+    }
  
-     tipoSimulacion = JSON.parse(localStorage.getItem("Simulacion"));
-    console.log(tipoSimulacion);
- 
- 
+
  
     //verificar usuario
     $scope.loggedVerify = function () {
@@ -27,6 +30,8 @@ MyApp.controller('miController', function ($scope, $http) {
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
                 }
+                 
+                
             }
         }).catch(function (response) {
             console.error("Ocurrio un error", response.status, response.data);
