@@ -1,6 +1,7 @@
 var MyApp = angular.module('MyApp', []);
-MyApp.controller('miController', function ($scope, $http) {
 
+MyApp.controller('miController', function ($scope, $http) {
+    
     tipoSimulacion = localStorage.getItem("Simulacion");
         console.log(tipoSimulacion);
     //verificar usuario
@@ -76,6 +77,7 @@ MyApp.controller('miController', function ($scope, $http) {
         else {
             $scope.ver = 'true';
         }
+        
         var kapitala = $scope.capital;
         var intr = 0;
         var meta = 0;
