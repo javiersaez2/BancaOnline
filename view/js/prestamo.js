@@ -1,15 +1,12 @@
-//LOCALSTORAGE//
-$scope.tipoSimulacion = localStorage.getItem("Simulacion");
-console.log($scope.tipoSimulacion);
-
- var opcionesSimular = document.getElementsByClassName(".opcionesSimular");
 
 
-/*for (i = 0; i < opcionesSimular.lenght; i++) {
-    if (opcionesSimular[i] == tipoSimulacion) {
-        opcionesSimular = "<option value='" + tipoSimulacion + "'>" + tipoSimulacion + "</option> ";
-    }
-}*/
+var opcionesSimular = document.getElementsByClassName(".opcionesSimular");
+
+/*
+if (opcionesSimular[i] == tipoSimulacion) {
+    opcionesSimular = "<option value='" + tipoSimulacion + "'>" + tipoSimulacion + "</option> ";
+}
+*/
 
 
 
@@ -21,6 +18,14 @@ console.log($scope.tipoSimulacion);
 
 var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
+
+
+    //LOCALSTORAGE//
+    tipoSimulacion = localStorage.getItem("Simulacion");
+    console.log(tipoSimulacion);
+
+    $scope.sistema = tipoSimulacion;
+
     //verificar usuario
     $scope.loggedVerify = function () {
         $http({
