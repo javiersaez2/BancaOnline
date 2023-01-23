@@ -28,7 +28,9 @@
 
   <!-- Datos -->
   <br>
-
+  <div class="botonRegresar">
+    <input type="button" value="« Atrás «" ng-click="regresar()">
+  </div>
 
   <!--/////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
@@ -146,7 +148,7 @@
         <div id="infomarcionNecesaria">
           <div class="seleccion">
             <label for="saldo">Saldo que desea transferir</label>
-            <input name="saldo" type="text" ng-model="saldoT">
+            <input name="saldo" type="text" ng-model="saldoT" id="saldoT">
           </div>
 
           <div class="seleccion">
@@ -181,6 +183,7 @@
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
   -->
+  <br>
   <footer class="site-footer">
     <div class="container">
       <div class="row">

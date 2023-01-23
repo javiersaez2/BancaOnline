@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/view/img/logo.PNG" />
-    <link href="/view/css/style_cuenta.css" rel="stylesheet" type="text/css" />
-    
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
-    
-    <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/view/img/logo.PNG" />
+  <link href="/view/css/style_cuenta.css" rel="stylesheet" type="text/css" />
+
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
+
+  <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -60,6 +60,7 @@
                 </div>
               </div>
             </div>
+          </div>
 
     <!---  Cuentas corrientes --->
             <div class="cuentacorriente">
@@ -71,47 +72,48 @@
                   <i class="fa-solid fa-money-bill-transfer fa-fade"  ng-click="movimientos(infocuenta.iban)" style="--fa-animation-duration: 2s; --fa-fade-opacity:0.65; --fa-animation-delay:1s" ng-click="modificarUsuario('2')"></i> 
                 </div>
               </div>
-        </section>
+            </div>
+      </section>
 
 
 
 
 
-        <!--Modal modificar usuario-->
-        <div id="demo-modal1" class="modal">
+      <!--Modal modificar usuario-->
+      <div id="demo-modal1" class="modal">
 
-          <div class="modal__content">
-            <form>
+        <div class="modal__content">
+          <form>
 
-              Modificar contraseña
-              <div class="form__group field">
+            Modificar contraseña
+            <div class="form__group field">
 
-                <input type="password" class="form__field" ng-model="passanti" placeholder="passanti" name="passanti"
-                  id='passanti' required />
-                <label for="passanti" class="form__label">Contraseña antigua</label>
-              </div>
-              <div class="form__group field">
-                <input type="password" class="form__field" ng-model="passModificar" placeholder="Contrasena"
-                  name="passModificar" id='contrasenaModificar' required />
-                <label type="text" for="password" class="form__label">Contraseña Nueva</label>
-              </div>
-              <div class="form__group field">
-                <input type="password" class="form__field" ng-model="veriModificar" placeholder="veriModificar"
-                  name="veriModificar" id='veriModificar' required />
-                <label for="veriModificar" class="form__label">Verificar Contraseña</label>
-              </div>
-              <br>
-              <div class="tiposDeErroresIz" ng-model="errores">{{errores}}</div>
+              <input type="password" class="form__field" ng-model="passanti" placeholder="passanti" name="passanti"
+                id='passanti' required />
+              <label for="passanti" class="form__label">Contraseña antigua</label>
+            </div>
+            <div class="form__group field">
+              <input type="password" class="form__field" ng-model="passModificar" placeholder="Contrasena"
+                name="passModificar" id='contrasenaModificar' required />
+              <label type="text" for="password" class="form__label">Contraseña Nueva</label>
+            </div>
+            <div class="form__group field">
+              <input type="password" class="form__field" ng-model="veriModificar" placeholder="veriModificar"
+                name="veriModificar" id='veriModificar' required />
+              <label for="veriModificar" class="form__label">Verificar Contraseña</label>
+            </div>
+            <br>
+            <div class="tiposDeErroresIz" ng-model="errores">{{errores}}</div>
 
 
-              <button ng-click="guardarPassword(item)" class="button-23">Guardar Modificaciones</button>
-              <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
-            </form>
-          </div>
+            <button ng-click="guardarPassword(item)" class="button-23">Guardar Modificaciones</button>
+            <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
+          </form>
         </div>
       </div>
+    </div>
 
-      <!-- 
+    <!-- 
       ///////////////////////
       // Tabla movimientos //
       /////////////////////// 
@@ -131,6 +133,7 @@
   </section>    
   <!--FOOTER-->
   <!-- Site footer -->
+  <br>
   <footer class="site-footer">
     <div class="container">
       <div class="row">
@@ -200,8 +203,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
     integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/view/js/angular-locale_de-de.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script src="/view/js/angular-locale_de-de.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src="/view/js/cuenta.js" type="text/javascript"></script>
   <script src="/view/js/nav.js" type="text/javascript"></script>
 

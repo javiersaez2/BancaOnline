@@ -1,6 +1,7 @@
 
 var miApp = angular.module('miApp', []);
 //Nav
+
 miApp.controller('miControlador', function ($scope, $http) {
     $scope.passMostrar = true;
     $scope.iniciarSesionSection = true;
@@ -274,4 +275,5 @@ miApp.controller('datoscliente', function ($scope, $http) {
         document.removeEventListener('touchmove', preventDefault, false);
     }
     */
+
 })

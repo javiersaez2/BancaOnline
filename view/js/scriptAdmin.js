@@ -31,7 +31,8 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify(datosjson)
         }).then(function (response) {
-            alert(response.data.error)
+            alertify.set('notifier','position', 'top-right');
+            alertify.error(response.data.error)
             verusuarios();
         }, function (error) {
             console.error("Ocurrio un error", response.status, response.data)
@@ -68,8 +69,10 @@ MyApp.controller('miController', function ($scope, $http) {
                 method: 'POST',
                 data: datosInsert
             })
+            ////CAMBIAR ALERT POR DOS DISTINTOS
                 .then(function (response) {
-                    alert(response.data.error);
+                        alertify.set('notifier','position', 'top-right');
+                    alertify.success(response.data.error);
                     $scope.insertarVista = 'false';
                     verusuarios();
     
@@ -126,6 +129,7 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify({'dniCliente': dni, 'nombre': nombreCliente})
         }).then(function (response) {
+            ////CAMBIAR ALERT POR DOS DISTINTOS
             alert(response.data.error)
             verusuarios();
         }).catch(function (response) {
@@ -142,6 +146,7 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify({'iban': iban})
         }).then(function (response) {
+            ////CAMBIAR ALERT POR DOS DISTINTOS
             alert(response.data.error)
             $scope.cerrarCuentas(0);
             verusuarios();
@@ -163,7 +168,8 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.contrasenaModificar = item.pasahitza;
         $scope.vefModificar = item.pasahitza;
     }
-
+//Cuando pulsas al boton y no has cambiado nada da error
+//
     $scope.guardarCliente = function () {
         dniCliente = $scope.dniModificar;
         nombre = $scope.nombreModificar;
@@ -174,6 +180,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 method: "POST",
                 data: JSON.stringify({'dniCliente': dniCliente, 'nombre': nombre, 'pasahitza': pasahitza})
             }).then(function (response) {
+                ////CAMBIAR ALERT POR DOS DISTINTOS
                 alert(response.data.error);
                 $scope.modificarVista = 'false';
                 verusuarios();

@@ -160,14 +160,26 @@ header {
   }
 }
 /* Estructura y estilo footer */
+<<<<<<< HEAD
+=======
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+>>>>>>> 70e48d12d427d005ad8400788e12da0442fcb411
 .site-footer {
-  margin-top: 3em;
+  margin-top: auto;
   background-color: #26272b;
   padding: 25px 0 10px;
   font-size: 15px;
   line-height: 24px;
   color: #737373;
-  bottom: 0;
 }
 .site-footer .container .row {
   display: flex;
@@ -327,7 +339,7 @@ header {
   justify-content: center;
   background: rgba(77, 77, 77, 0.7);
   transition: all 0.4s;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .modal:target {

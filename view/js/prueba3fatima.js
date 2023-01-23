@@ -37,12 +37,14 @@ MyApp.controller('miController', function ($scope, $http) {
             console.error("Ocurrio un error", response.status, response.data);
         })
     }
+
     let Amortizazioa = 0.00;
     let Aldiak = 0.00;
     let Kuota = 0.00;
     let Interesa = 0.00;
     let Metatua = 0.00;
     $scope.lista = [];
+
     $scope.calcular = function () {
         $('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + " " + "meses  </h1>");
         if ($scope.sistema == null) {
@@ -72,6 +74,8 @@ MyApp.controller('miController', function ($scope, $http) {
         else {
             $scope.ver = 'true';
         }
+
+        $scope.lista = [];
         var kapitala = $scope.capital;
         var intr = 0;
         var meta = 0;
@@ -95,11 +99,14 @@ MyApp.controller('miController', function ($scope, $http) {
             for (let i = 1; i <= $scope.numero; i++) {
                 for (let j = 1; j <= 12 / $scope.periodoPago; j++) {
                     Aldiak = i + "-" + j;
-                    if (($scope.periodoCarencia == 0) || ($scope.periodoCarencia != 0 && $scope.gabezia == "int")) {
+                    if ($scope.periodoCarencia == 0) {
+                        Amortizazioa = $scope.capital / $scope.numero;
+                    }
+                    if (($scope.periodoCarencia != 0 && $scope.gabezia == "int")) {
                         Amortizazioa = $scope.capital / ($scope.numero - $scope.periodoCarencia);
                     }
                     if (($scope.periodoCarencia != 0 && $scope.gabezia == "totala")) {
-                        if ((i <= $scope.periodoCarencia ) || (i == (parseInt($scope.periodoCarencia) + 1) && j != 12 / $scope.periodoPago)) {
+                        if ((i <= $scope.periodoCarencia ) || (i <= (parseInt($scope.periodoCarencia) + 1) && j != 12 / $scope.periodoPago)) {
                             kapitala = parseInt(kapitala) * (1 + intr);
                             kap = kapitala;
                         }
@@ -115,16 +122,11 @@ MyApp.controller('miController', function ($scope, $http) {
                         meta = Metatua;
                     }
                     else {
-                        if (( $scope.gabezia == "totala" && i <= $scope.periodoCarencia ) || ( $scope.gabezia == "totala" && i == (parseInt($scope.periodoCarencia) + 1) && j != 12 / $scope.periodoPago) ) {
-                            Interesa = 0;
-                            Kuota = 0;
-                        }
-                        else{
                         Interesa = kapitala * intr;
                         Amortizazioa = 0;
-                        Metatua = Metatua;
+                        Metatua = 0;
                         kapitala = kapitala;
-                        Kuota = Interesa;}
+                        Kuota = Interesa;
                     }
                     $scope.lista.push({
                         Aldiak: Aldiak,
@@ -142,7 +144,10 @@ MyApp.controller('miController', function ($scope, $http) {
             for (let i = 1; i <= $scope.numero; i++) {
                 for (let j = 1; j <= 12 / $scope.periodoPago; j++) {
                     Aldiak = i + "-" + j;
-                    if (($scope.periodoCarencia == 0) || ($scope.periodoCarencia != 0 && $scope.gabezia == "int")) {
+                    if ($scope.periodoCarencia == 0) {
+                        Kuota = ($scope.capital * (intr)) / (1 - (Math.pow((1 + (intr)), (-($scope.numero)))));
+                    }
+                    if (($scope.periodoCarencia != 0 && $scope.gabezia == "int")) {
                         Kuota = ($scope.capital * (intr)) / (1 - (Math.pow((1 + (intr)), (-($scope.numero - $scope.periodoCarencia)))));
                     }
                     if (($scope.periodoCarencia != 0 && $scope.gabezia == "totala")) {
@@ -162,17 +167,11 @@ MyApp.controller('miController', function ($scope, $http) {
                         meta = Metatua;
                     }
                     else {
-                        if (( $scope.gabezia == "totala" && i <= $scope.periodoCarencia ) || ( $scope.gabezia == "totala" && i == (parseInt($scope.periodoCarencia) + 1) && j != 12 / $scope.periodoPago) ) {
-                            Interesa = 0;
-                            Kuota = 0;
-                        }
-                        else{
                         Interesa = kapitala * intr;
                         Amortizazioa = 0;
-                        Metatua = Metatua;
+                        Metatua = 0;
                         kapitala = kapitala;
                         Kuota = Interesa + Amortizazioa;
-                        }
                     }
                     $scope.lista.push({
                         Aldiak: Aldiak,

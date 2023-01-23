@@ -78,6 +78,22 @@ class cuenta_movimientoModel extends cuenta_movimientoClass
         $this->CloseConnect();  
     }
 
+    public function deleteMovimimientosByIban()
+    {
+        $this->OpenConnect();
+        $iban = $this->iban;
+        $sql = "delete from cuenta_movimiento where iban='" . $iban . "'";
+        $this->link->query($sql);
+        
+            if ($this->link->affected_rows == 1) {
+                return "La cuenta_corriente se borró: ";
+            } else {
+                return "Fallo al borrar Movimientos: (" . $this->link->errno . ") " . $this->link->error;
+            }
+       
+        $this->CloseConnect();
+    }
+
     public function  ObjVars() {
         return get_object_vars($this);
     }
