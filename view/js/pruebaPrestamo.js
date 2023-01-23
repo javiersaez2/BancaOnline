@@ -393,7 +393,4 @@ MyApp.controller('miController', function ($scope, $http) {
 
 
 
-
-
-
 })
