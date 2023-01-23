@@ -73,7 +73,7 @@ $('.blog-slider__button').click(function(event){
 
     //pasarSimulador = event.target.val();
 
-    console.log(event.target.val());
+    console.log($(this).attr('value'));
     //alert(pasarSimulador);
 
 

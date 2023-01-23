@@ -201,7 +201,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 method: "POST",
                 data: JSON.stringify({'dniCliente': dniCliente, 'nombre': nombre, 'pasahitza': pasahitza})
             }).then(function (response) {
-                if (response.data.error=="El usuario se ha modificado con exito.    "){
+                if (response.data.error=="El usuario se ha modificado con exito."){
                     alertify.set('notifier','position', 'top-right');
                     alertify.success(response.data.error)
                     }
