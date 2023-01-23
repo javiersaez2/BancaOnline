@@ -76,7 +76,7 @@ $('.blog-slider__button').click(function(event){
     pasarSimulador = $(this).attr('value');
     console.log(pasarSimulador);
 
-    localStorage["Simulacion"] = JSON.stringify(pasarSimulador);
+    localStorage["Simulacion"] = pasarSimulador;
     window.location.href = "/view/html/paginaPrestamo.html";
 
 });

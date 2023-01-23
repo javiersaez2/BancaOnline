@@ -1,20 +1,3 @@
-//LOCALSTORAGE//
-var opcionesSimular = document.getElementsByClassName(".opcionesSimular");
-
-/*
-if (opcionesSimular[i] == tipoSimulacion) {
-    opcionesSimular = "<option value='" + tipoSimulacion + "'>" + tipoSimulacion + "</option> ";
-}
-*/
-
-
-
-
-
-
-
-
-
 var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
 
@@ -98,7 +81,7 @@ MyApp.controller('miController', function ($scope, $http) {
         else {
             $scope.ver = 'true';
         }
-        
+
         var kapitala = $scope.capital;
         var intr = 0;
         var meta = 0;
