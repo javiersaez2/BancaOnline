@@ -1,14 +1,5 @@
 var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
-
-    buscarDatosSimulacion();
-
-    function buscarDatosSimulacion(){
-        
-    }
- 
-
- 
     //verificar usuario
     $scope.loggedVerify = function () {
         $http({
