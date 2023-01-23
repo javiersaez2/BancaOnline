@@ -69,8 +69,10 @@ MyApp.controller('miController', function ($scope, $http) {
                 method: 'POST',
                 data: datosInsert
             })
+            ////CAMBIAR ALERT POR DOS DISTINTOS
                 .then(function (response) {
-                    alert(response.data.error);
+                        alertify.set('notifier','position', 'top-right');
+                    alertify.success(response.data.error);
                     $scope.insertarVista = 'false';
                     verusuarios();
     
@@ -127,6 +129,7 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify({'dniCliente': dni, 'nombre': nombreCliente})
         }).then(function (response) {
+            ////CAMBIAR ALERT POR DOS DISTINTOS
             alert(response.data.error)
             verusuarios();
         }).catch(function (response) {
@@ -143,6 +146,7 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify({'iban': iban})
         }).then(function (response) {
+            ////CAMBIAR ALERT POR DOS DISTINTOS
             alert(response.data.error)
             $scope.cerrarCuentas(0);
             verusuarios();
@@ -176,6 +180,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 method: "POST",
                 data: JSON.stringify({'dniCliente': dniCliente, 'nombre': nombre, 'pasahitza': pasahitza})
             }).then(function (response) {
+                ////CAMBIAR ALERT POR DOS DISTINTOS
                 alert(response.data.error);
                 $scope.modificarVista = 'false';
                 verusuarios();
