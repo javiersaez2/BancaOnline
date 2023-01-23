@@ -36,7 +36,7 @@
       </div>
       <div>
         <label>Duración (meses/años) </label>
-        <select name="" id="" ng-model="duracion">
+        <select  id="" ng-model="duracion">
           <option value="meses">Meses</option>
           <option value="anos">Años</option>
         </select>
@@ -55,8 +55,8 @@
       </div>
       <div>
         <label>Periodo de pago de intereses</label>
-        <select name="" id="periodoIntereses" ng-model="periodoPago">
-          <option value="12"  >Anual</option>
+        <select  id="periodoIntereses" ng-model="periodoPago">
+          <option value="12">Anual</option>
           <option value="6" ng-hide="sistema == 'Simple' || sistema == 'Americano'">Semestral </option>
           <option value="4" ng-hide="sistema == 'Simple' || sistema == 'Americano'">Cuatrimestral </option>
           <option value="1" ng-hide="sistema == 'Simple' || sistema == 'Americano'">Mensual</option>
@@ -64,7 +64,7 @@
       </div>
       <div>
         <label >Tipo de Base Temporal</label>
-        <select name="" id="tipoBase" ng-model="tipo">
+        <select  id="tipoBase" ng-model="tipo">
           <option value="12" >Anual</option>
           <option ng-show="periodoPago ==6">Semestral </option>
           <option ng-show="periodoPago ==4">Cuatrimestral </option>
@@ -85,7 +85,7 @@
       </div>
       <div>
         <label>GABEZIA</label>
-        <select name="" id="gabezia" ng-model="gabezia" ng-disabled = "periodoCarencia ==0 || periodoCarencia ==null ">
+        <select  id="gabezia" ng-model="gabezia" ng-disabled = "periodoCarencia ==0 || periodoCarencia ==null ">
           <option value="int" >Parcial</option>
           <option value="totala">Totala </option>
         </select>
