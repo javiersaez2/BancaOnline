@@ -1,6 +1,6 @@
 //LOCALSTORAGE//
-$scope.tipoSimulacion = localStorage.getItem("Simulacion");
-console.log($scope.tipoSimulacion);
+tipoSimulacion = localStorage.getItem("Simulacion");
+console.log(tipoSimulacion);
 
  var opcionesSimular = document.getElementsByClassName(".opcionesSimular");
 
