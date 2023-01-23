@@ -1,9 +1,6 @@
 ////////////////////////////////
 /* Estructura y estilo footer */
 ////////////////////////////////
-<<<<<<< HEAD
-
-=======
 html {
     height: 100%;
 
@@ -14,17 +11,14 @@ body {
     flex-direction: column;
     min-height: 100%;
 }
-
->>>>>>> 70e48d12d427d005ad8400788e12da0442fcb411
 .site-footer {
-    margin-top: auto;
+    margin-top: 3em;
     background-color: $color-fondo-footernav;
     padding: 25px 0 10px;
     font-size: 15px;
     line-height: 24px;
     color: #737373;
-    //margin-bottom: 0;
-    //bottom: 0;
+    bottom: 0;
 
     .container {
         .row {
@@ -99,7 +93,7 @@ body {
 }
 
 .copyright-text {
-    margin: 0;
+    margin: 0
 }
 
 ///////////////////////////
