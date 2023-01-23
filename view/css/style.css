@@ -1145,6 +1145,47 @@ input[type=button]:hover {
   font-weight: 700;
 }
 
+/* Botones */
+.button-23 {
+  background-color: #B57EDC;
+  border: 1px solid rgba(34, 34, 34, 0.7333333333);
+  overflow-wrap: break-word;
+  inline-size: 150px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #fbfbfb;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 6px;
+  margin: 0;
+  padding: 11px 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.1s;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.button-23:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+
+.button-23:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(0.96);
+}
+
+.button-23:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  opacity: 1;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }

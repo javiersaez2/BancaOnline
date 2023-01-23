@@ -1,22 +1,3 @@
-//LOCALSTORAGE//
-$scope.tipoSimulacion = localStorage.getItem("Simulacion");
-console.log($scope.tipoSimulacion);
-
- var opcionesSimular = document.getElementsByClassName(".opcionesSimular");
-
-
-/*for (i = 0; i < opcionesSimular.lenght; i++) {
-    if (opcionesSimular[i] == tipoSimulacion) {
-        opcionesSimular = "<option value='" + tipoSimulacion + "'>" + tipoSimulacion + "</option> ";
-    }
-}*/
-
-
-
-
-
-
-
 
 
 var MyApp = angular.module('MyApp', []);
