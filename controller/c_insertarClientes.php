@@ -4,6 +4,11 @@ include_once '../model/cuenta_corrienteModel.php';
 
 $data = json_decode(file_get_contents("php://input"),true);
 
+if (!isset($data["nombre"]) || !isset($data["contrasena"]) || !isset($data["dni"]) || !isset($data["tipo"])){
+
+    $response["error"] = 'Algun campo vacio';
+
+} else {    
 $nombre = $data["nombre"];
 $pasahitza = $data["contrasena"];
 $dniCliente = $data["dni"];
@@ -13,11 +18,6 @@ $cliente = new clienteModel();
 $response = array();
 
 
-if (!isset($nombre) && !isset($pasahitza) && !isset($dniCliente)){
-
-    $response["error"] = 'Informacion vacia';
-
-} else {    
     
     $cliente->setDniCliente($dniCliente);
     $cliente->setNombre($nombre);

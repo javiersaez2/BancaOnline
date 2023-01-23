@@ -11,16 +11,14 @@ body {
     flex-direction: column;
     min-height: 100%;
 }
-
 .site-footer {
-    margin-top: auto;
+    margin-top: 3em;
     background-color: $color-fondo-footernav;
     padding: 25px 0 10px;
     font-size: 15px;
     line-height: 24px;
     color: #737373;
-    //margin-bottom: 0;
-    //bottom: 0;
+    bottom: 0;
 
     .container {
         .row {
@@ -95,7 +93,7 @@ body {
 }
 
 .copyright-text {
-    margin: 0;
+    margin: 0
 }
 
 ///////////////////////////

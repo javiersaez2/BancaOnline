@@ -16,61 +16,61 @@
 </head>
 
 <body ng-app="miApp">
-  <header ng-controller="miControlador" ng-init="loggedVerify()">
-  </header>
-
-
-</div>
-  <!-- Datos -->
-  <section ng-controller="datoscliente">
-    <div ng-init="datoscliente()" ng-show="datosClienteCarta">
-      <section class="secciontarjeta">
-        <div class="tarjeta">
-          <div class="infocliete">
-            <div class="profile-card js-profile-card">
-              <div class="tipo" ng-show="tipoMostrar">{{tipo}}</div>
-              <i class="fa-solid fa-user-pen icono" ng-click="alerta()"></i>
-              <div class="profile-card__img">
-                <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="profile card">
-              </div>
-              <div class="texto" *ngFor="#infocuenta of infocuenta">
-                <p>{{infocuenta["nombre"]}}</p>
-                {{infocuenta["dniCliente"]}} -
-                {{infocuenta["secreto"]}}
-              </div>
+<header ng-controller="miControlador" ng-init="loggedVerify()">
+</header>
 
 
 
-              <div class="botones">
-                <a href="formIngrRet.html">
-                  <button class="custom-btn btn-cuenta" ng-click="ingresarretirar(0)">
-                    INGRESAR
-                  </button>
-                </a>
-                <a href="formIngrRet.html">
-                  <button class="custom-btn btn-cuenta" ng-click="ingresarretirar(1)">
-                    RETIRAR
-                  </button>
-                </a>
-                <a href="transferencia.html">
-                  <button class="custom-btn btn-cuenta">
-                    TRANSFERENCIA
-                  </button>
-                </a>
+    <!---  Datos --->
+    <section ng-controller="datoscliente">
+      <div ng-init="datoscliente()" ng-show="datosClienteCarta">
+        <section class="secciontarjeta">
+          <div class="tarjeta">
+            <div class="infocliete">
+              <div class="profile-card js-profile-card">
+                <div class="tipo" ng-show="tipoMostrar">{{tipo}}</div>
+                <i class="fa-solid fa-user-pen icono" ng-click="modificarUsuario('1')"></i>
+                <div class="profile-card__img">
+                  <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="profile card">
+                </div>
+                <div class="texto" *ngFor="#infocuenta of infocuenta">
+                  <p>{{infocuenta["nombre"]}}</p>
+                  {{infocuenta["dniCliente"]}} -
+                  {{infocuenta["secreto"]}}
+                </div>
+
+
+
+                <div class="botones">
+                  <a href="formIngrRet.html">
+                    <button class="custom-btn btn-cuenta" ng-click="ingresarretirar(0)">
+                      INGRESAR
+                    </button>
+                  </a>
+                  <a href="formIngrRet.html">
+                    <button class="custom-btn btn-cuenta" ng-click="ingresarretirar(1)">
+                      RETIRAR
+                    </button>
+                  </a>
+                  <a href="transferencia.html">
+                    <button class="custom-btn btn-cuenta">
+                      TRANSFERENCIA
+                    </button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-
-          <div class="cuentacorriente">
-            <div class="datoscorriente" ng-repeat="infocuenta in infocuenta.objCuenta">
-              <div>
-                {{infocuenta.iban}} - {{infocuenta.saldo | currency}}
-              </div>
-              <div>
-                <i class="fa-solid fa-money-bill-transfer fa-fade" ng-click="movimientos(infocuenta.iban)"
-                  style="--fa-animation-duration: 2s; --fa-fade-opacity:0.65; --fa-animation-delay:1s"
-                  ng-click="modificarUsuario('2')"></i>
+    <!---  Cuentas corrientes --->
+            <div class="cuentacorriente">
+              <div class="datoscorriente" ng-repeat="infocuenta in infocuenta.objCuenta">
+                <div>
+                  {{infocuenta.iban}} - {{infocuenta.saldo | currency}}
+                </div>
+                <div>
+                  <i class="fa-solid fa-money-bill-transfer fa-fade"  ng-click="movimientos(infocuenta.iban)" style="--fa-animation-duration: 2s; --fa-fade-opacity:0.65; --fa-animation-delay:1s" ng-click="modificarUsuario('2')"></i> 
+                </div>
               </div>
             </div>
       </section>
@@ -118,19 +118,19 @@
       // Tabla movimientos //
       /////////////////////// 
       -->
+      
+      <button ng-click="verCartaCuenta()">Atras</button>
+      <table border="1" ng-show="tablaMostrar">
+        <tr ng-repeat="movimiento in ListaMovimientos">
+          <td><i class="{{movimiento.tipoMovimiento}}"></i></td>
+          <td>{{movimiento.iban}}</td>
+          <td>{{movimiento.fecha}}</td>
+          <td>{{movimiento.cantidad}}</td>
+          <td>{{movimiento.tipoMovimiento}}</td>
+        </tr>
+      </table>
 
-    <button ng-click="verCartaCuenta()">Atras</button>
-    <table border="1" ng-show="tablaMostrar">
-      <tr ng-repeat="movimiento in ListaMovimientos">
-        <td><i class="{{movimiento.tipoMovimiento}}"></i></td>
-        <td>{{movimiento.iban}}</td>
-        <td>{{movimiento.fecha}}</td>
-        <td>{{movimiento.cantidad}}</td>
-        <td>{{movimiento.tipoMovimiento}}</td>
-      </tr>
-    </table>
-
-  </section>
+  </section>    
   <!--FOOTER-->
   <!-- Site footer -->
   <br>

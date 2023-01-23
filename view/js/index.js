@@ -68,6 +68,17 @@ var swiper = new Swiper('.blog-slider', {
   });
 
 
+  /////////PASAR AL SIMULADOR///////////
+$('.blog-slider__button').click(function() {
+
+    //pasarSimulador = event.target.val();
+    //alert(pasarSimulador);
+
+    alert($(this).value);
+
+
+});
+
 
 
   
