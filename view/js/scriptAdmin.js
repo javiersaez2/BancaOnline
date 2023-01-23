@@ -32,7 +32,7 @@ MyApp.controller('miController', function ($scope, $http) {
             data: JSON.stringify(datosjson)
         }).then(function (response) {
             alertify.set('notifier','position', 'top-right');
-            alertify.error(response.data.error)
+            alertify.success(response.data.error)
             verusuarios();
         }, function (error) {
             console.error("Ocurrio un error", response.status, response.data)
@@ -51,7 +51,8 @@ MyApp.controller('miController', function ($scope, $http) {
 
     $scope.nuevoCliente = function () {
         if ($scope.contrsenaIns != $scope.vefIns) {
-            alert("Las claves no coinciden");
+            alertify.set('notifier','position', 'top-right');
+            alertify.error("Las claves no coinciden");
             $scope.contrsenaIns = "";
             $scope.vefIns = "";
         } else {
@@ -69,21 +70,28 @@ MyApp.controller('miController', function ($scope, $http) {
                 method: 'POST',
                 data: datosInsert
             })
-            ////CAMBIAR ALERT POR DOS DISTINTOS
+            
                 .then(function (response) {
+                    if (response.data.error=="Usuario añadido con exito"){
                         alertify.set('notifier','position', 'top-right');
                     alertify.success(response.data.error);
                     $scope.insertarVista = 'false';
                     verusuarios();
-    
+                    
                     
                     $scope.dniIns = "";
                     $scope.nombreIns = "";
                     $scope.contrsenaIns = "";
                     $scope.tipoIns = "";
                     $scope.vefIns = "";
-
                     modalnovisible(1);
+                }
+                else{
+                    alertify.set('notifier','position', 'top-right');
+                    alertify.error(response.data.error);
+                   
+                    
+                }
                 })
                 .catch(function (response) {
                     console.log('Error ocurred: ', response.status);
@@ -129,8 +137,14 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify({'dniCliente': dni, 'nombre': nombreCliente})
         }).then(function (response) {
-            ////CAMBIAR ALERT POR DOS DISTINTOS
-            alert(response.data.error)
+            if (response.data.error.includes("La cuenta se ha insertado con exito")){
+            alertify.set('notifier','position', 'top-right');
+            alertify.success(response.data.error)
+            }
+            else {
+                alertify.set('notifier','position', 'top-right');
+                alertify.error(response.data.error)
+            }
             verusuarios();
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
@@ -146,8 +160,15 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify({'iban': iban})
         }).then(function (response) {
-            ////CAMBIAR ALERT POR DOS DISTINTOS
-            alert(response.data.error)
+          
+            if (response.data.error=="Cuenta corriente borrada con exito"){
+                alertify.set('notifier','position', 'top-right');
+                alertify.success(response.data.error)
+                }
+                else {
+                    alertify.set('notifier','position', 'top-right');
+                    alertify.error(response.data.error)
+                }
             $scope.cerrarCuentas(0);
             verusuarios();
         }).catch(function (response) {
@@ -180,8 +201,14 @@ MyApp.controller('miController', function ($scope, $http) {
                 method: "POST",
                 data: JSON.stringify({'dniCliente': dniCliente, 'nombre': nombre, 'pasahitza': pasahitza})
             }).then(function (response) {
-                ////CAMBIAR ALERT POR DOS DISTINTOS
-                alert(response.data.error);
+                if (response.data.error=="El usuario se ha modificado con exito."){
+                    alertify.set('notifier','position', 'top-right');
+                    alertify.success(response.data.error)
+                    }
+                    else {
+                        alertify.set('notifier','position', 'top-right');
+                        alertify.error(response.data.error)
+                    }
                 $scope.modificarVista = 'false';
                 verusuarios();
 

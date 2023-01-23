@@ -21,6 +21,8 @@ MyApp.controller('miController', function ($scope, $http) {
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
                 }
+                 
+                
             }
         }).catch(function (response) {
             console.error("Ocurrio un error", response.status, response.data);
@@ -393,7 +395,13 @@ MyApp.controller('miController', function ($scope, $http) {
 
 
 
-
-
-
 })
+
+
+
+
+//$(document).ready(function(){
+
+
+
+//});
