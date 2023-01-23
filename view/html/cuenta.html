@@ -118,22 +118,53 @@
       // Tabla movimientos //
       /////////////////////// 
       -->
-      
-      <button ng-click="verCartaCuenta()">Atras</button>
-      <table border="1" ng-show="tablaMostrar">
-        <tr ng-repeat="movimiento in ListaMovimientos">
-          <td><i class="{{movimiento.tipoMovimiento}}"></i></td>
-          <td>{{movimiento.iban}}</td>
-          <td>{{movimiento.fecha}}</td>
-          <td>{{movimiento.cantidad}}</td>
-          <td>{{movimiento.tipoMovimiento}}</td>
-        </tr>
-      </table>
 
-  </section>    
+    <button ng-click="verCartaCuenta()">Atras</button>
+    <!-- <table ng-show="tablaMostrar" class="tablaMovimientos">
+      <tr ng-repeat="movimiento in ListaMovimientos">
+        <td><i class="{{movimiento.tipoMovimiento}}"></i></td>
+        <td>{{movimiento.iban}} - {{movimiento.fecha}}</td>
+        <td>{{movimiento.cantidad}}</td>
+        <td>{{movimiento.tipoMovimiento}}</td>
+      </tr>
+    </table> -->
+
+    <section class="wrapper" ng-show="tablaMostrar">
+      <!-- Titulos tabla -->
+      <main class="rowMov title">
+        <ul>
+          <li></li>
+          <li>Tipo</li>
+          <li>Fecha</li>
+          <li>Importe</li>
+          <li>Iban</li>
+        </ul>
+      </main>
+      <!-- Columnas datos -->
+      <article class="rowMov {{movimiento.claseMovimiento}}" ng-repeat="movimiento in ListaMovimientos">
+        <ul>
+          <li><a href="#"><i class="{{movimiento.tipoMovimientoIcon}}"></i></a></li>
+          <li>{{movimiento.tipoMovimiento}}</li>
+          <li>{{movimiento.fecha}}</li>
+          <li>{{movimiento.cantidad}}</li>
+          <li>{{movimiento.iban}}</li>
+        </ul>
+        <ul class="more-content">
+          <li *ngIf=" '{{movimiento.tipoMovimiento}}' == 'Transferencia'; then bb else aa"></li>
+          <ng-template #bb>
+            <li>a</li>
+          </ng-template>
+          <ng-template #aa>
+            <li>{{movimiento.tipoMovimiento}} de importe {{movimiento.cantidad}}€ desde la cuenta --> {{movimiento.iban}}</li>
+          </ng-template>
+        </ul>
+      </article>
+    </section>
+  </section>
+
+
   <!--FOOTER-->
   <!-- Site footer -->
-  <br>
   <footer class="site-footer">
    
   </footer>
