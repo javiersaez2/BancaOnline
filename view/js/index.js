@@ -68,8 +68,13 @@ var swiper = new Swiper('.blog-slider', {
   });
 
 
+  /////////PASAR AL SIMULADOR///////////
+/*$('.tusa').click(function(){
 
+    alert("A");
 
+}
+*/
 
 
   
