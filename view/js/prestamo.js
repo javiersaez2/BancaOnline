@@ -1,5 +1,8 @@
 var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
+
+    tipoSimulacion = localStorage.getItem("Simulacion");
+        console.log(tipoSimulacion);
     //verificar usuario
     $scope.loggedVerify = function () {
         $http({
