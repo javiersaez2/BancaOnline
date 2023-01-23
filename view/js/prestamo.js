@@ -43,6 +43,9 @@ MyApp.controller('miController', function ($scope, $http) {
     let Interesa = 0.00;
     let Metatua = 0.00;
     $scope.lista = [];
+
+    $scope.periodoCarencia = 0;
+
     $scope.calcular = function () {
         $('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + " " + "meses  </h1>");
         if ($scope.sistema == null) {
@@ -66,9 +69,7 @@ MyApp.controller('miController', function ($scope, $http) {
         else if ($scope.tipo == null) {
             alert("Por favor, asigne Tipo de Base Temporal");
         }
-        else if ($scope.periodoCarencia == null) {
-            alert("Por favor, asigne periodo carencia");
-        }
+        
         else {
             $scope.ver = 'true';
         }
