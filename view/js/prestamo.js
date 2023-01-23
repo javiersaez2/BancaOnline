@@ -1,5 +1,4 @@
-
-
+//LOCALSTORAGE//
 var opcionesSimular = document.getElementsByClassName(".opcionesSimular");
 
 /*
@@ -99,6 +98,7 @@ MyApp.controller('miController', function ($scope, $http) {
         else {
             $scope.ver = 'true';
         }
+        
         var kapitala = $scope.capital;
         var intr = 0;
         var meta = 0;

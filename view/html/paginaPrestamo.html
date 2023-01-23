@@ -37,13 +37,14 @@
       <div>
         <label>Duración (meses/años) </label>
         <select  id="" ng-model="duracion">
+          <option value="" >Elige una opción</option>
           <option value="meses">Meses</option>
           <option value="anos">Años</option>
         </select>
       </div>
       <div>
         <label>Cantidad Meses / Años</label>
-        <input type="text" ng-model="numero">
+        <input type="text" ng-model="numero" oninput="this.value = this.value.replace(/[^0-9]/g,'')">
       </div>
     </div>
 
@@ -51,11 +52,12 @@
       
       <div>
         <label>Capital</label>
-        <input type="text" ng-model="capital">
+        <input type="text" ng-model="capital" oninput="this.value = this.value.replace(/[^0-9]/g,'')">
       </div>
       <div>
         <label>Periodo de pago de intereses</label>
         <select  id="periodoIntereses" ng-model="periodoPago">
+          <option value="" >Elige una opción</option>
           <option value="12">Anual</option>
           <option value="6" ng-hide="sistema == 'Simple' || sistema == 'Americano'">Semestral </option>
           <option value="4" ng-hide="sistema == 'Simple' || sistema == 'Americano'">Cuatrimestral </option>
@@ -65,6 +67,7 @@
       <div>
         <label >Tipo de Base Temporal</label>
         <select  id="tipoBase" ng-model="tipo">
+          <option value="" >Elige una opción</option>
           <option value="12" >Anual</option>
           <option ng-show="periodoPago ==6">Semestral </option>
           <option ng-show="periodoPago ==4">Cuatrimestral </option>
@@ -77,15 +80,16 @@
       
       <div>
         <label>Tasa de Interés %</label>
-        <input type="text" ng-model="interes">
+        <input type="text" ng-model="interes"  oninput="this.value = this.value.replace(/[^0-9]/g,'')">
       </div>
       <div>
         <label>Periodo de Carencia</label>
-        <input type="text" ng-model="periodoCarencia">
+        <input type="text" ng-model="periodoCarencia" ng-disabled = "sistema == 'Simple' || sistema == 'Americano'" oninput="this.value = this.value.replace(/[^0-9]/g,'')">
       </div>
       <div>
         <label>GABEZIA</label>
         <select  id="gabezia" ng-model="gabezia" ng-disabled = "periodoCarencia ==0 || periodoCarencia ==null ">
+          <option value="" >Elige una opción</option>
           <option value="int" >Parcial</option>
           <option value="totala">Totala </option>
         </select>
