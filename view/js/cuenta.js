@@ -74,14 +74,19 @@ miApp.controller('datoscliente', function ($scope, $http) {
 
             for (var i = 0; i < datos.length; i++){
                 if (datos[i].objMovimiento.tipoMovimiento == "Ingresar"){
-                    tipoMovimiento = "fa-solid fa-money-bill-transfer";   
+                    tipoMovimiento = "fa-solid fa-money-bill-transfer";
+                    claseMovimiento = "ingr";  
+                    datos[i].objMovimiento.tipoMovimiento = "Ingreso"; 
                 } else if (datos[i].objMovimiento.tipoMovimiento == "Retirar"){
                     tipoMovimiento = "fa-solid fa-money-check-dollar";
+                    claseMovimiento = "reti";   
+                    datos[i].objMovimiento.tipoMovimiento = "Retiro";
                 } else {
                     tipoMovimiento = "TRANSFERECIA";
+                    claseMovimiento = "tran";
                 }
 
-                $scope.ListaMovimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimiento":tipoMovimiento});   
+                $scope.ListaMovimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimientoIcon":tipoMovimiento, "tipoMovimiento":datos[i].objMovimiento.tipoMovimiento, "claseMovimiento":claseMovimiento});   
             }
 
             $scope.tablaMostrar = true;
