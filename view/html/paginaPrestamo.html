@@ -32,6 +32,7 @@
           <option value="Simple">Simple</option>
           <option value="Americano">Americano</option>
         </select>
+        
       </div>
       <div>
         <label>Duración (meses/años) </label>
@@ -55,10 +56,10 @@
       <div>
         <label>Periodo de pago de intereses</label>
         <select name="" id="periodoIntereses" ng-model="periodoPago">
-          <option value="12">Anual</option>
-          <option value="6">Semestral </option>
-          <option value="4">Cuatrimestral </option>
-          <option value="1">Mensual</option>
+          <option value="12"  >Anual</option>
+          <option value="6" ng-hide="sistema == 'Simple' || sistema == 'Americano'">Semestral </option>
+          <option value="4" ng-hide="sistema == 'Simple' || sistema == 'Americano'">Cuatrimestral </option>
+          <option value="1" ng-hide="sistema == 'Simple' || sistema == 'Americano'">Mensual</option>
         </select>
       </div>
       <div>
