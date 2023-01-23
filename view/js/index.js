@@ -69,12 +69,16 @@ var swiper = new Swiper('.blog-slider', {
 
 
   /////////PASAR AL SIMULADOR///////////
-/*$('.tusa').click(function(){
+$('.blog-slider__button').click(function(event){
 
-    alert("A");
+    //pasarSimulador = event.target.val();
 
-}
-*/
+    console.log(event.target.val());
+    //alert(pasarSimulador);
+
+
+});
+
 
 
   
