@@ -64,6 +64,7 @@ class cuenta_movimientoModel extends cuenta_movimientoClass
                 $newCuenta->iban = $row['iban'];
                 $newCuenta->fecha = $row['fecha'];
                 $newCuenta->cantidad = $row['cantidad'];
+                $newCuenta->idMovimiento = $row['idMovimiento'];
 
                 $newMovimiento=new movimientoModel();
                 $newMovimiento->setIdMovimiento($row['idMovimiento']);  
