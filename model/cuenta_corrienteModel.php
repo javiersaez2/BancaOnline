@@ -7,7 +7,7 @@ include_once 'cuenta_movimientoModel.php';
 class cuenta_corrienteModel extends cuenta_corrienteClass
 {
     private $link;
-    //  public $objFamilia;
+    private $objCuenta;
 
     public function OpenConnect()
     {
@@ -148,7 +148,7 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
      
             $newMovimiento=new cuenta_movimientoModel();
             $newMovimiento->setIban($row['iban']);    
-            $newMovimiento->objCuenta=$newMovimiento->deleteMovimimientosByIban();;
+            $newMovimiento->objCuenta=$newMovimiento->deleteMovimimientosByIban();
 
             array_push($list, get_object_vars($newMovimiento));
         }
