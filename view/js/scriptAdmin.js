@@ -5,7 +5,8 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.cuenta = []
     /////cargar los datos de la tabla usuario de la base de datos 
     verusuarios();
-
+    //Posicion de la alerta
+    alertify.set('notifier', 'position', 'top-right');
     ///////////////////////////////
     // Mostrar lista de usuarios //
     ///////////////////////////////
@@ -25,14 +26,20 @@ MyApp.controller('miController', function ($scope, $http) {
     // Borrar usuarios //
     /////////////////////
     $scope.borrarUsuario = function (miIndex, item) {
-        var datosjson = {'dniCliente':item.dniCliente};
+        var datosjson = { 'dniCliente': item.dniCliente };
         $http({
             url: '../../controller/delete_usuario.php',
             method: "POST",
             data: JSON.stringify(datosjson)
         }).then(function (response) {
-            alertify.set('notifier','position', 'top-right');
-            alertify.success(response.data.error)
+            if (response.data.error == "Cuenta corriente borrada con exito") {
+
+                alertify.success(response.data.error)
+            }
+            else {
+
+                alertify.error(response.data.error)
+            }
             verusuarios();
         }, function (error) {
             console.error("Ocurrio un error", response.status, response.data)
@@ -46,16 +53,59 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.listaInsertar = [];
 
     $scope.nuevoUsuario = function () {
-     modalvisible(1);
+        modalvisible(1);
     }
 
     $scope.nuevoCliente = function () {
-        if ($scope.contrsenaIns != $scope.vefIns) {
-            alertify.set('notifier','position', 'top-right');
-            alertify.error("Las claves no coinciden");
+
+
+
+        if ($scope.dniIns == null || $scope.nombreIns == null || $scope.contrsenaIns == null || $scope.vefIns == null || $scope.tipoIns == null) {
+            alertify.error("Algun campo vacio!");
+        }
+        else {
+            //Funcion que comprueba el dni
+            function nif(dni) {
+                var numero
+                var letr
+                var letra
+                var expresion_regular_dni
+
+                expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+
+                if (expresion_regular_dni.test(dni) == true) {
+                    numero = dni.substr(0, dni.length - 1);
+                    letr = dni.substr(dni.length - 1, 1);
+                    numero = numero % 23;
+                    letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+                    letra = letra.substring(numero, numero + 1);
+                    if (letra != letr.toUpperCase()) {
+
+                        alertify.error('Dni erroneo, la letra del NIF no se corresponde');
+                    } else {
+
+                    }
+                } else {
+
+                    alertify.error('Dni erroneo, formato no válido');
+                }
+            }
+            nif($scope.dniIns);
+
+        }
+
+        if ($scope.contrsenaIns.length < 6) {
+
+            alertify.error("Escribe un minimo de 6 caracteres para la nueva clave");
+        }
+        else if ($scope.contrsenaIns != $scope.vefIns) {
+
+            alertify.error("Las contraseñas no son iguales");
             $scope.contrsenaIns = "";
             $scope.vefIns = "";
-        } else {
+        }
+
+        else {
             $scope.listaInsertar = {
                 'dni': $scope.dniIns,
                 'nombre': $scope.nombreIns,
@@ -63,40 +113,35 @@ MyApp.controller('miController', function ($scope, $http) {
                 'tipo': $scope.tipoIns
             };
             var datosInsert = JSON.stringify($scope.listaInsertar);
-    
+
             ////////FETCH DE INSERTAR/////
             $http({
                 url: '../../controller/c_insertarClientes.php',
                 method: 'POST',
                 data: datosInsert
             })
-            
+
                 .then(function (response) {
-                    if (response.data.error=="Usuario añadido con exito"){
-                        alertify.set('notifier','position', 'top-right');
-                    alertify.success(response.data.error);
-                    $scope.insertarVista = 'false';
-                    verusuarios();
-                    
-                    
-                    $scope.dniIns = "";
-                    $scope.nombreIns = "";
-                    $scope.contrsenaIns = "";
-                    $scope.tipoIns = "";
-                    $scope.vefIns = "";
-                    modalnovisible(1);
-                }
-                else{
-                    alertify.set('notifier','position', 'top-right');
-                    alertify.error(response.data.error);
-                   
-                    
-                }
+                    if (response.data.error == "Usuario añadido con exito") {
+
+                        alertify.success(response.data.error);
+                        $scope.insertarVista = 'false';
+                        verusuarios();
+
+
+                        $scope.dniIns = "";
+                        $scope.nombreIns = "";
+                        $scope.contrsenaIns = "";
+                        $scope.tipoIns = "";
+                        $scope.vefIns = "";
+                        modalnovisible(1);
+                    }
+
                 })
                 .catch(function (response) {
                     console.log('Error ocurred: ', response.status);
                     console.log('Error ocurred: ', response.data);
-    
+
                 })
         }
     }
@@ -110,10 +155,10 @@ MyApp.controller('miController', function ($scope, $http) {
         console.log("--")
         console.log(item.objCuenta.iban)
         for (i = 0; i < item.objCuenta.length; i++) {
-            $scope.cuenta.push({ iban: item.objCuenta[i].iban, dniCliente: item.objCuenta[i].dniCliente, titular: item.objCuenta[i].titular, saldo: item.objCuenta[i].saldo, cuentaPos: i+1});
+            $scope.cuenta.push({ iban: item.objCuenta[i].iban, dniCliente: item.objCuenta[i].dniCliente, titular: item.objCuenta[i].titular, saldo: item.objCuenta[i].saldo, cuentaPos: i + 1 });
             console.log($scope.cuenta)
         }
-       modalvisible(0);
+        modalvisible(0);
     }
 
     $scope.cerrarCuentas = function (numero) {
@@ -135,45 +180,45 @@ MyApp.controller('miController', function ($scope, $http) {
         $http({
             url: '../../controller/c_insertarCuenta.php',
             method: "POST",
-            data: JSON.stringify({'dniCliente': dni, 'nombre': nombreCliente})
+            data: JSON.stringify({ 'dniCliente': dni, 'nombre': nombreCliente })
         }).then(function (response) {
-            if (response.data.error.includes("La cuenta se ha insertado con exito")){
-            alertify.set('notifier','position', 'top-right');
-            alertify.success(response.data.error)
+            if (response.data.error.includes("La cuenta se ha insertado con exito")) {
+
+                alertify.success(response.data.error)
             }
             else {
-                alertify.set('notifier','position', 'top-right');
+
                 alertify.error(response.data.error)
             }
             verusuarios();
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
-        }) 
+        })
 
     }
 
-    $scope.borrarCuenta = function(datos){
+    $scope.borrarCuenta = function (datos) {
         var iban = datos.iban;
 
         $http({
             url: '../../controller/delete_cuenta.php',
             method: "POST",
-            data: JSON.stringify({'iban': iban})
+            data: JSON.stringify({ 'iban': iban })
         }).then(function (response) {
-          
-            if (response.data.error=="Cuenta corriente borrada con exito"){
-                alertify.set('notifier','position', 'top-right');
+
+            if (response.data.error == "No puedes borrar tu usuario") {
+
+                alertify.error(response.data.error)
+            }
+            else {
+
                 alertify.success(response.data.error)
-                }
-                else {
-                    alertify.set('notifier','position', 'top-right');
-                    alertify.error(response.data.error)
-                }
+            }
             $scope.cerrarCuentas(0);
             verusuarios();
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
-        }) 
+        })
     }
 
     ////////////////////////
@@ -189,8 +234,8 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.contrasenaModificar = item.pasahitza;
         $scope.vefModificar = item.pasahitza;
     }
-//Cuando pulsas al boton y no has cambiado nada da error
-//
+    //Cuando pulsas al boton y no has cambiado nada da error
+    //Con un change hace todo si no salta alerta
     $scope.guardarCliente = function () {
         dniCliente = $scope.dniModificar;
         nombre = $scope.nombreModificar;
@@ -199,16 +244,16 @@ MyApp.controller('miController', function ($scope, $http) {
             $http({
                 url: "../../controller/controller_update.php",
                 method: "POST",
-                data: JSON.stringify({'dniCliente': dniCliente, 'nombre': nombre, 'pasahitza': pasahitza})
+                data: JSON.stringify({ 'dniCliente': $scope.dniModificar, 'nombre': $scope.nombreModificar, 'pasahitza': $scope.contrasenaModificar })
             }).then(function (response) {
-                if (response.data.error=="El usuario se ha modificado con exito."){
-                    alertify.set('notifier','position', 'top-right');
+                if (response.data.error == "El usuario se ha modificado con exito.") {
+
                     alertify.success(response.data.error)
-                    }
-                    else {
-                        alertify.set('notifier','position', 'top-right');
-                        alertify.error(response.data.error)
-                    }
+                }
+                else {
+
+                    alertify.error(response.data.error)
+                }
                 $scope.modificarVista = 'false';
                 verusuarios();
 
@@ -217,7 +262,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 console.error('Error occurred:', response.status, response.data)
             })
         } else {
-            alert("Contraseñas no son iguales")
+            alertify.error("Las contraseñas no son iguales");
         }
     }
 
@@ -227,13 +272,13 @@ MyApp.controller('miController', function ($scope, $http) {
     //////////////////////////
     //////////////////////////
 
-    $("#buscadorDni").keypress(function(event){
-        if(event.keyCode == 13) {
-            if ($(this).val().length > 0){
+    $("#buscadorDni").keypress(function (event) {
+        if (event.keyCode == 13) {
+            if ($(this).val().length > 0) {
                 $http({
                     url: "/controller/c_buscadorDniAdmin.php",
                     method: "POST",
-                    data: JSON.stringify({'dniCliente': $(this).val()})
+                    data: JSON.stringify({ 'dniCliente': $(this).val() })
                 }).then(function (response) {
                     console.log(response.data);
                     $scope.usuarios = response.data.list;
@@ -244,7 +289,7 @@ MyApp.controller('miController', function ($scope, $http) {
             } else {
                 verusuarios();
             }
-            
+
         }
     });
 
@@ -310,85 +355,85 @@ MyApp.controller('miController', function ($scope, $http) {
 // Funciones scroll para el modal //
 ////////////////////////////////////
 function modalvisible(x) {
-    document.getElementById("demo-modal"+x+"").style.visibility = "visible";
-    document.getElementById("demo-modal"+x+"").style.opacity = 1;
+    document.getElementById("demo-modal" + x + "").style.visibility = "visible";
+    document.getElementById("demo-modal" + x + "").style.opacity = 1;
     disable_scroll();
     disable_scroll_mobile();
 }
 
 function modalnovisible(x) {
-    document.getElementById("demo-modal"+x+"").style.visibility = "hidden";
-    document.getElementById("demo-modal"+x+"").style.opacity = 0;
+    document.getElementById("demo-modal" + x + "").style.visibility = "hidden";
+    document.getElementById("demo-modal" + x + "").style.opacity = 0;
     enable_scroll();
     enable_scroll_mobile();
 }
-  
-  // Evitar el controlador por defecto
-  function preventDefault(e) {
+
+// Evitar el controlador por defecto
+function preventDefault(e) {
     e = e || window.event;
     if (e.preventDefault) {
-      e.preventDefault();
+        e.preventDefault();
     }
     e.returnValue = false;
-  }
+}
 
-  // Prevenir las teclas de SCROLL
-  function keydown(e) {
-    var keys = [32,33,34,35,36,37,38,39,40];
+// Prevenir las teclas de SCROLL
+function keydown(e) {
+    var keys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
     for (var i = keys.length; i--;) {
-      if (e.keyCode === keys[i]) {
-        preventDefault(e);
-        return;
-      }
+        if (e.keyCode === keys[i]) {
+            preventDefault(e);
+            return;
+        }
     }
-  }
+}
 
-  // Prevenir rueda del ratons
-  function wheel(event) {
+// Prevenir rueda del ratons
+function wheel(event) {
     event.preventDefault();
     event.stopPropagation();
     return false;
-  }
+}
 
-  // Desactivar scroll
-  function disable_scroll() {
+// Desactivar scroll
+function disable_scroll() {
     if (document.addEventListener) {
-      document.addEventListener('wheel', wheel, false);
-      document.addEventListener('mousewheel', wheel, false);
-      document.addEventListener('DOMMouseScroll', wheel, false);
+        document.addEventListener('wheel', wheel, false);
+        document.addEventListener('mousewheel', wheel, false);
+        document.addEventListener('DOMMouseScroll', wheel, false);
     }
     else {
-      document.attachEvent('onmousewheel', wheel);
+        document.attachEvent('onmousewheel', wheel);
     }
     document.onmousewheel = document.onmousewheel = wheel;
     document.onkeydown = keydown;
-    
+
     x = window.pageXOffset || document.documentElement.scrollLeft,
-    y = window.pageYOffset || document.documentElement.scrollTop,
-    window.onscroll = function() {
-      window.scrollTo(x, y);
-    };
+        y = window.pageYOffset || document.documentElement.scrollTop,
+        window.onscroll = function () {
+            window.scrollTo(x, y);
+        };
     // document.body.style.overflow = 'hidden'; // CSS
     disable_scroll_mobile();
-  }
+}
 
-  // Habilitar scoll
-  function enable_scroll() {
+// Habilitar scoll
+function enable_scroll() {
     if (document.removeEventListener) {
-      document.removeEventListener('wheel', wheel, false);
-      document.removeEventListener('mousewheel', wheel, false);
-      document.removeEventListener('DOMMouseScroll', wheel, false);
+        document.removeEventListener('wheel', wheel, false);
+        document.removeEventListener('mousewheel', wheel, false);
+        document.removeEventListener('DOMMouseScroll', wheel, false);
     }
     document.onmousewheel = document.onmousewheel = document.onkeydown = null;
-    window.onscroll = function() {};
+    window.onscroll = function () { };
     // document.body.style.overflow = 'auto'; // CSS
     enable_scroll_mobile();
-  }
-  
-  // Mobil
-  function disable_scroll_mobile(){
+}
+
+// Mobil
+function disable_scroll_mobile() {
     document.addEventListener('touchmove', preventDefault, false);
-  }
-  function enable_scroll_mobile(){
+}
+function enable_scroll_mobile() {
     document.removeEventListener('touchmove', preventDefault, false);
-  }
+}
