@@ -72,6 +72,9 @@ MyApp.controller('miController', function ($scope, $http) {
         else if ($scope.tipo == null) {
             alert("Por favor, asigne Tipo de Base Temporal");
         }
+        else if ($scope.periodoCarencia != null && $scope.periodoCarencia != 0 && $scope.gabezia == null) {
+            alert("Por favor, asigne Tipo de Carencia");
+        }
         else {
             $scope.ver = 'true';
         }
