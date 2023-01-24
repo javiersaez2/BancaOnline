@@ -57,11 +57,14 @@ miApp.controller('datoscliente', function ($scope, $http) {
     $scope.tablaMostrar = false;
     $scope.datosClienteCarta = true;
 
+    // Funcion para ver la carta
     $scope.verCartaCuenta = function(){
         $scope.tablaMostrar = false;
         $scope.datosClienteCarta = true;    
     }
 
+
+    // Funcion para ver tabla de movimientos
     $scope.movimientos = function(iban){
 
         $http({
@@ -74,15 +77,15 @@ miApp.controller('datoscliente', function ($scope, $http) {
 
             for (var i = 0; i < datos.length; i++){
                 if (datos[i].objMovimiento.tipoMovimiento == "Ingresar"){
-                    tipoMovimiento = "fa-solid fa-money-bill-transfer";
+                    tipoMovimiento = "fa-solid fa-money-bill-trend-up fa-lg";
                     claseMovimiento = "ingr";  
                     datos[i].objMovimiento.tipoMovimiento = "Ingreso"; 
                 } else if (datos[i].objMovimiento.tipoMovimiento == "Retirar"){
-                    tipoMovimiento = "fa-solid fa-money-check-dollar";
+                    tipoMovimiento = "fa-solid fa-sack-xmark fa-lg";
                     claseMovimiento = "reti";   
                     datos[i].objMovimiento.tipoMovimiento = "Retiro";
                 } else {
-                    tipoMovimiento = "TRANSFERECIA";
+                    tipoMovimiento = "fa-solid fa-hand-holding-dollar fa-lg";
                     claseMovimiento = "tran";
                 }
 
