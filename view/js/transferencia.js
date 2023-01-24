@@ -24,7 +24,6 @@ MyApp.controller('miController', function ($scope, $http) {
             .then(function (response) {
                 //console.log(response.data.list);
                 $scope.cuentas = response.data.list;
-
             })
             .catch(function (response) {
                 console.error('Error occurred:', response.status, response.data)
@@ -221,8 +220,6 @@ MyApp.controller('miController', function ($scope, $http) {
         }
     }
   
-
-
     /////LOGGED VERIFY
     $scope.passMostrar = true;
     $scope.iniciarSesionSection = true;
@@ -267,5 +264,4 @@ MyApp.controller('miController', function ($scope, $http) {
             console.error("Ocurrio un error", response.status, response.data);
         })
     }
-
 })
