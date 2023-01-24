@@ -246,8 +246,8 @@
 .ingr a:hover {color:darken($color-secundario, 20%);}
 .reti a {color:$color-terciario1;}
 .reti a:hover {color:darken($color-terciario1, 20%);}
-.tran a {color:$light-bg;}
-.tran a:hover {color:darken($light-bg, 20%);}
+.tran a {color:$color-terciario3;}
+.tran a:hover {color:darken($color-terciario3, 20%);}
 
 /* wrapper */
 .wrapper {
@@ -344,8 +344,8 @@
 .ingr:hover {border-left:3px solid $color-secundario;}
 .reti {border-left:3px solid darken($color-terciario1, 30%)}
 .reti:hover {border-left:3px solid $color-terciario1;}
-.tran {border-left:3px solid darken($light-bg, 30%);}
-.tran:hover {border-left:3px solid $light-bg;}
+.tran {border-left:3px solid darken($color-terciario3, 30%);}
+.tran:hover {border-left:3px solid $color-terciario3;}
 
 /* row one - fadeIn */
 .row-fadeIn-wrapper {

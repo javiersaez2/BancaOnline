@@ -740,11 +740,11 @@ body {
 }
 
 .tran a {
-  color: rgba(255, 255, 255, 0.1);
+  color: rgb(208, 151, 248);
 }
 
 .tran a:hover {
-  color: rgba(204, 204, 204, 0.1);
+  color: #a537f2;
 }
 
 /* wrapper */
@@ -865,11 +865,11 @@ body {
 }
 
 .tran {
-  border-left: 3px solid rgba(179, 179, 179, 0.1);
+  border-left: 3px solid #8e10e6;
 }
 
 .tran:hover {
-  border-left: 3px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid rgb(208, 151, 248);
 }
 
 /* row one - fadeIn */
