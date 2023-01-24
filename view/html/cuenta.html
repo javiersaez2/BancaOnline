@@ -145,14 +145,7 @@
               <li>{{movimiento.iban}}</li>
             </ul>
             <ul class="more-content">
-              <li *ngIf=" '{{movimiento.tipoMovimiento}}' == 'Transferencia'; then bb else aa">
-                <ng-template #bb>
-                  <li>a</li>
-                </ng-template>
-                <ng-template #aa>
-                  <li>{{movimiento.tipoMovimiento}} de importe {{movimiento.cantidad}}€ desde la cuenta --> {{movimiento.iban}}</li>
-                </ng-template>
-              </li>
+              <li>{{movimiento.destinatario}}</li>
             </ul>
           </article>
         </div>

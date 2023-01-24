@@ -65,8 +65,7 @@ miApp.controller('datoscliente', function ($scope, $http) {
 
 
     // Funcion para ver tabla de movimientos
-    $scope.movimientos = function(iban){
-
+    $scope.movimientos = function(iban, callback){
         $http({
             url: "/controller/c_movimientosCuenta.php",
             method: "POST",
@@ -74,6 +73,7 @@ miApp.controller('datoscliente', function ($scope, $http) {
         }).then(function (response) {
             $scope.ListaMovimientos = [];
             var datos = response.data.list;
+            var destinatario = "";
 
             for (var i = 0; i < datos.length; i++){
                 if (datos[i].objMovimiento.tipoMovimiento == "Ingresar"){
@@ -87,9 +87,24 @@ miApp.controller('datoscliente', function ($scope, $http) {
                 } else {
                     tipoMovimiento = "fa-solid fa-hand-holding-dollar fa-lg";
                     claseMovimiento = "tran";
-                }
 
+                    $http({
+                        url: "/controller/c_movimientoTransferencia.php",
+                        method: "POST",
+                        data: JSON.stringify({'idMovimiento': datos[i].idMovimiento})
+                    }).then(function (response) {
+                        console.log("***************");
+                        var movTrans = response.data.movTransferencia;
+                        destinatario = movTrans[1].iban;
+                        $scope.ListaMovimientos.push({"destinatario":destinatario});   
+                    }).catch(function (response) {
+                        console.error('Error occurred:', response.status, response.data)
+                    })
+                }
+                
+               
                 $scope.ListaMovimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimientoIcon":tipoMovimiento, "tipoMovimiento":datos[i].objMovimiento.tipoMovimiento, "claseMovimiento":claseMovimiento});   
+                console.log($scope.ListaMovimientos);
             }
 
             $scope.tablaMostrar = true;
@@ -98,6 +113,10 @@ miApp.controller('datoscliente', function ($scope, $http) {
             console.error('Error occurred:', response.status, response.data)
         })
     }
+
+    $scope.movimientos(iban, (resutl) => {
+
+    })
 
 
 
