@@ -35,16 +35,15 @@
         
       </div>
       <div>
-        <label>Duración (meses/años) </label>
+        <label>Duración </label>
         <select  id="" ng-model="duracion">
           <option value="" >Elige una opción</option>
-          <option value="meses">Meses</option>
           <option value="anos">Años</option>
         </select>
       </div>
       <div>
-        <label>Cantidad Meses / Años</label>
-        <input type="text" ng-model="numero" oninput="this.value = this.value.replace(/[^0-9]/g,'')">
+        <label>Cantidad  Años</label>
+        <input type="text" ng-model="numero" class="number" id="cantidad">
       </div>
     </div>
 
@@ -52,7 +51,7 @@
       
       <div>
         <label>Capital</label>
-        <input type="text" ng-model="capital" oninput="this.value = this.value.replace(/[^0-9]/g,'')">
+        <input type="text" ng-model="capital" class="number">
       </div>
       <div>
         <label>Periodo de pago de intereses</label>
@@ -80,11 +79,11 @@
       
       <div>
         <label>Tasa de Interés %</label>
-        <input type="text" ng-model="interes"  oninput="this.value = this.value.replace(/[^0-9]/g,'')">
+        <input type="text" ng-model="interes"  class="number">
       </div>
       <div>
         <label>Periodo de Carencia</label>
-        <input type="text" ng-model="periodoCarencia" ng-disabled = "sistema == 'Simple' || sistema == 'Americano'" oninput="this.value = this.value.replace(/[^0-9]/g,'')">
+        <input type="text" ng-model="periodoCarencia" ng-disabled = "sistema == 'Simple' || sistema == 'Americano'" class="number">
       </div>
       <div>
         <label>GABEZIA</label>
