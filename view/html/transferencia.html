@@ -10,7 +10,6 @@
 
   <link href="/view/css/style.css" rel="stylesheet" type="text/css" />
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
 
   <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
 
@@ -32,68 +31,69 @@
     <input type="button" value="« Atrás «" ng-click="regresar()">
   </div>
 
-  <!--/////////////////////////////////////////////////////////
+  <!--
+    /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
     ////////////////////  CUENTAS PERSONALES  ///////////////////
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
+    ng-repeat="contenido in cuentas"
   -->
   <section class="tablasDeCuentas">
     <h1>TRANSFERENCIA</h1>
 
     <h2>SELECCIONE SU CUENTA CORRIENTE</h2>
 
-      <div class="contenidoTabla" ng-show="TablaPersonales">
-        <div class="tarjetitas">
-          <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }' ng-repeat="contenido in cuentas">
-            <table class="gallery-cell">
-              <tr>
-                <td class="colum1">
-                  IBAN:
-                </td>
-                <td class="colum2">
-                  {{contenido.iban}}
-                </td>
-              </tr>
+    <div class="contenidoTabla" ng-show="TablaPersonales">
 
-              <tr>
-                <td class="colum1">
-                  Titular:
-                </td>
-                <td class="colum2">
-                  {{contenido.titular}}
-                </td>
-              </tr>
+      <div class="tarjetitas" ng-repeat='contenido in cuentas'>
+        <table>
+          <tr>
+            <td class="colum1">
+              IBAN:
+            </td>
+            <td class="colum2">
+              {{contenido.iban}}
+            </td>
+          </tr>
 
-              <tr>
-                <td class="colum1">
-                  Saldo:
-                </td>
-                <td class="colum2">
-                  {{contenido.saldo | number }} €
-                </td>
-              </tr>
+          <tr>
+            <td class="colum1">
+              Titular:
+            </td>
+            <td class="colum2">
+              {{contenido.titular}}
+            </td>
+          </tr>
+
+          <tr>
+            <td class="colum1">
+              Saldo:
+            </td>
+            <td class="colum2">
+              {{contenido.saldo | number }} €
+            </td>
+          </tr>
 
 
-            </table>
-            <a href="#FiltrarPorDNINoPersonales">
-              <input type="button" value="ELEGIR" class="botonesDeAceptar"
-                ng-click="EscogerPersonal($index,contenido)"></i>
-            </a>
+        </table>
+        <a href="#FiltrarPorDNINoPersonales">
+          <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="EscogerPersonal($index,contenido)"></i>
+        </a>
 
-          </div>
       </div>
     </div>
   </section>
 
 
 
-  <!--///////////////////////////////////////////////////////////
-      /////////////////////////////////////////////////////////////
-      ///////////  CUENTA A LA QUE TRANSFERIR SALDO  //////////////
-      /////////////////////////////////////////////////////////////
-      /////////////////////////////////////////////////////////////
-    -->
+  <!--
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    ///////////  CUENTA A LA QUE TRANSFERIR SALDO  //////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////  
+  -->
 
   <div class="contenderDNI" ng-show="SeleccionT">
     <br>
@@ -134,7 +134,8 @@
 
 
 
-  <!--///////////////////////////////////////////////////////////
+  <!--
+    /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
     /////////////////////////  MODAL  ///////////////////////////
     /////////////////////////////////////////////////////////////
@@ -179,7 +180,8 @@
 
 
 
-  <!--///////////////////////////////////////////////////////////
+  <!--
+    /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
     ///////////////////////  FOOTER   ///////////////////////////
     /////////////////////////////////////////////////////////////
