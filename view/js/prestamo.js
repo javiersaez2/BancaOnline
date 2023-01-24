@@ -50,7 +50,9 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.periodoCarencia = 0;
 
     $scope.calcular = function () {
+        //Titulo
         $('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + " " + "meses  </h1>");
+        //Comprobar si los campos estan vacios o no
         if ($scope.sistema == null) {
             alert("Por favor, asigne tipo de Sistema de Amortización");
         }
@@ -82,6 +84,7 @@ MyApp.controller('miController', function ($scope, $http) {
         var intr = 0;
         var meta = 0;
         var kap = 0;
+        //La primera linea 0
         $scope.lista.push({
             Aldiak: 0,
             Kuota: "0,00 €",
@@ -90,6 +93,7 @@ MyApp.controller('miController', function ($scope, $http) {
             Metatua: "0,00 €",
             Kapitala: new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Number(kapitala).toFixed(2))
         });
+        //Calcular Interes Anual/Semestral
         if ($scope.periodoPago != $scope.tipo) {
             intr = Math.sqrt(1 + ($scope.interes / 100)) - 1;
         }
