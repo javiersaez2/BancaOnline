@@ -198,8 +198,6 @@ MyApp.controller('miController', function ($scope, $http) {
         }
         //////SIMPLE////
         if ($scope.sistema == "Simple") {
-            //kapital y capital
-            var kapitala = $scope.capital;
             for (let index = 1; index <= $scope.numero; index++) {
                 //veces
                 Aldiak = index;
@@ -230,7 +228,6 @@ MyApp.controller('miController', function ($scope, $http) {
         }
         //////AMERICANO////
         if ($scope.sistema == "Americano") {
-            var kapitala = $scope.capital;
             for (let index = 1; index <= $scope.numero; index++) {
                 Aldiak = index;
                 if (Aldiak > 0 && Aldiak < $scope.numero) {
