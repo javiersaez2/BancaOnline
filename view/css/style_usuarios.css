@@ -1,9 +1,4 @@
-@import "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400"; /*COLORES*/
-/* Colores tabla movimientos */
-/*MEDIDAS POR PIXELES*/
-/*MEDIDAS POR PORCENTAJES*/
-/*MEDIDAS REM-EM*/
-/* Funcion Flex solo justify content center */
+@import "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400"; /* Funcion Flex solo justify content center */
 /* Funcion Flex para centrar*/
 /* Funciones para dar estilos a las cajas*/
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
@@ -60,7 +55,7 @@ header {
 }
 
 .nav-link {
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.05rem;
   position: relative;
   background: black;
