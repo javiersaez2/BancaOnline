@@ -95,6 +95,27 @@ class cuenta_movimientoModel extends cuenta_movimientoClass
         $this->CloseConnect();
     }
 
+    public function transferenciaByIdMovimiento(){   
+        $this->OpenConnect();
+
+        $idMovimiento=$this->idMovimiento;
+        $sql = "SELECT * FROM cuenta_movimiento WHERE idMovimiento='$idMovimiento'";
+
+        $movTransferencia = array();
+
+        $result = $this->link->query($sql);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            if($this->link->affected_rows > 0){
+                $newCuenta= new cuenta_movimientoModel();
+                $newCuenta->iban = $row['iban'];
+
+                array_push($movTransferencia, get_object_vars($newCuenta));
+            }
+        }
+        return $movTransferencia;
+        $this->CloseConnect();  
+    }
+
     public function  ObjVars() {
         return get_object_vars($this);
     }

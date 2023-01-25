@@ -1,4 +1,3 @@
-
 var miApp = angular.module('miApp', []);
 //Nav
 
@@ -56,14 +55,20 @@ miApp.controller('miControlador', function ($scope, $http) {
 miApp.controller('datoscliente', function ($scope, $http) {
     $scope.tablaMostrar = false;
     $scope.datosClienteCarta = true;
+    $scope.botonAtras = false;
+    $scope.passMostrar = true;
+    $scope.iniciarSesionSection = true;
 
+    // Funcion para ver la carta
     $scope.verCartaCuenta = function(){
         $scope.tablaMostrar = false;
-        $scope.datosClienteCarta = true;    
+        $scope.datosClienteCarta = true;
+        $scope.botonAtras = false;
     }
 
-    $scope.movimientos = function(iban){
 
+    // Funcion para ver tabla de movimientos
+    $scope.movimientos = function(iban, callback, d){
         $http({
             url: "/controller/c_movimientosCuenta.php",
             method: "POST",
@@ -71,39 +76,56 @@ miApp.controller('datoscliente', function ($scope, $http) {
         }).then(function (response) {
             $scope.ListaMovimientos = [];
             var datos = response.data.list;
+            var destinatario = "";
 
             for (var i = 0; i < datos.length; i++){
                 if (datos[i].objMovimiento.tipoMovimiento == "Ingresar"){
-                    tipoMovimiento = "fa-solid fa-money-bill-transfer";
+                    tipoMovimiento = "fa-solid fa-money-bill-trend-up fa-lg";
                     claseMovimiento = "ingr";  
-                    datos[i].objMovimiento.tipoMovimiento = "Ingreso"; 
+                    datos[i].objMovimiento.tipoMovimiento = "Ingreso";
                 } else if (datos[i].objMovimiento.tipoMovimiento == "Retirar"){
-                    tipoMovimiento = "fa-solid fa-money-check-dollar";
+                    tipoMovimiento = "fa-solid fa-sack-xmark fa-lg";
                     claseMovimiento = "reti";   
                     datos[i].objMovimiento.tipoMovimiento = "Retiro";
                 } else {
-                    tipoMovimiento = "TRANSFERECIA";
+                    tipoMovimiento = "fa-solid fa-hand-holding-dollar fa-lg";
                     claseMovimiento = "tran";
+                    devolverDestinatario(datos[i].idMovimiento).then(function(data){
+                        destinatario = data;
+                        console.log(destinatario);
+                    });         
                 }
-
-                $scope.ListaMovimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimientoIcon":tipoMovimiento, "tipoMovimiento":datos[i].objMovimiento.tipoMovimiento, "claseMovimiento":claseMovimiento});   
+                
+               
+                $scope.ListaMovimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimientoIcon":tipoMovimiento, "tipoMovimiento":datos[i].objMovimiento.tipoMovimiento, "claseMovimiento":claseMovimiento, "destinatario":destinatario});   
             }
 
             $scope.tablaMostrar = true;
             $scope.datosClienteCarta = false;
+            $scope.botonAtras = true;
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
         })
     }
 
-
+    function devolverDestinatario(idMovimiento){
+        return $http({
+            url: "/controller/c_movimientoTransferencia.php",
+            method: "POST",
+            data: JSON.stringify({'idMovimiento': idMovimiento})
+        }).then(function (response) {
+            var movTrans = response.data.movTransferencia;  
+            console.log(movTrans[1].iban); 
+            return movTrans[1].iban;
+        }).catch(function (response) {
+            console.error('Error occurred:', response.status, response.data)
+        })
+    }
 
     $scope.ingresarretirar = function(numero){
         localStorage.setItem("ingresarretirarnumero", numero);
     }
 
-    $scope.passMostrar = true;
-    $scope.iniciarSesionSection = true;
     $scope.datoscliente = function () {
         $http({
             url: "/controller/c_infocuenta.php",

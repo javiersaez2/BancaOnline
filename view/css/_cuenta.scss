@@ -1,3 +1,6 @@
+body{
+  font-family: 'Lato', sans-serif;
+}
 
 .secciontarjeta {
     display: flex;
@@ -98,6 +101,7 @@
                     top: 5px;
                     color: $color-principal;
                     font-size: 40px;
+                    cursor: pointer;
                 }
 
                 .texto {
@@ -193,6 +197,7 @@
         }
 
         .cuentacorriente {
+            font-weight: 600;
             right: 0;
             height: 650px;
             width: 105%;
@@ -203,7 +208,6 @@
             }
 
             .datoscorriente {
-                padding: 5px;
                 margin: 15px;
                 margin-top:5px ;
                 height: 60px;
@@ -211,6 +215,7 @@
                 display: flex;
                 justify-content: space-between;
                 flex-wrap: wrap;
+                padding: 5px 15px 5px 15px;
                 align-items: center;
                 @include glasscuenta();
 
@@ -218,6 +223,7 @@
                     color: $color-terciario4;
                     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
                     font-size: x-large;
+                    cursor: pointer;
                 }
 
             }
@@ -225,14 +231,25 @@
     }
 }
 
-// .tablaMovimientos {
-//     width: 80%;
-//     height: 417px;
-//     margin: auto;
-// 	tr {
-// 		height: 80px;
-// 	}
-// }
+.contenedorBoton{
+  width: 100%;
+  @include flexcenter;
+
+  .botonRegresarMovimientos {
+    width: 200px;
+    cursor: pointer;
+    background-color:$color-terciario1;
+    color:$color-blanco;
+    inline-size: 160px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 15px;
+    padding: 11px 12px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid rgb(34 34 34 / 22%);
+  }
+}
 
 //////////////////////
 //////////////////////
@@ -241,24 +258,36 @@
 //////////////////////
 //////////////////////
 //////////////////////
-.reti a, .ingr a, .tran a {text-decoration:none;transition: color 0.2s ease-out; color:black;}
+.reti a, .ingr a, .tran a {text-decoration:none;transition: color 0.2s ease-out;}
 .ingr a {color:$color-secundario;}
 .ingr a:hover {color:darken($color-secundario, 20%);}
 .reti a {color:$color-terciario1;}
 .reti a:hover {color:darken($color-terciario1, 20%);}
-.tran a {color:$color-terciario2;}
-.tran a:hover {color:darken($color-terciario2, 20%);}
+.tran a {color:$color-terciario3;}
+.tran a:hover {color:darken($color-terciario3, 20%);}
 
 /* wrapper */
 .wrapper {
   width:90%;
   max-width:1250px;
-  margin:20px auto 100px auto;
+  margin:20px auto 25px auto;
   padding:0;
   background:$light-bg;
   color:rgb(255, 255, 255);
-  overflow:hidden;
+  overflow:auto;
   position:relative;
+
+  .letraBlack{
+    color:$color-negro;
+  }
+
+  .contenido2{
+    max-height: 550px;
+    min-height: 450px;
+    min-width: 1218px;
+    border: 1px solid rgba(128, 128, 128, 0.329);
+    overflow: auto;
+  }
 }
 
 /* lists */
@@ -268,9 +297,9 @@
 }
 .rowMov ul li  {
   margin:0;
-  font-size:16px;
+  font-size:17px;
   width:20%;
-  font-weight:normal;
+  font-weight:500;
   list-style:none;
   display:inline-block;
 	box-sizing:border-box;
@@ -302,6 +331,7 @@
 .rowMov:hover {
   background-color:lighten($dark-bg, 10%);
   height:65px;
+  color:$color-blanco;
   @media only screen and (max-width : 767px) {
     height:85px;
   }
@@ -333,82 +363,14 @@
 .ingr:hover {border-left:3px solid $color-secundario;}
 .reti {border-left:3px solid darken($color-terciario1, 30%)}
 .reti:hover {border-left:3px solid $color-terciario1;}
-.tran {border-left:3px solid darken($color-terciario2, 30%);}
-.tran:hover {border-left:3px solid $color-terciario2;}
-
-/* row one - fadeIn */
-.row-fadeIn-wrapper {
-  opacity:0;
-  font-size:0;
-  height:0;
-  overflow:hidden;
-  position:relative;
-  transition:all 0.2s ease-out;
-  animation:fadeIn 0.4s ease-out 2s 1 alternate;
-  animation-fill-mode:forwards;
-}
-.row-fadeIn-wrapper:hover {
-  height:35px;
-  @media only screen and (max-width : 767px) {
-    height:55px;
-  }
-  @media only screen and (max-width : 359px) {
-    height:75px;
-  }
-}
-
-.fadeIn {
-  padding:20px 0;
-  font-size:0;
-  position:absolute;
-  transition:all 0.2s ease-out;
-  width:100%;
-}
-.fadeIn:hover {
-  background-color:lighten($dark-bg, 10%);
-}
-
-/* row two - fadeOut */
-.row-fadeOut-wrapper {
-  font-size:0;
-  overflow:hidden;
-  position:relative;
-  transition:all 0.2s ease-out;
-  animation:fadeOut 0.4s ease-out 8s 1 alternate;
-  animation-fill-mode:forwards;
-  opacity:1;
-  height:65px;
-}
-.row-fadeOut-wrapper:hover {
-  height:100px;
-}
-
-/* update content */
-.update-row {
-  animation:update 0.5s ease-out 12s 1 alternate;
-}
-.update1 {
-  position:absolute;
-  top:25px;
-  display:inline-block;
-  opacity:1;
-  animation:update1 1s ease-out 12s 1 alternate;
-  animation-fill-mode:forwards;
-}
-.update2 {
-  position:absolute;
-  top:25px;
-  display:inline-block;
-  opacity:0;
-  animation:update2 4s ease-out 13s 1 alternate;
-  animation-fill-mode:forwards;
-}
+.tran {border-left:3px solid darken($color-terciario3, 30%);}
+.tran:hover {border-left:3px solid $color-terciario3;}
 
 /* more content */
 ul.more-content li {
   position:relative;
   top:22px;
-  font-size:13px;
+  font-size:13.5px;
   margin:0;
   padding:10px 13px;
   display:block;
@@ -429,29 +391,4 @@ ul.more-content li {
   @media only screen and (max-width:767px) {
     display:none;
   }
-}
-
-/* keyframe animations */
-@keyframes fadeIn {
-  from {background:$light-bg;opacity:0;padding:0;}
-  to {background:darken($light-bg,80%);opacity:1;padding:0 0 65px 0;}
-}
-@keyframes fadeOut {
-  from {background:darken($light-bg,80%);opacity:1;height:65px;}
-  to {background:$light-bg;opacity:0;height:0;}
-}
-@keyframes update {
-  0% {background:darken($light-bg,80%);}
-  50% {background:$light-bg;}
-  100% {background:darken($light-bg,80%);}
-}
-@keyframes update1 {
-  0% {opacity:0;}
-  0% {opacity:1;}
-  100% {opacity:0;}
-}
-@keyframes update2 {
-  0% {opacity:0;color:$text;}
-  20% {opacity:1;color:$green;}
-  100% {opacity:1;color:$text;}
 }

@@ -1,13 +1,9 @@
 var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
-
-
     //LOCALSTORAGE//
     tipoSimulacion = localStorage.getItem("Simulacion");
     console.log(tipoSimulacion);
-
     $scope.sistema = tipoSimulacion;
-
     //verificar usuario
     $scope.loggedVerify = function () {
         $http({
@@ -51,11 +47,12 @@ MyApp.controller('miController', function ($scope, $http) {
     let Interesa = 0.00;
     let Metatua = 0.00;
     $scope.lista = [];
-
     $scope.periodoCarencia = 0;
 
     $scope.calcular = function () {
+        //Titulo
         $('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + " " + "meses  </h1>");
+        //Comprobar si los campos estan vacios o no
         if ($scope.sistema == null) {
             alert("Por favor, asigne tipo de Sistema de Amortización");
         }
@@ -77,15 +74,17 @@ MyApp.controller('miController', function ($scope, $http) {
         else if ($scope.tipo == null) {
             alert("Por favor, asigne Tipo de Base Temporal");
         }
-
+        else if ($scope.periodoCarencia != null && $scope.periodoCarencia != 0 && $scope.gabezia == null) {
+            alert("Por favor, asigne Tipo de Carencia");
+        }
         else {
             $scope.ver = 'true';
         }
-
         var kapitala = $scope.capital;
         var intr = 0;
         var meta = 0;
         var kap = 0;
+        //La primera linea 0
         $scope.lista.push({
             Aldiak: 0,
             Kuota: "0,00 €",
@@ -94,6 +93,7 @@ MyApp.controller('miController', function ($scope, $http) {
             Metatua: "0,00 €",
             Kapitala: new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Number(kapitala).toFixed(2))
         });
+        //Calcular Interes Anual/Semestral
         if ($scope.periodoPago != $scope.tipo) {
             intr = Math.sqrt(1 + ($scope.interes / 100)) - 1;
         }
@@ -198,8 +198,6 @@ MyApp.controller('miController', function ($scope, $http) {
         }
         //////SIMPLE////
         if ($scope.sistema == "Simple") {
-            //kapital y capital
-            var kapitala = $scope.capital;
             for (let index = 1; index <= $scope.numero; index++) {
                 //veces
                 Aldiak = index;
@@ -230,7 +228,6 @@ MyApp.controller('miController', function ($scope, $http) {
         }
         //////AMERICANO////
         if ($scope.sistema == "Americano") {
-            var kapitala = $scope.capital;
             for (let index = 1; index <= $scope.numero; index++) {
                 Aldiak = index;
                 if (Aldiak > 0 && Aldiak < $scope.numero) {
@@ -266,4 +263,17 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.volver = function () {
         location.reload();
     }
+    //comprobar los campos de form 
+     //solo numeros todos input
+     $(".number").keypress(function (event) {
+        if (event.which < 48 || event.which > 57) {
+         return false;
+       }
+      });
+    //para cantidad de años solo dos numeros
+    $("#cantidad").keypress(function() {
+        if($(this).val().length > 1) {
+             return false;
+        } 
+    });
 })

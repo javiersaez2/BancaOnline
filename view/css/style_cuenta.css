@@ -1,10 +1,5 @@
 @charset "UTF-8";
-@import "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400"; /*COLORES*/
-/* Colores tabla movimientos */
-/*MEDIDAS POR PIXELES*/
-/*MEDIDAS POR PORCENTAJES*/
-/*MEDIDAS REM-EM*/
-/* Funcion Flex solo justify content center */
+@import "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400"; /* Funcion Flex solo justify content center */
 /* Funcion Flex para centrar*/
 /* Funciones para dar estilos a las cajas*/
 * {
@@ -60,7 +55,7 @@ header {
 }
 
 .nav-link {
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.05rem;
   position: relative;
   background: black;
@@ -505,6 +500,10 @@ body {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
+body {
+  font-family: "Lato", sans-serif;
+}
+
 .secciontarjeta {
   display: flex;
   justify-content: center;
@@ -519,7 +518,6 @@ body {
   margin: 50px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   border-radius: 0px;
-  padding: 5px;
   background: rgba(251, 251, 251, 0.7098039216);
   background-color: #B57EDC;
 }
@@ -608,6 +606,7 @@ body {
   top: 5px;
   color: #B57EDC;
   font-size: 40px;
+  cursor: pointer;
 }
 .secciontarjeta .tarjeta .infocliete .profile-card .texto {
   text-align: center;
@@ -685,6 +684,7 @@ body {
   }
 }
 .secciontarjeta .tarjeta .cuentacorriente {
+  font-weight: 600;
   right: 0;
   height: 650px;
   width: 105%;
@@ -697,7 +697,6 @@ body {
   }
 }
 .secciontarjeta .tarjeta .cuentacorriente .datoscorriente {
-  padding: 5px;
   margin: 15px;
   margin-top: 5px;
   height: 60px;
@@ -705,23 +704,44 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 5px 15px 5px 15px;
   align-items: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   border-radius: 0px;
-  padding: 5px;
   background: rgba(251, 251, 251, 0.7098039216);
 }
 .secciontarjeta .tarjeta .cuentacorriente .datoscorriente .fa-money-bill-transfer {
   color: #ab5fe0;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
   font-size: x-large;
+  cursor: pointer;
+}
+
+.contenedorBoton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contenedorBoton .botonRegresarMovimientos {
+  width: 200px;
+  cursor: pointer;
+  background-color: #a34ae3;
+  color: #fbfbfb;
+  inline-size: 160px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 15px;
+  padding: 11px 12px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid rgba(34, 34, 34, 0.22);
 }
 
 /* TablaMovimientos */
 .reti a, .ingr a, .tran a {
   text-decoration: none;
   transition: color 0.2s ease-out;
-  color: black;
 }
 
 .ingr a {
@@ -741,23 +761,33 @@ body {
 }
 
 .tran a {
-  color: #51c2cc;
+  color: rgb(208, 151, 248);
 }
 
 .tran a:hover {
-  color: #29858e;
+  color: #a537f2;
 }
 
 /* wrapper */
 .wrapper {
   width: 90%;
   max-width: 1250px;
-  margin: 20px auto 100px auto;
+  margin: 20px auto 25px auto;
   padding: 0;
   background: rgba(255, 255, 255, 0.1);
   color: rgb(255, 255, 255);
-  overflow: hidden;
+  overflow: auto;
   position: relative;
+}
+.wrapper .letraBlack {
+  color: black;
+}
+.wrapper .contenido2 {
+  max-height: 550px;
+  min-height: 450px;
+  min-width: 1218px;
+  border: 1px solid rgba(128, 128, 128, 0.329);
+  overflow: auto;
 }
 
 /* lists */
@@ -768,9 +798,9 @@ body {
 
 .rowMov ul li {
   margin: 0;
-  font-size: 16px;
+  font-size: 17px;
   width: 20%;
-  font-weight: normal;
+  font-weight: 500;
   list-style: none;
   display: inline-block;
   box-sizing: border-box;
@@ -806,8 +836,9 @@ body {
 }
 
 .rowMov:hover {
-  background-color: rgba(26, 26, 26, 0.9);
+  background-color: rgba(26, 26, 26, 0.788);
   height: 65px;
+  color: #fbfbfb;
 }
 @media only screen and (max-width: 767px) {
   .rowMov:hover {
@@ -857,104 +888,18 @@ body {
 }
 
 .tran {
-  border-left: 3px solid #1e6066;
+  border-left: 3px solid #8e10e6;
 }
 
 .tran:hover {
-  border-left: 3px solid #51c2cc;
-}
-
-/* row one - fadeIn */
-.row-fadeIn-wrapper {
-  opacity: 0;
-  font-size: 0;
-  height: 0;
-  overflow: hidden;
-  position: relative;
-  transition: all 0.2s ease-out;
-  -webkit-animation: fadeIn 0.4s ease-out 2s 1 alternate;
-          animation: fadeIn 0.4s ease-out 2s 1 alternate;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.row-fadeIn-wrapper:hover {
-  height: 35px;
-}
-@media only screen and (max-width: 767px) {
-  .row-fadeIn-wrapper:hover {
-    height: 55px;
-  }
-}
-@media only screen and (max-width: 359px) {
-  .row-fadeIn-wrapper:hover {
-    height: 75px;
-  }
-}
-
-.fadeIn {
-  padding: 20px 0;
-  font-size: 0;
-  position: absolute;
-  transition: all 0.2s ease-out;
-  width: 100%;
-}
-
-.fadeIn:hover {
-  background-color: rgba(26, 26, 26, 0.9);
-}
-
-/* row two - fadeOut */
-.row-fadeOut-wrapper {
-  font-size: 0;
-  overflow: hidden;
-  position: relative;
-  transition: all 0.2s ease-out;
-  -webkit-animation: fadeOut 0.4s ease-out 8s 1 alternate;
-          animation: fadeOut 0.4s ease-out 8s 1 alternate;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  opacity: 1;
-  height: 65px;
-}
-
-.row-fadeOut-wrapper:hover {
-  height: 100px;
-}
-
-/* update content */
-.update-row {
-  -webkit-animation: update 0.5s ease-out 12s 1 alternate;
-          animation: update 0.5s ease-out 12s 1 alternate;
-}
-
-.update1 {
-  position: absolute;
-  top: 25px;
-  display: inline-block;
-  opacity: 1;
-  -webkit-animation: update1 1s ease-out 12s 1 alternate;
-          animation: update1 1s ease-out 12s 1 alternate;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.update2 {
-  position: absolute;
-  top: 25px;
-  display: inline-block;
-  opacity: 0;
-  -webkit-animation: update2 4s ease-out 13s 1 alternate;
-          animation: update2 4s ease-out 13s 1 alternate;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  border-left: 3px solid rgb(208, 151, 248);
 }
 
 /* more content */
 ul.more-content li {
   position: relative;
   top: 22px;
-  font-size: 13px;
+  font-size: 13.5px;
   margin: 0;
   padding: 10px 13px;
   display: block;
@@ -981,127 +926,6 @@ ul.more-content li {
   }
 }
 
-/* keyframe animations */
-@-webkit-keyframes fadeIn {
-  from {
-    background: rgba(255, 255, 255, 0.1);
-    opacity: 0;
-    padding: 0;
-  }
-  to {
-    background: rgba(51, 51, 51, 0.1);
-    opacity: 1;
-    padding: 0 0 65px 0;
-  }
-}
-@keyframes fadeIn {
-  from {
-    background: rgba(255, 255, 255, 0.1);
-    opacity: 0;
-    padding: 0;
-  }
-  to {
-    background: rgba(51, 51, 51, 0.1);
-    opacity: 1;
-    padding: 0 0 65px 0;
-  }
-}
-@-webkit-keyframes fadeOut {
-  from {
-    background: rgba(51, 51, 51, 0.1);
-    opacity: 1;
-    height: 65px;
-  }
-  to {
-    background: rgba(255, 255, 255, 0.1);
-    opacity: 0;
-    height: 0;
-  }
-}
-@keyframes fadeOut {
-  from {
-    background: rgba(51, 51, 51, 0.1);
-    opacity: 1;
-    height: 65px;
-  }
-  to {
-    background: rgba(255, 255, 255, 0.1);
-    opacity: 0;
-    height: 0;
-  }
-}
-@-webkit-keyframes update {
-  0% {
-    background: rgba(51, 51, 51, 0.1);
-  }
-  50% {
-    background: rgba(255, 255, 255, 0.1);
-  }
-  100% {
-    background: rgba(51, 51, 51, 0.1);
-  }
-}
-@keyframes update {
-  0% {
-    background: rgba(51, 51, 51, 0.1);
-  }
-  50% {
-    background: rgba(255, 255, 255, 0.1);
-  }
-  100% {
-    background: rgba(51, 51, 51, 0.1);
-  }
-}
-@-webkit-keyframes update1 {
-  0% {
-    opacity: 0;
-  }
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes update1 {
-  0% {
-    opacity: 0;
-  }
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@-webkit-keyframes update2 {
-  0% {
-    opacity: 0;
-    color: rgba(255, 255, 255, 0.9);
-  }
-  20% {
-    opacity: 1;
-    color: rgb(82, 210, 154);
-  }
-  100% {
-    opacity: 1;
-    color: rgba(255, 255, 255, 0.9);
-  }
-}
-@keyframes update2 {
-  0% {
-    opacity: 0;
-    color: rgba(255, 255, 255, 0.9);
-  }
-  20% {
-    opacity: 1;
-    color: rgb(82, 210, 154);
-  }
-  100% {
-    opacity: 1;
-    color: rgba(255, 255, 255, 0.9);
-  }
-}
 .botonRegresar {
   width: 100px;
   height: 10px;
