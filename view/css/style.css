@@ -511,8 +511,6 @@ body {
 .slider {
   display: flex;
   justify-content: center;
-  padding-top: 5em;
-  padding-bottom: 5em;
 }
 
 .blog-slider {
@@ -1214,7 +1212,7 @@ input[type=button]:hover {
   }
 }
 .tablasDeCuentas {
-  width: 90%;
+  width: 95%;
   padding-top: 10px;
   display: flex;
   justify-content: center;
@@ -1232,13 +1230,10 @@ input[type=button]:hover {
   padding: 10px;
 }
 .tablasDeCuentas .contenidoTabla {
-  width: 100%;
   padding-top: 20px;
-  overflow-x: auto;
+  overflow-x: scroll;
   border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 .tablasDeCuentas .contenidoTabla .tarjetitas {
   position: relative;
