@@ -205,10 +205,8 @@ body {
 }
 
 @media (max-width: 400px) {
-  .contenidoSomos:nth-child(1) {
-    .infoSomos {
-      margin-top: 50px;
-    }
+  .infoSomos {
+    margin-top: 50px;
   }
 }
 
@@ -366,8 +364,6 @@ body {
 
     >* {
       opacity: 0;
-      transform: translateY(25px);
-      transition: all .4s;
 
 
     }

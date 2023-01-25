@@ -503,7 +503,7 @@ body {
 }
 
 @media (max-width: 400px) {
-  .contenidoSomos:nth-child(1) .infoSomos {
+  .infoSomos {
     margin-top: 50px;
   }
 }
@@ -669,8 +669,6 @@ body {
 }
 .blog-slider__content > * {
   opacity: 0;
-  transform: translateY(25px);
-  transition: all 0.4s;
 }
 .blog-slider__code {
   color: black;
