@@ -120,34 +120,52 @@
     /////////////////////// 
     -->
 
-    <section class="wrapper" ng-show="tablaMostrar">
-      <div class="contenido2">
-        <!-- Titulos tabla -->
-          <main class="rowMov title">
-            <ul>
-              <li></li>
-              <li>TIPO</li>
-              <li>FECHA</li>
-              <li>IMPORTE</li>
-              <li>IBAN</li>
-            </ul>
-          </main>
-          <!-- Columnas datos -->
-
-          <article class="rowMov {{movimiento.claseMovimiento}} letraBlack" ng-repeat="movimiento in ListaMovimientos">
-            <ul>
-              <li><a href="#"><i class="{{movimiento.tipoMovimientoIcon}}"></i></a></li>
-              <li>{{movimiento.tipoMovimiento}}</li>
-              <li>{{movimiento.fecha}}</li>
-              <li>{{movimiento.cantidad}}</li>
-              <li>{{movimiento.iban}}</li>
-            </ul>
-            <ul class="more-content">
-              <li>{{movimiento.mensaje}}</li>
-            </ul>
-          </article>
+    <!--Filtros-->
+    <div ng-show="tablaMostrar" class="tablaMostrar">
+      <div class="conjuntoFiltro">
+        <div class="inputGroupTabla">
+          <input id="radio1" name="radio" type="radio"/>
+          <label for="radio1">Yes</label>
         </div>
-    </section>
+        <div class="inputGroupTabla">
+          <input id="radio2" name="radio" type="radio"/>
+          <label for="radio2">No</label>
+        </div>
+        <div class="inputGroupTabla">
+          <input id="radio3" name="radio" type="radio"/>
+          <label for="radio3">No</label>
+        </div>
+      </div>
+
+      <!--// Tabla movimientos //-->
+      <section class="wrapper">
+        <div class="contenido2">
+          <!-- Titulos tabla -->
+            <main class="rowMov title">
+              <ul>
+                <li></li>
+                <li>TIPO</li>
+                <li>FECHA</li>
+                <li>IMPORTE</li>
+                <li>IBAN</li>
+              </ul>
+            </main>
+            <!-- Columnas datos -->
+            <article class="rowMov {{movimiento.claseMovimiento}} letraBlack" ng-repeat="movimiento in ListaMovimientos">
+              <ul>
+                <li><a href="#"><i class="{{movimiento.tipoMovimientoIcon}}"></i></a></li>
+                <li>{{movimiento.tipoMovimiento}}</li>
+                <li>{{movimiento.fecha}}</li>
+                <li>{{movimiento.cantidad}}</li>
+                <li>{{movimiento.iban}}</li>
+              </ul>
+              <ul class="more-content">
+                <li>{{movimiento.mensaje}}</li>
+              </ul>
+            </article>
+          </div>
+      </section>
+    </div>
 
     <div ng-show="botonAtras" class="contenedorBoton">
       <input class="botonRegresarMovimientos" type="button" value="« Atrás «" ng-click="verCartaCuenta()">
