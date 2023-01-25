@@ -4,6 +4,8 @@ MyApp.controller('miController', function ($scope, $http) {
     tipoSimulacion = localStorage.getItem("Simulacion");
     console.log(tipoSimulacion);
     $scope.sistema = tipoSimulacion;
+    //Posicion de la alerta
+    alertify.set('notifier', 'position', 'top-right');
     //verificar usuario
     $scope.loggedVerify = function () {
         $http({
@@ -54,28 +56,28 @@ MyApp.controller('miController', function ($scope, $http) {
         $('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + " " + "meses  </h1>");
         //Comprobar si los campos estan vacios o no
         if ($scope.sistema == null) {
-            alert("Por favor, asigne tipo de Sistema de Amortización");
+            alertify.error("Por favor, asigne tipo de Sistema de Amortización");
         }
         else if ($scope.duracion == null) {
-            alert("Por favor, asigne tipo de duracion");
+            alertify.error("Por favor, asigne tipo de duracion");
         }
         else if ($scope.numero == null) {
-            alert("Por favor, asigne Cantidad Meses / Años");
+            alertify.error("Por favor, asigne Cantidad Meses / Años");
         }
         else if ($scope.capital == null) {
-            alert("Por favor, asigne Capital");
+            alertify.error("Por favor, asigne Capital");
         }
         else if ($scope.interes == null) {
-            alert("Por favor, asigne Tasa de Interés %");
+            alertify.error("Por favor, asigne Tasa de Interés %");
         }
         else if ($scope.periodoPago == null) {
-            alert("Por favor, asigne Periodo de pago de intereses");
+            alertify.error("Por favor, asigne Periodo de pago de intereses");
         }
         else if ($scope.tipo == null) {
-            alert("Por favor, asigne Tipo de Base Temporal");
+            alertify.error("Por favor, asigne Tipo de Base Temporal");
         }
         else if ($scope.periodoCarencia != null && $scope.periodoCarencia != 0 && $scope.gabezia == null) {
-            alert("Por favor, asigne Tipo de Carencia");
+            alertify.error("Por favor, asigne Tipo de Carencia");
         }
         else {
             $scope.ver = 'true';
@@ -264,16 +266,16 @@ MyApp.controller('miController', function ($scope, $http) {
         location.reload();
     }
     //comprobar los campos de form 
-     //solo numeros todos input
-     $(".number").keypress(function (event) {
+    //solo numeros todos input
+    $(".number").keypress(function (event) {
         if (event.which < 48 || event.which > 57) {
-         return false;
-       }
-      });
+            return false;
+        }
+    });
     //para cantidad de años solo dos numeros
-    $("#cantidad").keypress(function() {
-        if($(this).val().length > 1) {
-             return false;
-        } 
+    $("#cantidad").keypress(function () {
+        if ($(this).val().length > 1) {
+            return false;
+        }
     });
 })

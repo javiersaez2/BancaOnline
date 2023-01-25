@@ -50,25 +50,25 @@ MyApp.controller('miController', function ($scope, $http) {
         //$('#title').append("<h3>INT = " + $scope.interes + " %</h3>");
         // $('#title').append("<h4>i(k) = " + (intr * 100).toFixed(4) + " %</h4>");
         /* if ($scope.sistema == null) {
-              alert("Por favor, asigne tipo de sistema");
+               alertify.error("Por favor, asigne tipo de sistema");
           }
           else if ($scope.duracion == null) {
-              alert("Por favor, asigne tipo de duracion");
+               alertify.error("Por favor, asigne tipo de duracion");
           }
           else if ($scope.numero == null) {
-              alert("Por favor, asigne Cantidad Meses / Años");
+               alertify.error("Por favor, asigne Cantidad Meses / Años");
           }
           else if ($scope.capital == null) {
-              alert("Por favor, asigne Capital");
+               alertify.error("Por favor, asigne Capital");
           }
           else if ($scope.interes == null) {
-              alert("Por favor, asigne Tasa de Interés %");
+               alertify.error("Por favor, asigne Tasa de Interés %");
           }
           else if ($scope.periodoPago == null) {
-              alert("Por favor, asigne Periodo de pago de intereses");
+               alertify.error("Por favor, asigne Periodo de pago de intereses");
           }
           else if ($scope.tipo == null) {
-              alert("Por favor, asigne Tipo de Base Temporal");
+               alertify.error("Por favor, asigne Tipo de Base Temporal");
           }
           else {
   

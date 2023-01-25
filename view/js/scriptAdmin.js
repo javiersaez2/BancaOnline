@@ -236,8 +236,7 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.contrasenaModificar = item.pasahitza;
         $scope.vefModificar = item.pasahitza;
     }
-    //Cuando pulsas al boton y no has cambiado nada da error
-    //Con un change hace todo si no salta alerta
+
     $scope.guardarCliente = function () {
         dniCliente = $scope.dniModificar;
         nombre = $scope.nombreModificar;
@@ -321,7 +320,7 @@ MyApp.controller('miController', function ($scope, $http) {
         }).then(function (response) {
             if (response.data.error != "logged") {
                 if (window.location.pathname == "/view/html/paginaAdmin.html") {
-                    alert("Error: Usuario sin permisos");
+                     alertify.error("Error: Usuario sin permisos");
                     window.location.href = "/index.html"
                 }
 
@@ -337,7 +336,7 @@ MyApp.controller('miController', function ($scope, $http) {
                     $scope.cuentaUsuario = true;
                     $scope.users = true;
                 } else {
-                    alert("User: " + response.data.izena + " | Sin acceso, tipo: " + response.data.tipo);
+                     alertify.error("User: " + response.data.izena + " | Sin acceso, tipo: " + response.data.tipo);
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
                     $scope.users = false;
