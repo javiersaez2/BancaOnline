@@ -40,80 +40,87 @@ body {
       text-align: center;
       color: $color-blanco;
       opacity: 9;
+
       @media screen and (max-width: 576px) {
         font-size: 10vw;
       }
-      .svg-padding{            
+
+      .svg-padding {
         padding-top: 10%;
 
-          .svg-wrapper {
-            text-decoration: $vaciar;
-            color: $color-blanco;
-            letter-spacing: 0.5rem;
-            font-size: 3vw;
-            transform: translateY(-50%);
-            
-            text-align: center;
-
-            svg{
-              height: 60px;
-              width: 520px;
-              @media screen and (max-width: 576px) {
-                height: 30px;
-                width: 40vh;
-              }
-            }
-            rect{
-              height: 60px;
-              width: 520px;
-              @media screen and (max-width: 576px) {
-                height: 30px;
-              
-                
-              }
-            }
-          }
-
-          .shape {
-            stroke-dasharray: 0 580;
-            stroke-dashoffset: 580;
-            stroke-width: 4px;
-            fill: transparent;
-            stroke: #fefefe;
-            border-bottom: 5px solid black;
-            transition: stroke-width 2.7s, stroke-dashoffset 2.7s, stroke-dasharray 1.3s;
-            transition-delay: 0s;
-
-          }
-
-          .text {
-            line-height: 32px;  
-            letter-spacing: 8px;
-            color: #fff;
-            // width: 50%;
-            // left: 40%;
-            top: -48px;
-            position: relative;
-            text-align: center;
-            @media screen and (max-width: 576px) {
-              top: -30px;
-            }
-         a{
+        .svg-wrapper {
           text-decoration: $vaciar;
           color: $color-blanco;
-         }
+          letter-spacing: 0.5rem;
+          font-size: 3vw;
+          transform: translateY(-50%);
+
+          text-align: center;
+
+          svg {
+            height: 60px;
+            width: 520px;
+
+            @media screen and (max-width: 576px) {
+              height: 30px;
+              width: 40vh;
+            }
           }
 
-          .shape-border {
-            stroke-width: 4px;
-            stroke-dashoffset: 0;
-            stroke-dasharray: 480 100;
+          rect {
+            height: 60px;
+            width: 520px;
 
+            @media screen and (max-width: 576px) {
+              height: 30px;
+
+
+            }
           }
         }
+
+        .shape {
+          stroke-dasharray: 0 580;
+          stroke-dashoffset: 580;
+          stroke-width: 4px;
+          fill: transparent;
+          stroke: #fefefe;
+          border-bottom: 5px solid black;
+          transition: stroke-width 2.7s, stroke-dashoffset 2.7s, stroke-dasharray 1.3s;
+          transition-delay: 0s;
+
+        }
+
+        .text {
+          line-height: 32px;
+          letter-spacing: 8px;
+          color: #fff;
+          // width: 50%;
+          // left: 40%;
+          top: -48px;
+          position: relative;
+          text-align: center;
+
+          @media screen and (max-width: 576px) {
+            top: -30px;
+          }
+
+          a {
+            text-decoration: $vaciar;
+            color: $color-blanco;
+          }
+        }
+
+        .shape-border {
+          stroke-width: 4px;
+          stroke-dashoffset: 0;
+          stroke-dasharray: 480 100;
+
+        }
+      }
     }
-    }
-  
+  }
+
 }
 
 
@@ -125,6 +132,7 @@ body {
   align-items: center;
   width: 100%;
   margin-bottom: 5em;
+
   @media screen and (max-width: 1230px) {
     display: flex;
     flex-direction: column;
@@ -142,8 +150,8 @@ body {
     @media screen and (max-width: 1230px) {
       width: 84%;
       margin: $auto;
-      
-      iframe{
+
+      iframe {
         margin-top: 2%;
       }
     }
@@ -195,6 +203,13 @@ body {
 
   }
 }
+
+@media (max-width: 400px) {
+  .infoSomos {
+    margin-top: 50px;
+  }
+}
+
 
 
 
@@ -459,12 +474,12 @@ body {
 }
 
 /* Bordes cartas */
-.blog-slider:before{
+.blog-slider:before {
   content: "";
-  @include glass2();  
+  @include glass2();
 }
 
-.contenidoSomos:before{
+.contenidoSomos:before {
   content: "";
-  @include glass();  
+  @include glass();
 }
