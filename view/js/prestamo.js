@@ -52,6 +52,7 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.periodoCarencia = 0;
 
     $scope.calcular = function () {
+        localStorage["Simulacion"] = $scope.sistema;
         //Titulo
         // $('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + " " + "meses  </h1>");
         //Comprobar si los campos estan vacios o no
