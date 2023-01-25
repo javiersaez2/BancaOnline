@@ -227,6 +227,7 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.modificarUsuario = function (miIndex, item) {
         modalvisible(2);
         document.getElementById("dniModificar").disabled = true;
+        $scope.
         $scope.modificarVista = 'true';
         $scope.insertarVista = 'false';
         $scope.dniModificar = item.dniCliente;
