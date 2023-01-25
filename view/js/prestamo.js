@@ -5,7 +5,7 @@ MyApp.controller('miController', function ($scope, $http) {
     console.log(tipoSimulacion);
     $scope.sistema = tipoSimulacion;
     //Posicion de la alerta
-    alertify.set('notifier', 'position', 'top-right');
+    alertify.set('notifier', 'position', 'top-left');
     //verificar usuario
     $scope.loggedVerify = function () {
         $http({
@@ -37,7 +37,7 @@ MyApp.controller('miController', function ($scope, $http) {
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/index.html";
+            window.location.href = "/view/html/index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
@@ -52,8 +52,9 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.periodoCarencia = 0;
 
     $scope.calcular = function () {
+        localStorage["Simulacion"] = $scope.sistema;
         //Titulo
-        $('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + " " + "meses  </h1>");
+        // $('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + " " + "meses  </h1>");
         //Comprobar si los campos estan vacios o no
         if ($scope.sistema == null) {
             alertify.error("Por favor, asigne tipo de Sistema de Amortización");

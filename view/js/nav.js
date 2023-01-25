@@ -3,7 +3,7 @@ nav=' <!--HEADER-->'+
   '<div class="company-logo"><img src="/view/img/LogoZornotza.png" alt=""></div>'+
   '<nav class="navbar">'+
     '<ul class="nav-items">'+
-      '<li class="nav-item"><a href="/index.html" class="nav-link"> INICIO</a></li>'+
+      '<li class="nav-item"><a href="/view/html/index.html" class="nav-link"> INICIO</a></li>'+
       '<li class="nav-item"><a href="/view/html/paginaPrestamo.html" class="nav-link"> SIMULADOR</a></li>'+
 
       '<li class="nav-item" ng-show="butonLogin"><a href="/view/html/login.html" class="nav-link">LOGIN</a></li>'+

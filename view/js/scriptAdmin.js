@@ -6,7 +6,7 @@ MyApp.controller('miController', function ($scope, $http) {
     /////cargar los datos de la tabla usuario de la base de datos 
     verusuarios();
     //Posicion de la alerta
-    alertify.set('notifier', 'position', 'top-right');
+    alertify.set('notifier', 'position', 'top-left');
     ///////////////////////////////
     // Mostrar lista de usuarios //
     ///////////////////////////////
@@ -321,7 +321,7 @@ MyApp.controller('miController', function ($scope, $http) {
             if (response.data.error != "logged") {
                 if (window.location.pathname == "/view/html/paginaAdmin.html") {
                      alertify.error("Error: Usuario sin permisos");
-                    window.location.href = "/index.html"
+                    window.location.href = "/view/html/index.html"
                 }
 
                 $scope.cuentaUsuario = false;
@@ -341,8 +341,8 @@ MyApp.controller('miController', function ($scope, $http) {
                     $scope.botonAdmin = false;
                     $scope.users = false;
 
-                    if (window.location.pathname != "/index.html") {
-                        window.location.href = "/index.html";
+                    if (window.location.pathname != "/view/html/index.html") {
+                        window.location.href = "/view/html/index.html";
                     }
                 }
             }
@@ -356,7 +356,7 @@ MyApp.controller('miController', function ($scope, $http) {
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/index.html";
+            window.location.href = "/view/html/index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
