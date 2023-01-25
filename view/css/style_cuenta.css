@@ -565,6 +565,11 @@ body {
   vertical-align: middle;
   padding: 10px;
 }
+@media screen and (max-width: 390px) {
+  .secciontarjeta .tarjeta .infocliete .tipo {
+    visibility: none;
+  }
+}
 .secciontarjeta .tarjeta .infocliete .profile-card {
   width: 100%;
   height: 100%;

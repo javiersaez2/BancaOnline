@@ -5,7 +5,7 @@ MyApp.controller('miController', function ($scope, $http) {
     console.log(tipoSimulacion);
     $scope.sistema = tipoSimulacion;
     //Posicion de la alerta
-    alertify.set('notifier', 'position', 'top-right');
+    alertify.set('notifier', 'position', 'top-left');
     //verificar usuario
     $scope.loggedVerify = function () {
         $http({
@@ -53,7 +53,7 @@ MyApp.controller('miController', function ($scope, $http) {
 
     $scope.calcular = function () {
         //Titulo
-        $('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + " " + "meses  </h1>");
+        // $('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + " " + "meses  </h1>");
         //Comprobar si los campos estan vacios o no
         if ($scope.sistema == null) {
             alertify.error("Por favor, asigne tipo de Sistema de Amortización");

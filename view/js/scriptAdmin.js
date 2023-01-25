@@ -6,7 +6,7 @@ MyApp.controller('miController', function ($scope, $http) {
     /////cargar los datos de la tabla usuario de la base de datos 
     verusuarios();
     //Posicion de la alerta
-    alertify.set('notifier', 'position', 'top-right');
+    alertify.set('notifier', 'position', 'top-left');
     ///////////////////////////////
     // Mostrar lista de usuarios //
     ///////////////////////////////

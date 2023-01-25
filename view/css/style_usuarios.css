@@ -656,6 +656,7 @@ body {
 }
 @media screen and (max-width: 1007px) {
   section {
+    padding: 0px;
     width: auto;
   }
   section .utilidadesAdmin {
