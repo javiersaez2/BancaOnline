@@ -10,7 +10,6 @@ body{
     font-family: Helvetica, sans-serif;
 
     .tarjeta {
-
         width: 70%;
         height: auto;
         display: flex;
@@ -57,6 +56,10 @@ body{
                 display: table-cell;
                 vertical-align: middle;
                 padding: 10px;
+
+                @media screen and (max-width: 415px) {
+                  display: none; 
+              }
             }
 
             .profile-card {
