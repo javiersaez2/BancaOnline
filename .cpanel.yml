@@ -6,4 +6,3 @@ deployment:
     - cp -Rf model $DEPLOYPATH
     - cp -Rf view $DEPLOYPATH
     - cp -Rf controller $DEPLOYPATH
-    - cp -Rf view/html/index.html $DEPLOYPATH
