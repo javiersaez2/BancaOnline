@@ -186,11 +186,7 @@ class clienteModel extends clienteclass
         $pasahitza = $this->pasahitza;
 
 
-        $sql = "update cliente
-        set dniCliente='$dniCliente',
-        nombre='$nombre',
-        pasahitza='$pasahitza'
-        where dniCliente='$dniCliente'";
+        $sql = "update cliente set dniCliente='$dniCliente', nombre='$nombre', pasahitza='$pasahitza' where dniCliente='$dniCliente'";
 
         $this->link->query($sql);
 

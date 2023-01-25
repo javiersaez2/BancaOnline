@@ -27,10 +27,10 @@ $cliente = new clienteModel();
 $cliente->setdniCliente($data["dniCliente"]);
 $response["error"] = $cliente->deleteCliente();
 
-    echo json_encode($response);
-    unset($cuenta);
-    unset($cliente);
 }
+echo json_encode($response);
+unset($cuenta);
+unset($cliente);
 ?>
 
 
