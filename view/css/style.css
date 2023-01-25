@@ -536,6 +536,7 @@ body {
   .blog-slider {
     max-height: 500px;
     height: auto;
+    width: 80%;
     margin: 180px auto;
   }
 }
