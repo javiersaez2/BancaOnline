@@ -87,12 +87,12 @@ MyApp.controller('miControl', function ($scope, $http) {
     }
 
     //Solo numeros en la cantidad
-    document.getElementById("cantidad").onkeypress = noletras;
-    function noletras(e) {
-        if (e.key < "0" || e.key > "9") {
+    $("#cantidad").keypress(function(event){
+        if (e.keyCode > 31 && (e.keyCode < 48 || e.keyCode > 57)) {
             e.preventDefault()
         }
-    }
+    });
+    
   
 
     //verificar usuario
