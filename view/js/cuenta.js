@@ -51,7 +51,7 @@ miApp.controller('miControlador', function ($scope, $http) {
 });
 
 
-//Datos de usuario
+//Datos de usuario//
 miApp.controller('datoscliente', function ($scope, $http) {
     $scope.tablaMostrar = false;
     $scope.datosClienteCarta = true;
@@ -66,40 +66,45 @@ miApp.controller('datoscliente', function ($scope, $http) {
         $scope.botonAtras = false;
     }
 
-
-    // Funcion para ver tabla de movimientos
-    $scope.movimientos = function(iban, callback, d){
+    // Funcion para ver tabla de movimientos //
+    $scope.movimientos = function(iban, callback){
         $http({
             url: "/controller/c_movimientosCuenta.php",
             method: "POST",
             data: JSON.stringify({'iban': iban})
-        }).then(function (response) {
+        }).then( async function (response) {
             $scope.ListaMovimientos = [];
-            var datos = response.data.list;
-            var destinatario = "";
-
+            var datos = response.data.list; var mensaje = "";
+          
             for (var i = 0; i < datos.length; i++){
-                if (datos[i].objMovimiento.tipoMovimiento == "Ingresar"){
-                    tipoMovimiento = "fa-solid fa-money-bill-trend-up fa-lg";
-                    claseMovimiento = "ingr";  
-                    datos[i].objMovimiento.tipoMovimiento = "Ingreso";
-                } else if (datos[i].objMovimiento.tipoMovimiento == "Retirar"){
-                    tipoMovimiento = "fa-solid fa-sack-xmark fa-lg";
-                    claseMovimiento = "reti";   
-                    datos[i].objMovimiento.tipoMovimiento = "Retiro";
-                } else {
+                if (datos[i].objMovimiento.tipoMovimiento != "Transferencia"){
+                    if (datos[i].objMovimiento.tipoMovimiento == "Ingresar"){
+                        tipoMovimiento = "fa-solid fa-money-bill-trend-up fa-lg";
+                        claseMovimiento = "ingr";  
+                        datos[i].objMovimiento.tipoMovimiento = "Ingreso";
+                    } else if (datos[i].objMovimiento.tipoMovimiento == "Retirar"){
+                        tipoMovimiento = "fa-solid fa-sack-xmark fa-lg";
+                        claseMovimiento = "reti";   
+                        datos[i].objMovimiento.tipoMovimiento = "Retiro";
+                    } 
+
+                    mensaje = datos[i].objMovimiento.tipoMovimiento + " de " + datos[i].cantidad + "€ desde la cuenta: " + datos[i].iban + ".";
+                    $scope.ListaMovimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimientoIcon":tipoMovimiento, "tipoMovimiento":datos[i].objMovimiento.tipoMovimiento, "claseMovimiento":claseMovimiento, "mensaje":mensaje});
+                }else {
                     tipoMovimiento = "fa-solid fa-hand-holding-dollar fa-lg";
                     claseMovimiento = "tran";
-                    devolverDestinatario(datos[i].idMovimiento).then(function(data){
-                        destinatario = data;
-                        console.log(destinatario);
-                    });         
+                   
+                    // array con el emisor y receptor //
+                    const arrayER = await devolverDestinatario(datos[i].idMovimiento);
+                    mensaje = datos[i].objMovimiento.tipoMovimiento + " de " + datos[i].cantidad + "€ del emisor " + arrayER[0].iban + " al receptor " + arrayER[1].iban + ".";
+                    $scope.ListaMovimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimientoIcon":tipoMovimiento, "tipoMovimiento":datos[i].objMovimiento.tipoMovimiento, "claseMovimiento":claseMovimiento, "destinatario":arrayER[1].iban, "emisor":arrayER[0].iban, "mensaje":mensaje});         
+                    $scope.mensaje = "mensaje";
                 }
+
                 
                
-                $scope.ListaMovimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimientoIcon":tipoMovimiento, "tipoMovimiento":datos[i].objMovimiento.tipoMovimiento, "claseMovimiento":claseMovimiento, "destinatario":destinatario});   
             }
-
+ 
             $scope.tablaMostrar = true;
             $scope.datosClienteCarta = false;
             $scope.botonAtras = true;
@@ -108,15 +113,14 @@ miApp.controller('datoscliente', function ($scope, $http) {
         })
     }
 
-    function devolverDestinatario(idMovimiento){
+    function devolverDestinatario(idMovimiento,){
         return $http({
             url: "/controller/c_movimientoTransferencia.php",
             method: "POST",
             data: JSON.stringify({'idMovimiento': idMovimiento})
         }).then(function (response) {
             var movTrans = response.data.movTransferencia;  
-            console.log(movTrans[1].iban); 
-            return movTrans[1].iban;
+            return movTrans;
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
         })

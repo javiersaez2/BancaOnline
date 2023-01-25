@@ -502,6 +502,11 @@ body {
   font-weight: 500;
 }
 
+@media (max-width: 400px) {
+  .infoSomos {
+    margin-top: 50px;
+  }
+}
 /* SLIDES */
 .slider {
   display: flex;

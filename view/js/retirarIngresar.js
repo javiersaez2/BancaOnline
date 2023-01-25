@@ -48,7 +48,6 @@ MyApp.controller('miControl', function ($scope, $http) {
                     method: "POST",
                     data: JSON.stringify({ 'iban': iban, 'cantidad': cantidad, 'concepto': concepto, 'tipo': "Ingresar" })
                 }).then(function (response) {
-                    
                     location.reload();
                 }).catch(function (response) {
                     console.error('Error occurred:', response.status, response.data)
