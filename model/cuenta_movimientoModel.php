@@ -49,12 +49,17 @@ class cuenta_movimientoModel extends cuenta_movimientoClass
    }
 
 
-    public function movimientosCuenta(){   
+    public function movimientosCuenta($filtro){   
         $this->OpenConnect();
-
         $iban=$this->iban;
-        $sql = "SELECT c.iban, c.fecha, c.cantidad, m.idMovimiento, m.tipoMovimiento, m.concepto FROM cuenta_movimiento c INNER JOIN movimiento m ON c.idMovimiento=m.idMovimiento WHERE iban='$iban'";
 
+        if ($filtro != "vacio"){
+            $tipo = $filtro;    
+            $sql = "SELECT c.iban, c.fecha, c.cantidad, m.idMovimiento, m.tipoMovimiento, m.concepto FROM cuenta_movimiento c INNER JOIN movimiento m ON c.idMovimiento=m.idMovimiento WHERE c.iban='$iban' && m.tipoMovimiento='$tipo'";
+
+        } else {
+            $sql = "SELECT c.iban, c.fecha, c.cantidad, m.idMovimiento, m.tipoMovimiento, m.concepto FROM cuenta_movimiento c INNER JOIN movimiento m ON c.idMovimiento=m.idMovimiento WHERE c.iban='$iban'";    
+        }
         $list = array();
 
         $result = $this->link->query($sql);
@@ -79,6 +84,7 @@ class cuenta_movimientoModel extends cuenta_movimientoClass
         $this->CloseConnect();  
     }
 
+   
     public function deleteMovimimientosByIban()
     {
         $this->OpenConnect();

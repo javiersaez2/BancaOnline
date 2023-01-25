@@ -200,7 +200,7 @@ body{
         }
 
         .cuentacorriente {
-            font-weight: 600;
+            font-weight: 500;
             right: 0;
             height: 650px;
             width: 105%;
@@ -295,7 +295,7 @@ body{
   .contenido2{
     max-height: 550px;
     min-height: 450px;
-    min-width: 1218px;
+    min-width: 1215px;
     border: 1px solid rgba(128, 128, 128, 0.329);
     overflow: auto;
   }
@@ -343,12 +343,6 @@ body{
   background-color:lighten($dark-bg, 10%);
   height:65px;
   color:$color-blanco;
-  @media only screen and (max-width : 767px) {
-    height:85px;
-  }
-  @media only screen and (max-width : 359px) {
-    height:105px;
-  }
 }
 .title {
   padding:25px 0 5px 0;
@@ -406,20 +400,27 @@ ul.more-content li {
 
 /* Filtros tabla movimientos */
 .conjuntoFiltro {
-  width: 130px;
   @include flexcenter;
+
+  .botonEliminarFiltro{
+    width: 25px;
+    height: 25px;
+    /* margin-bottom: 0px; */
+    background-color: transparent;
+    border: 0;  
+  }
+
   .inputGroupTabla {
     background-color: #fff; 
     display: block;
-    width: 100%;
-    margin: 10px 0;
+    margin: 38px 3px 0px 3px;
     position: relative;
 
     label {
-      border: 1px solid black;
-      border-radius: 40px;
-      padding: 12px 30px;
-      display: block;
+      border: 1px solid rgba(0, 0, 0, 0.473);
+      border-radius: 14px;
+      padding: 11px 34px;
+      @include flexcenter;
       text-align: left;
       color: #3C454C;
       cursor: pointer;
@@ -427,13 +428,14 @@ ul.more-content li {
       z-index: 2;
       transition: color 200ms ease-in;
       overflow: hidden;
+      width: 40px;
 
       &:before {
         width: 10px;
         height: 10px;
         border-radius: 50%;
         content: '';
-        background-color: #5562eb;
+        background-color: $color-terciario1;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -448,6 +450,7 @@ ul.more-content li {
         transform: translateY(-50%);
         cursor: pointer;
         transition: all 200ms ease-in;
+        background-color: #fff;
       }
     }
 
@@ -466,8 +469,8 @@ ul.more-content li {
     }
 
     input {
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       order: 1;
       z-index: 2;
       position: absolute;
@@ -478,4 +481,17 @@ ul.more-content li {
       visibility: hidden;
     }
   }
+}
+
+
+@media screen and (max-width:355px) {
+  .conjuntoFiltro {
+    .inputGroupTabla {
+      label {
+        font-size: 13px;
+        width: 25px; 
+      }
+    }
+  }
+  
 }

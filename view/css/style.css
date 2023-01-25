@@ -321,10 +321,9 @@ body {
     text-align: center;
   }
 }
-html {
+body, html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  overflow-y: visible;
 }
 
 body {
@@ -503,7 +502,7 @@ body {
 }
 
 @media (max-width: 400px) {
-  .infoSomos {
+  .contenidoSomos:nth-child(1) .infoSomos {
     margin-top: 50px;
   }
 }
