@@ -36,8 +36,7 @@
               </div>
               <div class="texto" *ngFor="#infocuenta of infocuenta">
                 <p>{{infocuenta["nombre"]}}</p>
-                {{infocuenta["dniCliente"]}} -
-                {{infocuenta["secreto"]}}
+                <p>{{infocuenta["dniCliente"]}}</p> 
               </div>
 
 
@@ -120,18 +119,16 @@
     /////////////////////// 
     -->
 
-    <button ng-click="verCartaCuenta()">Atras</button>
-
     <section class="wrapper" ng-show="tablaMostrar">
       <div class="contenido2">
         <!-- Titulos tabla -->
           <main class="rowMov title">
             <ul>
               <li></li>
-              <li>Tipo</li>
-              <li>Fecha</li>
-              <li>Importe</li>
-              <li>Iban</li>
+              <li>TIPO</li>
+              <li>FECHA</li>
+              <li>IMPORTE</li>
+              <li>IBAN</li>
             </ul>
           </main>
           <!-- Columnas datos -->
@@ -145,11 +142,15 @@
               <li>{{movimiento.iban}}</li>
             </ul>
             <ul class="more-content">
-              <li>{{movimiento.destinatario}}</li>
+              <li>{{movimiento.tipoMovimiento}} de {{movimiento.cantidad}}€ desde el numero de cuenta: {{movimiento.iban}}</li>
             </ul>
           </article>
         </div>
     </section>
+
+    <div ng-show="botonAtras" class="contenedorBoton">
+      <input class="botonRegresarMovimientos" type="button" value="« Atrás «" ng-click="verCartaCuenta()">
+    </div>
 
   <!--FOOTER-->
   <!-- Site footer -->
