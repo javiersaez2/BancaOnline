@@ -234,7 +234,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 $scope.cuentaUsuario = false;
                 $scope.botonAdmin = false;
                 $scope.butonLogin = true;
-                window.location.href = "/index.html";
+                window.location.href = "/view/html/index.html";
 
             } else {
                 $scope.butonLogOut = true;
@@ -258,7 +258,7 @@ MyApp.controller('miController', function ($scope, $http) {
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/index.html";
+            window.location.href = "/view/html/index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);

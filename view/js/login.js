@@ -67,7 +67,7 @@ miApp.controller('miControlador', function($scope, $http){
                 codSecretoKont = 0;
                 $scope.butonLogin = false;
                 $scope.showError = false;
-                window.location.href = "/index.html";     
+                window.location.href = "/view/html/index.html";     
             }else {
                 $scope.showError = true;
                 $("#textError").text(response.data.error);
@@ -100,7 +100,7 @@ miApp.controller('miControlador', function($scope, $http){
                 $scope.iniciarSesionSection = false; 
                 $scope.butonLogOut = true;
                 $scope.butonLogin = false;
-                window.location.href="/index.html"
+                window.location.href="/view/html/index.html"
             }
         }).catch(function (response) {
             console.error("Ocurrio un error", response.status, response.data);
@@ -112,7 +112,7 @@ miApp.controller('miControlador', function($scope, $http){
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/index.html";
+            window.location.href = "/view/html/index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
