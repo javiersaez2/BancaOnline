@@ -503,7 +503,7 @@ body {
 }
 
 @media (max-width: 400px) {
-  .contenidoSomos:nth-child(1) .infoSomos {
+  .infoSomos {
     margin-top: 50px;
   }
 }
@@ -536,7 +536,6 @@ body {
   .blog-slider {
     max-height: 500px;
     height: auto;
-    width: 80%;
     margin: 180px auto;
   }
 }
