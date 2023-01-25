@@ -503,7 +503,7 @@ body {
 }
 
 @media (max-width: 400px) {
-  .infoSomos {
+  .contenidoSomos:nth-child(1) .infoSomos {
     margin-top: 50px;
   }
 }
