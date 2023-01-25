@@ -227,7 +227,8 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.modificarUsuario = function (miIndex, item) {
         modalvisible(2);
         document.getElementById("dniModificar").disabled = true;
-        $scope.
+        $scope.comprobarnombre=item.nombre;
+        $scope.comprobarpassword=item.pasahitza;
         $scope.modificarVista = 'true';
         $scope.insertarVista = 'false';
         $scope.dniModificar = item.dniCliente;
@@ -241,6 +242,17 @@ MyApp.controller('miController', function ($scope, $http) {
         dniCliente = $scope.dniModificar;
         nombre = $scope.nombreModificar;
         pasahitza = $scope.contrasenaModificar;
+        $scope.modificado=false;
+        if ( $scope.comprobarnombre!=$scope.nombreModificar || $scope.comprobarpassword!=$scope.vefModificar || $scope.comprobarpassword!=$scope.contrasenaModificar){
+            $scope.modificado=true;
+        }
+        if ($scope.modificado==false){
+            alertify.error("No se ha modificado nada")
+        }
+        else{
+            if ($scope.nombreModificar  == null || $scope.vefModificar == null || $scope.contrasenaModificar == null) {
+                alertify.error("Algun campo vacio!");
+            }else{
         if ($scope.contrasenaModificar == $scope.vefModificar) {
             $http({
                 url: "../../controller/controller_update.php",
@@ -266,6 +278,8 @@ MyApp.controller('miController', function ($scope, $http) {
             alertify.error("Las contraseñas no son iguales");
         }
     }
+}
+}
 
     //////////////////////////
     //////////////////////////
