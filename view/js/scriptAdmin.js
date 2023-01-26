@@ -13,7 +13,7 @@ MyApp.controller('miController', function ($scope, $http) {
     function verusuarios() {
         $http.post('/controller/controlador_consulta_usuarios.php')
             .then(function (response) {
-                console.log(response.data.list);
+                (response.data.list);
                 $scope.usuarios = response.data.list;
             })
             .catch(function (response) {
@@ -118,7 +118,7 @@ MyApp.controller('miController', function ($scope, $http) {
                     if (response.data.error=="dni duplicado"){
                        
                         alertify.error("El DNI esta duplicado, pruebe con otro DNI distinto");
-                    console.log(response.data.error)
+                    (response.data.error)
                     }
                     if (response.data.error == "Usuario añadido con exito") {
                         alertify.success(response.data.error);
@@ -138,8 +138,8 @@ MyApp.controller('miController', function ($scope, $http) {
                 
                 })
                 .catch(function (response) {
-                    console.log('Error ocurred: ', response.status);
-                    console.log('Error ocurred: ', response.data);
+                    ('Error ocurred: ', response.status);
+                    ('Error ocurred: ', response.data);
 
                 })
         }
@@ -160,12 +160,12 @@ nif($scope.dniIns);
     /////////////////////////////////////////////////
     $scope.MostrarCuentas = function (miIndex, item) {
         $scope.cuenta = [];
-        console.log(miIndex)
-        console.log("--")
-        console.log(item.objCuenta.iban)
+        (miIndex)
+        ("--")
+        (item.objCuenta.iban)
         for (i = 0; i < item.objCuenta.length; i++) {
             $scope.cuenta.push({ iban: item.objCuenta[i].iban, dniCliente: item.objCuenta[i].dniCliente, titular: item.objCuenta[i].titular, saldo: item.objCuenta[i].saldo, cuentaPos: i + 1 });
-            console.log($scope.cuenta)
+            ($scope.cuenta)
         }
         modalvisible(0);
     }
@@ -303,7 +303,7 @@ nif($scope.dniIns);
                     method: "POST",
                     data: JSON.stringify({ 'dniCliente': $(this).val() })
                 }).then(function (response) {
-                    console.log(response.data);
+                    (response.data);
                     $scope.usuarios = response.data.list;
                 }).catch(function (response) {
                     console.error("Ocurrio un error", response.status, response.data);

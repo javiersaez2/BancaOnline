@@ -1,3 +1,4 @@
+// Deletea las cuentas //
 <?php
 require_once '../model/cuenta_corrienteModel.php';
 require_once '../model/cuenta_movimientoModel.php';

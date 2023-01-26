@@ -1,3 +1,4 @@
+// Mostra los movimientos de la cuenta //
 <?php
 include_once '../model/cuenta_movimientoModel.php';
 $data = json_decode(file_get_contents("php://input"),true);

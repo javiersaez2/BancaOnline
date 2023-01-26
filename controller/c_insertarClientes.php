@@ -1,3 +1,4 @@
+// Controlador para  insertar un nuevo cliente //
 <?php
 include_once '../model/clienteModel.php';
 include_once '../model/cuenta_corrienteModel.php';

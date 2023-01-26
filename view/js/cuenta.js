@@ -64,8 +64,8 @@ miApp.controller('datoscliente', function ($scope, $http) {
         if (iban != 'vacio'){
             $scope.iban = iban;    
         }
-        console.log($scope.iban);
-        console.log(iban + " // " + filtro);
+        ($scope.iban);
+        (iban + " // " + filtro);
         $http({
             url: "/controller/c_movimientosCuenta.php",
             method: "POST",
@@ -87,7 +87,7 @@ miApp.controller('datoscliente', function ($scope, $http) {
         var tipoMovimiento = "";
         var claseMovimiento = "";
         var mensaje = "";
-        console.log($scope.iban);
+        ($scope.iban);
         for (var i = 0; i < datos.length; i++){
             if (datos[i].objMovimiento.tipoMovimiento != "Transferencia"){
                 if (datos[i].objMovimiento.tipoMovimiento == "Ingresar"){

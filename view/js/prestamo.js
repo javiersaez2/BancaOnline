@@ -2,7 +2,7 @@ var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
     // LOCALSTORAGE //
     tipoSimulacion = localStorage.getItem("Simulacion");
-    console.log(tipoSimulacion);
+    (tipoSimulacion);
     $scope.sistema = tipoSimulacion;
     
     
@@ -256,7 +256,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 else {
                     Interesa = kapitala * ($scope.interes / 100);
                     Kuota = parseInt(Interesa) + parseInt(kapitala);
-                    console.log(Kuota);
+                    (Kuota);
                     Amortizazioa = Kuota - Interesa;
                     Metatua = Metatua + Amortizazioa;
                     kapitala = kapitala - Amortizazioa;
@@ -273,7 +273,7 @@ MyApp.controller('miController', function ($scope, $http) {
         }
         // Exponer la Lista //
         $scope.periodo = $scope.lista;
-        console.log($scope.periodo);
+        ($scope.periodo);
     }
     
     // Regresar //

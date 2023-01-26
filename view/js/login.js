@@ -62,7 +62,7 @@ miApp.controller('miControlador', function($scope, $http){
             method: "POST",
             data: JSON.stringify({'dni': dni, 'pasahitza': pasahitza, 'codSecreto': codSecreto, 'contador':codSecretoKont})
         }).then(function (response) {
-            console.log(response);
+            (response);
             if (response.data.error == "no error"){
                 codSecretoKont = 0;
                 $scope.butonLogin = false;

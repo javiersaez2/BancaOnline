@@ -22,7 +22,7 @@ MyApp.controller('miController', function ($scope, $http) {
     function vercuentas() {
         $http.post('/controller/c_mostrar_cuentasPersonales.php')
             .then(function (response) {
-                //console.log(response.data.list);
+                //(response.data.list);
                 $scope.cuentas = response.data.list;
             })
             .catch(function (response) {
@@ -59,7 +59,7 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.OtrasT = false;
 
         $scope.ibanPropio = contenido.iban;
-        console.log($scope.ibanPropio);
+        ($scope.ibanPropio);
         $("#FiltrarPorDNINoPersonales").val("DNI");
     }
 
@@ -72,7 +72,7 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify(dni)
         }).then(function (response) {
-            console.log(response.data.list)
+            (response.data.list)
             $scope.OtrasCuentas = response.data.list;
             $scope.OtrasT = true;
         }).catch(function (response) {
@@ -126,7 +126,7 @@ MyApp.controller('miController', function ($scope, $http) {
         saldo = $scope.saldoT;
         concepto = $scope.conceptoT;
 
-        console.log(iban + "     " + saldo);
+        (iban + "     " + saldo);
         lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo, "concepto": concepto };
 
         $http({
@@ -193,7 +193,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 } else {
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
-                    console.log(response);
+                    (response);
                 }
             }
         }).catch(function (response) {
