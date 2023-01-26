@@ -13,7 +13,7 @@ miApp.controller('miControlador', function ($scope, $http) {
             if (response.data.error != "logged") {
                 if (window.location.pathname == "/view/html/cuenta.html") {
                    
-                    window.location.href = "/view/html/index.html"
+                    window.location.href = "/view/index.html"
                 }
                 $scope.cuentaUsuario = false; $scope.botonAdmin = false; $scope.butonLogin = true;
             } else {
@@ -35,7 +35,7 @@ miApp.controller('miControlador', function ($scope, $http) {
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/view/html/index.html";
+            window.location.href = "/view/index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
