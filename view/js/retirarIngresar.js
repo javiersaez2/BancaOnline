@@ -122,7 +122,6 @@ MyApp.controller('miControl', function ($scope, $http) {
             e.preventDefault();
         }
     });
-<<<<<<< HEAD
     
   
 
@@ -159,14 +158,12 @@ MyApp.controller('miControl', function ($scope, $http) {
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/view/index.html";
+            window.location.href = "/view/html/index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
         })
     }
-=======
->>>>>>> 7d3151f76221efe87eb8cfa46f1dbbd04fa140db
 
     // Funcion que muestra la vista de retirar/ingresar //
     $scope.modal = function (numero) {
