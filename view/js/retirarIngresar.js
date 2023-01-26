@@ -74,7 +74,7 @@ MyApp.controller('miControl', function ($scope, $http) {
     }
 
     // Solo numeros en la cantidad //
-    $("#cantidad").keypress(function(event){
+    $("#cantidad").keypress(function(e){
         if (e.keyCode > 31 && (e.keyCode < 48 || e.keyCode > 57)) {
             e.preventDefault()
         }
