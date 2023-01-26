@@ -1,12 +1,15 @@
 var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
-    //LOCALSTORAGE//
+    // LOCALSTORAGE //
     tipoSimulacion = localStorage.getItem("Simulacion");
     console.log(tipoSimulacion);
     $scope.sistema = tipoSimulacion;
-    //Posicion de la alerta
+    
+    
+    // Posicion de la alerta //
     alertify.set('notifier', 'position', 'top-left');
-    //verificar usuario
+    
+    ////////////////// - Funcion para verificar la sesion - //////////////////
     $scope.loggedVerify = function () {
         $http({
             url: "../../controller/cLoggedVerify.php",
@@ -32,6 +35,8 @@ MyApp.controller('miController', function ($scope, $http) {
             console.error("Ocurrio un error", response.status, response.data);
         })
     }
+
+    ////////////////// - Funcion para cerrar sesion - //////////////////
     $scope.logout = function () {
         $http({
             url: "/controller/cLogout.php",
@@ -43,6 +48,9 @@ MyApp.controller('miController', function ($scope, $http) {
             console.error("Ocurrio un error", response.status, response.data);
         })
     }
+    
+    
+    //// - Simulaciones - ////
     let Amortizazioa = 0.00;
     let Aldiak = 0.00;
     let Kuota = 0.00;
@@ -55,7 +63,8 @@ MyApp.controller('miController', function ($scope, $http) {
         localStorage["Simulacion"] = $scope.sistema;
         //Titulo
         // $('#title').append("<h1>Sistema " + $scope.sistema + "  " + $scope.periodoPago + " " + "meses  </h1>");
-        //Comprobar si los campos estan vacios o no
+        
+        // Comprobar si los campos estan vacios //
         if ($scope.sistema == null) {
             alertify.error("Por favor, asigne tipo de Sistema de Amortización");
         }
@@ -87,7 +96,8 @@ MyApp.controller('miController', function ($scope, $http) {
         var intr = 0;
         var meta = 0;
         var kap = 0;
-        //La primera linea 0
+
+        // Pimera linea 0 //
         $scope.lista.push({
             Aldiak: 0,
             Kuota: "0,00 €",
@@ -96,14 +106,16 @@ MyApp.controller('miController', function ($scope, $http) {
             Metatua: "0,00 €",
             Kapitala: new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(Number(kapitala).toFixed(2))
         });
-        //Calcular Interes Anual/Semestral
+
+        // Calcular Interes Anual/Semestral //
         if ($scope.periodoPago != $scope.tipo) {
             intr = Math.sqrt(1 + ($scope.interes / 100)) - 1;
         }
         if (($scope.periodoPago == $scope.tipo)) {
             intr = $scope.interes / 100;
         }
-        //////LINEAL////
+
+        // LINEAL //
         if ($scope.sistema == "Lineal") {
             for (let i = 1; i <= $scope.numero; i++) {
                 for (let j = 1; j <= 12 / $scope.periodoPago; j++) {
@@ -151,7 +163,8 @@ MyApp.controller('miController', function ($scope, $http) {
                 }
             }
         }
-        //////FRANCES////
+
+        // FRANCES //
         if ($scope.sistema == "Frances") {
             for (let i = 1; i <= $scope.numero; i++) {
                 for (let j = 1; j <= 12 / $scope.periodoPago; j++) {
@@ -199,7 +212,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 }
             }
         }
-        //////SIMPLE////
+        // SIMPLE //
         if ($scope.sistema == "Simple") {
             for (let index = 1; index <= $scope.numero; index++) {
                 //veces
@@ -211,7 +224,7 @@ MyApp.controller('miController', function ($scope, $http) {
                     kapitala = kapitala;
                     Kuota = 0;
                 } else {
-                    //Los 2 que se deben cambiar
+                    // Los 2 que se deben cambiar //
                     Kuota = ($scope.capital * (Math.pow((1 + ($scope.interes / 100)), ($scope.numero))));
                     Interesa = Kuota - $scope.capital;
 
@@ -229,7 +242,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 });
             }
         }
-        //////AMERICANO////
+        // AMERICANO //
         if ($scope.sistema == "Americano") {
             for (let index = 1; index <= $scope.numero; index++) {
                 Aldiak = index;
@@ -258,22 +271,25 @@ MyApp.controller('miController', function ($scope, $http) {
                 });
             }
         }
-        ///Exponer la Lista
+        // Exponer la Lista //
         $scope.periodo = $scope.lista;
         console.log($scope.periodo);
     }
-    //Regresar
+    
+    // Regresar //
     $scope.volver = function () {
         location.reload();
     }
-    //comprobar los campos de form 
-    //solo numeros todos input
+
+    // Comprobar los campos de form //
+    // Filtro solo numeros todos input //
     $(".number").keypress(function (event) {
         if (event.which < 48 || event.which > 57) {
             return false;
         }
     });
-    //para cantidad de años solo dos numeros
+
+    // Filtro de solo dos numeros para cantidad de años //
     $("#cantidad").keypress(function () {
         if ($(this).val().length > 1) {
             return false;

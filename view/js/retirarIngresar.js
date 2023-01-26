@@ -1,6 +1,7 @@
 var MyApp = angular.module('MyApp', []);
 MyApp.controller('miControl', function ($scope, $http) {
     mostrarCuenta();
+
     $scope.ingresarretirar = localStorage.getItem("ingresarretirarnumero");
     if ($scope.ingresarretirar == 1) {
         $scope.titulo = "RETIRAR"
@@ -9,8 +10,7 @@ MyApp.controller('miControl', function ($scope, $http) {
         $scope.titulo = "INGRESAR"
     }
 
-
-
+    // Muestra las cuentas del usuario //
     function mostrarCuenta() {
         $http.post('/controller/c_mostrar_cuentasPersonales.php')
             .then(function (response) {
@@ -20,6 +20,8 @@ MyApp.controller('miControl', function ($scope, $http) {
                 console.error('Error occurred:', response.status, response.data)
             })
     }
+
+    // Elecion de Iban //
     var ibanElegido;
     $scope.elegir = function ($index, contenido) {
         ibanElegido = contenido.iban;
@@ -29,7 +31,6 @@ MyApp.controller('miControl', function ($scope, $http) {
     };
 
     $scope.mover = function () {
-
         var iban = ibanElegido;
         var cantidad = $scope.cantidad;
         var concepto = $scope.concepto;
@@ -52,22 +53,19 @@ MyApp.controller('miControl', function ($scope, $http) {
                 }).catch(function (response) {
                     console.error('Error occurred:', response.status, response.data)
                 })
-            
+           
             } if ($scope.ingresarretirar == "1") {
                 $http({
                     url: '../../controller/c_retirar.php',
                     method: "POST",
                     data: JSON.stringify({ 'iban': iban, 'cantidad': cantidad, 'concepto': concepto, 'tipo': "Retirar" })
                 }).then(function (response) {
-
                     if(response.data.retirar == 0){
                         $scope.errores = "La cantidad es mayor que el saldo";
                         return false;
-                    }
-                        
+                    }                       
                     location.reload();
-                    
-                
+                                  
                 }).catch(function (response) {
                     console.error('Error occurred:', response.status, response.data)
                 })
@@ -75,18 +73,7 @@ MyApp.controller('miControl', function ($scope, $http) {
         }
     }
 
-
-
-
-
-
-
-
-    $scope.regresar = function () {
-        window.location.href="cuenta.html";
-    }
-
-    //Solo numeros en la cantidad
+    // Solo numeros en la cantidad //
     $("#cantidad").keypress(function(event){
         if (e.keyCode > 31 && (e.keyCode < 48 || e.keyCode > 57)) {
             e.preventDefault()
@@ -95,7 +82,7 @@ MyApp.controller('miControl', function ($scope, $http) {
     
   
 
-    //verificar usuario
+    ////////////////// - Funcion para verificar la sesion - //////////////////
     $scope.loggedVerify = function () {
         $http({
             url: "../../controller/cLoggedVerify.php",
@@ -121,6 +108,8 @@ MyApp.controller('miControl', function ($scope, $http) {
             console.error("Ocurrio un error", response.status, response.data);
         })
     }
+
+    ////////////////// - Funcion para cerrar sesion - //////////////////
     $scope.logout = function () {
         $http({
             url: "/controller/cLogout.php",
@@ -133,16 +122,14 @@ MyApp.controller('miControl', function ($scope, $http) {
         })
     }
 
-
-
-
-
+    // Funcion que muestra la vista de retirar/ingresar //
     $scope.modal = function (numero) {
         modalvisible(numero);
         $scope.modificarVista = 'true';
         $scope.insertarVista = 'false';
     }
 
+    // Boton que cierra el modal //
     $scope.cerrarCuentas = function (numero) {
         $scope.dniIns = "";
         $scope.nombreIns = "";
@@ -151,6 +138,8 @@ MyApp.controller('miControl', function ($scope, $http) {
         $scope.vefIns = "";
         modalnovisible(numero);
     }
+
+    // Funciones para el modal (no scroll y visibilidad) //
     function modalvisible(x) {
         document.getElementById("demo-modal" + x + "").style.visibility = "visible";
         document.getElementById("demo-modal" + x + "").style.opacity = 1;
@@ -164,25 +153,11 @@ MyApp.controller('miControl', function ($scope, $http) {
         enable_scroll_mobile();
     }
 
-
-
-
-
-
     function noscroll() {
         window.scrollTo(0, 0);
     }
 
-    function scrolldis() {
-        window.removeEventListener("scroll", noscroll);
-    };
-
-    function scrollena() {
-        window.addEventListener("scroll", noscroll);
-    };
-
-    //////////// - Modaeles no scroll - ////////////
-    // PREVENT DEFAULT HANDLER
+    // Prevencion default
     function preventDefault(e) {
         e = e || window.event;
         if (e.preventDefault) {
@@ -190,10 +165,8 @@ MyApp.controller('miControl', function ($scope, $http) {
         }
         e.returnValue = false;
     }
-    // PREVENT SCROLL KEYS
-    // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-    // left: 37, up: 38, right: 39, down: 40,
-    // (Source: http://stackoverflow.com/a/4770179)
+
+    // Prevenir scroll keys
     function keydown(e) {
         var keys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
         for (var i = keys.length; i--;) {
@@ -203,13 +176,15 @@ MyApp.controller('miControl', function ($scope, $http) {
             }
         }
     }
-    // PREVENT MOUSE WHEEL
+
+    // Prevenir rueda del raton
     function wheel(event) {
         event.preventDefault();
         event.stopPropagation();
         return false;
     }
-    // DISABLE SCROLL
+
+    // Desactivar scroll
     function disable_scroll() {
         if (document.addEventListener) {
             document.addEventListener('wheel', wheel, false);
@@ -227,10 +202,10 @@ MyApp.controller('miControl', function ($scope, $http) {
             window.onscroll = function () {
                 window.scrollTo(x, y);
             };
-        // document.body.style.overflow = 'hidden'; // CSS
         disable_scroll_mobile();
     }
-    // ENABLE SCROLL
+
+    // Habilitar scroll
     function enable_scroll() {
         if (document.removeEventListener) {
             document.removeEventListener('wheel', wheel, false);
@@ -239,11 +214,10 @@ MyApp.controller('miControl', function ($scope, $http) {
         }
         document.onmousewheel = document.onmousewheel = document.onkeydown = null;
         window.onscroll = function () { };
-        // document.body.style.overflow = 'auto'; // CSS
         enable_scroll_mobile();
     }
 
-    // MOBILE
+    // Mobil
     function disable_scroll_mobile() {
         document.addEventListener('touchmove', preventDefault, false);
     }

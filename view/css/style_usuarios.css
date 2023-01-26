@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400"; /* Funcion Flex solo justify content center */
 /* Funcion Flex para centrar*/
 /* Funciones para dar estilos a las cajas*/
@@ -7,17 +8,17 @@
   margin: 0;
 }
 
-/* ================= HEADER ================ */
+body {
+  font-family: "Lato", sans-serif;
+}
+
+/* HEADER (NAVBAR)*/
 .bx {
   font-size: 2.5rem;
 }
 
 .container {
   padding: 0 2rem;
-}
-
-body {
-  font-family: "Raleway", sans-serif;
 }
 
 header {
@@ -36,6 +37,7 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* Imagen Logo (NAVBAR) */
 .company-logo {
   background-color: black;
   -webkit-background-clip: text;
@@ -103,7 +105,7 @@ header {
   display: none !important;
 }
 
-/* =============== MEDIA QUERIES ======= */
+/* MEDIA QUERY(NAVBAR) */
 @media screen and (max-width: 768px) {
   .navbar {
     background: rgba(255, 255, 255, 0.8);
@@ -155,7 +157,7 @@ header {
     padding: 0rem 2rem;
   }
 }
-/* Estructura y estilo footer */
+/* Estructura y estilo Footer (Footer)*/
 html {
   height: 100%;
 }
@@ -208,7 +210,7 @@ body {
   margin-top: 10px;
 }
 
-/* Links footer */
+/* Links Footer (Footer) */
 .footer-links {
   padding-left: 0;
   list-style: none;
@@ -233,7 +235,7 @@ body {
   margin: 0;
 }
 
-/* Iconos redes sociales */
+/* Iconos redes sociales (Footer) */
 .social-icons {
   padding-left: 0;
   margin-bottom: 0;
@@ -288,7 +290,7 @@ body {
   padding: 4px;
 }
 
-/* Media Query */
+/* Media Query Footer (Footer) */
 @media (max-width: 991px) {
   .site-footer [class^=col-] {
     margin-bottom: 30px;
@@ -320,6 +322,7 @@ body {
     text-align: center;
   }
 }
+/* Modales Generales */
 .modal {
   visibility: hidden;
   opacity: 0;
@@ -329,8 +332,8 @@ body {
   bottom: 0;
   left: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   background: rgba(77, 77, 77, 0.7);
   transition: all 0.4s;
   z-index: 999;
@@ -384,7 +387,7 @@ body {
 }
 
 .form__field {
-  font-family: inherit;
+  font-family: "Lato", sans-serif;
   width: 100%;
   border: 0;
   border-bottom: 2px solid #fbfbfb;
@@ -447,7 +450,7 @@ body {
   font-weight: 700;
 }
 
-/* Botones */
+/* Botones Generales */
 .button-23 {
   background-color: #B57EDC;
   border: 1px solid rgba(34, 34, 34, 0.7333333333);
@@ -488,6 +491,7 @@ body {
   opacity: 1;
 }
 
+/* Diseño Scroll */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -500,14 +504,19 @@ body {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-/* Seccion cuentas de los usuarios */
+body {
+  background: #fbfbfb;
+  font-family: "Lato", sans-serif;
+}
+
+/* Seccion cuentas de los usuarios (Usuarios/Admin)*/
 section {
   padding: 40px 140px 40px 140px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* Crear y buscardor de usuarios */
+  /* Crear y buscador de usuarios */
 }
 section .utilidadesAdmin {
   display: flex;
@@ -618,18 +627,11 @@ section .tbl-content .tarjetas .columna1 {
 }
 
 .cuenta {
-  color: white;
+  color: #fbfbfb;
   font-weight: 400;
 }
 
-/* demo styles */
-body {
-  background: #fbfbfb;
-  font-family: "Roboto", sans-serif;
-}
-
-/* for custom scrollbar for webkit browser*/
-/*Iconos*/
+/*Iconos (Usuarios/Admin)*/
 .icono:hover {
   cursor: pointer;
 }
@@ -638,7 +640,7 @@ body {
   text-decoration: underline;
 }
 
-/* Reset input */
+/* Reset input (Usuarios/Admin) */
 .form__field:required, .form__field:invalid {
   box-shadow: none;
 }
@@ -647,7 +649,7 @@ body {
   color: black;
 }
 
-/* Media Query */
+/* Media Query (Usuarios/Admin)*/
 @media screen and (max-width: 1360px) {
   section {
     width: 727px;

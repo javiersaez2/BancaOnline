@@ -1,28 +1,29 @@
 /* Funcion Flex solo justify content center */
 @mixin flexJustify {
     display: flex;
-    justify-content: center;
+    justify-content: $centrar;
 }
 
 /* Funcion Flex para centrar*/
 @mixin flexcenter {
     display: flex;
-    justify-content: center;
-	align-items: center;
+    justify-content: $centrar;
+	align-items: $centrar;
 }
+
 
 @mixin bx{
     cursor: pointer;
 	background: $color-negro;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	display: none !important;
+	display: $vaciar !important;
     
 }
 
 /* Funciones para dar estilos a las cajas*/
 @mixin glass {
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur($pixeles_5);
 	position: absolute;
 	inset: 0;
 	padding: 4px; 
@@ -36,13 +37,13 @@
 	
 }
 @mixin glass2 {
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
+	box-shadow: 0 4px $pixeles_30 rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur($pixeles_5);
+	-webkit-backdrop-filter: blur($pixeles_5);
 	position: absolute;
 	inset: 0;
 	border-radius: 25px; 
-	padding: 5px; 
+	padding: $pixeles_5; 
 	background:linear-gradient(45deg,$color-principal, $color-secundario); 
 	-webkit-mask: 
 		linear-gradient(#fff 0 0) content-box, 
@@ -52,15 +53,15 @@
 		
 }
 @mixin glass3 {
-	background: -webkit-linear-gradient( 120deg, #a34ae3db, #51c2cce3);
-	box-shadow: 0 4px 30px #2b123c5a;
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
-	border: 1px solid #b752ff7a;
+	background: -webkit-linear-gradient( 120deg, $color-terciario1, #51c2cce3);
+	box-shadow: 0 4px $pixeles_30 #2b123c5a;
+	backdrop-filter: blur($pixeles_5);
+	-webkit-backdrop-filter: blur($pixeles_5);
+	border: $pixeles_1 solid #b752ff7a;
 	
 }
 @mixin glasscuenta {
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 4px $pixeles_20 rgba(0, 0, 0, 0.5);
 	border-radius: 0px; 
 	background:$color-blanco-cuenta;; 
 	
@@ -68,19 +69,19 @@
 }
 @mixin glassnav {
 	background: rgba(255, 255, 255, 0.8);
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.342);
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
-	border: 1px solid rgba(255, 255, 255, 0.3);	
+	box-shadow: 0 4px $pixeles_30 rgba(0, 0, 0, 0.342);
+	backdrop-filter: blur($pixeles_5);
+	-webkit-backdrop-filter: blur($pixeles_5);
+	border: $pixeles_1 solid rgba(255, 255, 255, 0.3);	
 }
 
 @mixin glasslogin {
 	background: rgba(255, 255, 255, 0.8);
-	// box-shadow: $color-principal 0px 20px 30px -10px;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, $color-principal 0px 2px 4px -1px;
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	// box-shadow: $color-principal 0px $pixeles_20 $pixeles_30 -$pixeles_10;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -$pixeles_1, $color-principal 0px 2px 4px -$pixeles_1;
+	backdrop-filter: blur($pixeles_5);
+	-webkit-backdrop-filter: blur($pixeles_5);
+	border: $pixeles_1 solid rgba(255, 255, 255, 0.3);
 	
 }
 @mixin glasswhite {
@@ -88,16 +89,13 @@ background: rgba( 255, 255, 255, 0.25 );
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 3px );
 -webkit-backdrop-filter: blur( 3px );
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+border: $pixeles_1 solid rgba( 255, 255, 255, 0.18 );
 }
 
 @mixin glassmodal {
 	background: rgba(255, 255, 255, 0.267);
-	box-shadow: 0 4px 30px #2b123c5a;
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
-	border: 1px solid black;
-	// border: 2px solid #0000007a;
-	
-	
+	box-shadow: 0 4px $pixeles_30 #2b123c5a;
+	backdrop-filter: blur($pixeles_5);
+	-webkit-backdrop-filter: blur($pixeles_5);
+	border: $pixeles_1 solid $color-negro;
 }

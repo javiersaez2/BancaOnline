@@ -329,8 +329,8 @@ body {
   bottom: 0;
   left: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   background: rgba(77, 77, 77, 0.7);
   transition: all 0.4s;
   z-index: 999;
@@ -575,7 +575,7 @@ body {
   height: 100%;
   margin: auto;
   background-color: rgba(251, 251, 251, 0.7098039216);
-  box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
+  box-shadow: 0px 8px 50px rgba(13, 28, 39, 0.6);
   position: relative;
 }
 .secciontarjeta .tarjeta .infocliete .profile-card__img {
@@ -588,7 +588,7 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 4;
-  background-color: white;
+  background-color: #fbfbfb;
   box-shadow: 0px 5px 50px 0px #B57EDC, 0px 0px 0px 7px #B57EDC;
 }
 @media screen and (max-width: 576px) {
@@ -717,7 +717,7 @@ body {
 }
 .secciontarjeta .tarjeta .cuentacorriente .datoscorriente .fa-money-bill-transfer {
   color: #ab5fe0;
-  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, -1px #000;
   font-size: x-large;
   cursor: pointer;
 }
@@ -1045,7 +1045,7 @@ ul.more-content li {
   }
 }
 .tablasDeCuentas h2 {
-  color: purple;
+  color: #a34ae3;
   padding: 10px;
 }
 .tablasDeCuentas .contenidoTabla {
@@ -1086,7 +1086,7 @@ ul.more-content li {
   width: 90%;
 }
 .contenderDNI h2 {
-  color: purple;
+  color: #a34ae3;
 }
 .contenderDNI #FiltrarPorDNINoPersonales {
   width: 15%;

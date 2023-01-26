@@ -8,35 +8,29 @@ body {
 
 }
 
-/*CARRUSEL Y CARA DE LA PAGINA*/
+/*CARRUSEL Y CARA DE LA PAGINA (Index)*/
 #portada {
   position: relative;
   margin: 0;
 
   #imagenPortada {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexcenter();
 
     img {
       width: 100%;
       opacity: 9;
       aspect-ratio: 4.5/2;
-      //object-fit: contain;
-
       filter: brightness(30%);
     }
 
     .financias {
-
       position: absolute;
-
       padding: 3%;
       font-size: 14vw;
       letter-spacing: 1.05rem;
-      font-family: "Raleway";
-      text-align: center;
+      font-family: 'Lato', sans-serif;
+      text-align: $centrar;
       color: $color-blanco;
       opacity: 9;
 
@@ -53,15 +47,14 @@ body {
           letter-spacing: 0.5rem;
           font-size: 3vw;
           transform: translateY(-50%);
-
-          text-align: center;
+          text-align: $centrar;
 
           svg {
             height: 60px;
             width: 520px;
 
             @media screen and (max-width: 576px) {
-              height: 30px;
+              height: $pixeles_30;
               width: 40vh;
             }
           }
@@ -71,9 +64,7 @@ body {
             width: 520px;
 
             @media screen and (max-width: 576px) {
-              height: 30px;
-
-
+              height: $pixeles_30;
             }
           }
         }
@@ -84,24 +75,21 @@ body {
           stroke-width: 4px;
           fill: transparent;
           stroke: #fefefe;
-          border-bottom: 5px solid black;
+          border-bottom: $pixeles_5 solid $color-negro;
           transition: stroke-width 2.7s, stroke-dashoffset 2.7s, stroke-dasharray 1.3s;
           transition-delay: 0s;
-
         }
 
         .text {
           line-height: 32px;
           letter-spacing: 8px;
           color: #fff;
-          // width: 50%;
-          // left: 40%;
           top: -48px;
           position: relative;
-          text-align: center;
+          text-align: $centrar;
 
           @media screen and (max-width: 576px) {
-            top: -30px;
+            top: -$pixeles_30;
           }
 
           a {
@@ -123,12 +111,10 @@ body {
 }
 
 
-/* Cartas de informacion: Quienes somos, historia... */
+/* Cartas de informacion: Quienes somos, historia... (Index) */
 .quienesSomos {
-  display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  @include flexcenter();
   width: 100%;
   margin-bottom: 5em;
 
@@ -174,8 +160,8 @@ body {
     margin: 0.5%;
     margin-top: 5%;
     color: $color-negro;
-    background-color: white;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    background-color: $color-blanco;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -$pixeles_5, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
     @media screen and (max-width: 1230px) {
       width: 80%;
@@ -195,7 +181,7 @@ body {
 
       p {
         margin: 3%;
-        font-size: 15.5px;
+        font-size: 15.$pixeles_5;
         font-weight: 500;
       }
     }
@@ -206,21 +192,17 @@ body {
 @media (max-width: 400px) {
   .contenidoSomos:nth-child(1) {
     .infoSomos {
-      margin-top: 50px;
+      margin-top: $pixeles_50;
     }
   }
 }
 
 
-
-
-
-/* SLIDES */
+/* SLIDES (Index)*/
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 
 .slider {
-  display: flex;
-  justify-content: center;
+  @include flexJustify();
 }
 
 
@@ -228,13 +210,12 @@ body {
   width: 95%;
   position: relative;
   max-width: 800px;
-  margin: auto;
+  margin: $auto;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 25px;
   border-radius: 25px;
   height: 400px;
   transition: all .3s;
-  //margin-top: 5em;
 
   @media screen and (max-width: 992px) {
     max-width: 680px;
@@ -243,9 +224,9 @@ body {
 
   @media screen and (max-width: 768px) {
     max-height: 500px;
-    height: auto;
+    height: $auto;
     width: 80%;
-    margin: 180px auto;
+    margin: 180px $auto;
   }
 
 
@@ -255,8 +236,7 @@ body {
 
   &__item {
     display: flex;
-    align-items: center;
-
+    align-items: $centrar;
 
     @media screen and (max-width: 768px) {
       flex-direction: column;
@@ -265,7 +245,7 @@ body {
     &.swiper-slide-active {
 
       .blog-slider__img {
-        box-shadow: 4px 6px 8px 1px $color-principal;
+        box-shadow: 4px 6px 8px $pixeles_1 $color-principal;
 
         img {
           opacity: 1;
@@ -275,10 +255,8 @@ body {
 
       .blog-slider__content {
         >* {
-
           opacity: 1;
-          transform: none;
-
+          transform: $vaciar;
 
           @for $i from 0 to 15 {
             &:nth-child(#{$i + 1}) {
@@ -293,15 +271,11 @@ body {
   }
 
   &__img {
-    // width: 40%;
     width: 300px;
     flex-shrink: 0;
     height: 300px;
-    // background-image: linear-gradient(147deg, $color-secundario 0%, $color-principal 74%);
-
-    border-radius: 20px;
+    border-radius: $pixeles_20;
     transform: translateX(-80px);
-
     overflow: hidden;
 
     &:after {
@@ -311,8 +285,7 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      // background-image: linear-gradient(147deg, $color-secundario 0%, $color-principal 74%);
-      border-radius: 20px;
+      border-radius: $pixeles_20;
       opacity: 0.8;
     }
 
@@ -322,13 +295,8 @@ body {
       object-fit: cover;
       display: block;
       opacity: 0;
-      border-radius: 20px;
+      border-radius: $pixeles_20;
       transition: all .3s;
-    }
-
-
-    @media screen and (max-width: 992px) {
-      // width: 45%;
     }
 
     @media screen and (max-width: 768px) {
@@ -346,17 +314,12 @@ body {
   }
 
   &__content {
-    // width: 60%;
     padding-right: 25px;
-
-    @media screen and (max-width: 992px) {
-      // width: 55%;
-    }
 
     @media screen and (max-width: 768px) {
       margin-top: -80px;
-      text-align: center;
-      padding: 0 30px;
+      text-align: $centrar;
+      padding: 0 $pixeles_30;
     }
 
     @media screen and (max-width: 576px) {
@@ -367,15 +330,13 @@ body {
       opacity: 0;
       transform: translateY(25px);
       transition: all .4s;
-
-
     }
 
   }
 
   &__code {
     color: $color-negro;
-    margin-bottom: 15px;
+    margin-bottom: $pixeles_15;
     display: block;
     font-weight: 800;
   }
@@ -384,49 +345,46 @@ body {
     font-size: 24px;
     font-weight: 700;
     color: $color-negro;
-    margin-bottom: 20px;
+    margin-bottom: $pixeles_20;
   }
 
   &__text {
     color: $color-negro;
-    margin-bottom: 30px;
+    margin-bottom: $pixeles_30;
     line-height: 1.5em;
   }
 
   &__button {
     display: inline-flex;
     background: $color-principal;
-    padding: 15px 35px;
-    border-radius: 50px;
+    padding: $pixeles_15 35px;
+    border-radius: $pixeles_50;
     color: #fff;
-    box-shadow: 0px 14px 20px $color-principal;
-    text-decoration: none;
+    box-shadow: 0px 14px $pixeles_20 $color-principal;
+    text-decoration: $vaciar;
     font-weight: 700;
-    justify-content: center;
-    text-align: center;
-    letter-spacing: 1px;
-
-
+    justify-content: $centrar;
+    text-align: $centrar;
+    letter-spacing: $pixeles_1;
   }
 
   .swiper-container-horizontal>.swiper-pagination-bullets,
   .swiper-pagination-custom,
   .swiper-pagination-fraction {
-    bottom: 10px;
+    bottom: $pixeles_10;
     left: 0;
     width: 100%;
-
   }
 
   &__pagination {
     position: absolute;
     z-index: 15;
-    right: 20px;
+    right: $pixeles_20;
     width: 11px !important;
-    text-align: center;
-    left: auto !important;
+    text-align: $centrar;
+    left: $auto !important;
     top: 50%;
-    bottom: auto !important;
+    bottom: $auto !important;
     transform: translateY(-50%);
 
     @media screen and (max-width: 768px) {
@@ -434,16 +392,14 @@ body {
       left: 50% !important;
       top: 205px;
       width: 100% !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flexcenter;
     }
 
     &.swiper-pagination-bullets .swiper-pagination-bullet {
       margin: 8px 0;
 
       @media screen and (max-width: 768px) {
-        margin: 0 5px;
+        margin: 0 $pixeles_5;
       }
     }
 
@@ -451,7 +407,7 @@ body {
       width: 11px;
       height: 11px;
       display: block;
-      border-radius: 10px;
+      border-radius: $pixeles_10;
       background: #062744;
       opacity: 0.2;
       transition: all .3s;
@@ -459,12 +415,12 @@ body {
       &-active {
         opacity: 1;
         background: $color-blanco;
-        height: 30px;
-        box-shadow: 0px 0px 20px $color-terciario1;
+        height: $pixeles_30;
+        box-shadow: 0px 0px $pixeles_20 $color-terciario1;
 
         @media screen and (max-width: 768px) {
           height: 11px;
-          width: 30px;
+          width: $pixeles_30;
         }
       }
     }
@@ -472,7 +428,7 @@ body {
   }
 }
 
-/* Bordes cartas */
+/* Bordes cartas (Index) */
 .blog-slider:before {
   content: "";
   @include glass2();

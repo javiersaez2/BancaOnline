@@ -1,18 +1,25 @@
 
-/* Seccion cuentas de los usuarios */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+body {
+  background: $color-blanco;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Seccion cuentas de los usuarios (Usuarios/Admin)*/
 section {
-  padding: 40px 140px 40px 140px;
+  padding: $pixeles_40 140px $pixeles_40 140px;
   @include flexcenter();
   flex-direction: column;
 
-  /* Crear y buscardor de usuarios */
+  /* Crear y buscador de usuarios */
   .utilidadesAdmin{
     display: flex;
     width: 99%;
     justify-content: space-between;
-    align-items: center;
+    align-items: $centrar;
     flex-direction: row;
-    margin-bottom: 5px;
+    margin-bottom: $pixeles_5;
 
     .search-box{
       width: fit-content;
@@ -20,35 +27,35 @@ section {
       position: relative;
 
       .input-search{
-        height: 45px;
-        width: 45px;
-        border-style: none;
-        padding: 10px;
+        height: $pixeles_45;
+        width: $pixeles_45;
+        border-style: $vaciar;
+        padding: $pixeles_10;
         font-size: 17px;
-        outline: none;
+        outline: $vaciar;
         transition: all .5s ease-in-out;
         background-color: transparent;
-        padding-right: 40px;
+        padding-right: $pixeles_40;
         color:rgb(0, 0, 0);
       }
       .input-search::placeholder{
-        color:rgba(black,.5);
-        font-size: 15px;
+        color:rgba($color-negro,.5);
+        font-size: $pixeles_15;
         letter-spacing: 2px;
         font-weight: 100;
       }
       .btn-search{
-        width: 50px;
-        height: 50px;
-        border-style: none;
-        font-size: 20px;
+        width: $pixeles_50;
+        height: $pixeles_50;
+        border-style: $vaciar;
+        font-size: $pixeles_20;
         font-weight: bold;
-        outline: none;
+        outline: $vaciar;
         cursor: pointer;
         border-radius: 50%;
         position: absolute;
         right: 0px;
-        color: black ;
+        color: $color-negro ;
         background-color:transparent;
         pointer-events: painted;  
       }
@@ -57,14 +64,14 @@ section {
         width: 300px;
         border-radius: 0px;
         background-color: transparent;
-        border-bottom:1px solid rgba(0, 0, 0, 0.5);
+        border-bottom:$pixeles_1 solid rgba(0, 0, 0, 0.5);
         transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
       }
       .input-search:focus{
         width: 300px;
         border-radius: 0px;
         background-color: transparent;
-        border-bottom:1px solid rgba(0, 0, 0, 0.5);
+        border-bottom:$pixeles_1 solid rgba(0, 0, 0, 0.5);
         transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
       }
     }   
@@ -82,8 +89,8 @@ section {
       height: 320px;
       width: 346px;
       position: relative;
-      margin: 5px;
-      border: 1px solid rgba(0, 0, 0, 0.459);
+      margin: $pixeles_5;
+      border: $pixeles_1 solid rgba(0, 0, 0, 0.459);
 
       table {
         width: 100%;
@@ -92,7 +99,7 @@ section {
 
       .columna2 {
         color: $color-blanco;
-        padding: 5px;
+        padding: $pixeles_5;
         font-weight: 500;
         background-color: rgba(39, 39, 39, 0.2);
 
@@ -100,7 +107,7 @@ section {
 
       .columna1 {
         color: $color-blanco;
-        padding: 5px;
+        padding: $pixeles_5;
         font-weight: 700;
         background-color: rgba(39, 39, 39, 0.2);
       }
@@ -109,31 +116,12 @@ section {
   }
 }
 
-
 .cuenta{
-  color:white;
+  color:$color-blanco;
   font-weight: 400;
 }
 
-/* demo styles */
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-
-body {
-  background: $color-blanco;
-  font-family: 'Roboto', sans-serif;
-}
-
-/* for custom scrollbar for webkit browser*/
-
- 
-
-
-
-
-
-
-/*Iconos*/
+/*Iconos (Usuarios/Admin)*/
 .icono:hover{
   cursor: pointer;
 }
@@ -142,28 +130,28 @@ body {
   text-decoration: underline;
 }
 
-/* Reset input */
+/* Reset input (Usuarios/Admin) */
 .form__field{
-  &:required,&:invalid { box-shadow:none; }
+  &:required,&:invalid { box-shadow:$vaciar; }
 
 }
 .for_option *{
   color: $color-negro;
 }
 
-/* Media Query */
+/* Media Query (Usuarios/Admin)*/
 @media screen and (max-width: 1360px) {
   
   section{
     width: 727px;
-    margin: auto;
+    margin: $auto;
   }
 }
 
 @media screen and (max-width: 1007px) {
   section{
     padding: 0px;
-    width: auto;
+    width: $auto;
     .utilidadesAdmin{
       flex-direction: column-reverse;
 
@@ -174,7 +162,7 @@ body {
       }
 
       .search-box{
-        margin-bottom: 5px;
+        margin-bottom: $pixeles_5;
 
         .btn-search:focus ~ .input-search{
           width: 240px;
