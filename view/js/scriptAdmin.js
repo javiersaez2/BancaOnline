@@ -7,6 +7,14 @@ MyApp.controller('miController', function ($scope, $http) {
     verusuarios();
     //Posicion de la alerta
     alertify.set('notifier', 'position', 'top-left');
+
+    /* Solo caracteres en el nombre*/    
+    $("#nombre2").keypress(function(event){
+        if (event.keyCode >= 48 && event.keyCode <= 57){
+            event.preventDefault();
+        }
+    });   
+    
     ///////////////////////////////
     // Mostrar lista de usuarios //
     ///////////////////////////////
@@ -57,9 +65,6 @@ MyApp.controller('miController', function ($scope, $http) {
     }
 
     $scope.nuevoCliente = function () {
-
-
-
         if ($scope.dniIns == null || $scope.nombreIns == null || $scope.contrsenaIns == null || $scope.vefIns == null || $scope.tipoIns == null) {
             alertify.error("Algun campo vacio!");
         }
@@ -160,9 +165,6 @@ nif($scope.dniIns);
     /////////////////////////////////////////////////
     $scope.MostrarCuentas = function (miIndex, item) {
         $scope.cuenta = [];
-        (miIndex)
-        ("--")
-        (item.objCuenta.iban)
         for (i = 0; i < item.objCuenta.length; i++) {
             $scope.cuenta.push({ iban: item.objCuenta[i].iban, dniCliente: item.objCuenta[i].dniCliente, titular: item.objCuenta[i].titular, saldo: item.objCuenta[i].saldo, cuentaPos: i + 1 });
             ($scope.cuenta)
@@ -192,11 +194,9 @@ nif($scope.dniIns);
             data: JSON.stringify({ 'dniCliente': dni, 'nombre': nombreCliente })
         }).then(function (response) {
             if (response.data.error.includes("La cuenta se ha insertado con exito")) {
-
                 alertify.success(response.data.error)
             }
             else {
-
                 alertify.error(response.data.error)
             }
             verusuarios();
@@ -216,11 +216,9 @@ nif($scope.dniIns);
         }).then(function (response) {
 
             if (response.data.error == "No puedes borrar tu usuario") {
-
                 alertify.error(response.data.error)
             }
             else {
-
                 alertify.success(response.data.error)
             }
             $scope.cerrarCuentas(0);

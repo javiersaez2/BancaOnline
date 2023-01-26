@@ -97,7 +97,7 @@ miApp.controller('datoscliente', function ($scope, $http) {
                     tipoMovimiento = "fa-solid fa-sack-xmark fa-lg";  claseMovimiento = "reti";   
                     datos[i].objMovimiento.tipoMovimiento = "Retiro";
                 } 
-
+                
                 mensaje = datos[i].objMovimiento.tipoMovimiento + " de " + datos[i].cantidad + "€ desde la cuenta: " + datos[i].iban + ".";
                 movimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimientoIcon":tipoMovimiento, "tipoMovimiento":datos[i].objMovimiento.tipoMovimiento, "claseMovimiento":claseMovimiento, "mensaje":mensaje});
             }else {
