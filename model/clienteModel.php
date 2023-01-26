@@ -118,9 +118,16 @@ class clienteModel extends clienteclass
         $secreto = mt_rand(1000, 9999);
         $tipo = $this->getTipo();
 
+        $sql = "SELECT * FROM cliente WHERE dniCliente='$dni' ";
+        $result = $this->link->query($sql);
+
+        if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            return "dni duplicado";
+        }
+        else{
         $sql = "INSERT INTO cliente (dniCliente, nombre, pasahitza, secreto, tipo) VALUES ('$dni', '$nombre', '$pasahitza', $secreto, $tipo)";
         $this->link->query($sql);
-
+        }
         if ($this->link->affected_rows == 1) {
             return "Usuario añadido con exito";
         } else {
