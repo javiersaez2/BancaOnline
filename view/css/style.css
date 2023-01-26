@@ -8,17 +8,17 @@
   margin: 0;
 }
 
-/* ================= HEADER ================ */
+body {
+  font-family: "Lato", sans-serif;
+}
+
+/* HEADER (NAVBAR)*/
 .bx {
   font-size: 2.5rem;
 }
 
 .container {
   padding: 0 2rem;
-}
-
-body {
-  font-family: "Raleway", sans-serif;
 }
 
 header {
@@ -37,6 +37,7 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* Imagen Logo (NAVBAR) */
 .company-logo {
   background-color: black;
   -webkit-background-clip: text;
@@ -104,7 +105,7 @@ header {
   display: none !important;
 }
 
-/* =============== MEDIA QUERIES ======= */
+/* MEDIA QUERY(NAVBAR) */
 @media screen and (max-width: 768px) {
   .navbar {
     background: rgba(255, 255, 255, 0.8);
@@ -156,7 +157,7 @@ header {
     padding: 0rem 2rem;
   }
 }
-/* Estructura y estilo footer */
+/* Estructura y estilo Footer (Footer)*/
 html {
   height: 100%;
 }
@@ -209,7 +210,7 @@ body {
   margin-top: 10px;
 }
 
-/* Links footer */
+/* Links Footer (Footer) */
 .footer-links {
   padding-left: 0;
   list-style: none;
@@ -234,7 +235,7 @@ body {
   margin: 0;
 }
 
-/* Iconos redes sociales */
+/* Iconos redes sociales (Footer) */
 .social-icons {
   padding-left: 0;
   margin-bottom: 0;
@@ -289,7 +290,7 @@ body {
   padding: 4px;
 }
 
-/* Media Query */
+/* Media Query Footer (Footer) */
 @media (max-width: 991px) {
   .site-footer [class^=col-] {
     margin-bottom: 30px;
@@ -323,14 +324,13 @@ body {
 }
 body, html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
   background: #fbfbfb;
 }
 
-/*CARRUSEL Y CARA DE LA PAGINA*/
+/*CARRUSEL Y CARA DE LA PAGINA (Index)*/
 #portada {
   position: relative;
   margin: 0;
@@ -352,7 +352,7 @@ body {
   padding: 3%;
   font-size: 14vw;
   letter-spacing: 1.05rem;
-  font-family: "Raleway";
+  font-family: "Lato", sans-serif;
   text-align: center;
   color: #fbfbfb;
   opacity: 9;
@@ -425,7 +425,7 @@ body {
   stroke-dasharray: 480 100;
 }
 
-/* Cartas de informacion: Quienes somos, historia... */
+/* Cartas de informacion: Quienes somos, historia... (Index) */
 .quienesSomos {
   flex-direction: row;
   display: flex;
@@ -477,7 +477,7 @@ body {
   margin-top: 5%;
   color: black;
   background-color: #fbfbfb;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 22px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 @media screen and (max-width: 1230px) {
   .quienesSomos .contenidoSomos {
@@ -506,7 +506,7 @@ body {
     margin-top: 50px;
   }
 }
-/* SLIDES */
+/* SLIDES (Index)*/
 .slider {
   display: flex;
   justify-content: center;
@@ -760,7 +760,7 @@ body {
   }
 }
 
-/* Bordes cartas */
+/* Bordes cartas (Index) */
 .blog-slider:before {
   content: "";
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
@@ -790,17 +790,18 @@ body {
   z-index: 0;
 }
 
+/* Familias de fuentes para titulos (Simulador) */
 #title h1 {
-  font-family: "Arial", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 #title h3 {
-  font-family: "Arial", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 #title h4 {
-  font-family: "Arial", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
-/* Formulario de datos para la simulacion */
+/* Formulario de datos (Simulador) */
 textarea {
   width: 100%;
   padding: 12px 20px;
@@ -846,7 +847,7 @@ input[type=button]:hover {
   width: 100%;
 }
 
-/* Tabla de la simulacion */
+/* Tabla de datos (Simulador) */
 .form {
   border-radius: 5px;
   padding: 20px;
@@ -863,7 +864,7 @@ input[type=button]:hover {
   flex-wrap: wrap;
 }
 .form .tbl-content table {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lato", sans-serif;
   border-collapse: collapse;
   width: 100%;
   text-align: right;
@@ -877,7 +878,7 @@ input[type=button]:hover {
 .form .tbl-content table th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
+  text-align: center;
   background-color: #a34ae3;
   color: #fbfbfb;
 }
@@ -890,7 +891,7 @@ input[type=button]:hover {
   margin-top: 70px;
 }
 
-/* Media Query */
+/* Media Query (Simulador) */
 @media (min-width: 950px) {
   .form {
     display: grid;
@@ -927,7 +928,7 @@ input[type=button]:hover {
     margin-top: 35px;
   }
 }
-/* Secion login */
+/* Secion Login (Login)*/
 .sectionlogin {
   background: #fbfbfb;
   height: 88.3vh;
@@ -993,6 +994,7 @@ input[type=button]:hover {
   transition: 0.5s;
 }
 
+/* Inputs (Login) */
 .box .inputBox input:focus ~ label,
 .box .inputBox input:valid ~ label {
   top: -25px;
@@ -1014,6 +1016,7 @@ input[type=button]:hover {
   border-radius: 5px;
 }
 
+/* Modales Generales */
 .modal {
   visibility: hidden;
   opacity: 0;
@@ -1078,7 +1081,7 @@ input[type=button]:hover {
 }
 
 .form__field {
-  font-family: inherit;
+  font-family: "Lato", sans-serif;
   width: 100%;
   border: 0;
   border-bottom: 2px solid #fbfbfb;
@@ -1141,7 +1144,7 @@ input[type=button]:hover {
   font-weight: 700;
 }
 
-/* Botones */
+/* Botones Generales */
 .button-23 {
   background-color: #B57EDC;
   border: 1px solid rgba(34, 34, 34, 0.7333333333);
@@ -1182,6 +1185,7 @@ input[type=button]:hover {
   opacity: 1;
 }
 
+/* Diseño Scroll */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -1194,22 +1198,7 @@ input[type=button]:hover {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-.botonRegresar {
-  width: 100px;
-  height: 10px;
-  position: absolute;
-  top: 100px;
-  left: 10px;
-}
-
-@media (max-width: 400px) {
-  .botonRegresar {
-    width: 70px;
-  }
-  .botonRegresar input {
-    content: "Atrás";
-  }
-}
+/* Tabla cuentas (Transferencia/IngresarRetirar) */
 .tablasDeCuentas {
   width: 95%;
   padding-top: 10px;
@@ -1256,6 +1245,7 @@ input[type=button]:hover {
   text-decoration: none;
 }
 
+/* Contenedor DNI (Transferencia) */
 .contenderDNI {
   display: flex;
   justify-content: center;
@@ -1273,11 +1263,7 @@ input[type=button]:hover {
   margin: auto;
 }
 
-@media (max-width: 600px) {
-  .contenderDNI #FiltrarPorDNINoPersonales {
-    width: 90%;
-  }
-}
+/* Mensajes Error (Transferencia) */
 #infomarcionNecesaria {
   width: 81%;
   padding-top: 10px;
@@ -1295,4 +1281,17 @@ input[type=button]:hover {
 
 .tiposDeErroresIz {
   color: red;
+}
+
+.modalMovimientos .modal__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Media Query (Transferencia) */
+@media (max-width: 600px) {
+  .contenderDNI #FiltrarPorDNINoPersonales {
+    width: 90%;
+  }
 }/*# sourceMappingURL=style.css.map */

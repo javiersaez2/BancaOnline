@@ -2,7 +2,7 @@ var miApp = angular.module('miApp', []);
 
 ////////////////// - Controlador de sesion - //////////////////
 miApp.controller('miControlador', function ($scope, $http) {
-    $scope.passMostrar = true; $scope.iniciarSesionSection = true; $scope.tipoMostrar = false;
+    $scope.passMostrar = true; $scope.tipoMostrar = false;
 
     ////////////////// - Funcion para verificar la sesion - //////////////////
     $scope.loggedVerify = function () {

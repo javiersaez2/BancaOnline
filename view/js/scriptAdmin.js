@@ -318,7 +318,7 @@ MyApp.controller('miController', function ($scope, $http) {
                     $scope.cuentaUsuario = true;
                     $scope.users = true;
                 } else {
-                     alertify.error("User: " + response.data.izena + " | Sin acceso, tipo: " + response.data.tipo);
+                    alertify.error("User: " + response.data.izena + " | Sin acceso, tipo: " + response.data.tipo);
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
                     $scope.users = false;

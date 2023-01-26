@@ -58,23 +58,16 @@
   </section>
 
   <!--Modal -->
-  <div id="demo-modal1" class="modal">
-
+  <div id="demo-modal1" class="modal modalMovimientos">
     <div class="modal__content">
-
-
       <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
       <div class="form__group field">
-
         <div ng-show="textoVer =='true'">
           <h2><span id="ibanClick"></span></h2>
-
         </div>
 
         <form ng-show="formVer =='true'">
-
           <div id="infomarcionNecesaria">
-
             <div class="seleccion">
               <input type="text" ng-model="cantidad" ng-keypress="noletras()" placeholder="Cantidad" name="cantidad" id='cantidad' />
             </div>
@@ -82,9 +75,7 @@
               <input type="text" ng-model="concepto" placeholder="Concepto" name="concepto" id='concepto'></input>
             </div>
           </div>
-          <br>
-
-          
+         
           <div class="tiposDeErrores" ng-model="errores">{{errores}}</div>
           
           <input id="boton" type="button" value="ACEPTAR" ng-click="mover()">
