@@ -330,7 +330,7 @@ nif($scope.dniIns);
             if (response.data.error != "logged") {
                 if (window.location.pathname == "/view/html/paginaAdmin.html") {
                      alertify.error("Error: Usuario sin permisos");
-                    window.location.href = "/view/html/index.html"
+                    window.location.href = "/view/index.html"
                 }
 
                 $scope.cuentaUsuario = false;
@@ -350,8 +350,8 @@ nif($scope.dniIns);
                     $scope.botonAdmin = false;
                     $scope.users = false;
 
-                    if (window.location.pathname != "/view/html/index.html") {
-                        window.location.href = "/view/html/index.html";
+                    if (window.location.pathname != "/view/index.html") {
+                        window.location.href = "/view/index.html";
                     }
                 }
             }
@@ -365,7 +365,7 @@ nif($scope.dniIns);
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/view/html/index.html";
+            window.location.href = "/view/index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
