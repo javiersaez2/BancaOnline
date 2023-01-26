@@ -14,10 +14,10 @@
   
   <script src="https://kit.fontawesome.com/d728b6004c.js" crossorigin="anonymous"></script>
   <!-- JavaScript -->
-<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
-<!-- CSS -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+  <!-- CSS -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 
   <title>Pagina Prestamo</title>
 
@@ -36,8 +36,7 @@
           <option value="Frances">Francés</option>
           <option value="Simple">Simple</option>
           <option value="Americano">Americano</option>
-        </select>
-        
+        </select>    
       </div>
       <div>
         <label>Duración </label>
@@ -53,7 +52,6 @@
     </div>
 
     <div class="triplete2">
-      
       <div>
         <label>Capital</label>
         <input type="text" ng-model="capital" class="number">
@@ -81,7 +79,6 @@
     </div>
 
     <div class="triplete3">
-      
       <div>
         <label>Tasa de Interés %</label>
         <input type="text" ng-model="interes"  class="number">
@@ -99,49 +96,43 @@
         </select>
       </div>
     </div>
-
     <input id="botonCalcular" type="button" value="Calcular" ng-click="calcular()">
   </div>
 
   <div class="form" ng-show="ver =='true'">
-    <div id="title">
-</div>
-<div class="tbl-content">
-    <table>
-      <tr>
-        <th>Años</th>
-        <th>cuota</th>
-        <th>Amortización</th>
-        <th>Interes</th>
-        <th>Amortización acumulada</th>
-        <th>Pendiente</th>
-      </tr>
-      <tr ng-repeat='fila in periodo'>
-        <td class="parte1tabla">{{fila.Aldiak}}</td>
-        <td>{{fila.Kuota}} </td>
-        <td>{{fila.Amortizazioa}} </td>
-        <td>{{fila.Interesa}} </td>
-        <td>{{fila.Metatua}} </td>
-        <td>{{fila.Kapitala}} </td>
-      </tr>
-    </table>
-  </div>
+    <div id="title"></div>
+    <div class="tbl-content">
+        <table>
+          <tr>
+            <th>Años</th>
+            <th>cuota</th>
+            <th>Amortización</th>
+            <th>Interes</th>
+            <th>Amortización acumulada</th>
+            <th>Pendiente</th>
+          </tr>
+          <tr ng-repeat='fila in periodo'>
+            <td class="parte1tabla">{{fila.Aldiak}}</td>
+            <td>{{fila.Kuota}} </td>
+            <td>{{fila.Amortizazioa}} </td>
+            <td>{{fila.Interesa}} </td>
+            <td>{{fila.Metatua}} </td>
+            <td>{{fila.Kapitala}} </td>
+          </tr>
+        </table>
+    </div>
     <input id="regresarPrestamo" type="button" value="Regresar" ng-click="volver()">
-
   </div>
 
 
   <!--SITE FOOTER-->
-  <br>
   <footer class="site-footer">
    
   </footer>
 
-
-  <script src="/view/js/prestamo.js"></script>
-
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src="/view/js/nav.js" type="text/javascript"></script>
+  <script src="/view/js/prestamo.js"></script>
 </body>
 
 </html>

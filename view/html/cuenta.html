@@ -21,8 +21,6 @@
   <header ng-controller="miControlador" ng-init="loggedVerify()">
   </header>
 
-
-</div>
   <!-- Datos -->
   <section ng-controller="datoscliente">
     <div ng-init="datoscliente()" ng-show="datosClienteCarta">
@@ -72,11 +70,9 @@
                 <div>
                   <i class="fa-solid fa-money-bill-transfer fa-fade"  ng-click="movimientos(infocuenta.iban, 'vacio')" style="--fa-animation-duration: 2s; --fa-fade-opacity:0.65; --fa-animation-delay:1s" ng-click="modificarUsuario('2')"></i> 
                 </div>
-
               </div>
             </div>
       </section>
-
 
 
 
@@ -85,7 +81,6 @@
 
         <div class="modal__content">
           <form>
-
             Modificar contraseña
             <div class="form__group field">
 
@@ -93,6 +88,7 @@
                 id='passanti' required />
               <label for="passanti" class="form__label">Contraseña antigua</label>
             </div>
+
             <div class="form__group field">
               <input type="password" class="form__field" ng-model="passModificar" placeholder="Contrasena"
                 name="passModificar" id='contrasenaModificar' required />
@@ -105,7 +101,6 @@
             </div>
             <br>
             <div class="tiposDeErroresIz" ng-model="errores">{{errores}}</div>
-
 
             <button ng-click="guardarPassword(item)" class="button-23">Guardar Modificaciones</button>
             <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
