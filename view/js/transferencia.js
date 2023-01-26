@@ -185,6 +185,7 @@ MyApp.controller('miController', function ($scope, $http) {
 
             vercuentas();
             //vercuentasNoPersonales();
+            window.location.href="cuenta.html";
 
             if (response.data.error == "Completado") {
                 $scope.SeleccionT = false;
@@ -206,11 +207,6 @@ MyApp.controller('miController', function ($scope, $http) {
 
 
 
-
-
-    $scope.regresar = function () {
-        window.location.href="cuenta.html";
-    }
 
     //Solo numeros en la cantidad
     document.getElementById("saldoT").onkeypress = noletras;

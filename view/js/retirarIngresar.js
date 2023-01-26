@@ -49,6 +49,8 @@ MyApp.controller('miControl', function ($scope, $http) {
                     data: JSON.stringify({ 'iban': iban, 'cantidad': cantidad, 'concepto': concepto, 'tipo': "Ingresar" })
                 }).then(function (response) {
                     location.reload();
+                    window.location.href="cuenta.html";
+
                 }).catch(function (response) {
                     console.error('Error occurred:', response.status, response.data)
                 })
@@ -66,7 +68,8 @@ MyApp.controller('miControl', function ($scope, $http) {
                     }
                         
                     location.reload();
-                    
+                    window.location.href="cuenta.html";
+
                 
                 }).catch(function (response) {
                     console.error('Error occurred:', response.status, response.data)
