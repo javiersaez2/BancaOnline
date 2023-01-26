@@ -136,12 +136,13 @@ MyApp.controller('miController', function ($scope, $http) {
         }).then(function (response) {
             vercuentas();
             //vercuentasNoPersonales();
-            window.location.href="cuenta.html";
 
             if (response.data.error == "Completado") {
                 $scope.SeleccionT = false;
                 $scope.OtrasT = false;
                 modalnovisible(1);
+                window.location.href="cuenta.html";
+
             } else{
                 $scope.fallosVisibles = response.data.error;
             }
