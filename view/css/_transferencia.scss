@@ -1,56 +1,38 @@
-.botonRegresar {
-    width: 100px;
-    height: 10px;
-    position: absolute;
-    top: 100px;
-    left: 10px;
 
-
-}
-
-@media (max-width: 400px) {
-    .botonRegresar {
-        width: 70px;
-        input{
-            content: "Atrás";
-        }
-    }
-}
-
+/* Tabla cuentas (Transferencia) */
 .tablasDeCuentas {
     width: 95%;
-    padding-top: 10px;
+    padding-top: $pixeles_10;
     @include flexJustify();
     flex-direction: column;
     text-align: $centrar;
-    margin: auto;
+    margin: $auto;
 
     @media screen and (max-width: 576px) {
         padding: 0;
     }
 
     h2 {
-        color: purple;
-        padding: 10px;
+        color: $color-terciario1;
+        padding: $pixeles_10;
     }
 
     .contenidoTabla {
-        padding-top: 20px;
+        padding-top: $pixeles_20;
         overflow-x: scroll;
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        border: $pixeles_1 solid rgba(255, 255, 255, 0.3);
         display: flex;
 
         .tarjetitas {
             position: relative;
-            margin: 5px;
-            backdrop-filter: blur(5px);
-
+            margin: $pixeles_5;
+            backdrop-filter: blur($pixeles_5);
 
             table {
                 .colum2 {
                     width: 211px;
                     height: 25px;
-                    padding: 5px;
+                    padding: $pixeles_5;
                     background-color: rgba(39, 39, 39, 0.2);
 
                 }
@@ -58,7 +40,7 @@
                 .colum1 {
                     width: 170px;
                     height: 25px;
-                    padding: 5px;
+                    padding: $pixeles_5;
                     background-color: rgba(39, 39, 39, 0.2);
                 }
             }
@@ -72,52 +54,52 @@
     }
 }
 
+/* Contenedor DNI (Transferencia) */
 .contenderDNI {
     @include flexcenter();
     flex-direction: column;
     justify-content: $centrar;
-    margin: auto;
+    margin: $auto;
     width: 90%;
 
     h2 {
-        color: purple;
+        color: $color-terciario1;
     }
 
     #FiltrarPorDNINoPersonales {
         width: 15%;
-        margin: auto;
-
+        margin: $auto;
     }
 }
 
 
-@media (max-width: 600px) {
-    .contenderDNI {
-        #FiltrarPorDNINoPersonales {
-            width: 90%;
-
-        }
-    }
-}
-
-
+/* Mensajes Error (Transferencia) */
 #infomarcionNecesaria {
-
     width: 81%;
-    padding-top: 10px;
+    padding-top: $pixeles_10;
     display: grid;
     grid-template-columns: 1;
     grid-template-areas: 2;
-    grid-gap: 5px;
-    margin: auto;
+    grid-gap: $pixeles_5;
+    margin: $auto;
 
 }
 
 .tiposDeErrores {
-    text-align: center;
+    text-align: $centrar;
     color: red;
 }
 
 .tiposDeErroresIz {
     color: red;
+}
+
+
+/* Media Query (Transferencia) */
+@media (max-width: 600px) {
+    .contenderDNI {
+        #FiltrarPorDNINoPersonales {
+            width: 90%;
+        }
+    }
 }

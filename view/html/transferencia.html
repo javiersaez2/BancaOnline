@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/view/img/logo.PNG" />
 
   <script src="/view/js/angular.min.js"></script>
 
@@ -120,12 +121,9 @@
             </td>
           </tr>
         </table>
-        <input type="button" value="ELEGIR" class="botonesDeAceptar"
-          ng-click="modalIban($index,contenidoss); modal('1')">
-
+        <input type="button" value="ELEGIR" class="botonesDeAceptar" ng-click="modalIban($index,contenidoss); modal('1')">
       </div>
     </div>
-
   </section>
 
 
@@ -138,13 +136,10 @@
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
   -->
-
   <div id="demo-modal1" class="modal">
-
     <div class="modal__content">
       <form>
         <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
-
         <div id="infomarcionNecesaria">
           <div class="seleccion">
             <label for="saldo">Saldo que desea transferir</label>
@@ -155,26 +150,13 @@
             <label for="concepto">Concepto</label>
             <input name="concepto" type="text" ng-model="conceptoT">
           </div>
-
-
-
         </div>
 
-        <br>
-        <div class="tiposDeErrores" ng-model="fallosVisibles">{{fallosVisibles}}</div>
-        
+        <div class="tiposDeErrores" ng-model="fallosVisibles">{{fallosVisibles}}</div>    
         <input type="button" value="ACEPTAR" class="botonesDeAceptar" ng-click="transferir()"></i>
-
-
       </form>
     </div>
   </div>
-  </div>
-
-
-
-
-
 
 
   <!--
@@ -184,12 +166,7 @@
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
   -->
-  <br>
-  <footer class="site-footer">
-    
-  </footer>
-
-
+  <footer class="site-footer"></footer>
 
 
   <script src="/view/js/transferencia.js" type="text/javascript"></script>

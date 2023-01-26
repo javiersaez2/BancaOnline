@@ -21,8 +21,6 @@
   <header ng-controller="miControlador" ng-init="loggedVerify()">
   </header>
 
-
-</div>
   <!-- Datos -->
   <section ng-controller="datoscliente">
     <div ng-init="datoscliente()" ng-show="datosClienteCarta">
@@ -70,13 +68,11 @@
                   {{infocuenta.iban}} - {{infocuenta.saldo | currency}}
                 </div>
                 <div>
-                  <i class="fa-solid fa-money-bill-transfer fa-fade"  ng-click="movimientos(infocuenta.iban)" style="--fa-animation-duration: 2s; --fa-fade-opacity:0.65; --fa-animation-delay:1s" ng-click="modificarUsuario('2')"></i> 
+                  <i class="fa-solid fa-money-bill-transfer fa-fade"  ng-click="movimientos(infocuenta.iban, 'vacio')" style="--fa-animation-duration: 2s; --fa-fade-opacity:0.65; --fa-animation-delay:1s" ng-click="modificarUsuario('2')"></i> 
                 </div>
-
               </div>
             </div>
       </section>
-
 
 
 
@@ -85,7 +81,6 @@
 
         <div class="modal__content">
           <form>
-
             Modificar contraseña
             <div class="form__group field">
 
@@ -93,6 +88,7 @@
                 id='passanti' required />
               <label for="passanti" class="form__label">Contraseña antigua</label>
             </div>
+
             <div class="form__group field">
               <input type="password" class="form__field" ng-model="passModificar" placeholder="Contrasena"
                 name="passModificar" id='contrasenaModificar' required />
@@ -105,7 +101,6 @@
             </div>
             <br>
             <div class="tiposDeErroresIz" ng-model="errores">{{errores}}</div>
-
 
             <button ng-click="guardarPassword(item)" class="button-23">Guardar Modificaciones</button>
             <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
@@ -124,16 +119,19 @@
     <div ng-show="tablaMostrar" class="tablaMostrar">
       <div class="conjuntoFiltro">
         <div class="inputGroupTabla">
-          <input id="radio1" name="radio" type="radio"/>
-          <label for="radio1">Yes</label>
+          <input id="radio1" name="radio" type="radio" ng-click="movimientos('vacio', 'Ingresar')"/>
+          <label for="radio1">Ingresos</label>
         </div>
         <div class="inputGroupTabla">
-          <input id="radio2" name="radio" type="radio"/>
-          <label for="radio2">No</label>
+          <input id="radio2" name="radio" type="radio" ng-click="movimientos('vacio', 'Retirar')"/>
+          <label for="radio2">Retiros</label>
         </div>
         <div class="inputGroupTabla">
-          <input id="radio3" name="radio" type="radio"/>
-          <label for="radio3">No</label>
+          <input id="radio3" name="radio" type="radio" ng-click="movimientos('vacio', 'Transferencia')"/>
+          <label for="radio3">Transferencias</label>
+        </div>
+        <div>
+          <button class="botonEliminarFiltro" ng-click="uncheckAll()"><i class="fa-solid fa-filter-circle-xmark fa-xl"></i></button>
         </div>
       </div>
 

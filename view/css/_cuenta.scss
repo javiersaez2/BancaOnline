@@ -2,18 +2,18 @@ body{
   font-family: 'Lato', sans-serif;
 }
 
+/* Tarjeta Cliente (Cuenta) */
 .secciontarjeta {
     display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    width: auto;
-    font-family: Helvetica, sans-serif;
+    justify-content: $centrar;
+    margin-top: $pixeles_50;
+    width: $auto;
 
     .tarjeta {
         width: 70%;
-        height: auto;
+        height: $auto;
         display: flex;
-        margin: 50px;
+        margin: $pixeles_50;
         
         @include glasscuenta();
         background-color: $color-principal;
@@ -24,14 +24,14 @@ body{
 
 
         .infocliete {
-            padding: 5px;
-            margin-right: 20px;
+            padding: $pixeles_5;
+            margin-right: $pixeles_20;
             width: 100%;
             font-size: 5vmin;
             @media screen and (max-width: 1200px) {
-                width: auto;
+                width: $auto;
                 margin-right: 0;
-                margin-bottom: 10px;
+                margin-bottom: $pixeles_10;
             }
             @media screen and (max-width: 390px) {
                 font-size: 8vmin;  
@@ -50,38 +50,38 @@ body{
                 background-color: $color-terciario1;
                 color: $color-blanco;
                 font-size: large;
-                text-align: center;
-                margin-left: 10px;
-                margin-top: 10px;
+                text-align: $centrar;
+                margin-left: $pixeles_10;
+                margin-top: $pixeles_10;
                 display: table-cell;
                 vertical-align: middle;
-                padding: 10px;
+                padding: $pixeles_10;
 
                 @media screen and (max-width: 415px) {
-                  display: none; 
+                  display: $vaciar; 
               }
             }
 
             .profile-card {
                 width: 100%;
                 height: 100%;
-                margin: auto;
+                margin: $auto;
                 background-color: $color-blanco-cuenta;
-                box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
+                box-shadow: 0px 8px 60px -$pixeles_10 rgba(13, 28, 39, 0.6);
                 position: relative;
 
                 &__img {
-                    width: 150px;
-                    height: 150px;
-                    margin-left: auto;
-                    margin-right: auto;
+                    width: $pixeles_150;
+                    height: $pixeles_150;
+                    margin-left: $auto;
+                    margin-right: $auto;
                     transform: translateY(-50%);
                     border-radius: 50%;
                     overflow: hidden;
                     position: relative;
                     z-index: 4;
-                    background-color: white;
-                    box-shadow: 0px 5px 50px 0px $color-principal, 0px 0px 0px 7px $color-principal;
+                    background-color: $color-blanco;
+                    box-shadow: 0px $pixeles_5 $pixeles_50 0px $color-principal, 0px 0px 0px 7px $color-principal;
 
                     @media screen and (max-width: 576px) {
                         width: 120px;
@@ -100,15 +100,15 @@ body{
 
                 .fa-user-pen {
                     position: absolute;
-                    right: 5px;
-                    top: 5px;
+                    right: $pixeles_5;
+                    top: $pixeles_5;
                     color: $color-principal;
-                    font-size: 40px;
+                    font-size: $pixeles_40;
                     cursor: pointer;
                 }
 
                 .texto {
-                    text-align: center;
+                    text-align: $centrar;
 
                 }
 
@@ -117,17 +117,17 @@ body{
                     display: flex;
                     flex-direction: column;
                     justify-content: space-around;
-                    align-items: center;
+                    align-items: $centrar;
                     margin: 5% 0px 10% 0px;
                     
                     a{
-                        margin: 10px;
+                        margin: $pixeles_10;
                         
                     }
                     
                     .custom-btn {
                         width: 50vh;
-                        height: 100px;
+                        height: $pixeles_100;
                         border: 2px solid $color-terciario1;
                         font-family: 'Lato', sans-serif;
                         font-size: 5vmin;   
@@ -145,7 +145,7 @@ body{
                     }}
 
                     .btn-cuenta {
-                        font-weight: 50px;
+                        font-weight: $pixeles_50;
                         overflow: hidden;
                         transition: all 0.3s ease;
                   
@@ -160,7 +160,7 @@ body{
                             display: inline-block;
                             top: -180px;
                             left: 0;
-                            width: 30px;
+                            width: $pixeles_30;
                             height: 100%;
                             background-color: #fff;
                             animation: shiny-btn1 3s ease-in-out infinite;
@@ -200,31 +200,31 @@ body{
         }
 
         .cuentacorriente {
-            font-weight: 600;
+            font-weight: 500;
             right: 0;
             height: 650px;
             width: 105%;
-            overflow-x: auto;
+            overflow-x: $auto;
             @media screen and (max-width: 1200px) {
                 width: 100%;
                 height: 560px;
             }
 
             .datoscorriente {
-                margin: 15px;
-                margin-top:5px ;
+                margin: $pixeles_15;
+                margin-top:$pixeles_5 ;
                 height: 60px;
-                width: auto;
+                width: $auto;
                 display: flex;
                 justify-content: space-between;
                 flex-wrap: wrap;
-                padding: 5px 15px 5px 15px;
-                align-items: center;
+                padding: $pixeles_5 $pixeles_15 $pixeles_5 $pixeles_15;
+                align-items: $centrar;
                 @include glasscuenta();
 
                 .fa-money-bill-transfer {
                     color: $color-terciario4;
-                    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+                    text-shadow: -$pixeles_1 0 #000, 0 $pixeles_1 #000, $pixeles_1 0 #000, 0 -$pixeles_1 #000;
                     font-size: x-large;
                     cursor: pointer;
                 }
@@ -246,22 +246,16 @@ body{
     inline-size: 160px;
     font-size: 17px;
     font-weight: 600;
-    line-height: 15px;
+    line-height: $pixeles_15;
     padding: 11px 12px;
-    text-align: center;
-    text-decoration: none;
-    border: 1px solid rgb(34 34 34 / 22%);
+    text-align: $centrar;
+    text-decoration: $vaciar;
+    border: $pixeles_1 solid rgb(34 34 34 / 22%);
   }
 }
 
-//////////////////////
-//////////////////////
-//////////////////////
-/* TablaMovimientos */
-//////////////////////
-//////////////////////
-//////////////////////
 
+/* TablaMovimientos (Cuenta) */
 .tablaMostrar{
   @include flexcenter;
   flex-direction: column;  
@@ -269,7 +263,7 @@ body{
 
 
 
-.reti a, .ingr a, .tran a {text-decoration:none;transition: color 0.2s ease-out;}
+.reti a, .ingr a, .tran a {text-decoration:$vaciar;transition: color 0.2s ease-out;}
 .ingr a {color:$color-secundario;}
 .ingr a:hover {color:darken($color-secundario, 20%);}
 .reti a {color:$color-terciario1;}
@@ -277,15 +271,15 @@ body{
 .tran a {color:$color-terciario3;}
 .tran a:hover {color:darken($color-terciario3, 20%);}
 
-/* wrapper */
+/* Wrapper */
 .wrapper {
   width:90%;
   max-width:1250px;
-  margin:20px auto 25px auto;
+  margin:$pixeles_20 $auto 25px $auto;
   padding:0;
   background:$light-bg;
   color:rgb(255, 255, 255);
-  overflow:auto;
+  overflow:$auto;
   position:relative;
 
   .letraBlack{
@@ -295,13 +289,13 @@ body{
   .contenido2{
     max-height: 550px;
     min-height: 450px;
-    min-width: 1218px;
-    border: 1px solid rgba(128, 128, 128, 0.329);
-    overflow: auto;
+    min-width: 1215px;
+    border: $pixeles_1 solid rgba(128, 128, 128, 0.329);
+    overflow: $auto;
   }
 }
 
-/* lists */
+/* Lists */
 .rowMov ul {
   margin:0;
   padding:0;
@@ -311,7 +305,7 @@ body{
   font-size:17px;
   width:20%;
   font-weight:500;
-  list-style:none;
+  list-style:$vaciar;
   display:inline-block;
 	box-sizing:border-box;
   @media only screen and (max-width:767px) and (min-width:480px) {
@@ -323,50 +317,44 @@ body{
 }
 
 .title ul li {
-  padding:15px 13px;
+  padding:$pixeles_15 13px;
 }
 .rowMov ul li {
-  padding:5px 10px;
+  padding:$pixeles_5 $pixeles_10;
 }
 
-/* rows */
+/* Rows */
 .rowMov {
-  padding:20px 0;
-  height:30px;
+  padding:$pixeles_20 0;
+  height:$pixeles_30;
   font-size:0;
   position:relative;
   overflow:hidden;
   transition:all 0.2s ease-out;
-  border-top:1px solid darken($light-bg, 100%);
+  border-top:$pixeles_1 solid darken($light-bg, 100%);
 }
 .rowMov:hover {
   background-color:lighten($dark-bg, 10%);
   height:65px;
   color:$color-blanco;
-  @media only screen and (max-width : 767px) {
-    height:85px;
-  }
-  @media only screen and (max-width : 359px) {
-    height:105px;
-  }
 }
 .title {
-  padding:25px 0 5px 0;
-  height:45px;
+  padding:25px 0 $pixeles_5 0;
+  height:$pixeles_45;
   font-size:0;
   background-color:$color-terciario1;
   border-left:3px solid lighten($light-bg, 100%);
 }
 
 .title:hover {
-    height:45px;
+    height:$pixeles_45;
     background-color:$color-terciario1;
     border-left:3px solid lighten($light-bg, 100%);
   }
 
 .title-hide {
   @media only screen and (max-width:767px) {
-    display:none;
+    display:$vaciar;
   }
 }
 
@@ -377,15 +365,15 @@ body{
 .tran {border-left:3px solid darken($color-terciario3, 30%);}
 .tran:hover {border-left:3px solid $color-terciario3;}
 
-/* more content */
+/* More content */
 ul.more-content li {
   position:relative;
   top:22px;
-  font-size:13.5px;
+  font-size:13.$pixeles_5;
   margin:0;
-  padding:10px 13px;
+  padding:$pixeles_10 13px;
   display:block;
-  height:50px;
+  height:$pixeles_50;
   width:100%;
   color:darken($text,50%);
   @media only screen and (max-width:767px) {
@@ -393,33 +381,39 @@ ul.more-content li {
   }
 }
 
-/* small content */
+/* Small content */
 .small {
   color:darken($text,60%);
-  font-size:10px;
-  padding:0 10px;
+  font-size:$pixeles_10;
+  padding:0 $pixeles_10;
   margin:0;
   @media only screen and (max-width:767px) {
-    display:none;
+    display:$vaciar;
   }
 }
 
-/* Filtros tabla movimientos */
+/* Filtros tabla movimientos (Cuenta)*/
 .conjuntoFiltro {
-  width: 130px;
   @include flexcenter;
+
+  .botonEliminarFiltro{
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: 0;  
+  }
+
   .inputGroupTabla {
     background-color: #fff; 
     display: block;
-    width: 100%;
-    margin: 10px 0;
+    margin: 38px 3px 0px 3px;
     position: relative;
 
     label {
-      border: 1px solid black;
-      border-radius: 40px;
-      padding: 12px 30px;
-      display: block;
+      border: $pixeles_1 solid rgba(0, 0, 0, 0.473);
+      border-radius: 14px;
+      padding: 11px 34px;
+      @include flexcenter;
       text-align: left;
       color: #3C454C;
       cursor: pointer;
@@ -427,13 +421,14 @@ ul.more-content li {
       z-index: 2;
       transition: color 200ms ease-in;
       overflow: hidden;
+      width: $pixeles_40;
 
       &:before {
-        width: 10px;
-        height: 10px;
+        width: $pixeles_10;
+        height: $pixeles_10;
         border-radius: 50%;
         content: '';
-        background-color: #5562eb;
+        background-color: $color-terciario1;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -448,6 +443,7 @@ ul.more-content li {
         transform: translateY(-50%);
         cursor: pointer;
         transition: all 200ms ease-in;
+        background-color: #fff;
       }
     }
 
@@ -466,16 +462,29 @@ ul.more-content li {
     }
 
     input {
-      width: 32px;
-      height: 32px;
+      width: $pixeles_40;
+      height: $pixeles_40;
       order: 1;
       z-index: 2;
       position: absolute;
-      right: 30px;
+      right: $pixeles_30;
       top: 50%;
       transform: translateY(-50%);
       cursor: pointer;
       visibility: hidden;
     }
   }
+}
+
+/* Media Query (Cuenta) */
+@media screen and (max-width:365px) {
+  .conjuntoFiltro {
+    .inputGroupTabla {
+      label {
+        font-size: 10px;
+        width: 15px; 
+      }
+    }
+  }
+  
 }

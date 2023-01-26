@@ -3,16 +3,17 @@
 	padding: 0;
 	margin: 0;	
 }
-/* ================= HEADER ================ */
 
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+/* HEADER (NAVBAR)*/
 .bx {
 	font-size: 2.5rem;
 }
 .container {
 	padding: 0 2rem;		
-}
-body {
-	font-family: "Raleway", sans-serif;
 }
 
 header {
@@ -20,14 +21,16 @@ header {
 	z-index: 99;
 	top: 0;
 	display: flex;
-	align-items: center;
+	align-items: $centrar;
 	justify-content: space-between;
 	background: -webkit-linear-gradient( 120deg, $color-blanco, $color-blanco);
 	@include glassnav();
 
 	
 }
-.company-logo {/////IMAGEN DEL LOGO
+
+/* Imagen Logo (NAVBAR) */
+.company-logo {
 	background-color: $color-negro;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -73,7 +76,7 @@ header {
 	}
 }
 .menu-toggle {
-	display: none;
+	display: $vaciar;
 }
 .bx-menu {
 	@include bx();
@@ -83,15 +86,15 @@ header {
 }
 
 
-/* =============== MEDIA QUERIES ======= */
+/* MEDIA QUERY(NAVBAR) */
 @media screen and (max-width: 768px) {
 	.navbar {
 		@include glassnav();
 		position: absolute;
 		top: 3.4rem;
 		right: 0;
-		width: 150px;
-		height: auto;
+		width: $pixeles_150;
+		height: $auto;
 		@include flexcenter;
 		transform: scaleY(0);
 		transform-origin: bottom;
@@ -121,7 +124,7 @@ header {
 		display: block !important;
 	}
 	.hide-bx {
-		display: none !important;
+		display: $vaciar !important;
 	}
 }
 @media (min-width: 769px) {

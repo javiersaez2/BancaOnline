@@ -1,4 +1,4 @@
-////////// - Modales - ////////// 
+/* Modales Generales */ 
 .modal {
     visibility: hidden;
     opacity: 0;
@@ -7,9 +7,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexcenter();
     background: rgba(77, 77, 77, .7);
     transition: all .4s;
     z-index: 999;
@@ -26,11 +24,9 @@
     width: 450px;
     max-width: 90%;
     padding: 1em 2em;
-    height: auto;
+    height: $auto;
     max-height: 80vh;
-    overflow-x: auto;
-    
-  
+    overflow-x: $auto;  
     @include glassmodal()
   }
   
@@ -45,11 +41,11 @@
   }
   .modal__close {
     position: absolute;
-    font-size: 30px;
+    font-size: $pixeles_30;
     top: 0px;
-    right: 10px;
+    right: $pixeles_10;
     color: #585858;
-    text-decoration: none;
+    text-decoration: $vaciar;
   }
   
   
@@ -57,13 +53,13 @@
 
 .form__group {
     position: relative;
-    padding: 15px 0 0;
-    margin-top: 10px;
+    padding: $pixeles_15 0 0;
+    margin-top: $pixeles_10;
     width: 75%;
   }
   
   .form__field {
-    font-family: inherit;
+    font-family: 'Lato', sans-serif;
     width: 100%;
     border: 0;
     border-bottom: 2px solid $color-blanco;
@@ -81,7 +77,7 @@
     &:placeholder-shown ~ .form__label {
       font-size: 1.3rem;
       cursor: text;
-      top: 20px;
+      top: $pixeles_20;
     }
   }
   
@@ -114,12 +110,12 @@
 
 
 
-/* Botones */
+/* Botones Generales */
 .button-23 {
   background-color: $color-principal;
-  border: 1px solid #222222bb;
+  border: $pixeles_1 solid #222222bb;
   overflow-wrap: break-word;
-  inline-size: 150px;
+  inline-size: $pixeles_150;
   border-radius: 4px;
   box-sizing: border-box;
   color: $color-blanco;
@@ -131,11 +127,11 @@
   line-height: 6px;
   margin: 0;
   padding: 11px 12px;
-  text-align: center;
-  text-decoration: none;
+  text-align: $centrar;
+  text-decoration: $vaciar;
   transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
-  width: auto;
-  margin-bottom: 10px;
+  width: $auto;
+  margin-bottom: $pixeles_10;
 }
 
 .button-23:focus-visible {
@@ -156,7 +152,7 @@
 }
 
 
-////////// - Scroll - ////////// 
+/* Diseño Scroll */ 
 ::-webkit-scrollbar {
   width: 6px;
 }

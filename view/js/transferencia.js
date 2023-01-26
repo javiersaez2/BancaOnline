@@ -2,23 +2,23 @@
 var MyApp = angular.module('MyApp', []);
 
 MyApp.controller('miController', function ($scope, $http) {
+    // - Variables - //
+        $scope.saldoT = 0;
 
-    //saldo
-    $scope.saldoT = 0;
+        ///Visualizacion
+        $scope.TablaPersonales = true;
+        $scope.DineroT = false;
+        $scope.SeleccionT = false;
+        $scope.OtrasT = false;
 
-    ///Visualizacion
-    $scope.TablaPersonales = true;
-    $scope.DineroT = false;
-    $scope.SeleccionT = false;
-    $scope.OtrasT = false;
-
-    //Parametros propios
-    $scope.ibanPropio;
+        //Parametros propios
+        $scope.ibanPropio;
 
 
+    // Cargamos las cuentas de usuario //
     vercuentas();
 
-    //cuentasPersonales
+    // Funcion que guarda las cuentas del usuario //
     function vercuentas() {
         $http.post('/controller/c_mostrar_cuentasPersonales.php')
             .then(function (response) {
@@ -31,9 +31,7 @@ MyApp.controller('miController', function ($scope, $http) {
     }
 
 
-    /*
-        MOSTRAR CUENTAS DE OTROS POR DNI
-    */
+    // Funcion que guarda las cuentas de los demas usuarios //
     vercuentasNoPersonales();
     function vercuentasNoPersonales() {
         $http.post('/controller/c_mostrar_cuentasTransferir.php')
@@ -44,11 +42,7 @@ MyApp.controller('miController', function ($scope, $http) {
                     value: "DNI",
                     text: 'DNI'
                 }));
-        
-                
-
-            })
-            .catch(function (response) {
+            }).catch(function (response) {
                 console.error('Error occurred:', response.status, response.data)
             })
     }
@@ -59,30 +53,18 @@ MyApp.controller('miController', function ($scope, $http) {
 
 
 
-    /*
-        ESCOGER TU CUENTA
-    */
+    // Muestra las cuentas del usuario para que pueda escoger */
     $scope.EscogerPersonal = function ($index, contenido) {
-
         $scope.SeleccionT = true;
         $scope.OtrasT = false;
 
         $scope.ibanPropio = contenido.iban;
         console.log($scope.ibanPropio);
         $("#FiltrarPorDNINoPersonales").val("DNI");
-
     }
 
-
-
-
-
-    /*
-    MOSTRAR LAS DEMAS
-    */
+    // Mostras las cuentas de los demas usuario */
     $scope.MostrarRestos = function () {
-        //$scope.variosdni -> Lo que se esconde dentro
-
         dni = { "dniCliente": $scope.variosdni.dniCliente, "iban": $scope.ibanPropio};
 
         $http({
@@ -93,34 +75,19 @@ MyApp.controller('miController', function ($scope, $http) {
             console.log(response.data.list)
             $scope.OtrasCuentas = response.data.list;
             $scope.OtrasT = true;
-
-
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
         })
 
     }
 
+    // Modals //
     $scope.modalIban = function ($index, contenidoss) {
         iban = contenidoss.iban;
-
         $scope.saldoT = 0;
         $scope.conceptoT = "";
     }
 
-
-
-
-
-
-
-
-
-
-
-    /*
-    MODAL
-    */
     $scope.modal = function (numero) {
         modalvisible(numero);
         $scope.modificarVista = 'true';
@@ -130,6 +97,8 @@ MyApp.controller('miController', function ($scope, $http) {
     $scope.cerrarCuentas = function (numero) {
         modalnovisible(numero);
     }
+
+    // Funciones para el modal (visibilidad) //
     function modalvisible(x) {
         document.getElementById("demo-modal" + x + "").style.visibility = "visible";
         document.getElementById("demo-modal" + x + "").style.opacity = 1;
@@ -141,22 +110,8 @@ MyApp.controller('miController', function ($scope, $http) {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-    /*
-        TRANSFERENCIA
-    */
+    // Funcion que completa la transferencia
     $scope.transferir = function () {
-
-
         if ($scope.conceptoT != null && $scope.saldoT == 0) {
             $scope.fallosVisibles = "Por favor; introduce Saldo";
             return false;
@@ -171,18 +126,14 @@ MyApp.controller('miController', function ($scope, $http) {
         saldo = $scope.saldoT;
         concepto = $scope.conceptoT;
 
-
-
         console.log(iban + "     " + saldo);
         lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo, "concepto": concepto };
-
 
         $http({
             url: '../../controller/c_trasferencia.php',
             method: "POST",
             data: JSON.stringify(lista)
         }).then(function (response) {
-
             vercuentas();
             //vercuentasNoPersonales();
 
@@ -190,17 +141,14 @@ MyApp.controller('miController', function ($scope, $http) {
                 $scope.SeleccionT = false;
                 $scope.OtrasT = false;
                 modalnovisible(1);
+                window.location.href="cuenta.html";
+
             } else{
                 $scope.fallosVisibles = response.data.error;
-
             }
-
-
-
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
         })
-
     }
 
 
@@ -220,10 +168,10 @@ MyApp.controller('miController', function ($scope, $http) {
         }
     }
   
-    /////LOGGED VERIFY
+
+    ////////////////// - Funcion para verificar la sesion - //////////////////
     $scope.passMostrar = true;
     $scope.iniciarSesionSection = true;
-
     $scope.loggedVerify = function () {
         $http({
             url: "/controller/cLoggedVerify.php",
@@ -253,6 +201,7 @@ MyApp.controller('miController', function ($scope, $http) {
         })
     }
 
+    ////////////////// - Funcion para cerrar sesion - //////////////////
     $scope.logout = function () {
         $http({
             url: "/controller/cLogout.php",
