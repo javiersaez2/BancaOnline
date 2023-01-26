@@ -7,17 +7,17 @@
   margin: 0;
 }
 
-/* ================= HEADER ================ */
+body {
+  font-family: "Lato", sans-serif;
+}
+
+/* HEADER (NAVBAR)*/
 .bx {
   font-size: 2.5rem;
 }
 
 .container {
   padding: 0 2rem;
-}
-
-body {
-  font-family: "Raleway", sans-serif;
 }
 
 header {
@@ -36,6 +36,7 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* Imagen Logo (NAVBAR) */
 .company-logo {
   background-color: black;
   -webkit-background-clip: text;
@@ -103,7 +104,7 @@ header {
   display: none !important;
 }
 
-/* =============== MEDIA QUERIES ======= */
+/* MEDIA QUERY(NAVBAR) */
 @media screen and (max-width: 768px) {
   .navbar {
     background: rgba(255, 255, 255, 0.8);
@@ -155,7 +156,7 @@ header {
     padding: 0rem 2rem;
   }
 }
-/* Estructura y estilo footer */
+/* Estructura y estilo Footer (Footer)*/
 html {
   height: 100%;
 }
@@ -208,7 +209,7 @@ body {
   margin-top: 10px;
 }
 
-/* Links footer */
+/* Links Footer (Footer) */
 .footer-links {
   padding-left: 0;
   list-style: none;
@@ -233,7 +234,7 @@ body {
   margin: 0;
 }
 
-/* Iconos redes sociales */
+/* Iconos redes sociales (Footer) */
 .social-icons {
   padding-left: 0;
   margin-bottom: 0;
@@ -288,7 +289,7 @@ body {
   padding: 4px;
 }
 
-/* Media Query */
+/* Media Query Footer (Footer) */
 @media (max-width: 991px) {
   .site-footer [class^=col-] {
     margin-bottom: 30px;
@@ -320,6 +321,7 @@ body {
     text-align: center;
   }
 }
+/* Modales Generales */
 .modal {
   visibility: hidden;
   opacity: 0;
@@ -384,7 +386,7 @@ body {
 }
 
 .form__field {
-  font-family: inherit;
+  font-family: "Lato", sans-serif;
   width: 100%;
   border: 0;
   border-bottom: 2px solid #fbfbfb;
@@ -447,7 +449,7 @@ body {
   font-weight: 700;
 }
 
-/* Botones */
+/* Botones Generales */
 .button-23 {
   background-color: #B57EDC;
   border: 1px solid rgba(34, 34, 34, 0.7333333333);
@@ -488,6 +490,7 @@ body {
   opacity: 1;
 }
 
+/* Diseño Scroll */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -504,12 +507,12 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+/* Tarjeta Cliente (Cuenta) */
 .secciontarjeta {
   display: flex;
   justify-content: center;
   margin-top: 50px;
   width: auto;
-  font-family: Helvetica, sans-serif;
 }
 .secciontarjeta .tarjeta {
   width: 70%;
@@ -743,7 +746,7 @@ body {
   border: 1px solid rgba(34, 34, 34, 0.22);
 }
 
-/* TablaMovimientos */
+/* TablaMovimientos (Cuenta) */
 .tablaMostrar {
   display: flex;
   justify-content: center;
@@ -780,7 +783,7 @@ body {
   color: #a537f2;
 }
 
-/* wrapper */
+/* Wrapper */
 .wrapper {
   width: 90%;
   max-width: 1250px;
@@ -802,7 +805,7 @@ body {
   overflow: auto;
 }
 
-/* lists */
+/* Lists */
 .rowMov ul {
   margin: 0;
   padding: 0;
@@ -836,7 +839,7 @@ body {
   padding: 5px 10px;
 }
 
-/* rows */
+/* Rows */
 .rowMov {
   padding: 20px 0;
   height: 30px;
@@ -897,7 +900,7 @@ body {
   border-left: 3px solid rgb(208, 151, 248);
 }
 
-/* more content */
+/* More content */
 ul.more-content li {
   position: relative;
   top: 22px;
@@ -915,7 +918,7 @@ ul.more-content li {
   }
 }
 
-/* small content */
+/* Small content */
 .small {
   color: rgba(102, 102, 102, 0.9);
   font-size: 10px;
@@ -928,7 +931,7 @@ ul.more-content li {
   }
 }
 
-/* Filtros tabla movimientos */
+/* Filtros tabla movimientos (Cuenta)*/
 .conjuntoFiltro {
   display: flex;
   justify-content: center;
@@ -937,7 +940,6 @@ ul.more-content li {
 .conjuntoFiltro .botonEliminarFiltro {
   width: 25px;
   height: 25px;
-  /* margin-bottom: 0px; */
   background-color: transparent;
   border: 0;
 }
@@ -1008,28 +1010,14 @@ ul.more-content li {
   visibility: hidden;
 }
 
-@media screen and (max-width: 355px) {
+/* Media Query (Cuenta) */
+@media screen and (max-width: 365px) {
   .conjuntoFiltro .inputGroupTabla label {
-    font-size: 13px;
-    width: 25px;
+    font-size: 10px;
+    width: 15px;
   }
 }
-.botonRegresar {
-  width: 100px;
-  height: 10px;
-  position: absolute;
-  top: 100px;
-  left: 10px;
-}
-
-@media (max-width: 400px) {
-  .botonRegresar {
-    width: 70px;
-  }
-  .botonRegresar input {
-    content: "Atrás";
-  }
-}
+/* Tabla cuentas (Transferencia/IngresarRetirar) */
 .tablasDeCuentas {
   width: 95%;
   padding-top: 10px;
@@ -1076,6 +1064,7 @@ ul.more-content li {
   text-decoration: none;
 }
 
+/* Contenedor DNI (Transferencia) */
 .contenderDNI {
   display: flex;
   justify-content: center;
@@ -1093,11 +1082,7 @@ ul.more-content li {
   margin: auto;
 }
 
-@media (max-width: 600px) {
-  .contenderDNI #FiltrarPorDNINoPersonales {
-    width: 90%;
-  }
-}
+/* Mensajes Error (Transferencia) */
 #infomarcionNecesaria {
   width: 81%;
   padding-top: 10px;
@@ -1115,4 +1100,17 @@ ul.more-content li {
 
 .tiposDeErroresIz {
   color: red;
+}
+
+.modalMovimientos .modal__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Media Query (Transferencia) */
+@media (max-width: 600px) {
+  .contenderDNI #FiltrarPorDNINoPersonales {
+    width: 90%;
+  }
 }/*# sourceMappingURL=style_cuenta.css.map */
