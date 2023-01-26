@@ -3,16 +3,13 @@ var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
     $scope.butonLogOut = true;
     $scope.cuenta = []
-
-    // cargar los datos de la tabla usuario de la base de datos  //
+    /////cargar los datos de la tabla usuario de la base de datos 
     verusuarios();
-    
-    // Posicion de la alerta //
+    //Posicion de la alerta
     alertify.set('notifier', 'position', 'top-left');
-    
-    ////////////////////////////////////
-    // - Mostrar lista de usuarios - //
-    ///////////////////////////////////
+    ///////////////////////////////
+    // Mostrar lista de usuarios //
+    ///////////////////////////////
     function verusuarios() {
         $http.post('/controller/controlador_consulta_usuarios.php')
             .then(function (response) {
@@ -24,9 +21,10 @@ MyApp.controller('miController', function ($scope, $http) {
             })
     }
 
-    /////////////////////////
-    // - Borrar usuarios - //
-    /////////////////////////
+
+    /////////////////////
+    // Borrar usuarios //
+    /////////////////////
     $scope.borrarUsuario = function (miIndex, item) {
         var datosjson = { 'dniCliente': item.dniCliente };
         $http({
@@ -35,20 +33,22 @@ MyApp.controller('miController', function ($scope, $http) {
             data: JSON.stringify(datosjson)
         }).then(function (response) {
             if (response.data.error == "Cuenta corriente borrada con exito") {
+
                 alertify.success(response.data.error)
             }
             else {
+
                 alertify.error(response.data.error)
             }
             verusuarios();
         }, function (error) {
             console.error("Ocurrio un error", response.status, response.data)
-        })
+        })   //
     }
 
-    ///////////////////////////
-    // - INSERTAR CLIENTE - //
-    //////////////////////////
+    ////////////////////
+    //INSERTAR CLIENTE//
+    ////////////////////
     $scope.insertarVista = 'false';
     $scope.listaInsertar = [];
 
@@ -57,11 +57,14 @@ MyApp.controller('miController', function ($scope, $http) {
     }
 
     $scope.nuevoCliente = function () {
+
+
+
         if ($scope.dniIns == null || $scope.nombreIns == null || $scope.contrsenaIns == null || $scope.vefIns == null || $scope.tipoIns == null) {
             alertify.error("Algun campo vacio!");
         }
         else {
-            // Funcion que comprueba el dni //
+            //Funcion que comprueba el dni
             function nif(dni) {
                 var numero
                 var letr
@@ -79,18 +82,17 @@ MyApp.controller('miController', function ($scope, $http) {
                     if (letra != letr.toUpperCase()) {
 
                         alertify.error('Dni erroneo, la letra del NIF no se corresponde');
-                    }
-                } else {
-                    alertify.error('Dni erroneo, formato no válido');
-                }
-            }
-            nif($scope.dniIns);
-        }
+                    } else {
+
+                    
+    
 
         if ($scope.contrsenaIns.length < 6) {
+
             alertify.error("Escribe un minimo de 6 caracteres para la nueva clave");
         }
         else if ($scope.contrsenaIns != $scope.vefIns) {
+
             alertify.error("Las contraseñas no son iguales");
             $scope.contrsenaIns = "";
             $scope.vefIns = "";
@@ -110,32 +112,52 @@ MyApp.controller('miController', function ($scope, $http) {
                 url: '../../controller/c_insertarClientes.php',
                 method: 'POST',
                 data: datosInsert
-            }).then(function (response) {
-                if (response.data.error == "Usuario añadido con exito") {
-                    alertify.success(response.data.error);
-                    $scope.insertarVista = 'false';
-                    verusuarios();
-
-                    $scope.dniIns = "";
-                    $scope.nombreIns = "";
-                    $scope.contrsenaIns = "";
-                    $scope.tipoIns = "";
-                    $scope.vefIns = "";
-                    modalnovisible(1);
-                }
-            }).catch(function (response) {
-                console.log('Error ocurred: ', response.status);
-                console.log('Error ocurred: ', response.data);
-
             })
+
+                .then(function (response) {
+                    if (response.data.error=="dni duplicado"){
+                       
+                        alertify.error("El DNI esta duplicado, pruebe con otro DNI distinto");
+                    console.log(response.data.error)
+                    }
+                    if (response.data.error == "Usuario añadido con exito") {
+                        alertify.success(response.data.error);
+                        $scope.insertarVista = 'false';
+                        verusuarios();
+
+
+                        $scope.dniIns = "";
+                        $scope.nombreIns = "";
+                        $scope.contrsenaIns = "";
+                        $scope.tipoIns = "";
+                        $scope.vefIns = "";
+                        modalnovisible(1);
+                    }
+                  
+                    
+                
+                })
+                .catch(function (response) {
+                    console.log('Error ocurred: ', response.status);
+                    console.log('Error ocurred: ', response.data);
+
+                })
         }
     }
+} else {
+
+    alertify.error('Dni erroneo, formato no válido');
+}
+}
+nif($scope.dniIns);
+
+    }
+    
+}
 
     /////////////////////////////////////////////////
     ////////// - Mostrar cuenta corriente - /////////
     /////////////////////////////////////////////////
-
-    // Muestra modal de cuentas //
     $scope.MostrarCuentas = function (miIndex, item) {
         $scope.cuenta = [];
         console.log(miIndex)
@@ -148,8 +170,6 @@ MyApp.controller('miController', function ($scope, $http) {
         modalvisible(0);
     }
 
-
-    // Cierra modal de cuentas //
     $scope.cerrarCuentas = function (numero) {
         $scope.dniIns = "";
         $scope.nombreIns = "";
@@ -159,9 +179,9 @@ MyApp.controller('miController', function ($scope, $http) {
         modalnovisible(numero);
     }
 
-    ///////////////////////////////////////////////
-    ////////// - Crear cuenta corriente - /////////
-    ///////////////////////////////////////////////
+    ////////////////////////////////////////////////////////
+    ////////// - Crear y borrar cuenta corriente - /////////
+    ///////////////////////////////////////////////////////
     $scope.guardarCuenta = function (datos) {
         var dni = datos.dniCliente;
         var nombreCliente = datos.nombre;
@@ -172,22 +192,23 @@ MyApp.controller('miController', function ($scope, $http) {
             data: JSON.stringify({ 'dniCliente': dni, 'nombre': nombreCliente })
         }).then(function (response) {
             if (response.data.error.includes("La cuenta se ha insertado con exito")) {
+
                 alertify.success(response.data.error)
             }
             else {
+
                 alertify.error(response.data.error)
             }
             verusuarios();
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
         })
+
     }
 
-    ///////////////////////////////////////////////
-    ////////// - Borrar cuenta corriente - ////////
-    //////////////////////////////////////////////
     $scope.borrarCuenta = function (datos) {
         var iban = datos.iban;
+
         $http({
             url: '../../controller/delete_cuenta.php',
             method: "POST",
@@ -195,9 +216,11 @@ MyApp.controller('miController', function ($scope, $http) {
         }).then(function (response) {
 
             if (response.data.error == "No puedes borrar tu usuario") {
+
                 alertify.error(response.data.error)
             }
             else {
+
                 alertify.success(response.data.error)
             }
             $scope.cerrarCuentas(0);
@@ -207,11 +230,9 @@ MyApp.controller('miController', function ($scope, $http) {
         })
     }
 
-    /////////////////////////////////////////
-    //////// - Update de usuario - //////////
-    /////////////////////////////////////////
-
-    // Muestra los datos actules del usuario en el modal //
+    ////////////////////////
+    ////////Update//////////
+    ////////////////////////
     $scope.modificarUsuario = function (miIndex, item) {
         modalvisible(2);
         document.getElementById("dniModificar").disabled = true;
@@ -225,7 +246,6 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.vefModificar = item.pasahitza;
     }
 
-    // Envia los nuevos datos del usuario //
     $scope.guardarCliente = function () {
         dniCliente = $scope.dniModificar;
         nombre = $scope.nombreModificar;
@@ -236,37 +256,39 @@ MyApp.controller('miController', function ($scope, $http) {
         }
         if ($scope.modificado==false){
             alertify.error("No se ha modificado nada")
-        } else {
+        }
+        else{
             if ($scope.nombreModificar  == null || $scope.vefModificar == null || $scope.contrasenaModificar == null) {
                 alertify.error("Algun campo vacio!");
-            } else {
-                if ($scope.contrasenaModificar == $scope.vefModificar) {
-                    $http({
-                        url: "../../controller/controller_update.php",
-                        method: "POST",
-                        data: JSON.stringify({ 'dniCliente': $scope.dniModificar, 'nombre': $scope.nombreModificar, 'pasahitza': $scope.contrasenaModificar })
-                    }).then(function (response) {
-                        if (response.data.error == "El usuario se ha modificado con exito.") {
+            }else{
+        if ($scope.contrasenaModificar == $scope.vefModificar) {
+            $http({
+                url: "../../controller/controller_update.php",
+                method: "POST",
+                data: JSON.stringify({ 'dniCliente': $scope.dniModificar, 'nombre': $scope.nombreModificar, 'pasahitza': $scope.contrasenaModificar })
+            }).then(function (response) {
+                if (response.data.error == "El usuario se ha modificado con exito.") {
 
-                            alertify.success(response.data.error)
-                        }
-                        else {
-
-                            alertify.error(response.data.error)
-                        }
-                        $scope.modificarVista = 'false';
-                        verusuarios();
-
-                        modalnovisible(2);
-                    }).catch(function (response) {
-                        console.error('Error occurred:', response.status, response.data)
-                    })
-                } else {
-                    alertify.error("Las contraseñas no son iguales");
+                    alertify.success(response.data.error)
                 }
-            }
+                else {
+
+                    alertify.error(response.data.error)
+                }
+                $scope.modificarVista = 'false';
+                verusuarios();
+
+                modalnovisible(2);
+            }).catch(function (response) {
+                console.error('Error occurred:', response.status, response.data)
+            })
+        } else {
+            alertify.error("Las contraseñas no son iguales");
         }
     }
+}
+}
+
     //////////////////////////
     //////////////////////////
     // Buscador de usuarios //
@@ -294,7 +316,12 @@ MyApp.controller('miController', function ($scope, $http) {
         }
     });
 
-    ////////////////// - Funcion para verificar la sesion - //////////////////
+    ///////////////////////////////
+    ///////////////////////////////
+    // Comprobar y cerrar sesion //
+    ///////////////////////////////
+    ///////////////////////////////
+
     $scope.loggedVerify = function () {
         $http({
             url: "/controller/cLoggedVerify.php",
@@ -333,7 +360,6 @@ MyApp.controller('miController', function ($scope, $http) {
         })
     }
 
-    ////////////////// - Funcion para cerrar sesion - //////////////////
     $scope.logout = function () {
         $http({
             url: "/controller/cLogout.php",
@@ -346,6 +372,7 @@ MyApp.controller('miController', function ($scope, $http) {
         })
     }
 })
+
 
 ////////////////////////////////////
 // Funciones scroll para el modal //
@@ -409,6 +436,7 @@ function disable_scroll() {
         window.onscroll = function () {
             window.scrollTo(x, y);
         };
+    // document.body.style.overflow = 'hidden'; // CSS
     disable_scroll_mobile();
 }
 
@@ -421,6 +449,7 @@ function enable_scroll() {
     }
     document.onmousewheel = document.onmousewheel = document.onkeydown = null;
     window.onscroll = function () { };
+    // document.body.style.overflow = 'auto'; // CSS
     enable_scroll_mobile();
 }
 
