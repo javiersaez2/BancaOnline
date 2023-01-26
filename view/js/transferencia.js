@@ -135,10 +135,14 @@ MyApp.controller('miController', function ($scope, $http) {
             data: JSON.stringify(lista)
         }).then(function (response) {
             vercuentas();
+            //vercuentasNoPersonales();
+
             if (response.data.error == "Completado") {
                 $scope.SeleccionT = false;
                 $scope.OtrasT = false;
                 modalnovisible(1);
+                window.location.href="cuenta.html";
+
             } else{
                 $scope.fallosVisibles = response.data.error;
             }
@@ -147,7 +151,16 @@ MyApp.controller('miController', function ($scope, $http) {
         })
     }
 
-    // Solo numeros en la cantidad //
+
+
+
+
+
+    $scope.regresar = function () {
+        window.location.href="cuenta.html";
+    }
+
+    //Solo numeros en la cantidad
     document.getElementById("saldoT").onkeypress = noletras;
     function noletras(e) {
         if (e.key < "0" || e.key > "9") {
