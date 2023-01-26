@@ -33,7 +33,7 @@ miApp.controller('miControlador', function($scope, $http){
     $scope.iniciarSesionSection = true; 
     $scope.showError = false;
 
-    /* Funciones */
+    /* Funciones para comprobar los datos de sesion*/
     $scope.comprobarDatosSesion=function() {
         var pasahitza = "";
         var dni = "";
@@ -85,7 +85,7 @@ miApp.controller('miControlador', function($scope, $http){
         })  
     }
 
-
+    ////////////////// - Funcion para verificar la sesion - //////////////////
     $scope.loggedVerify=function() {
         $http({
             url: "/controller/cLoggedVerify.php",
@@ -106,7 +106,8 @@ miApp.controller('miControlador', function($scope, $http){
             console.error("Ocurrio un error", response.status, response.data);
         })	   
     }	
-
+    
+    ////////////////// - Funcion para cerrar sesion - //////////////////
     $scope.logout=function(){
         $http({
             url: "/controller/cLogout.php",

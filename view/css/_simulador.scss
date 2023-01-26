@@ -1,52 +1,52 @@
-
+/* Familias de fuentes para titulos (Simulador) */
 #title {
-    h1{
-      font-family: "Arial", sans-serif;
-    }
-    h3{
-      font-family: "Arial", sans-serif;
-    }
-    h4{
-      font-family: "Arial", sans-serif;
-    }
+  h1{
+    font-family: 'Lato', sans-serif;
   }
+  h3{
+    font-family: 'Lato', sans-serif;
+  }
+  h4{
+    font-family: 'Lato', sans-serif;
+  }
+}
   
 
-/* Formulario de datos para la simulacion */
+/* Formulario de datos (Simulador) */
 textarea{
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid rgb(134, 134, 134);
-      border-radius: 4px;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-            box-sizing: border-box;
-      font-size: 15px;
+    width: 100%;
+    padding: 12px $pixeles_20;
+    margin: 8px 0;
+    display: inline-block;
+    border: $pixeles_1 solid rgb(134, 134, 134);
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+          box-sizing: border-box;
+    font-size: $pixeles_15;
 }
   
 select, input[type=text] {  
   width: 100%;
   height: 43px;
-  padding: 12px 20px;
+  padding: 12px $pixeles_20;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid rgb(134, 134, 134);
+  border: $pixeles_1 solid rgb(134, 134, 134);
   border-radius: 4px;
   -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
         box-sizing: border-box;
-  font-size: 15px;
+  font-size: $pixeles_15;
 }
   
 input[type=button] {
   width: 100%;
   background-color: $color-terciario1;
-  color: white;
-  padding: 14px 20px;
+  color:$color-blanco;
+  padding: 14px $pixeles_20;
   margin: 8px 0;
-  border: none;
+  border: $vaciar;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
@@ -62,23 +62,23 @@ input[type=button]:hover {
   width: 100%;
 }
 
-/* Tabla de la simulacion */
+/* Tabla de datos (Simulador) */
 .form {
-  border-radius: 5px;
-  padding: 20px;
+  border-radius: $pixeles_5;
+  padding: $pixeles_20;
   text-align: $centrar;
   position: relative;
   z-index: 5;
     .tbl-content {
       height: 80vh;
       width: 100%;
-      overflow-x: auto;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      overflow-x: $auto;
+      border: $pixeles_1 solid rgba(255, 255, 255, 0.3);
       display: flex;
       flex-wrap: wrap;
 
     table {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Lato', sans-serif;
       border-collapse: collapse;
       width: 100%;
       text-align: right;
@@ -96,15 +96,15 @@ input[type=button]:hover {
       th {
         padding-top: 12px;
         padding-bottom: 12px;
-        text-align: left;
+        text-align: center;
         background-color: $color-terciario1;
-        color: white;
+        color: $color-blanco;
       }
     }
 
     table td,
     table th {
-      border: 1px solid #ddd;
+      border: $pixeles_1 solid #ddd;
       padding: 8px;
     }
 
@@ -114,15 +114,17 @@ input[type=button]:hover {
   }
 }
 
-/* Media Query */
+///////////////////////////
+/* Media Query (Simulador) */
+///////////////////////////
 @media (min-width: 950px) {
   .form {
     display: grid;
     grid-template-columns: 4;
     grid-template-rows: 2;
-    grid-gap: 10px;
-    margin: 5px;
-    padding: 20px;
+    grid-gap: $pixeles_10;
+    margin: $pixeles_5;
+    padding: $pixeles_20;
 
 
     .triplete1 {
@@ -130,7 +132,7 @@ input[type=button]:hover {
       grid-column-end: 2;
 
       div {
-        margin-top: 30px;
+        margin-top: $pixeles_30;
       }
     }
 
@@ -139,7 +141,7 @@ input[type=button]:hover {
       grid-column-end: 3;
 
       div {
-        margin-top: 30px;
+        margin-top: $pixeles_30;
       }
     }
 
@@ -148,7 +150,7 @@ input[type=button]:hover {
       grid-column-end: 4;
 
       div {
-        margin-top: 30px;
+        margin-top: $pixeles_30;
       }
     }
 

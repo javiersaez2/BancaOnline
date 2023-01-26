@@ -1,9 +1,8 @@
 ////////////////////////////////
-/* Estructura y estilo footer */
+/* Estructura y estilo Footer (Footer)*/
 ////////////////////////////////
 html {
     height: 100%;
-
 }
 
 body {
@@ -11,11 +10,12 @@ body {
     flex-direction: column;
     min-height: 100%;
 }
+
 .site-footer {
     margin-top: 3em;
     background-color: $color-fondo-footernav;
-    padding: 25px 0 10px;
-    font-size: 15px;
+    padding: 25px 0 $pixeles_10;
+    font-size: $pixeles_15;
     line-height: 24px;
     color: #737373;
     bottom: 0;
@@ -30,17 +30,15 @@ body {
             @include flexJustify();
             flex-direction: column-reverse;
             text-align: $centrar;
-            margin: 40px 50px 0px 50px;
+            margin: $pixeles_40 $pixeles_50 0px $pixeles_50;
         }
-
-
     }
 
     h6 {
         color: #fff;
         font-size: 16px;
         text-transform: uppercase;
-        margin-top: 5px;
+        margin-top: $pixeles_5;
         letter-spacing: 2px;
     }
 
@@ -57,13 +55,13 @@ body {
 
 .columnas {
     width: 30%;
-    margin: auto;
-    margin-top: 10px;
+    margin: $auto;
+    margin-top: $pixeles_10;
 }
 
 
 //////////////////
-/* Links footer */
+/* Links Footer (Footer) */
 //////////////////
 .footer-links {
     padding-left: 0;
@@ -71,7 +69,7 @@ body {
 
     li {
         display: block;
-        padding-left: 10px
+        padding-left: $pixeles_10
     }
 
     a {
@@ -96,9 +94,9 @@ body {
     margin: 0
 }
 
-///////////////////////////
-/* Iconos redes sociales */
-///////////////////////////
+////////////////////////////////////
+/* Iconos redes sociales (Footer) */
+////////////////////////////////////
 .social-icons {
     padding-left: 0;
     margin-bottom: 0;
@@ -115,7 +113,7 @@ body {
             text-align: $centrar;
             margin: 0px 2px 0px 2px;
             border-radius: 100%;
-            padding: 1px;
+            padding: $pixeles_1;
             -webkit-transition: all .2s linear;
             -o-transition: all .2s linear;
             transition: all .2s linear;
@@ -123,7 +121,7 @@ body {
     }
 
     li.title {
-        margin-right: 15px;
+        margin-right: $pixeles_15;
         text-transform: uppercase;
         color: #96a2b2;
         font-weight: 700;
@@ -161,12 +159,13 @@ body {
     padding: 4px;
 }
 
-/////////////////
-/* Media Query */
-////////////////
+
+/////////////////////////
+/* Media Query Footer (Footer) */
+////////////////////////
 @media (max-width:991px) {
     .site-footer [class^=col-] {
-        margin-bottom: 30px
+        margin-bottom: $pixeles_30
     }
 }
 
@@ -191,7 +190,7 @@ body {
 @media (max-width:700px) {
 
     .site-footer {
-        margin-top: 100px;
+        margin-top: $pixeles_100;
 
         .container {
             .row {

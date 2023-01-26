@@ -9,12 +9,7 @@ function plusSlides(n) {
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
-/*
-setInterval(displayHello, 5000);
-function displayHello() {
-    showSlides(slideIndex += 1);
-}
-*/
+
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
@@ -37,8 +32,6 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block"; 
   console.log(  slideIndex-1);
   console.log( "-------------");
-  
-   
+    
   dots[slideIndex-1].className += " active";
-
 }

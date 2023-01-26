@@ -1,8 +1,11 @@
 var miApp=angular.module('miApp',[]);
+
+////////////////// - Controlador de sesion - //////////////////
 miApp.controller('miControlador', function($scope, $http){
     $scope.passMostrar = true;
     $scope.iniciarSesionSection = true; 
 
+    ////////////////// - Funcion para verificar la sesion - //////////////////
     $scope.loggedVerify=function() {
         $http({
             url: "/controller/cLoggedVerify.php",
@@ -30,6 +33,7 @@ miApp.controller('miControlador', function($scope, $http){
         })	   
     }	
 
+    ////////////////// - Funcion para cerrar sesion - //////////////////
     $scope.logout=function(){
         $http({
             url: "/controller/cLogout.php",

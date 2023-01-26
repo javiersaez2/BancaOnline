@@ -11,8 +11,6 @@ $color-fondo-footernav: #26272b;
 $color-blanco:#fbfbfb;
 $color-blanco2: rgb(249, 218, 249);
 $color-blanco-cuenta:#fbfbfbb5;
-
-
 $color-negro:black;
 
 $color-twitter: #00aced;  
@@ -29,13 +27,18 @@ $dark-bg:rgba(0, 0, 0, 0.788);
 $light-bg:rgba(255,255,255,0.1);
 $text:rgba(255,255,255,0.9);
 
-//MEDIDAS POR PIXELES//
-
-
-//MEDIDAS POR PORCENTAJES//
-
-
-
+//MEDIDAS PIXELES/
+$pixeles_1:1px;
+$pixeles_5:5px;
+$pixeles_50:50px;
+$pixeles_10:10px;
+$pixeles_15:15px;
+$pixeles_20:20px;
+$pixeles_30:30px;
+$pixeles_40:40px;
+$pixeles_45:45px;
+$pixeles_100:100px;
+$pixeles_150:150px;
 
 //MEDIDAS REM-EM/
 $header-padding:0rem 2rem;

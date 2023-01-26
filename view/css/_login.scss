@@ -1,15 +1,15 @@
-/* Secion login */
+/* Secion Login (Login)*/
 .sectionlogin {
   background: $color-blanco;
   height: 88.3vh;
-  width: auto;
+  width: $auto;
   .box {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
-    padding: 40px;
+    padding: $pixeles_40;
     @include glasslogin;
     @media (min-width: 559px){
       width: 400px;
@@ -18,18 +18,18 @@
     .error{
       width: 50%;
       color:red;
-      margin: auto;
-      text-align: center;
+      margin: $auto;
+      text-align: $centrar;
       font-weight: 500;
       font-size: 13px;
-      margin-bottom: 10px;
+      margin-bottom: $pixeles_10;
     }
 
     h2 {
-      margin: 0 0 30px;
+      margin: 0 0 $pixeles_30;
       padding: 0;
       color: $color-negro;
-      text-align: center;
+      text-align: $centrar;
     }
 
     .inputBox {
@@ -37,14 +37,14 @@
 
       input {
         width: 100%;
-        padding: 10px 0;
+        padding: $pixeles_10 0;
         font-size: 16px;
         color: $color-negro;
         letter-spacing: 2px;
-        margin-bottom: 30px;
-        border: none;
-        border-bottom: 1px solid $color-negro;
-        outline: none;
+        margin-bottom: $pixeles_30;
+        border: $vaciar;
+        border-bottom: $pixeles_1 solid $color-negro;
+        outline: $vaciar;
         background: transparent;
       }
 
@@ -53,17 +53,17 @@
         top: 0;
         left: 0;
         letter-spacing: 2px;
-        padding: 10px 0;
+        padding: $pixeles_10 0;
         font-size: 16px;
         color: $color-negro;
-        pointer-events: none;
+        pointer-events: $vaciar;
         transition: 0.5s;
       }
     }
   }
 }
 
-
+/* Inputs (Login) */
 .box .inputBox input:focus~label,
 .box .inputBox input:valid~label {
   top: -25px;
@@ -75,12 +75,12 @@
 .box input[type="submit"] {
   width: 100%;
   background: transparent;
-  border: none;
-  outline: none;
+  border: $vaciar;
+  outline: $vaciar;
   color: $color-blanco;
   font-weight: 500;
   background: $color-principal;
-  padding: 10px 20px;
+  padding: $pixeles_10 $pixeles_20;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: $pixeles_5;
 }

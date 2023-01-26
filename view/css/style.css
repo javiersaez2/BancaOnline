@@ -321,10 +321,9 @@ body {
     text-align: center;
   }
 }
-html {
+body, html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  overflow-y: visible;
 }
 
 body {
@@ -428,8 +427,8 @@ body {
 
 /* Cartas de informacion: Quienes somos, historia... */
 .quienesSomos {
-  display: flex;
   flex-direction: row;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -477,7 +476,7 @@ body {
   margin: 0.5%;
   margin-top: 5%;
   color: black;
-  background-color: white;
+  background-color: #fbfbfb;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 @media screen and (max-width: 1230px) {
@@ -503,7 +502,7 @@ body {
 }
 
 @media (max-width: 400px) {
-  .infoSomos {
+  .contenidoSomos:nth-child(1) .infoSomos {
     margin-top: 50px;
   }
 }
@@ -669,6 +668,8 @@ body {
 }
 .blog-slider__content > * {
   opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.4s;
 }
 .blog-slider__code {
   color: black;
@@ -826,7 +827,7 @@ select, input[type=text] {
 input[type=button] {
   width: 100%;
   background-color: #a34ae3;
-  color: white;
+  color: #fbfbfb;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -878,7 +879,7 @@ input[type=button]:hover {
   padding-bottom: 12px;
   text-align: left;
   background-color: #a34ae3;
-  color: white;
+  color: #fbfbfb;
 }
 .form .tbl-content table td,
 .form .tbl-content table th {
@@ -940,7 +941,7 @@ input[type=button]:hover {
   width: 70%;
   padding: 40px;
   background: rgba(255, 255, 255, 0.8);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, #B57EDC 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 5px, #B57EDC 0px 2px 3px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -1022,8 +1023,8 @@ input[type=button]:hover {
   bottom: 0;
   left: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   background: rgba(77, 77, 77, 0.7);
   transition: all 0.4s;
   z-index: 999;
@@ -1224,7 +1225,7 @@ input[type=button]:hover {
   }
 }
 .tablasDeCuentas h2 {
-  color: purple;
+  color: #a34ae3;
   padding: 10px;
 }
 .tablasDeCuentas .contenidoTabla {
@@ -1265,7 +1266,7 @@ input[type=button]:hover {
   width: 90%;
 }
 .contenderDNI h2 {
-  color: purple;
+  color: #a34ae3;
 }
 .contenderDNI #FiltrarPorDNINoPersonales {
   width: 15%;

@@ -7,7 +7,7 @@ $cuenta = new cuenta_movimientoModel();
 
 $cuenta->setIban($data["iban"]);
 
-$response["list"] = $cuenta->movimientosCuenta();
+$response["list"] = $cuenta->movimientosCuenta($data["filtro"]);
 
 echo json_encode($response);
 unset($response);
