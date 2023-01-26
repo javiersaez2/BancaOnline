@@ -156,9 +156,7 @@ MyApp.controller('miControl', function ($scope, $http) {
         enable_scroll_mobile();
     }
 
-    function noscroll() {
-        window.scrollTo(0, 0);
-    }
+
 
     // Prevencion default
     function preventDefault(e) {
