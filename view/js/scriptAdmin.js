@@ -84,15 +84,8 @@ MyApp.controller('miController', function ($scope, $http) {
                         alertify.error('Dni erroneo, la letra del NIF no se corresponde');
                     } else {
 
-                    }
-                } else {
-
-                    alertify.error('Dni erroneo, formato no válido');
-                }
-            }
-            nif($scope.dniIns);
-
-        }
+                    
+    
 
         if ($scope.contrsenaIns.length < 6) {
 
@@ -122,8 +115,12 @@ MyApp.controller('miController', function ($scope, $http) {
             })
 
                 .then(function (response) {
+                    if (response.data.error=="dni duplicado"){
+                       
+                        alertify.error("El DNI esta duplicado, pruebe con otro DNI distinto");
+                    console.log(response.data.error)
+                    }
                     if (response.data.error == "Usuario añadido con exito") {
-
                         alertify.success(response.data.error);
                         $scope.insertarVista = 'false';
                         verusuarios();
@@ -136,7 +133,9 @@ MyApp.controller('miController', function ($scope, $http) {
                         $scope.vefIns = "";
                         modalnovisible(1);
                     }
-
+                  
+                    
+                
                 })
                 .catch(function (response) {
                     console.log('Error ocurred: ', response.status);
@@ -145,6 +144,16 @@ MyApp.controller('miController', function ($scope, $http) {
                 })
         }
     }
+} else {
+
+    alertify.error('Dni erroneo, formato no válido');
+}
+}
+nif($scope.dniIns);
+
+    }
+    
+}
 
     /////////////////////////////////////////////////
     ////////// - Mostrar cuenta corriente - /////////
