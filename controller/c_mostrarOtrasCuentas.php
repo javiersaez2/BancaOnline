@@ -1,4 +1,3 @@
-// Mostra las cuentas las cuentas que no son del usuario //
 <?php
 include_once '../model/cuenta_corrienteModel.php';
 

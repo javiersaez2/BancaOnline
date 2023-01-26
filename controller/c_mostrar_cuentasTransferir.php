@@ -1,4 +1,3 @@
-// Mostra las cuentas de transferencia //
 <?php
 include_once '../model/cuenta_corrienteModel.php';
 session_start();

@@ -7,7 +7,7 @@ miApp.controller('miControlador', function($scope, $http){
 
     /* Validar cantidad de caracteres en dni*/    
     $("#dniInput").keypress(function(event){
-        if ($(this).val().length >= 8){
+        if ($(this).val().length >= 9){
             event.preventDefault();
         };
     });

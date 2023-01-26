@@ -1,4 +1,3 @@
-// Mostra las cuentas del usuario y los movimientos (transferir, retirar y ingresar) //
 <?php
 include_once '../model/cuenta_corrienteModel.php';
 session_start();

@@ -1,4 +1,3 @@
-// Busca al usuario por el dni que se ha puesto en el buscador //
 <?php
 include_once '../model/clienteModel.php';
 $data = json_decode(file_get_contents("php://input"),true);

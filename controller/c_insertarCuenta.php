@@ -1,4 +1,3 @@
-// Controlador para insertar una nuevo cuenta //
 <?php
 include_once '../model/cuenta_corrienteModel.php';
 

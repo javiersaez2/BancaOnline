@@ -1,4 +1,3 @@
-// Controlador para modificar contraseña //
 <?php
 include_once '../model/clienteModel.php';
 $data = json_decode(file_get_contents("php://input"),true);

@@ -1,4 +1,3 @@
-// Verifica la sesion //
 <?php
 include_once '../model/clienteModel.php';
 

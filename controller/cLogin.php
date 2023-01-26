@@ -1,4 +1,3 @@
-// Ejecuta el login //
 <?php
 include_once '../model/clienteModel.php';
 
