@@ -87,7 +87,6 @@ miApp.controller('datoscliente', function ($scope, $http) {
         var tipoMovimiento = "";
         var claseMovimiento = "";
         var mensaje = "";
-        ($scope.iban);
         for (var i = 0; i < datos.length; i++){
             if (datos[i].objMovimiento.tipoMovimiento != "Transferencia"){
                 if (datos[i].objMovimiento.tipoMovimiento == "Ingresar"){
