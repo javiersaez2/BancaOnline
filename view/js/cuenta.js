@@ -64,8 +64,7 @@ miApp.controller('datoscliente', function ($scope, $http) {
         if (iban != 'vacio'){
             $scope.iban = iban;    
         }
-        ($scope.iban);
-        (iban + " // " + filtro);
+        
         $http({
             url: "/controller/c_movimientosCuenta.php",
             method: "POST",
