@@ -1,11 +1,9 @@
 body, html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
   background: $color-blanco;
-
 }
 
 /*CARRUSEL Y CARA DE LA PAGINA (Index)*/
@@ -181,7 +179,7 @@ body {
 
       p {
         margin: 3%;
-        font-size: 15.$pixeles_5;
+        font-size: 15.5px;
         font-weight: 500;
       }
     }

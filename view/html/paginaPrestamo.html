@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <title>Prestamo — Banka Online 4</title>
+  <link rel="shortcut icon" href="/view/img/logo.PNG" />
+
   <script src="/view/js/angular.min.js"></script>
   
   <link href="/view/css/style.css" rel="stylesheet" type="text/css" />
@@ -19,7 +21,6 @@
   <!-- CSS -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 
-  <title>Pagina Prestamo</title>
 
 </head>
 
@@ -88,7 +89,7 @@
         <input type="text" ng-model="periodoCarencia" ng-disabled = "sistema == 'Simple' || sistema == 'Americano'" class="number">
       </div>
       <div>
-        <label>GABEZIA</label>
+        <label>Carencia</label>
         <select  id="gabezia" ng-model="gabezia" ng-disabled = "periodoCarencia ==0 || periodoCarencia ==null ">
           <option value="" >Elige una opción</option>
           <option value="int" >Parcial</option>

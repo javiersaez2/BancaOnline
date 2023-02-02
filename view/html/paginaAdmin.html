@@ -1,6 +1,8 @@
 <html ng-app="MyApp">
 
 <head>
+  <title>Admin — Banka Online 4</title>
+  <link rel="shortcut icon" href="/view/img/logo.PNG" />
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -130,12 +132,8 @@
 
     <!----------- | MODALES | ------------------>
     <div id="demo-modal1" class="modal">
-
       <div class="modal__content">
-
         <a ng-click="cerrarCuentas('1')" class="modal__close">&times;</a>
-
-
         <form>
           <div class="form__group field">
             <input type="input" class="form__field" ng-model="dniIns" placeholder="DNI" name="dni" id='dniIns'
@@ -185,7 +183,7 @@
         </div>
         <div class="form__group field">
           <input type="input" class="form__field" ng-model="nombreModificar" placeholder="Nombre" name="nombreModificar"
-            id='nombre' required />
+            id='nombre2' required />
           <label for="name" class="form__label">Nombre</label>
         </div>
         <div class="form__group field">
@@ -199,8 +197,6 @@
           <label for="contrasena2" class="form__label">Verificar Contrasena</label>
         </div>
         <br>
-
-
         <button ng-click="guardarCliente(item)" class="button-23">Guardar Modificaciones</button>
         <a ng-click="cerrarCuentas('2')" class="modal__close">&times;</a>
       </form>

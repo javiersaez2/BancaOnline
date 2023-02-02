@@ -22,7 +22,7 @@ MyApp.controller('miController', function ($scope, $http) {
     function vercuentas() {
         $http.post('/controller/c_mostrar_cuentasPersonales.php')
             .then(function (response) {
-                //console.log(response.data.list);
+                //(response.data.list);
                 $scope.cuentas = response.data.list;
             })
             .catch(function (response) {
@@ -59,7 +59,7 @@ MyApp.controller('miController', function ($scope, $http) {
         $scope.OtrasT = false;
 
         $scope.ibanPropio = contenido.iban;
-        console.log($scope.ibanPropio);
+        ($scope.ibanPropio);
         $("#FiltrarPorDNINoPersonales").val("DNI");
     }
 
@@ -72,7 +72,7 @@ MyApp.controller('miController', function ($scope, $http) {
             method: "POST",
             data: JSON.stringify(dni)
         }).then(function (response) {
-            console.log(response.data.list)
+            (response.data.list)
             $scope.OtrasCuentas = response.data.list;
             $scope.OtrasT = true;
         }).catch(function (response) {
@@ -126,7 +126,7 @@ MyApp.controller('miController', function ($scope, $http) {
         saldo = $scope.saldoT;
         concepto = $scope.conceptoT;
 
-        console.log(iban + "     " + saldo);
+        (iban + "     " + saldo);
         lista = { "ibanEmisor": $scope.ibanPropio, "ibanReceptor": iban, "saldo": saldo, "concepto": concepto };
 
         $http({
@@ -135,10 +135,14 @@ MyApp.controller('miController', function ($scope, $http) {
             data: JSON.stringify(lista)
         }).then(function (response) {
             vercuentas();
+            //vercuentasNoPersonales();
+
             if (response.data.error == "Completado") {
                 $scope.SeleccionT = false;
                 $scope.OtrasT = false;
                 modalnovisible(1);
+                window.location.href="cuenta.html";
+
             } else{
                 $scope.fallosVisibles = response.data.error;
             }
@@ -147,7 +151,16 @@ MyApp.controller('miController', function ($scope, $http) {
         })
     }
 
-    // Solo numeros en la cantidad //
+
+
+
+
+
+    $scope.regresar = function () {
+        window.location.href="cuenta.html";
+    }
+
+    //Solo numeros en la cantidad
     document.getElementById("saldoT").onkeypress = noletras;
     function noletras(e) {
         if (e.key < "0" || e.key > "9") {
@@ -169,7 +182,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 $scope.cuentaUsuario = false;
                 $scope.botonAdmin = false;
                 $scope.butonLogin = true;
-                window.location.href = "/view/html/index.html";
+                window.location.href = "/view/index.html";
 
             } else {
                 $scope.butonLogOut = true;
@@ -180,7 +193,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 } else {
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
-                    console.log(response);
+                    (response);
                 }
             }
         }).catch(function (response) {
@@ -194,7 +207,7 @@ MyApp.controller('miController', function ($scope, $http) {
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/view/html/index.html";
+            window.location.href = "/view/index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);

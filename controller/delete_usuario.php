@@ -1,4 +1,4 @@
-
+// Deletea las cuentas //
 <?php
 require_once '../model/clienteModel.php';
 require_once '../model/cuenta_corrienteModel.php';

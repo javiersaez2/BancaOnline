@@ -1,5 +1,5 @@
 
-/* Tabla cuentas (Transferencia) */
+/* Tabla cuentas (Transferencia/IngresarRetirar) */
 .tablasDeCuentas {
     width: 95%;
     padding-top: $pixeles_10;
@@ -92,6 +92,14 @@
 
 .tiposDeErroresIz {
     color: red;
+}
+
+.modalMovimientos{
+    .modal__content { 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 

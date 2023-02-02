@@ -7,7 +7,7 @@ miApp.controller('miControlador', function($scope, $http){
 
     /* Validar cantidad de caracteres en dni*/    
     $("#dniInput").keypress(function(event){
-        if ($(this).val().length >= 8){
+        if ($(this).val().length >= 9){
             event.preventDefault();
         };
     });
@@ -62,12 +62,12 @@ miApp.controller('miControlador', function($scope, $http){
             method: "POST",
             data: JSON.stringify({'dni': dni, 'pasahitza': pasahitza, 'codSecreto': codSecreto, 'contador':codSecretoKont})
         }).then(function (response) {
-            console.log(response);
+            (response);
             if (response.data.error == "no error"){
                 codSecretoKont = 0;
                 $scope.butonLogin = false;
                 $scope.showError = false;
-                window.location.href = "/view/html/index.html";     
+                window.location.href = "/view/index.html";     
             }else {
                 $scope.showError = true;
                 $("#textError").text(response.data.error);
@@ -100,7 +100,7 @@ miApp.controller('miControlador', function($scope, $http){
                 $scope.iniciarSesionSection = false; 
                 $scope.butonLogOut = true;
                 $scope.butonLogin = false;
-                window.location.href="/view/html/index.html"
+                window.location.href="/view/index.html"
             }
         }).catch(function (response) {
             console.error("Ocurrio un error", response.status, response.data);
@@ -113,7 +113,7 @@ miApp.controller('miControlador', function($scope, $http){
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/view/html/index.html";
+            window.location.href = "/view/index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);

@@ -25,7 +25,7 @@ miApp.controller('miControlador', function($scope, $http){
                 } else {
                     $scope.cuentaUsuario = true;
                     $scope.botonAdmin = false;
-                    console.log(response);
+                    (response);
                 }
             }
         }).catch(function (response) {
@@ -39,7 +39,7 @@ miApp.controller('miControlador', function($scope, $http){
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/view/html/index.html";
+            window.location.href = "/view/index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
@@ -76,9 +76,9 @@ var swiper = new Swiper('.blog-slider', {
 $('.blog-slider__button').click(function(event){
 
 
-    //console.log($(this).attr('value'));
+    //($(this).attr('value'));
     pasarSimulador = $(this).attr('value');
-    console.log(pasarSimulador);
+    (pasarSimulador);
 
     localStorage["Simulacion"] = pasarSimulador;
     window.location.href = "/view/html/paginaPrestamo.html";

@@ -2,7 +2,7 @@ var miApp = angular.module('miApp', []);
 
 ////////////////// - Controlador de sesion - //////////////////
 miApp.controller('miControlador', function ($scope, $http) {
-    $scope.passMostrar = true; $scope.iniciarSesionSection = true; $scope.tipoMostrar = false;
+    $scope.passMostrar = true; $scope.tipoMostrar = false;
 
     ////////////////// - Funcion para verificar la sesion - //////////////////
     $scope.loggedVerify = function () {
@@ -13,7 +13,7 @@ miApp.controller('miControlador', function ($scope, $http) {
             if (response.data.error != "logged") {
                 if (window.location.pathname == "/view/html/cuenta.html") {
                    
-                    window.location.href = "/view/html/index.html"
+                    window.location.href = "/view/index.html"
                 }
                 $scope.cuentaUsuario = false; $scope.botonAdmin = false; $scope.butonLogin = true;
             } else {
@@ -35,7 +35,7 @@ miApp.controller('miControlador', function ($scope, $http) {
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/view/html/index.html";
+            window.location.href = "/view/index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
@@ -61,25 +61,20 @@ miApp.controller('datoscliente', function ($scope, $http) {
 
     // Funcion para ver tabla de movimientos con o sin filtro //
     $scope.movimientos = function(iban, filtro){
-        if (iban == 'vacio'){
-            iban == localStorage.getItem("iban");
-            console.log("aaaa")   
+        if (iban != 'vacio'){
+            $scope.iban = iban;    
         }
-
-        console.log(iban + " // " + filtro);
+        
         $http({
             url: "/controller/c_movimientosCuenta.php",
             method: "POST",
-            data: JSON.stringify({'iban': iban, "filtro": filtro})
+            data: JSON.stringify({'iban': $scope.iban, "filtro": filtro})
         }).then( async function (response) {
             var datos = response.data.list;       
             $scope.ListaMovimientos = [];
             $scope.ListaMovimientos = await filtradoMovimientos(datos);
           
             $scope.tablaMostrar = true; $scope.datosClienteCarta = false; $scope.botonAtras = true;
-            if (iban != 'vacio') {
-                localStorage.setItem("iban", iban);  
-            }
         }).catch(function (response) {
             console.error('Error occurred:', response.status, response.data)
         });
@@ -91,7 +86,6 @@ miApp.controller('datoscliente', function ($scope, $http) {
         var tipoMovimiento = "";
         var claseMovimiento = "";
         var mensaje = "";
-
         for (var i = 0; i < datos.length; i++){
             if (datos[i].objMovimiento.tipoMovimiento != "Transferencia"){
                 if (datos[i].objMovimiento.tipoMovimiento == "Ingresar"){
@@ -101,7 +95,7 @@ miApp.controller('datoscliente', function ($scope, $http) {
                     tipoMovimiento = "fa-solid fa-sack-xmark fa-lg";  claseMovimiento = "reti";   
                     datos[i].objMovimiento.tipoMovimiento = "Retiro";
                 } 
-
+                
                 mensaje = datos[i].objMovimiento.tipoMovimiento + " de " + datos[i].cantidad + "€ desde la cuenta: " + datos[i].iban + ".";
                 movimientos.push({"iban":datos[i].iban, "fecha":datos[i].fecha, "cantidad":datos[i].cantidad, "tipoMovimientoIcon":tipoMovimiento, "tipoMovimiento":datos[i].objMovimiento.tipoMovimiento, "claseMovimiento":claseMovimiento, "mensaje":mensaje});
             }else {
@@ -133,7 +127,7 @@ miApp.controller('datoscliente', function ($scope, $http) {
     $scope.uncheckAll = function () {
         if($("input[type='radio']:checked").length > 0 ){
             $("input[type='radio']:checked").prop("checked", false);
-            $scope.movimientos(localStorage.getItem("iban"), "vacio");
+            $scope.movimientos($scope.iban, "vacio");
         }
     }
 

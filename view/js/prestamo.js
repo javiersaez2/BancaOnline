@@ -2,7 +2,7 @@ var MyApp = angular.module('MyApp', []);
 MyApp.controller('miController', function ($scope, $http) {
     // LOCALSTORAGE //
     tipoSimulacion = localStorage.getItem("Simulacion");
-    console.log(tipoSimulacion);
+    (tipoSimulacion);
     $scope.sistema = tipoSimulacion;
     
     
@@ -42,7 +42,7 @@ MyApp.controller('miController', function ($scope, $http) {
             url: "/controller/cLogout.php",
             method: "POST"
         }).then(function () {
-            window.location.href = "/view/html/index.html";
+            window.location.href = "/view/index.html";
             $scope.butonLogOut = false;
         }).catch(function () {
             console.error("Ocurrio un error", response.status, response.data);
@@ -256,7 +256,7 @@ MyApp.controller('miController', function ($scope, $http) {
                 else {
                     Interesa = kapitala * ($scope.interes / 100);
                     Kuota = parseInt(Interesa) + parseInt(kapitala);
-                    console.log(Kuota);
+                    (Kuota);
                     Amortizazioa = Kuota - Interesa;
                     Metatua = Metatua + Amortizazioa;
                     kapitala = kapitala - Amortizazioa;
@@ -273,7 +273,7 @@ MyApp.controller('miController', function ($scope, $http) {
         }
         // Exponer la Lista //
         $scope.periodo = $scope.lista;
-        console.log($scope.periodo);
+        ($scope.periodo);
     }
     
     // Regresar //

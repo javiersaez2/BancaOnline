@@ -5,7 +5,6 @@ session_start();
 $response=array();
     
 $cuenta=new cuenta_corrienteModel();
-//$cuenta->setDniCliente($_SESSION["dni"]);
     
 $response['list']= $cuenta->setListCuentaNoPersonal();
 $response['error']='no error';

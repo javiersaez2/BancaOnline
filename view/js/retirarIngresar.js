@@ -2,6 +2,46 @@ var MyApp = angular.module('MyApp', []);
 MyApp.controller('miControl', function ($scope, $http) {
     mostrarCuenta();
 
+    ////////////////// - Funcion para verificar la sesion - //////////////////
+    $scope.loggedVerify = function () {
+        $http({
+            url: "../../controller/cLoggedVerify.php",
+            method: "POST"
+        }).then(function (response) {
+            if (response.data.error != "logged") {
+                $scope.cuentaUsuario = false;
+                $scope.botonAdmin = false;
+                $scope.butonLogin = true;
+            } else {
+                $scope.butonLogOut = true;
+                $scope.butonLogin = false;
+
+                if (response.data.tipo == 1) {
+                    $scope.botonAdmin = true;
+                    $scope.cuentaUsuario = true;
+                } else {
+                    $scope.cuentaUsuario = true;
+                    $scope.botonAdmin = false;
+                }
+            }
+        }).catch(function (response) {
+            console.error("Ocurrio un error", response.status, response.data);
+        })
+    };
+
+    ////////////////// - Funcion para cerrar sesion - //////////////////
+    $scope.logout = function () {
+        $http({
+            url: "/controller/cLogout.php",
+            method: "POST"
+        }).then(function () {
+            window.location.href = "/view/html/index.html";
+            $scope.butonLogOut = false;
+        }).catch(function () {
+            console.error("Ocurrio un error", response.status, response.data);
+        })
+    };
+
     $scope.ingresarretirar = localStorage.getItem("ingresarretirarnumero");
     if ($scope.ingresarretirar == 1) {
         $scope.titulo = "RETIRAR"
@@ -50,6 +90,8 @@ MyApp.controller('miControl', function ($scope, $http) {
                     data: JSON.stringify({ 'iban': iban, 'cantidad': cantidad, 'concepto': concepto, 'tipo': "Ingresar" })
                 }).then(function (response) {
                     location.reload();
+                    window.location.href="cuenta.html";
+
                 }).catch(function (response) {
                     console.error('Error occurred:', response.status, response.data)
                 })
@@ -65,7 +107,8 @@ MyApp.controller('miControl', function ($scope, $http) {
                         return false;
                     }                       
                     location.reload();
-                                  
+                    window.location.href="cuenta.html";
+              
                 }).catch(function (response) {
                     console.error('Error occurred:', response.status, response.data)
                 })
@@ -74,9 +117,9 @@ MyApp.controller('miControl', function ($scope, $http) {
     }
 
     // Solo numeros en la cantidad //
-    $("#cantidad").keypress(function(event){
+    $("#cantidad").keypress(function(e){
         if (e.keyCode > 31 && (e.keyCode < 48 || e.keyCode > 57)) {
-            e.preventDefault()
+            e.preventDefault();
         }
     });
     
@@ -153,18 +196,7 @@ MyApp.controller('miControl', function ($scope, $http) {
         enable_scroll_mobile();
     }
 
-    function noscroll() {
-        window.scrollTo(0, 0);
-    }
 
-    // Prevencion default
-    function preventDefault(e) {
-        e = e || window.event;
-        if (e.preventDefault) {
-            e.preventDefault();
-        }
-        e.returnValue = false;
-    }
 
     // Prevenir scroll keys
     function keydown(e) {

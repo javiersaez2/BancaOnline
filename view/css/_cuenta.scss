@@ -369,7 +369,7 @@ body{
 ul.more-content li {
   position:relative;
   top:22px;
-  font-size:13.$pixeles_5;
+  font-size:13.5px;
   margin:0;
   padding:$pixeles_10 13px;
   display:block;
@@ -477,12 +477,12 @@ ul.more-content li {
 }
 
 /* Media Query (Cuenta) */
-@media screen and (max-width:355px) {
+@media screen and (max-width:365px) {
   .conjuntoFiltro {
     .inputGroupTabla {
       label {
-        font-size: 13px;
-        width: 25px; 
+        font-size: 10px;
+        width: 15px; 
       }
     }
   }
