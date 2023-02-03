@@ -160,9 +160,7 @@ class cuenta_corrienteModel extends cuenta_corrienteClass
 
     public function setListCuentaNoPersonal()
     {
-        //$dniCliente=$this->dniCliente;
         $this->OpenConnect();
-        //$sql = "select * from cuenta_corriente where dniCliente!='$dniCliente' GROUP BY dniCliente ";
         $sql = "select * from cuenta_corriente GROUP BY dniCliente ";
 
         $list=array();

@@ -6,7 +6,6 @@ include_once 'movimientoClass.php';
 class movimientoModel extends movimientoClass
 {
     private $link;
-    //  public $objFamilia;
 
     public function OpenConnect()
     {
