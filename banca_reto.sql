@@ -63,10 +63,8 @@ CREATE TABLE `cuenta_corriente` (
 --
 
 INSERT INTO `cuenta_corriente` (`iban`, `dniCliente`, `titular`, `saldo`) VALUES
-('ES1220900000458901231110', '34455777P', 'Javier Saez B', 46),
-('ES1220900000458901232220', '34455777P', 'Javier Saez A', 43),
-('ES1220900000458901235460', '34157377Z', 'Ander Caballero A', 57),
-('ES1220900034454322211456', '34323751G', 'Markel Rajado B', 48);
+('ES1220900000450350000001', '34455777P', 'Javier Saez B', 46),
+('ES1220900000450350000002', '34455777P', 'Javier Saez A', 43);
 
 -- --------------------------------------------------------
 
