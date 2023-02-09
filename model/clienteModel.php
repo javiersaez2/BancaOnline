@@ -65,7 +65,7 @@ class clienteModel extends clienteclass
                 }
             }
         }
-
+ 
         mysqli_free_result($result);
         $this->CloseConnect();
         return array("check" => $check, "tipo" => $tipo, "izena"=>$izena,"dni"=>$dni);
